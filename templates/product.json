@@ -1,0 +1,70 @@
+{
+  "sections": {
+    "main": {
+      "type": "100cal-product"
+    },
+    "value_strip": {
+      "type": "100cal-value-strip"
+    },
+    "cred_strip": {
+      "type": "100cal-cred-strip"
+    },
+    "benefits_row": {
+      "type": "100cal-benefits-strip"
+    },
+    "taste": {
+      "type": "100cal-taste"
+    },
+    "different": {
+      "type": "100cal-different"
+    },
+    "ingpow": {
+      "type": "100cal-ingpow"
+    },
+    "how": {
+      "type": "100cal-how"
+    },
+    "dietary": {
+      "type": "100cal-dietary"
+    },
+    "vs": {
+      "type": "100cal-vs"
+    },
+    "reviews": {
+      "type": "100cal-reviews"
+    },
+    "quiz": {
+      "type": "100cal-quiz"
+    },
+    "bundle": {
+      "type": "100cal-bundle"
+    },
+    "faq": {
+      "type": "100cal-faq"
+    },
+    "trust": {
+      "type": "100cal-trust"
+    },
+    "secondary_atc": {
+      "type": "100cal-secondary-atc"
+    }
+  },
+  "order": [
+    "main",
+    "value_strip",
+    "cred_strip",
+    "benefits_row",
+    "taste",
+    "different",
+    "ingpow",
+    "how",
+    "dietary",
+    "vs",
+    "reviews",
+    "quiz",
+    "bundle",
+    "faq",
+    "trust",
+    "secondary_atc"
+  ]
+}

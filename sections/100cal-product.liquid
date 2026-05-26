@@ -44,7 +44,7 @@
   </div>
 
   <div class="page-width">
-    <div class="product product--large product--left grid grid--1-col grid--2-col-tablet">
+    <div class="product product--{{ section.settings.media_size }} product--left product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col grid--2-col-tablet">
       <div class="grid__item product__media-wrapper">
         {% render 'product-media-gallery', variant_images: variant_images %}
       </div>
@@ -53,9 +53,9 @@
         <section id="ProductInfo-{{ section.id }}" class="product__info-container">
           <div class="hero-box">
             <div class="hero-copy">
-              <div class="eyebrow">{{ section.settings.hero_eyebrow | escape }}</div>
-              <h1 class="headline">{{ section.settings.hero_headline | newline_to_br }}</h1>
-              <p class="hero-text">{{ section.settings.hero_text }}</p>
+              <div class="pdp-overqualified">{{ section.settings.hero_eyebrow | escape }}</div>
+              <h1 class="pdp-main-headline">{{ section.settings.hero_headline | newline_to_br }}</h1>
+              <p class="pdp-flavor-sub">{{ section.settings.hero_text }}</p>
               <div class="hero-meta">
                 <div class="meta-pill">{{ section.settings.meta_pill_1 | escape }}</div>
                 <div class="meta-pill">{{ section.settings.meta_pill_2 | escape }}</div>
@@ -64,12 +64,6 @@
             </div>
 
             <div class="buy-box" id="buy-box">
-              <div class="buy-box-header">
-                <div class="buy-box-eyebrow">{{ section.settings.buy_box_eyebrow | escape }}</div>
-                <div id="price-{{ section.id }}" role="status" class="buy-box-price">
-                  {% render 'price', product: product, use_variant: true, show_badges: true, price_class: 'price--large' %}
-                </div>
-              </div>
 
               <div class="pdp-stars-row">
                 <span class="pdp-stars">{{ section.settings.review_stars }}</span>
@@ -96,15 +90,36 @@
                 </div>
               </div>
 
+              <div class="buy-box-header hc-benefit-card__title">
+                <div class="buy-box-eyebrow">{{ section.settings.buy_box_eyebrow | escape }}</div>
+                <div id="price-{{ section.id }}" role="status" class="buy-box-price">
+                  {% render 'price', product: product, use_variant: true, show_badges: true, price_class: 'price--large' %}
+                </div>
+              </div>
+
               <product-form class="product-form" data-section-id="{{ section.id }}">
                 <form method="post" action="{{ routes.cart_add_url }}" id="product-form-{{ section.id }}" accept-charset="UTF-8">
                   <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
 
                   {% unless product.has_only_default_variant %}
-                    <variant-selects id="variant-selects-{{ section.id }}" data-section="{{ section.id }}">
+                    <variant-selects id="variant-selects-{{ section.id }}" data-section="{{ section.id }}" >
                       {% for option in product.options_with_values %}
-                        <fieldset class="js product-form__input product-form__input--pill{% if option.name contains 'Pack' or option.name contains 'pack' %} pack-options{% endif %}">
-                          <legend class="form__label">{{ option.name }}</legend>
+                        {% assign is_pack_option = false %}
+                        {% if option.name contains 'Pack' %}
+                          {% assign is_pack_option = true %}
+                        {% elsif option.name contains 'pack' %}
+                          {% assign is_pack_option = true %}
+                        {% endif %}
+                        {% assign is_pack_option = true %}
+                        <fieldset class="js product-form__input product-form__input--pill{% if is_pack_option %} pack-selector{% endif %} fade-up fade-up-300">
+                          {% if is_pack_option %}
+                            <div class="pack-selector-header">
+                              <div class="pack-label">{{ option.name }}</div>
+                            </div>
+                            <div class="pack-options">
+                          {% else %}
+                            <legend class="form__label pack-selector-header"><div class="pack-label">{{ option.name }}</div></legend>
+                          {% endif %}
                           {% for value in option.values %}
                             {% if value.available %}
                               {% assign option_disabled = false %}
@@ -112,6 +127,7 @@
                               {% assign option_disabled = true %}
                             {% endif %}
                             {% capture input_id %}{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}{% endcapture %}
+                            <div class="variant-input-wrap">
                             <input
                               type="radio"
                               id="{{ input_id }}"
@@ -123,32 +139,87 @@
                               {% if value.selected %}checked{% endif %}
                               {% if option_disabled %}disabled class="disabled"{% endif %}
                             >
-                            <label for="{{ input_id }}">{{ value }}{% if option_disabled %} · Sold out{% endif %}</label>
+                            {% if is_pack_option %}
+                              {% assign pack_variant_price = product.selected_or_first_available_variant.price %}
+                              {% for variant in product.variants %}
+                                {% if option.position == 1 and variant.option1 == value %}
+                                  {% assign pack_variant_price = variant.price %}
+                                {% elsif option.position == 2 and variant.option2 == value %}
+                                  {% assign pack_variant_price = variant.price %}
+                                {% elsif option.position == 3 and variant.option3 == value %}
+                                  {% assign pack_variant_price = variant.price %}
+                                {% endif %}
+                              {% endfor %}
+                              <label class="pack-option" for="{{ input_id }}">
+                                <div class="pack-count">{{ value }}</div>
+                                <div class="pack-price">{{ pack_variant_price | money }}</div>
+                                <div class="pack-per">per bar</div>
+                              </label>
+                            {% else %}
+                              <label for="{{ input_id }}">{{ value }}{% if option_disabled %} · Sold out{% endif %}</label>
+                            {% endif %}
+                            </div>
                           {% endfor %}
+                          {% if is_pack_option %}
+                            </div>
+                          {% endif %}
                         </fieldset>
                       {% endfor %}
                       <script type="application/json" data-selected-variant>{{ product.selected_or_first_available_variant | json }}</script>
                     </variant-selects>
                   {% endunless %}
 
-                  <div class="product-form__input product-form__quantity">
-                    <label class="quantity__label form__label" for="Quantity-{{ section.id }}">Quantity</label>
-                    <div class="quantity-selector">
-                      <button type="button" class="quantity-button" onclick="document.getElementById('Quantity-{{ section.id }}').stepDown()">−</button>
-                      <input
-                        type="number"
-                        id="Quantity-{{ section.id }}"
-                        name="quantity"
-                        value="1"
-                        min="1"
-                        class="quantity__input"
-                      >
-                      <button type="button" class="quantity-button" onclick="document.getElementById('Quantity-{{ section.id }}').stepUp()">+</button>
+                  <div id="Quantity-Form-{{ section.id }}">
+                    <div class="product-form__input product-form__quantity pack-qty-row fade-up fade-up-4">
+                      <label class="quantity__label form__label pack-qty-label" for="Quantity-{{ section.id }}">Quantity</label>
+                      <div class="quantity-selector pack-qty-control">
+                        <button type="button" class="quantity-button pack-qty-btn" onclick="document.getElementById('Quantity-{{ section.id }}').stepDown()">−</button>
+                        <input
+                          type="number"
+                          id="Quantity-{{ section.id }}"
+                          name="quantity"
+                          value="1"
+                          min="1"
+                          class="quantity__input pack-qty-num"
+                        >
+                        <button type="button" class="quantity-button pack-qty-btn" onclick="document.getElementById('Quantity-{{ section.id }}').stepUp()">+</button>
+                      </div>
                     </div>
                   </div>
 
                   <div class="product-form__buttons">
-                    <button type="submit" class="button button--primary button--full-width">Add to Cart</button>
+                    {%- liquid
+                      assign check_against_inventory = true
+                      if product.selected_or_first_available_variant.inventory_management != 'shopify' or product.selected_or_first_available_variant.inventory_policy == 'continue'
+                        assign check_against_inventory = false
+                      endif
+                      if product.selected_or_first_available_variant.quantity_rule.min > product.selected_or_first_available_variant.inventory_quantity and check_against_inventory
+                        assign quantity_rule_soldout = true
+                      endif
+                    -%}
+                    <button
+                      id="ProductSubmitButton-{{ section.id }}"
+                      type="submit"
+                      name="add"
+                      class="product-form__submit atc-btn"
+                      {% if product.selected_or_first_available_variant.available == false
+                        or quantity_rule_soldout
+                        or product.selected_or_first_available_variant == null
+                      %}
+                        disabled
+                      {% endif %}
+                    >
+                      <span>
+                        {%- if product.selected_or_first_available_variant == null -%}
+                          {{ 'products.product.unavailable' | t }}
+                        {%- elsif product.selected_or_first_available_variant.available == false or quantity_rule_soldout -%}
+                          {{ 'products.product.sold_out' | t }}
+                        {%- else -%}
+                          {{ 'products.product.add_to_cart' | t }}
+                        {%- endif -%}
+                      </span>
+                      {%- render 'loading-spinner' -%}
+                    </button>
                   </div>
                 </form>
               </product-form>

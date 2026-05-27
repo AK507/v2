@@ -1,0 +1,42 @@
+<section class="pillars-section" data-section-type="blog-pillars">
+  <div class="pillars-inner">
+    <div class="pillars-header">
+      <div class="pillars-eyebrow">{{ section.settings.eyebrow }}</div>
+      <h2 class="pillars-h">{{ section.settings.heading }}</h2>
+    </div>
+    <div class="pillars-grid">
+      {% for block in section.blocks %}
+        <a href="{{ block.settings.link }}" class="pillar-card" data-cat="{{ block.settings.cat | default: '' }}">
+          <div class="pillar-num">{{ forloop.index | plus: 0 | prepend: '0' | slice: -2 }}</div>
+          <div class="pillar-icon">{{ block.settings.icon }}</div>
+          <div class="pillar-name">{{ block.settings.title }}</div>
+          <p class="pillar-desc">{{ block.settings.description }}</p>
+          <div class="pillar-count">{{ block.settings.count }}</div>
+          <div class="pillar-arrow">Explore →</div>
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Blog Pillars",
+  "blocks": [
+    { "type": "pillar", "name": "Pillar", "settings": [
+      { "type": "text", "id": "title", "label": "Title" },
+      { "type": "text", "id": "icon", "label": "Icon (emoji/text)" },
+      { "type": "textarea", "id": "description", "label": "Description" },
+      { "type": "text", "id": "count", "label": "Count text", "default": "— Articles" },
+      { "type": "url", "id": "link", "label": "Link" },
+      { "type": "text", "id": "cat", "label": "Category handle" }
+    ] }
+  ],
+  "max_blocks": 4,
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Browse by Topic" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Four Things We Write About" }
+  ],
+  "presets": [ { "name": "Blog Pillars", "category": "Blog" } ]
+}
+{% endschema %}

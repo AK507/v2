@@ -1,0 +1,54 @@
+<section class="latest-section" data-section-type="blog-latest">
+  <div class="latest-inner">
+    <div class="latest-header">
+      <h2 class="latest-h">{{ section.settings.heading }}</h2>
+      <div class="latest-filter">
+        <button class="filter-btn active" data-filter="all">All</button>
+        {% for tag in section.settings.filter_tags | split: ',' %}
+          <button class="filter-btn" data-filter="{{ tag | strip | handleize }}">{{ tag | strip }}</button>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="articles-grid">
+      {% for article in blog.articles limit: section.settings.limit %}
+        {% assign data_cat = article.tags.first | handleize %}
+        <a href="{{ article.url }}" class="article-card" data-cat="{{ data_cat }}">
+          <div class="ac-cat">{{ article.tags.first }}</div>
+          <div class="ac-h">{{ article.title }}</div>
+          <p class="ac-excerpt">{{ article.excerpt | strip_html | truncate: 140 }}</p>
+          <div class="ac-meta"><span>{{ article.published_at | date: "%b %Y" }}</span><span class="ac-read">Read →</span></div>
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+
+  <script>
+    (function(){
+      var sectionEl = document.currentScript && document.currentScript.parentNode;
+      if(!sectionEl) return;
+      sectionEl.addEventListener('click', function(e){
+        if(!e.target.matches('.filter-btn')) return;
+        var btn = e.target;
+        var filter = btn.getAttribute('data-filter');
+        sectionEl.querySelectorAll('.filter-btn').forEach(function(b){b.classList.remove('active')});
+        btn.classList.add('active');
+        sectionEl.querySelectorAll('.article-card').forEach(function(c){
+          if(filter==='all' || c.dataset.cat===filter) c.classList.remove('hidden');
+          else c.classList.add('hidden');
+        });
+      });
+    })();
+  </script>
+</section>
+
+{% schema %}
+{
+  "name": "Latest Articles",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Latest Reads" },
+    { "type": "text", "id": "filter_tags", "label": "Filter tags (comma separated)", "default": "Gut-Brain Health, Smart Snacking, Energy, Ingredients" },
+    { "type": "number", "id": "limit", "label": "Articles to show", "default": 9 }
+  ],
+  "presets": [ { "name": "Latest Articles", "category": "Blog" } ]
+}
+{% endschema %}

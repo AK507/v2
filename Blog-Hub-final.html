@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Snack School — The 100CalSnacks Blog | Gut-Brain Health, Smart Snacking & Functional Ingredients</title>
+<meta name="description" content="Snack School is the 100CalSnacks editorial hub. Science-backed reads on gut-brain health, stress cravings, functional ingredients, and how to snack smarter — not less.">
+<link rel="canonical" href="https://100calsnacks.com/blogs/snack-school">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "Snack School",
+  "description": "Science-backed reads on gut-brain health, stress cravings, functional ingredients, and smarter snacking from 100CalSnacks.",
+  "url": "https://100calsnacks.com/blogs/snack-school",
+  "publisher": {
+    "@type": "Organization",
+    "name": "100CalSnacks",
+    "logo": {"@type": "ImageObject", "url": "https://100calsnacks.com/logo.png"}
+  },
+  "blogPost": [
+    {"@type": "BlogPosting", "headline": "Why Your Gut Controls Your Cravings — Not Your Willpower", "url": "https://100calsnacks.com/blogs/gut-brain-health/why-your-gut-controls-your-cravings", "datePublished": "2026-03-01"},
+    {"@type": "BlogPosting", "headline": "What to Eat When Stress Makes You Crave Sugar", "url": "https://100calsnacks.com/blogs/smart-snacking/what-to-eat-when-stress-makes-you-crave-sugar", "datePublished": "2026-02-14"},
+    {"@type": "BlogPosting", "headline": "What Prebiotic Fiber Actually Does to Your Microbiome", "url": "https://100calsnacks.com/blogs/ingredients-that-matter/what-prebiotic-fiber-actually-does", "datePublished": "2026-01-20"}
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,700;0,900;1,700;1,900&family=Barlow:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{-webkit-box-sizing:border-box;box-sizing:border-box;margin:0;padding:0}
+:root{
+  --black:#0F1213;--white:#FFFFFF;
+  --teal:#66CCCC;--teal-dark:#3A9999;--teal-pastel:#C2EBEB;
+  --orange:#E66443;--yellow:#E9AD3C;
+  --platinum:#EAE9E5;--grey-warm:#E8D7C3;
+  --ink:#1A1A1A;--ink-mid:#555;--ink-light:#888;
+  --neutral:#F4F3F0;
+  --font-head:'Barlow Condensed',sans-serif;
+  --font-body:'Barlow',sans-serif;
+  /* Category accent colors */
+  --cat-gut:#66CCCC;--cat-smart:#E66443;--cat-energy:#E9AD3C;--cat-ingr:#A69685;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-body);color:var(--ink);background:var(--white);overflow-x:hidden;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+
+/* ===== NAV ===== */
+.topbar{background:var(--black);color:var(--white);text-align:center;padding:10px 24px;font-family:var(--font-head);font-weight:700;font-size:13px;letter-spacing:1.5px;text-transform:uppercase}
+.topbar span{color:var(--teal);margin:0 10px}
+nav{position:-webkit-sticky;position:sticky;top:0;z-index:200;background:var(--white);border-bottom:2px solid var(--black);display:flex;align-items:center;justify-content:space-between;padding:0 56px;height:72px}
+.nav-brand{font-family:var(--font-head);font-weight:900;font-size:22px;letter-spacing:1px;text-transform:uppercase;color:var(--black);text-decoration:none}
+.nav-brand span{color:var(--orange)}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{font-family:var(--font-head);font-weight:700;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-mid);text-decoration:none;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--teal-dark)}
+.nav-cta{font-family:var(--font-head);font-weight:900;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;padding:10px 22px;background:var(--teal);color:var(--black);text-decoration:none;transition:background .2s}
+.nav-cta:hover{background:var(--teal-dark);color:var(--white)}
+
+/* ===== HERO ===== */
+.hero{background:var(--black);padding:80px 80px 60px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 80% 50%,rgba(102,204,204,.05) 0%,transparent 70%);pointer-events:none}
+.hero::after{content:'SNACK SCHOOL';position:absolute;right:-20px;bottom:-40px;font-family:var(--font-head);font-weight:900;font-size:160px;color:rgba(255,255,255,.025);line-height:1;pointer-events:none;white-space:nowrap}
+.hero-inner{max-width:1200px;margin:0 auto;position:relative;z-index:2}
+.hero-top{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:end;margin-bottom:56px}
+.hero-overline{font-family:var(--font-head);font-weight:700;font-size:11px;letter-spacing:5px;text-transform:uppercase;color:var(--teal);margin-bottom:16px;display:flex;align-items:center;gap:12px}
+.hero-overline::before{content:'';width:28px;height:2px;background:var(--teal);flex-shrink:0}
+.hero-h1{font-family:var(--font-head);font-weight:900;font-size:88px;line-height:.85;text-transform:uppercase;color:var(--white);margin-bottom:0}
+.hero-h1 em{font-style:italic;color:var(--teal);display:block}
+.hero-right{}
+.hero-desc{font-family:var(--font-body);font-size:17px;color:rgba(255,255,255,.6);line-height:1.8;margin-bottom:24px}
+.hero-pillars{display:flex;gap:8px;flex-wrap:wrap}
+.hero-pillar{font-family:var(--font-head);font-weight:700;font-size:10px;letter-spacing:2px;text-transform:uppercase;padding:6px 14px;border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.5)}
+
+/* Featured article */
+.featured-row{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:rgba(255,255,255,.05)}
+.featured-main{padding:36px;background:rgba(255,255,255,.03);position:relative;cursor:pointer;transition:background .2s;text-decoration:none;display:block}
+.featured-main:hover{background:rgba(255,255,255,.06)}
+.featured-tag{font-family:var(--font-head);font-weight:700;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--teal);margin-bottom:14px}
+.featured-h{font-family:var(--font-head);font-weight:900;font-size:36px;line-height:.95;text-transform:uppercase;color:var(--white);margin-bottom:12px}
+.featured-excerpt{font-family:var(--font-body);font-size:14px;color:rgba(255,255,255,.55);line-height:1.7;margin-bottom:20px}
+.featured-meta{font-family:var(--font-body);font-size:12px;color:rgba(255,255,255,.3);display:flex;align-items:center;gap:12px}
+.featured-read{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-head);font-weight:700;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--teal);margin-top:16px;transition:color .2s}
+.featured-secondary{display:flex;flex-direction:column;gap:2px}
+.sec-article{padding:24px 28px;background:rgba(255,255,255,.02);cursor:pointer;transition:background .2s;text-decoration:none;display:block;border-left:3px solid transparent}
+.sec-article:nth-child(1){border-left-color:var(--cat-smart)}
+.sec-article:nth-child(2){border-left-color:var(--cat-energy)}
+.sec-article:nth-child(3){border-left-color:var(--cat-ingr)}
+.sec-article:hover{background:rgba(255,255,255,.04)}
+.sec-tag{font-family:var(--font-head);font-weight:700;font-size:9px;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px}
+.sec-h{font-family:var(--font-head);font-weight:900;font-size:19px;text-transform:uppercase;color:var(--white);line-height:1.05;margin-bottom:6px}
+.sec-meta{font-family:var(--font-body);font-size:12px;color:rgba(255,255,255,.3)}
+
+/* ===== CATEGORY PILLARS ===== */
+.pillars-section{background:var(--platinum);padding:72px 80px}
+.pillars-inner{max-width:1200px;margin:0 auto}
+.pillars-header{margin-bottom:40px}
+.pillars-eyebrow{font-family:var(--font-head);font-weight:700;font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--teal-dark);margin-bottom:10px}
+.pillars-h{font-family:var(--font-head);font-weight:900;font-size:48px;line-height:.9;text-transform:uppercase;color:var(--black)}
+.pillars-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:3px;background:rgba(15,18,19,.08)}
+.pillar-card{background:var(--white);padding:36px 28px;display:flex;flex-direction:column;text-decoration:none;transition:background .25s;border-top:4px solid transparent;position:relative;overflow:hidden}
+.pillar-card:nth-child(1){border-top-color:var(--cat-gut)}
+.pillar-card:nth-child(2){border-top-color:var(--cat-smart)}
+.pillar-card:nth-child(3){border-top-color:var(--cat-energy)}
+.pillar-card:nth-child(4){border-top-color:var(--cat-ingr)}
+.pillar-card:hover{background:#F5F3F0}
+.pillar-num{font-family:var(--font-head);font-weight:900;font-size:64px;color:var(--platinum);line-height:1;position:absolute;bottom:-8px;right:12px;pointer-events:none}
+.pillar-icon{font-size:28px;margin-bottom:16px}
+.pillar-name{font-family:var(--font-head);font-weight:900;font-size:22px;text-transform:uppercase;color:var(--black);line-height:1;margin-bottom:8px}
+.pillar-desc{font-family:var(--font-body);font-size:14px;color:var(--ink-mid);line-height:1.65;flex:1;margin-bottom:16px;position:relative;z-index:1}
+.pillar-count{font-family:var(--font-head);font-weight:700;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--ink-light);margin-bottom:12px}
+.pillar-arrow{font-family:var(--font-head);font-weight:900;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--teal-dark);display:inline-flex;align-items:center;gap:6px;transition:gap .2s}
+.pillar-card:hover .pillar-arrow{gap:10px}
+
+/* ===== LATEST ARTICLES ===== */
+.latest-section{background:var(--white);padding:72px 80px}
+.latest-inner{max-width:1200px;margin:0 auto}
+.latest-header{display:flex;align-items:end;justify-content:space-between;margin-bottom:40px}
+.latest-h{font-family:var(--font-head);font-weight:900;font-size:48px;line-height:.9;text-transform:uppercase;color:var(--black)}
+.latest-filter{display:flex;gap:4px}
+.filter-btn{font-family:var(--font-head);font-weight:700;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;padding:8px 16px;background:transparent;border:1.5px solid rgba(15,18,19,.15);color:var(--ink-mid);cursor:pointer;transition:all .2s}
+.filter-btn:hover{border-color:var(--teal-dark);color:var(--teal-dark)}
+.filter-btn.active{background:var(--black);border-color:var(--black);color:var(--white)}
+.articles-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--platinum)}
+.article-card{background:var(--white);padding:28px 24px;text-decoration:none;display:flex;flex-direction:column;transition:background .2s;border-top:3px solid transparent}
+.article-card[data-cat="gut"]{border-top-color:var(--cat-gut)}
+.article-card[data-cat="smart"]{border-top-color:var(--cat-smart)}
+.article-card[data-cat="energy"]{border-top-color:var(--cat-energy)}
+.article-card[data-cat="ingr"]{border-top-color:var(--cat-ingr)}
+.article-card:hover{background:#F8F7F4}
+.article-card.hidden{display:none}
+.ac-cat{font-family:var(--font-head);font-weight:700;font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px}
+.article-card[data-cat="gut"] .ac-cat{color:var(--cat-gut)}
+.article-card[data-cat="smart"] .ac-cat{color:var(--cat-smart)}
+.article-card[data-cat="energy"] .ac-cat{color:var(--cat-energy)}
+.article-card[data-cat="ingr"] .ac-cat{color:var(--cat-ingr)}
+.ac-h{font-family:var(--font-head);font-weight:900;font-size:20px;text-transform:uppercase;color:var(--black);line-height:1.05;margin-bottom:8px}
+.ac-excerpt{font-family:var(--font-body);font-size:13px;color:var(--ink-mid);line-height:1.65;flex:1;margin-bottom:12px}
+.ac-meta{font-family:var(--font-body);font-size:12px;color:var(--ink-light);display:flex;justify-content:space-between;align-items:center;margin-top:auto;padding-top:12px;border-top:1px solid var(--platinum)}
+.ac-read{font-family:var(--font-head);font-weight:700;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--teal-dark)}
+
+/* ===== SEO TOPIC CLUSTER STRIP ===== */
+.cluster-section{background:var(--black);padding:64px 80px}
+.cluster-inner{max-width:1200px;margin:0 auto}
+.cluster-header{margin-bottom:32px}
+.cluster-eyebrow{font-family:var(--font-head);font-weight:700;font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--teal);margin-bottom:10px}
+.cluster-h{font-family:var(--font-head);font-weight:900;font-size:40px;line-height:.9;text-transform:uppercase;color:var(--white)}
+.cluster-tags{display:flex;gap:6px;flex-wrap:wrap}
+.cluster-tag{font-family:var(--font-head);font-weight:700;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;padding:8px 16px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);color:rgba(255,255,255,.5);cursor:pointer;text-decoration:none;transition:all .2s}
+.cluster-tag:hover{background:rgba(102,204,204,.1);border-color:var(--teal);color:var(--teal)}
+
+/* ===== EMAIL CTA ===== */
+.email-section{background:var(--teal-pastel);padding:64px 80px}
+.email-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.email-h{font-family:var(--font-head);font-weight:900;font-size:52px;line-height:.9;text-transform:uppercase;color:var(--black);margin-bottom:10px}
+.email-sub{font-family:var(--font-body);font-size:16px;color:rgba(15,18,19,.6);line-height:1.65}
+.email-form{display:flex;gap:0}
+.email-input{flex:1;padding:16px 20px;font-family:var(--font-body);font-size:15px;background:var(--white);border:2px solid var(--black);border-right:none;outline:none;-webkit-appearance:none;appearance:none;border-radius:0}
+.email-btn{font-family:var(--font-head);font-weight:900;font-size:13px;letter-spacing:2px;text-transform:uppercase;padding:16px 28px;background:var(--black);color:var(--white);border:2px solid var(--black);cursor:pointer;transition:background .2s;white-space:nowrap}
+.email-btn:hover{background:var(--teal-dark);border-color:var(--teal-dark)}
+
+/* ===== FOOTER ===== */
+footer{background:var(--black);padding:48px 80px 32px;border-top:1px solid rgba(255,255,255,.06)}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:60px;margin-bottom:40px}
+.footer-brand{font-family:var(--font-head);font-weight:900;font-size:24px;text-transform:uppercase;color:var(--white);margin-bottom:6px}
+.footer-brand span{color:var(--orange)}
+.footer-tagline{font-family:var(--font-head);font-weight:700;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--teal);margin-bottom:14px}
+.footer-bio{font-family:var(--font-body);font-size:14px;color:rgba(255,255,255,.35);line-height:1.65}
+.footer-col-title{font-family:var(--font-head);font-weight:900;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:14px}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:8px}
+.footer-links a{font-family:var(--font-body);font-size:14px;color:rgba(255,255,255,.3);text-decoration:none;transition:color .2s}
+.footer-links a:hover{color:var(--teal)}
+.footer-btm{display:flex;justify-content:space-between;align-items:center;padding-top:24px;border-top:1px solid rgba(255,255,255,.05);font-family:var(--font-body);font-size:12px;color:rgba(255,255,255,.2)}
+
+/* ===== ANIMATIONS ===== */
+.fade-up{opacity:0;transform:translateY(20px);transition:opacity .65s ease,transform .65s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+.fade-up-2{transition-delay:.1s}
+.fade-up-3{transition-delay:.2s}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Featured Articles — Snack School",
+  "url": "https://100calsnacks.com/blogs/snack-school",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "url": "https://100calsnacks.com/blogs/gut-brain-health/why-your-gut-controls-your-cravings", "name": "Why Your Gut Controls Your Cravings — Not Your Willpower"},
+    {"@type": "ListItem", "position": 2, "url": "https://100calsnacks.com/blogs/smart-snacking/what-to-eat-stress-cravings", "name": "What to Eat When Stress Makes You Crave Sugar"},
+    {"@type": "ListItem", "position": 3, "url": "https://100calsnacks.com/blogs/energy-mood-cravings/3pm-crash-gut-issue", "name": "Why the 3pm Energy Crash Is a Gut Issue"},
+    {"@type": "ListItem", "position": 4, "url": "https://100calsnacks.com/blogs/ingredients-that-matter/what-prebiotic-fiber-does", "name": "What Prebiotic Fiber Actually Does to Your Microbiome"}
+  ]
+}
+</script>
+</head>
+<body>
+
+<div class="topbar">Free Shipping on Orders $25+ <span>·</span> Woman-Owned <span>·</span> Keepin' Snacks 100®</div>
+
+<nav>
+  <a href="100CalSnacks-PDP-ChocolateBrownieBar-v4.html" class="nav-brand">100<span>Cal</span>Snacks</a>
+  <ul class="nav-links">
+    <li><a href="100CalSnacks-PDP-ChocolateBrownieBar-v4.html">Shop</a></li>
+    <li><a href="100CalSnacks-GutBrain101.html">Gut-Brain 101</a></li>
+    <li><a href="100CalSnacks-Ingredients.html">Ingredients</a></li>
+    <li><a href="100CalSnacks-GutBrainQuiz.html">Quiz</a></li>
+    <li><a href="#" class="active">Snack School</a></li>
+  </ul>
+  <a href="100CalSnacks-PDP-ChocolateBrownieBar-v4.html" class="nav-cta">Shop Now</a>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-top fade-up">
+      <div>
+        <div class="hero-overline">The 100Cal Blog</div>
+        <h1 class="hero-h1">Snack<br>School.</h1>
+      </div>
+      <div class="hero-right">
+        <p class="hero-desc">Science-backed reads on the gut-brain axis, stress cravings, functional ingredients, and what it actually means to snack with intention. No diet culture. No guilt trips.</p>
+        <div class="hero-pillars">
+          <span class="hero-pillar">Gut-Brain Health</span>
+          <span class="hero-pillar">Smart Snacking</span>
+          <span class="hero-pillar">Energy, Mood & Cravings</span>
+          <span class="hero-pillar">Ingredients That Matter</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Featured articles -->
+    <div class="featured-row fade-up fade-up-2">
+      <a href="100CalSnacks-Blog-Article.html" class="featured-main" data-slug="why-your-gut-controls-your-cravings">
+        <div class="featured-tag">★ Featured — Gut-Brain Health</div>
+        <div class="featured-h">Why Your Gut Controls Your Cravings — Not Your Willpower</div>
+        <p class="featured-excerpt">The urge to reach for something sweet at 3pm isn't a failure of discipline. It's a signal from your gut-brain axis — and once you understand it, you can work with it instead of against it.</p>
+        <div class="featured-meta"><span>8 min read</span><span>·</span><span>March 2026</span></div>
+        <div class="featured-read">Read Article →</div>
+      </a>
+      <div class="featured-secondary">
+        <a href="100CalSnacks-Blog-Article.html" class="sec-article" data-slug="what-to-eat-stress-cravings">
+          <div class="sec-tag" style="color:var(--cat-smart)">Smart Snacking</div>
+          <div class="sec-h">What to Eat When Stress Makes You Crave Sugar</div>
+          <div class="sec-meta">6 min read · Feb 2026</div>
+        </a>
+        <a href="100CalSnacks-Blog-Article.html" class="sec-article" data-slug="3pm-crash-gut-issue">
+          <div class="sec-tag" style="color:var(--cat-energy)">Energy, Mood & Cravings</div>
+          <div class="sec-h">Why the 3pm Energy Crash Is a Gut Issue, Not a Sleep Issue</div>
+          <div class="sec-meta">5 min read · Feb 2026</div>
+        </a>
+        <a href="100CalSnacks-Blog-Article.html" class="sec-article" data-slug="what-prebiotic-fiber-does">
+          <div class="sec-tag" style="color:var(--cat-ingr)">Ingredients That Matter</div>
+          <div class="sec-h">What Prebiotic Fiber Actually Does to Your Microbiome</div>
+          <div class="sec-meta">7 min read · Jan 2026</div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CATEGORY PILLARS ===== -->
+<section class="pillars-section">
+  <div class="pillars-inner">
+    <div class="pillars-header fade-up">
+      <div class="pillars-eyebrow">Browse by Topic</div>
+      <h2 class="pillars-h">Four Things We Write About</h2>
+    </div>
+    <div class="pillars-grid fade-up fade-up-2">
+      <a href="100CalSnacks-Blog-Category.html" data-cat="gut-brain-health" class="pillar-card">
+        <div class="pillar-num">01</div>
+        <div class="pillar-icon">🧠</div>
+        <div class="pillar-name">Gut-Brain Health</div>
+        <p class="pillar-desc">The science of the gut-brain axis — how your gut talks to your brain, why cravings happen, and what your microbiome has to do with your mood.</p>
+        <div class="pillar-count">12 Articles</div>
+        <div class="pillar-arrow">Explore →</div>
+      </a>
+      <a href="100CalSnacks-Blog-Category.html" data-cat="smart-snacking" class="pillar-card">
+        <div class="pillar-num">02</div>
+        <div class="pillar-icon">🎯</div>
+        <div class="pillar-name">Smart Snacking</div>
+        <p class="pillar-desc">How to snack with intention — timing, pairing, reading labels, avoiding the traps, and building habits that actually stick between meals.</p>
+        <div class="pillar-count">9 Articles</div>
+        <div class="pillar-arrow">Explore →</div>
+      </a>
+      <a href="100CalSnacks-Blog-Category.html" data-cat="energy-mood-cravings" class="pillar-card">
+        <div class="pillar-num">03</div>
+        <div class="pillar-icon">⚡</div>
+        <div class="pillar-name">Energy, Mood & Cravings</div>
+        <p class="pillar-desc">Stress eating, afternoon crashes, emotional cravings — the real reasons they happen and what you can actually do about them.</p>
+        <div class="pillar-count">8 Articles</div>
+        <div class="pillar-arrow">Explore →</div>
+      </a>
+      <a href="100CalSnacks-Blog-Category.html" data-cat="ingredients-that-matter" class="pillar-card">
+        <div class="pillar-num">04</div>
+        <div class="pillar-icon">🔬</div>
+        <div class="pillar-name">Ingredients That Matter</div>
+        <p class="pillar-desc">A deep dive into what's actually inside functional snacks — ashwagandha, prebiotic fiber, amla, monk fruit — and why each one earns its place.</p>
+        <div class="pillar-count">11 Articles</div>
+        <div class="pillar-arrow">Explore →</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== LATEST ARTICLES ===== -->
+<section class="latest-section">
+  <div class="latest-inner">
+    <div class="latest-header fade-up">
+      <h2 class="latest-h">Latest Reads</h2>
+      <div class="latest-filter">
+        <button class="filter-btn active" onclick="filterArticles('all',this)">All</button>
+        <button class="filter-btn" onclick="filterArticles('gut',this)">Gut-Brain</button>
+        <button class="filter-btn" onclick="filterArticles('smart',this)">Smart Snacking</button>
+        <button class="filter-btn" onclick="filterArticles('energy',this)">Energy & Mood</button>
+        <button class="filter-btn" onclick="filterArticles('ingr',this)">Ingredients</button>
+      </div>
+    </div>
+    <div class="articles-grid fade-up fade-up-2">
+      <a href="100CalSnacks-Blog-Article.html" class="article-card" data-cat="gut">
+        <div class="ac-cat">Gut-Brain Health</div>
+        <div class="ac-h">Why Your Gut Controls Your Cravings</div>
+        <p class="ac-excerpt">The urge to reach for something sweet isn't a willpower failure — it's a message from your gut-brain axis. Here's how to decode it.</p>
+        <div class="ac-meta"><span>March 2026 · 8 min</span><span class="ac-read">Read →</span></div>
+      </a>
+      <a href="100CalSnacks-Blog-Article.html" class="article-card" data-cat="smart">
+        <div class="ac-cat">Smart Snacking</div>
+        <div class="ac-h">What to Eat When Stress Makes You Crave Sugar</div>
+        <p class="ac-excerpt">Stress cravings aren't random. They follow a predictable pattern — and once you know it, you can interrupt it with the right snack at the right time.</p>
+        <div class="ac-meta"><span>Feb 2026 · 6 min</span><span class="ac-read">Read →</span></div>
+      </a>
+      <a href="100CalSnacks-Blog-Article.html" class="article-card" data-cat="energy">
+        <div class="ac-cat">Energy, Mood & Cravings</div>
+        <div class="ac-h">The 3pm Crash Is a Gut Issue, Not a Sleep Issue</div>
+        <p class="ac-excerpt">Most people blame their afternoon slump on poor sleep or too much coffee. The real cause is almost always what happened at lunch — and your microbiome.</p>
+        <div class="ac-meta"><span>Feb 2026 · 5 min</span><span class="ac-read">Read →</span></div>
+      </a>
+      <a href="100CalSnacks-Blog-Article.html" class="article-card" data-cat="ingr">
+        <div class="ac-cat">Ingredients That Matter</div>
+        <div class="ac-h">What Prebiotic Fiber Actually Does to Your Microbiome</div>
+        <p class="ac-excerpt">Not all fiber is the same. Prebiotic fiber specifically feeds the bacteria that send calming, satiety signals to your brain. Here's the science.</p>
+        <div class="ac-meta"><span>Jan 2026 · 7 min</span><span class="ac-read">Read →</span></div>
+      </a>
+      <a href="100CalSnacks-Blog-Article.html" class="article-card" data-cat="ingr">
+        <div class="ac-cat">Ingredients That Matter</div>
+        <div class="ac-h">Ashwagandha in Snacks: What It Actually Does</div>
+        <p class="ac-excerpt">Most adaptogens get sprinkled into products as a marketing move. Here's what clinically relevant ashwagandha actually does to cortisol and stress cravings.</p>
+        <div class="ac-meta"><span>Jan 2026 · 6 min</span><span class="ac-read">Read →</span></div>
+      </a>
+      <a href="100CalSnacks-Blog-Article.html" class="article-card" data-cat="gut">
+        <div class="ac-cat">Gut-Brain Health</div>
+        <div class="ac-h">Why Sugar Alcohols Backfire for Some People</div>
+        <p class="ac-excerpt">Erythritol and maltitol are in almost every "healthy" snack. Here's why they can disrupt your gut more than the sugar they're supposed to replace.</p>
+        <div class="ac-meta"><span>Dec 2025 · 5 min</span><span class="ac-read">Read →</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===== EDITORIAL INTRO ===== -->
+<section style="background:var(--white);padding:0 80px 64px;border-top:1px solid var(--platinum)">
+  <div style="max-width:1200px;margin:0 auto;padding-top:56px">
+    <div style="font-family:var(--font-head);font-weight:700;font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--teal-dark);margin-bottom:16px">What You'll Learn in Snack School</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px">
+      <div>
+        <h2 style="font-family:var(--font-head);font-weight:900;font-size:44px;text-transform:uppercase;color:var(--black);line-height:.9;margin-bottom:24px">Science You Can<br>Actually Use.</h2>
+        <p style="font-family:var(--font-body);font-size:16px;color:var(--ink-mid);line-height:1.8;margin-bottom:18px">Snack School is built around a single belief: understanding your biology makes better decisions easier. Every article starts with the science — the gut-brain axis, microbiome diversity, cortisol and stress signaling, satiety hormones — and then connects it to practical, everyday snacking choices.</p>
+        <p style="font-family:var(--font-body);font-size:16px;color:var(--ink-mid);line-height:1.8;margin-bottom:18px">We cover the connection between your gut microbiome and your brain — specifically how the 38 trillion microbes in your digestive system produce neurotransmitters, influence hunger hormones, and send signals through the vagus nerve that shape your mood, energy, and cravings. Most people have never been told this. It changes how you think about why you eat the way you do.</p>
+        <p style="font-family:var(--font-body);font-size:16px;color:var(--ink-mid);line-height:1.8">We also go deep on functional ingredients — ashwagandha, prebiotic chicory root fiber, amla fruit powder, monk fruit — explaining what they actually do at clinically relevant levels, rather than the trace-dose label decoration that most snack brands use. If you want to understand what's in your food and why it matters, this is where to start.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:3px;background:var(--platinum)">
+        <div style="background:var(--white);padding:20px 24px;border-left:3px solid var(--teal)">
+          <div style="font-family:var(--font-head);font-weight:900;font-size:14px;text-transform:uppercase;color:var(--black);margin-bottom:4px">Gut-Brain Axis</div>
+          <div style="font-family:var(--font-body);font-size:13px;color:var(--ink-mid);line-height:1.55">How your microbiome, vagus nerve, and gut hormones influence what you eat, how you feel, and why cravings happen</div>
+        </div>
+        <div style="background:var(--white);padding:20px 24px;border-left:3px solid var(--orange)">
+          <div style="font-family:var(--font-head);font-weight:900;font-size:14px;text-transform:uppercase;color:var(--black);margin-bottom:4px">Stress & Cravings</div>
+          <div style="font-family:var(--font-body);font-size:13px;color:var(--ink-mid);line-height:1.55">The cortisol-craving loop — why stress drives you toward sugar and refined carbs, and how to interrupt that pattern</div>
+        </div>
+        <div style="background:var(--white);padding:20px 24px;border-left:3px solid var(--yellow)">
+          <div style="font-family:var(--font-head);font-weight:900;font-size:14px;text-transform:uppercase;color:var(--black);margin-bottom:4px">Functional Ingredients</div>
+          <div style="font-family:var(--font-body);font-size:13px;color:var(--ink-mid);line-height:1.55">Ashwagandha, chicory root, amla, monk fruit — what they actually do at doses that matter, not label decoration</div>
+        </div>
+        <div style="background:var(--white);padding:20px 24px;border-left:3px solid #C2EBEB">
+          <div style="font-family:var(--font-head);font-weight:900;font-size:14px;text-transform:uppercase;color:var(--black);margin-bottom:4px">Satiety & Energy</div>
+          <div style="font-family:var(--font-body);font-size:13px;color:var(--ink-mid);line-height:1.55">Why protein and prebiotic fiber matter between meals, and how smart snacking can support stable energy and real fullness</div>
+        </div>
+        <div style="background:var(--white);padding:20px 24px;border-left:3px solid var(--grey-warm)">
+          <div style="font-family:var(--font-head);font-weight:900;font-size:14px;text-transform:uppercase;color:var(--black);margin-bottom:4px">Snack Smarter</div>
+          <div style="font-family:var(--font-body);font-size:13px;color:var(--ink-mid);line-height:1.55">Timing, pairing, label reading, and building habits that actually stick — practical frameworks rooted in how your body works</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SEO TOPIC CLUSTER ===== -->
+<section class="cluster-section">
+  <div class="cluster-inner">
+    <div class="cluster-header fade-up">
+      <div class="cluster-eyebrow">Topics We Cover</div>
+      <h2 class="cluster-h">Search What You're Curious About</h2>
+    </div>
+    <div class="cluster-tags fade-up fade-up-2">
+      <a href="100CalSnacks-Blog-Category.html" class="cluster-tag">Gut-Brain Axis</a>
+      <a href="100CalSnacks-Blog-Category.html" class="cluster-tag">Stress Cravings</a>
+      <a href="100CalSnacks-Blog-Category.html" class="cluster-tag">Prebiotic Fiber</a>
+      <a href="100CalSnacks-Blog-Category.html" class="cluster-tag">Ashwagandha</a>
+      <a href="100CalSnacks-Blog-Category.html" class="cluster-tag">Microbiome Health</a>
+      <a href="100CalSnacks-Blog-Category.html" class="cluster-tag">Satiety & Fullness</a>
+      <a href="100CalSnacks-Blog-Category.html" class="cluster-tag">Functional Snacks</a>
+      <a href="100CalSnacks-Blog-Category.html" class="cluster-tag">Sugar Alcohols</a>
+      <a href="100CalSnacks-Blog-Category.html" class="cluster-tag">Amla Benefits</a>
+      <a href="100CalSnacks-Blog-Category.html" class="cluster-tag">Monk Fruit</a>
+      <a href="100CalSnacks-Blog-Category.html" class="cluster-tag">Afternoon Energy Crash</a>
+      <a href="100CalSnacks-Blog-Category.html" class="cluster-tag">Cortisol & Cravings</a>
+      <a href="100CalSnacks-Blog-Category.html" class="cluster-tag">Protein & Satiety</a>
+      <a href="100CalSnacks-Blog-Category.html" class="cluster-tag">Snacks for Focus</a>
+      <a href="100CalSnacks-Blog-Category.html" class="cluster-tag">Gut Health Foods</a>
+      <a href="100CalSnacks-Blog-Category.html" class="cluster-tag">Adaptogens</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== EMAIL ===== -->
+<section class="email-section">
+  <div class="email-inner fade-up">
+    <div>
+      <h2 class="email-h">New Reads, Straight to Your Inbox.</h2>
+      <p class="email-sub">No filler. New articles, gut-brain research, and snack science — whenever we publish something worth reading.</p>
+    </div>
+    <div>
+      <div class="email-form">
+        <input class="email-input" type="email" placeholder="your@email.com">
+        <button class="email-btn">Subscribe →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-brand">100<span>Cal</span>Snacks</div>
+      <div class="footer-tagline">Keepin' Snacks 100®</div>
+      <p class="footer-bio">Built from the struggle. Engineered for the journey. Woman-owned, science-backed, and genuinely built for people who want better.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Snack School</div>
+      <ul class="footer-links">
+        <li><a href="100CalSnacks-Blog-Category.html">Gut-Brain Health</a></li>
+        <li><a href="100CalSnacks-Blog-Category.html">Smart Snacking</a></li>
+        <li><a href="100CalSnacks-Blog-Category.html">Energy, Mood & Cravings</a></li>
+        <li><a href="100CalSnacks-Blog-Category.html">Ingredients That Matter</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Learn</div>
+      <ul class="footer-links">
+        <li><a href="100CalSnacks-GutBrain101.html">Gut-Brain Health 101</a></li>
+        <li><a href="100CalSnacks-Ingredients.html">Ingredient Index</a></li>
+        <li><a href="100CalSnacks-GutBrainQuiz.html">Take the Quiz</a></li>
+        <li><a href="100CalSnacks-Story.html">Our Story</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Shop</div>
+      <ul class="footer-links">
+        <li><a href="100CalSnacks-PDP-ChocolateBrownieBar-v4.html">Chocolate Brownie Bar</a></li>
+        <li><a href="100CalSnacks-PDP-PeanutButterBar.html">Peanut Butter Bar</a></li>
+        <li><a href="100CalSnacks-PDP-BBQProteinPuffs.html">BBQ Protein Puffs</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-btm">
+    <div>© 2026 100CalSnacks.com · Woman-Owned · Science-Backed</div>
+    <div>* These statements have not been evaluated by the FDA.</div>
+  </div>
+</footer>
+
+<script>
+var fadeEls = document.querySelectorAll('.fade-up');
+var io = new IntersectionObserver(function(e){e.forEach(function(el){if(el.isIntersecting)el.target.classList.add('visible')})},{threshold:.06});
+fadeEls.forEach(function(el){io.observe(el)});
+
+function filterArticles(cat, btn) {
+  document.querySelectorAll('.filter-btn').forEach(function(b){b.classList.remove('active')});
+  btn.classList.add('active');
+  document.querySelectorAll('.article-card').forEach(function(c){
+    if(cat==='all'||c.dataset.cat===cat) c.classList.remove('hidden');
+    else c.classList.add('hidden');
+  });
+}
+</script>
+</body>
+</html>

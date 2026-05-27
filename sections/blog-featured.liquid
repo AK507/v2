@@ -1,0 +1,31 @@
+<section class="featured-row" data-section-type="blog-featured">
+  <div class="featured-inner">
+    {% if blog.articles.size > 0 %}
+      {% assign featured = blog.articles.first %}
+      <a href="{{ featured.url }}" class="featured-main">
+        <div class="featured-tag">{{ featured.tags.first | default: 'Featured' }}</div>
+        <div class="featured-h">{{ featured.title }}</div>
+        <p class="featured-excerpt">{{ featured.excerpt | strip_html | truncate: 160 }}</p>
+        <div class="featured-meta"><span>{{ featured.reading_time | default: '' }}</span><span>·</span><span>{{ featured.published_at | date: "%B %Y" }}</span></div>
+        <div class="featured-read">Read Article →</div>
+      </a>
+      <div class="featured-secondary">
+        {% for article in blog.articles offset:1 limit:3 %}
+          <a href="{{ article.url }}" class="sec-article" data-slug="{{ article.handle }}">
+            <div class="sec-tag">{{ article.tags.first }}</div>
+            <div class="sec-h">{{ article.title }}</div>
+            <div class="sec-meta">{{ article.published_at | date: "%b %Y" }}</div>
+          </a>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Blog Featured",
+  "settings": [],
+  "presets": [ { "name": "Blog Featured", "category": "Blog" } ]
+}
+{% endschema %}

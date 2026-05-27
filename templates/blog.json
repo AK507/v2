@@ -1,3 +1,16 @@
+{
+  "name": "Blog",
+  "sections": {
+    "hero": { "type": "blog-hero" },
+    "featured": { "type": "blog-featured" },
+    "pillars": { "type": "blog-pillars" },
+    "latest": { "type": "blog-latest" },
+    "cluster": { "type": "blog-cluster" },
+    "email": { "type": "blog-email" },
+    "footer": { "type": "footer" }
+  },
+  "order": ["hero","featured","pillars","latest","cluster","email","footer"]
+}
 /*
  * ------------------------------------------------------------
  * IMPORTANT: The contents of this file are auto-generated.

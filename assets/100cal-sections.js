@@ -8,7 +8,68 @@
     });
   };
 
+  const initStickyBar = () => {
+    const stickyBar = document.querySelector('.sticky-bar');
+    if (!stickyBar) return;
+
+    const section = stickyBar.dataset.section;
+    const buyBox = document.getElementById('buy-box');
+    const priceTarget = document.getElementById(`price-${section}`);
+    const submitButton = document.getElementById(`ProductSubmitButton-${section}`);
+    const stickyButton = stickyBar.querySelector('.sticky-btn');
+    const stickyPrice = stickyBar.querySelector('.sticky-price');
+
+    const updateStickyPrice = () => {
+      if (!stickyPrice || !priceTarget) return;
+      stickyPrice.textContent = priceTarget.innerText.trim();
+    };
+
+    const syncStickyButton = () => {
+      if (!stickyButton || !submitButton) return;
+      stickyButton.disabled = submitButton.disabled;
+    };
+
+    const updateStickyVisibility = () => {
+      if (!buyBox || !stickyBar) return;
+      const boxBottom = buyBox.getBoundingClientRect().bottom;
+      const show = boxBottom < window.innerHeight - 80;
+      stickyBar.classList.toggle('visible', show);
+    };
+
+    if (stickyButton) {
+      stickyButton.addEventListener('click', () => {
+        if (submitButton && !submitButton.disabled) {
+          submitButton.click();
+        }
+      });
+    }
+
+    updateStickyPrice();
+    syncStickyButton();
+    updateStickyVisibility();
+
+    window.addEventListener('scroll', () => {
+      updateStickyVisibility();
+    }, { passive: true });
+
+    window.addEventListener('resize', updateStickyVisibility);
+
+    if (priceTarget) {
+      new MutationObserver(updateStickyPrice).observe(priceTarget, { childList: true, subtree: true });
+    }
+
+    if (submitButton) {
+      new MutationObserver(syncStickyButton).observe(submitButton, { attributes: true, attributeFilter: ['disabled'] });
+    }
+  };
+
   window.addEventListener('scroll', applyNavShadow, { passive: true });
-  document.addEventListener('shopify:section:load', applyNavShadow);
-  document.addEventListener('DOMContentLoaded', applyNavShadow);
+  document.addEventListener('shopify:section:load', () => {
+    applyNavShadow();
+    initStickyBar();
+  });
+  document.addEventListener('DOMContentLoaded', () => {
+    applyNavShadow();
+    initStickyBar();
+  });
 })();

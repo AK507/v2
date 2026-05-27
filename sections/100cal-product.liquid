@@ -24,7 +24,7 @@
   </div>
 
   <!-- Sticky bar (mobile / pinned) -->
-  <div class="sticky-bar" id="sticky-bar">
+  <div class="sticky-bar" id="sticky-bar" data-section="{{ section.id }}">
     <div class="sticky-inner">
       <div class="sticky-product">
         <div class="sticky-thumb">{{ section.settings.sticky_thumb }}</div>
@@ -38,7 +38,7 @@
           <input type="checkbox" id="sticky-sub"> {{ section.settings.sticky_sub_label }}
         </label>
         <div class="sticky-price">{{ section.settings.sticky_price }}</div>
-        <button class="sticky-btn">{{ section.settings.sticky_add_to_cart }}</button>
+        <button type="button" class="sticky-btn">{{ section.settings.sticky_add_to_cart }}</button>
       </div>
     </div>
   </div>

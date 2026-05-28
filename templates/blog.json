@@ -1,41 +1,30 @@
 {
-  "name": "Blog",
   "sections": {
-    "hero": { "type": "blog-hero" },
-    "featured": { "type": "blog-featured" },
-    "pillars": { "type": "blog-pillars" },
-    "latest": { "type": "blog-latest" },
-    "cluster": { "type": "blog-cluster" },
-    "email": { "type": "blog-email" },
-    "footer": { "type": "footer" }
-  },
-  "order": ["hero","featured","pillars","latest","cluster","email","footer"]
-}
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
-{
-  "sections": {
-    "main": {
-      "type": "main-blog",
-      "settings": {
-        "layout": "collage",
-        "show_image": true,
-        "image_height": "medium",
-        "show_date": true,
-        "show_author": false,
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
+    "hero": {
+      "type": "blog-hero"
+    },
+    "featured": {
+      "type": "blog-featured"
+    },
+    "pillars": {
+      "type": "blog-pillars"
+    },
+    "latest": {
+      "type": "blog-latest"
+    },
+    "cluster": {
+      "type": "blog-cluster"
+    },
+    "email": {
+      "type": "blog-email"
     }
   },
   "order": [
-    "main"
+    "hero",
+    "featured",
+    "pillars",
+    "latest",
+    "cluster",
+    "email"
   ]
 }

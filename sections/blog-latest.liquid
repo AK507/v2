@@ -4,7 +4,8 @@
       <h2 class="latest-h">{{ section.settings.heading }}</h2>
       <div class="latest-filter">
         <button class="filter-btn active" data-filter="all">All</button>
-        {% for tag in section.settings.filter_tags | split: ',' %}
+        {% assign filter_tags = section.settings.filter_tags | split: ',' %}
+        {% for tag in filter_tags %}
           <button class="filter-btn" data-filter="{{ tag | strip | handleize }}">{{ tag | strip }}</button>
         {% endfor %}
       </div>

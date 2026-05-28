@@ -106,7 +106,7 @@
         "product_1": {
           "type": "product",
           "settings": {
-            "product": "",
+            "product": "chocolate-protein-bars",
             "title": "Chocolate Brownie",
             "subtitle": "Protein Bar",
             "icon": "BAR",
@@ -125,7 +125,7 @@
         "product_2": {
           "type": "product",
           "settings": {
-            "product": "",
+            "product": "peanut-butter-bar",
             "title": "Peanut Butter",
             "subtitle": "Protein Bar",
             "icon": "BAR",
@@ -144,7 +144,7 @@
         "product_3": {
           "type": "product",
           "settings": {
-            "product": "",
+            "product": "protein-puffs-bbq",
             "title": "BBQ Protein Puffs",
             "subtitle": "Savory Snack",
             "icon": "BAR",

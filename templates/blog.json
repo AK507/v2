@@ -3,6 +3,9 @@
     "hero": {
       "type": "blog-hero"
     },
+    "featured": {
+      "type": "blog-featured"
+    },
     "pillars": {
       "type": "blog-pillars"
     },
@@ -24,6 +27,7 @@
   },
   "order": [
     "hero",
+    "featured",
     "pillars",
     "latest",
     "editorial",

@@ -2,17 +2,59 @@
   <div class="featured-inner">
     {% if blog.articles.size > 0 %}
       {% assign featured = blog.articles.first %}
-      <a href="{{ featured.url }}" class="featured-main">
-        <div class="featured-tag">{{ featured.tags.first | default: 'Featured' }}</div>
-        <div class="featured-h">{{ featured.title }}</div>
-        <p class="featured-excerpt">{{ featured.excerpt | strip_html | truncate: 160 }}</p>
-        <div class="featured-meta"><span>{{ featured.reading_time | default: '' }}</span><span>·</span><span>{{ featured.published_at | date: "%B %Y" }}</span></div>
-        <div class="featured-read">Read Article →</div>
+      {% assign featured_tag = featured.tags.first | default: 'Featured' %}
+      {% assign featured_tag_handle = featured_tag | handleize %}
+      {% assign featured_accent = '#A69685' %}
+      {% case featured_tag_handle %}
+        {% when 'gut-brain-health' %}
+          {% assign featured_accent = '#66CCCC' %}
+        {% when 'smart-snacking' %}
+          {% assign featured_accent = '#E66443' %}
+        {% when 'energy-mood-cravings' %}
+          {% assign featured_accent = '#E9AD3C' %}
+        {% when 'ingredients-that-matter' %}
+          {% assign featured_accent = '#A69685' %}
+      {% endcase %}
+      {% if featured.excerpt != blank %}
+        {% assign featured_excerpt = featured.excerpt | strip_html | truncate: 160 %}
+      {% else %}
+        {% assign featured_excerpt = featured.content | strip_html | truncate: 160 %}
+      {% endif %}
+
+      <a href="{{ featured.url }}" class="featured-main" style="--accent: {{ featured_accent }};">
+        <div class="featured-main-image">
+          {% if featured.image %}
+            <img src="{{ featured.image | image_url: width: 800 }}" width="{{ featured.image.width }}" height="{{ featured.image.height }}" alt="{{ featured.image.alt | escape | default: featured.title | escape }}">
+          {% else %}
+            {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+          {% endif %}
+        </div>
+        <div class="featured-main-copy">
+          <div class="featured-tag">★ Featured — {{ featured_tag }}</div>
+          <div class="featured-h">{{ featured.title }}</div>
+          <p class="featured-excerpt">{{ featured_excerpt }}</p>
+          <div class="featured-meta"><span>{{ featured.published_at | date: "%B %Y" }}</span><span>·</span><span>{{ featured.published_at | date: "%b %d" }}</span></div>
+          <div class="featured-read">Read Article →</div>
+        </div>
       </a>
+
       <div class="featured-secondary">
         {% for article in blog.articles offset:1 limit:3 %}
-          <a href="{{ article.url }}" class="sec-article" data-slug="{{ article.handle }}">
-            <div class="sec-tag">{{ article.tags.first }}</div>
+          {% assign article_tag = article.tags.first | default: 'General' %}
+          {% assign article_tag_handle = article_tag | handleize %}
+          {% assign article_accent = '#A69685' %}
+          {% case article_tag_handle %}
+            {% when 'gut-brain-health' %}
+              {% assign article_accent = '#66CCCC' %}
+            {% when 'smart-snacking' %}
+              {% assign article_accent = '#E66443' %}
+            {% when 'energy-mood-cravings' %}
+              {% assign article_accent = '#E9AD3C' %}
+            {% when 'ingredients-that-matter' %}
+              {% assign article_accent = '#A69685' %}
+          {% endcase %}
+          <a href="{{ article.url }}" class="sec-article" style="--accent: {{ article_accent }};" data-slug="{{ article.handle }}">
+            <div class="sec-tag">{{ article_tag }}</div>
             <div class="sec-h">{{ article.title }}</div>
             <div class="sec-meta">{{ article.published_at | date: "%b %Y" }}</div>
           </a>

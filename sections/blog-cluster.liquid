@@ -7,7 +7,8 @@
     <div class="cluster-tags">
       {% assign blog_tags = section.settings.tags | split: ',' %}
       {% for tag in blog_tags %}
-        <a href="{{ blog.url }}?tag={{ tag | strip | url_encode }}" class="cluster-tag">{{ tag | strip }}</a>
+        {% assign tag_handle = tag | strip | handleize %}
+        <a href="{{ blog.url }}/tagged/{{ tag_handle }}" class="cluster-tag">{{ tag | strip }}</a>
       {% endfor %}
     </div>
   </div>

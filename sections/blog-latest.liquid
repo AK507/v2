@@ -12,11 +12,35 @@
     </div>
     <div class="articles-grid">
       {% for article in blog.articles limit: section.settings.limit %}
-        {% assign data_cat = article.tags.first | handleize %}
-        <a href="{{ article.url }}" class="article-card" data-cat="{{ data_cat }}">
-          <div class="ac-cat">{{ article.tags.first }}</div>
+        {% assign article_tag = article.tags.first | default: 'General' %}
+        {% assign data_cat = article_tag | handleize %}
+        {% assign article_accent = '#66CCCC' %}
+        {% case data_cat %}
+          {% when 'gut-brain-health' %}
+            {% assign article_accent = '#66CCCC' %}
+          {% when 'smart-snacking' %}
+            {% assign article_accent = '#E66443' %}
+          {% when 'energy-mood-cravings' %}
+            {% assign article_accent = '#E9AD3C' %}
+          {% when 'ingredients-that-matter' %}
+            {% assign article_accent = '#A69685' %}
+        {% endcase %}
+        {% if article.excerpt != blank %}
+          {% assign article_excerpt = article.excerpt | strip_html | truncate: 140 %}
+        {% else %}
+          {% assign article_excerpt = article.content | strip_html | truncate: 140 %}
+        {% endif %}
+        <a href="{{ article.url }}" class="article-card" data-cat="{{ data_cat }}" style="--accent: {{ article_accent }};">
+          <div class="article-image-frame">
+            {% if article.image %}
+              <img src="{{ article.image | image_url: width: 800 }}" width="{{ article.image.width }}" height="{{ article.image.height }}" alt="{{ article.image.alt | escape | default: article.title | escape }}">
+            {% else %}
+              {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+            {% endif %}
+          </div>
+          <div class="ac-cat">{{ article_tag }}</div>
           <div class="ac-h">{{ article.title }}</div>
-          <p class="ac-excerpt">{{ article.excerpt | strip_html | truncate: 140 }}</p>
+          <p class="ac-excerpt">{{ article_excerpt }}</p>
           <div class="ac-meta"><span>{{ article.published_at | date: "%b %Y" }}</span><span class="ac-read">Read →</span></div>
         </a>
       {% endfor %}

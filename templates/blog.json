@@ -3,28 +3,32 @@
     "hero": {
       "type": "blog-hero"
     },
-    "featured": {
-      "type": "blog-featured"
-    },
     "pillars": {
       "type": "blog-pillars"
     },
     "latest": {
       "type": "blog-latest"
     },
+    "editorial": {
+      "type": "blog-editorial"
+    },
     "cluster": {
       "type": "blog-cluster"
     },
     "email": {
       "type": "blog-email"
+    },
+    "footer": {
+      "type": "blog-footer"
     }
   },
   "order": [
     "hero",
-    "featured",
     "pillars",
     "latest",
+    "editorial",
     "cluster",
-    "email"
+    "email",
+    "footer"
   ]
 }

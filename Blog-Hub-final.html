@@ -61,33 +61,33 @@ nav{position:-webkit-sticky;position:sticky;top:0;z-index:200;background:var(--w
 .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 80% 50%,rgba(102,204,204,.05) 0%,transparent 70%);pointer-events:none}
 .hero::after{content:'SNACK SCHOOL';position:absolute;right:-20px;bottom:-40px;font-family:var(--font-head);font-weight:900;font-size:160px;color:rgba(255,255,255,.025);line-height:1;pointer-events:none;white-space:nowrap}
 .hero-inner{max-width:1200px;margin:0 auto;position:relative;z-index:2}
-.hero-top{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:end;margin-bottom:56px}
+.hero-top{display:grid;grid-template-columns:1.1fr 0.9fr;gap:80px;align-items:flex-start;margin-bottom:56px}
 .hero-overline{font-family:var(--font-head);font-weight:700;font-size:11px;letter-spacing:5px;text-transform:uppercase;color:var(--teal);margin-bottom:16px;display:flex;align-items:center;gap:12px}
 .hero-overline::before{content:'';width:28px;height:2px;background:var(--teal);flex-shrink:0}
 .hero-h1{font-family:var(--font-head);font-weight:900;font-size:88px;line-height:.85;text-transform:uppercase;color:var(--white);margin-bottom:0}
 .hero-h1 em{font-style:italic;color:var(--teal);display:block}
 .hero-right{}
-.hero-desc{font-family:var(--font-body);font-size:17px;color:rgba(255,255,255,.6);line-height:1.8;margin-bottom:24px}
+.hero-right .hero-desc{margin-bottom:24px;font-family:var(--font-body);font-size:17px;line-height:1.8;color:rgba(255,255,255,.6)}
 .hero-pillars{display:flex;gap:8px;flex-wrap:wrap}
 .hero-pillar{font-family:var(--font-head);font-weight:700;font-size:10px;letter-spacing:2px;text-transform:uppercase;padding:6px 14px;border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.5)}
 
 /* Featured article */
-.featured-row{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:rgba(255,255,255,.05)}
-.featured-main{padding:36px;background:rgba(255,255,255,.03);position:relative;cursor:pointer;transition:background .2s;text-decoration:none;display:block}
+.featured-row{display:grid;grid-template-columns:1.35fr 0.85fr;gap:2px;background:rgba(255,255,255,.05);margin-top:48px;border-radius:18px;overflow:hidden}
+.featured-main{display:grid;grid-template-columns:1.15fr 0.85fr;gap:24px;padding:30px;text-decoration:none;color:inherit;background:rgba(255,255,255,.03);transition:background .2s ease}
 .featured-main:hover{background:rgba(255,255,255,.06)}
+.featured-main-image{border-radius:14px;overflow:hidden;min-height:220px;background:linear-gradient(160deg, rgba(102,204,204,.28), rgba(255,255,255,.08))}
+.featured-main-image img{width:100%;height:100%;object-fit:cover}
+.featured-main-copy{display:flex;flex-direction:column}
 .featured-tag{font-family:var(--font-head);font-weight:700;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--teal);margin-bottom:14px}
 .featured-h{font-family:var(--font-head);font-weight:900;font-size:36px;line-height:.95;text-transform:uppercase;color:var(--white);margin-bottom:12px}
 .featured-excerpt{font-family:var(--font-body);font-size:14px;color:rgba(255,255,255,.55);line-height:1.7;margin-bottom:20px}
-.featured-meta{font-family:var(--font-body);font-size:12px;color:rgba(255,255,255,.3);display:flex;align-items:center;gap:12px}
-.featured-read{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-head);font-weight:700;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--teal);margin-top:16px;transition:color .2s}
+.featured-meta{display:flex;align-items:center;gap:12px;margin-top:auto;font-family:var(--font-body);font-size:12px;color:rgba(255,255,255,.3)}
+.featured-read{display:inline-flex;align-items:center;gap:6px;margin-top:16px;font-family:var(--font-head);font-weight:700;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--teal);}
 .featured-secondary{display:flex;flex-direction:column;gap:2px}
-.sec-article{padding:24px 28px;background:rgba(255,255,255,.02);cursor:pointer;transition:background .2s;text-decoration:none;display:block;border-left:3px solid transparent}
-.sec-article:nth-child(1){border-left-color:var(--cat-smart)}
-.sec-article:nth-child(2){border-left-color:var(--cat-energy)}
-.sec-article:nth-child(3){border-left-color:var(--cat-ingr)}
+.sec-article{display:flex;flex-direction:column;gap:8px;padding:24px 28px;text-decoration:none;color:inherit;background:rgba(255,255,255,.02);border-left:3px solid var(--accent, #A69685);transition:background .2s ease}
 .sec-article:hover{background:rgba(255,255,255,.04)}
-.sec-tag{font-family:var(--font-head);font-weight:700;font-size:9px;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px}
-.sec-h{font-family:var(--font-head);font-weight:900;font-size:19px;text-transform:uppercase;color:var(--white);line-height:1.05;margin-bottom:6px}
+.sec-tag{font-family:var(--font-head);font-weight:700;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--accent, #A69685)}
+.sec-h{margin:0;font-family:var(--font-head);font-weight:900;font-size:19px;line-height:1.05;text-transform:uppercase;color:var(--white)}
 .sec-meta{font-family:var(--font-body);font-size:12px;color:rgba(255,255,255,.3)}
 
 /* ===== CATEGORY PILLARS ===== */
@@ -229,27 +229,32 @@ footer{background:var(--black);padding:48px 80px 32px;border-top:1px solid rgba(
 
     <!-- Featured articles -->
     <div class="featured-row fade-up fade-up-2">
-      <a href="100CalSnacks-Blog-Article.html" class="featured-main" data-slug="why-your-gut-controls-your-cravings">
-        <div class="featured-tag">★ Featured — Gut-Brain Health</div>
-        <div class="featured-h">Why Your Gut Controls Your Cravings — Not Your Willpower</div>
-        <p class="featured-excerpt">The urge to reach for something sweet at 3pm isn't a failure of discipline. It's a signal from your gut-brain axis — and once you understand it, you can work with it instead of against it.</p>
-        <div class="featured-meta"><span>8 min read</span><span>·</span><span>March 2026</span></div>
-        <div class="featured-read">Read Article →</div>
+      <a href="#" class="featured-main" data-slug="placeholder-featured">
+        <div class="featured-main-image">
+          <img src="https://via.placeholder.com/640x420?text=Featured+Story" alt="Featured story image">
+        </div>
+        <div class="featured-main-copy">
+          <div class="featured-tag">★ Featured — Gut-Brain Health</div>
+          <h2 class="featured-h">Featured Article Title Goes Here</h2>
+          <p class="featured-excerpt">This is placeholder copy for the featured blog story. It shows how the hero section should look with image, headline, summary, and meta information.</p>
+          <div class="featured-meta"><span>8 min read</span><span>·</span><span>March 2026</span></div>
+          <div class="featured-read">Read Article →</div>
+        </div>
       </a>
       <div class="featured-secondary">
-        <a href="100CalSnacks-Blog-Article.html" class="sec-article" data-slug="what-to-eat-stress-cravings">
-          <div class="sec-tag" style="color:var(--cat-smart)">Smart Snacking</div>
-          <div class="sec-h">What to Eat When Stress Makes You Crave Sugar</div>
+        <a href="#" class="sec-article" style="--accent: var(--bh-cat-smart);">
+          <div class="sec-tag">Smart Snacking</div>
+          <h3 class="sec-h">Placeholder Smart Snack Story</h3>
           <div class="sec-meta">6 min read · Feb 2026</div>
         </a>
-        <a href="100CalSnacks-Blog-Article.html" class="sec-article" data-slug="3pm-crash-gut-issue">
-          <div class="sec-tag" style="color:var(--cat-energy)">Energy, Mood & Cravings</div>
-          <div class="sec-h">Why the 3pm Energy Crash Is a Gut Issue, Not a Sleep Issue</div>
+        <a href="#" class="sec-article" style="--accent: var(--bh-cat-energy);">
+          <div class="sec-tag">Energy, Mood & Cravings</div>
+          <h3 class="sec-h">Placeholder Energy Story</h3>
           <div class="sec-meta">5 min read · Feb 2026</div>
         </a>
-        <a href="100CalSnacks-Blog-Article.html" class="sec-article" data-slug="what-prebiotic-fiber-does">
-          <div class="sec-tag" style="color:var(--cat-ingr)">Ingredients That Matter</div>
-          <div class="sec-h">What Prebiotic Fiber Actually Does to Your Microbiome</div>
+        <a href="#" class="sec-article" style="--accent: var(--bh-cat-ingr);">
+          <div class="sec-tag">Ingredients That Matter</div>
+          <h3 class="sec-h">Placeholder Ingredient Story</h3>
           <div class="sec-meta">7 min read · Jan 2026</div>
         </a>
       </div>

@@ -120,7 +120,7 @@
 
 .featured-row {
   display: grid;
-  grid-template-columns: 1.35fr 0.85fr;
+  grid-template-columns: 1fr 1fr;
   gap: 2px;
   background: rgba(255,255,255,.05);
   border-radius: 18px;
@@ -129,7 +129,7 @@
 
 .featured-main {
   display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
+  grid-template-columns: 1fr;
   gap: 24px;
   padding: 30px;
   text-decoration: none;

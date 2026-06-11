@@ -750,6 +750,7 @@
 {% schema %}
 {
   "name": "100Cal Ingredients Page",
+  "max_blocks": 60,
   "settings": [
     { "type": "text", "id": "hero_eyebrow", "label": "Hero eyebrow", "default": "Ingredient Index" },
     { "type": "html", "id": "hero_heading", "label": "Hero heading", "default": "Every Ingredient<br>Has a Purpose.<br><em>Every Calorie<br>Earns Its Place.</em>" },
@@ -812,7 +813,7 @@
     { "type": "html", "id": "quiz_heading", "label": "Quiz heading", "default": "Discover Your<br>Gut-Brain Type" },
     { "type": "textarea", "id": "quiz_subheading", "label": "Quiz subheading", "default": "Now that you know what's inside - find out which formulation was built for your gut-brain pattern. 60 seconds. Personalized to you." },
     { "type": "text", "id": "quiz_label", "label": "Quiz button label", "default": "Take the Free Quiz →" },
-    { "type": "url", "id": "quiz_link", "label": "Quiz button link", "default": "/pages/quiz" },
+    { "type": "url", "id": "quiz_link", "label": "Quiz button link" },
     { "type": "text", "id": "blog_eyebrow", "label": "Blog eyebrow", "default": "Go Deeper" },
     { "type": "html", "id": "blog_heading", "label": "Blog heading", "default": "Learn More About<br>Gut-Brain Nutrition" }
   ],
@@ -868,7 +869,7 @@
         { "type": "text", "id": "product_2", "label": "Product tag 2", "default": "Peanut Butter Bar" },
         { "type": "text", "id": "product_3", "label": "Product tag 3", "default": "BBQ Protein Puffs" },
         { "type": "text", "id": "read_more_label", "label": "Read more label", "default": "Read More" },
-        { "type": "url", "id": "read_more_link", "label": "Read more link" },
+        { "type": "text", "id": "read_more_link", "label": "Read more link" },
         { "type": "text", "id": "read_more_text", "label": "Read more text", "default": "Why Prebiotic Fiber Matters for Gut Health →" },
         { "type": "checkbox", "id": "open_new_tab", "label": "Open in new tab", "default": true }
       ]
@@ -897,7 +898,7 @@
         { "type": "text", "id": "name", "label": "Name", "default": "Chocolate Brownie Bar" },
         { "type": "textarea", "id": "ingredients", "label": "Ingredients", "default": "Key functional ingredients:\n• Almond Butter\n• Chicory Root Fiber\n• Pea + Rice Protein\n• Ashwagandha\n• Cocoa" },
         { "type": "text", "id": "cta", "label": "CTA", "default": "Shop Now" },
-        { "type": "url", "id": "link", "label": "Link", "default": "/collections/all" }
+        { "type": "url", "id": "link", "label": "Link" }
       ]
     },
     {
@@ -905,7 +906,7 @@
       "name": "Blog link",
       "settings": [
         { "type": "text", "id": "label", "label": "Label", "default": "What Is the Gut-Brain Axis?" },
-        { "type": "url", "id": "link", "label": "Link" },
+        { "type": "text", "id": "link", "label": "Link" },
         { "type": "checkbox", "id": "open_new_tab", "label": "Open in new tab", "default": true }
       ]
     }

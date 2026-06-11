@@ -12,21 +12,55 @@
   "type": "footer",
   "sections": {
     "footer": {
-      "type": "footer",
+      "type": "100cal-footer",
       "settings": {
-        "color_scheme": "scheme-1",
-        "newsletter_enable": true,
-        "newsletter_heading": "Subscribe to our emails",
-        "enable_follow_on_shop": true,
-        "show_social": true,
-        "enable_country_selector": true,
-        "enable_language_selector": true,
-        "payment_enable": true,
-        "show_policy": true,
-        "margin_top": 0,
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
+        "bio": "Built from the struggle. Engineered for the journey. Woman-owned, science-backed, and genuinely built for people who want better.",
+        "story_label": "This is our founder's story ->",
+        "story_link": "/pages/our-story",
+        "copyright": "Copyright 2026 100CalSnacks.com - All Rights Reserved",
+        "badge": "Woman-Owned Business",
+        "legal": "Privacy - Terms - Accessibility"
+      },
+      "blocks": {
+        "footer_1": {
+          "type": "menu",
+          "settings": {
+            "heading": "Shop",
+            "menu": "",
+            "fallback_links": "Chocolate Brownie Bar\nPeanut Butter Bar\nBBQ Protein Puffs\nSubscribe & Save\nBundles"
+          }
+        },
+        "footer_2": {
+          "type": "menu",
+          "settings": {
+            "heading": "Learn",
+            "menu": "",
+            "fallback_links": "Gut Brain Health 101\nOur Science\nIngredient Index\nGLP-1 Guide\nBlog"
+          }
+        },
+        "footer_3": {
+          "type": "menu",
+          "settings": {
+            "heading": "Community",
+            "menu": "",
+            "fallback_links": "#100CalPal\nInstagram\nTikTok\nAffiliate Program\nReviews"
+          }
+        },
+        "footer_4": {
+          "type": "menu",
+          "settings": {
+            "heading": "Support",
+            "menu": "",
+            "fallback_links": "Our Story\nFAQ\nShipping & Returns\nFind In Store\nContact"
+          }
+        }
+      },
+      "block_order": [
+        "footer_1",
+        "footer_2",
+        "footer_3",
+        "footer_4"
+      ]
     }
   },
   "order": [

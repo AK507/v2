@@ -11,29 +11,14 @@
   "name": "t:sections.header.name",
   "type": "header",
   "sections": {
-    "announcement-bar": {
-      "type": "announcement-bar",
-      "blocks": {
-        "announcement-bar-0": {
-          "type": "announcement",
-          "settings": {
-            "text": "Welcome to our store",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "announcement-bar-0"
-      ],
-      "disabled": true,
+    "100cal_announcement_RYzHXA": {
+      "type": "100cal-announcement",
+      "name": "100Cal Announcement",
       "settings": {
-        "auto_rotate": false,
-        "change_slides_speed": 5,
-        "color_scheme": "scheme-1",
-        "show_line_separator": true,
-        "show_social": false,
-        "enable_country_selector": false,
-        "enable_language_selector": false
+        "text_before": "Free Shipping on Orders $25+",
+        "text_middle": "Subscribe & Save 10%",
+        "text_after": "Now Available in Stores",
+        "separator": "*"
       }
     },
     "header": {
@@ -45,21 +30,10 @@
         "cta_label": "Try It First ->",
         "cta_url": "shopify://collections/all"
       }
-    },
-    "100cal_announcement_3PmGPF": {
-      "type": "100cal-announcement",
-      "name": "100Cal Announcement",
-      "settings": {
-        "text_before": "Free Shipping on Orders $25+",
-        "text_middle": "Subscribe & Save 10%",
-        "text_after": "Now Available in Stores",
-        "separator": "*"
-      }
     }
   },
   "order": [
-    "announcement-bar",
-    "100cal_announcement_3PmGPF",
+    "100cal_announcement_RYzHXA",
     "header"
   ]
 }

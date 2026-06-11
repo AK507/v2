@@ -1,0 +1,1625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Gut-Brain Ingredient Library — 100CalSnacks</title>
+<meta name="description" content="Every ingredient in 100 Cal Snacks is selected to support the gut-brain axis. Explore our full ingredient index — prebiotic fiber, adaptogens, clean protein, and zero sugar alcohols.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,700;0,900;1,700;1,900&family=Barlow:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --black:#0F1213;--white:#FFFFFF;
+  --teal:#66CCCC;--teal-dark:#3A9999;--teal-pastel:#C2EBEB;
+  --orange:#E66443;--yellow:#E9AD3C;--red:#D50000;
+  --grey-warm:#E8D7C3;--grey-mid:#DDD8CC;--grey-dark:#A69685;
+  --platinum:#EAE9E5;
+  --font-head:'Barlow Condensed',sans-serif;
+  --font-body:'Barlow',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-body);color:var(--white);background:var(--black);overflow-x:hidden}
+
+/* ===== NAV ===== */
+.topbar{background:var(--black);border-bottom:1px solid rgba(255,255,255,.06);text-align:center;padding:10px 24px;font-family:var(--font-head);font-weight:700;font-size:13px;letter-spacing:1.5px;text-transform:uppercase}
+.topbar span{color:var(--teal);margin:0 10px}
+nav{background:var(--black);border-bottom:2px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:space-between;padding:0 56px;height:72px;position:sticky;top:0;z-index:200}
+.nav-brand{font-family:var(--font-head);font-weight:900;font-size:22px;letter-spacing:1px;text-transform:uppercase;color:var(--white);text-decoration:none}
+.nav-brand span{color:var(--orange)}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{font-family:var(--font-head);font-weight:700;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.5);text-decoration:none;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--teal)}
+.nav-cta{font-family:var(--font-head);font-weight:900;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;padding:10px 22px;background:var(--teal);color:var(--black);text-decoration:none;transition:background .2s}
+.nav-cta:hover{background:var(--teal-dark)}
+
+/* ===== SHARED ===== */
+.eyebrow{font-family:var(--font-head);font-weight:700;font-size:12px;letter-spacing:4px;text-transform:uppercase;color:var(--teal)}
+.pill-btn{display:inline-block;font-family:var(--font-head);font-weight:900;font-size:14px;letter-spacing:2px;text-transform:uppercase;padding:18px 44px;background:var(--teal);color:var(--black);text-decoration:none;transition:all .25s}
+.pill-btn:hover{background:var(--teal-dark);color:var(--white)}
+.ghost-btn{display:inline-block;font-family:var(--font-head);font-weight:900;font-size:13px;letter-spacing:2px;text-transform:uppercase;padding:14px 32px;background:transparent;color:var(--white);border:1.5px solid rgba(255,255,255,.2);text-decoration:none;transition:all .25s}
+.ghost-btn:hover{border-color:var(--white)}
+
+/* ===== 1. HERO ===== */
+.hero{min-height:80vh;background:var(--black);display:flex;align-items:center;position:relative;overflow:hidden;padding:80px 80px 80px 56px}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 70% at 70% 50%,rgba(102,204,204,.04) 0%,transparent 70%);pointer-events:none}
+.hero-inner{max-width:1200px;width:100%;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;position:relative;z-index:2}
+.hero-overline{margin-bottom:20px}
+.hero-h1{font-family:var(--font-head);font-weight:900;font-size:80px;line-height:.88;text-transform:uppercase;color:var(--white);margin-bottom:28px}
+.hero-h1 em{font-style:italic;color:var(--teal);display:block}
+.hero-sub{font-family:var(--font-body);font-size:17px;color:rgba(255,255,255,.55);line-height:1.75;margin-bottom:32px;max-width:460px}
+.hero-micro{font-family:var(--font-head);font-weight:700;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.25);margin-bottom:36px}
+.hero-micro span{color:var(--teal);margin-right:6px}
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap}
+/* Ingredient family grid — right side of hero */
+.hero-mosaic{display:flex;flex-direction:column;gap:3px}
+.mosaic-label-top{font-family:var(--font-head);font-weight:700;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.25);margin-bottom:10px}
+.mosaic-cell{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);display:flex;align-items:center;gap:16px;padding:16px 20px;transition:all .3s;text-decoration:none;border-left:3px solid transparent}
+.mosaic-cell:nth-child(2){border-left-color:var(--teal)}
+.mosaic-cell:nth-child(3){border-left-color:var(--orange)}
+.mosaic-cell:nth-child(4){border-left-color:var(--yellow)}
+.mosaic-cell:nth-child(5){border-left-color:var(--teal-pastel)}
+.mosaic-cell:nth-child(6){border-left-color:var(--grey-dark)}
+.mosaic-cell:nth-child(7){border-left-color:var(--grey-warm)}
+.mosaic-cell:hover{background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.12)}
+.mosaic-icon{font-size:22px;flex-shrink:0;width:32px;text-align:center}
+.mosaic-text{}
+.mosaic-label{font-family:var(--font-head);font-weight:900;font-size:15px;text-transform:uppercase;color:var(--white);letter-spacing:.5px;line-height:1;margin-bottom:2px}
+.mosaic-sublabel{font-family:var(--font-body);font-size:12px;color:rgba(255,255,255,.35);line-height:1.3}
+
+/* ===== 2. FRAMEWORK ===== */
+.framework-section{padding:80px;background:#EAE9E5;border-top:none}
+.framework-inner{max-width:1200px;margin:0 auto}
+.framework-header{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:end;margin-bottom:48px}
+.framework-h{font-family:var(--font-head);font-weight:900;font-size:52px;line-height:.9;text-transform:uppercase;color:var(--black)}
+.framework-sub{font-family:var(--font-body);font-size:15px;color:rgba(15,18,19,.6);line-height:1.7}
+.framework-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;background:transparent}
+.framework-block{background:#FFFFFF;padding:32px 24px;border-top:3px solid transparent;transition:border-color .3s;box-shadow:0 1px 3px rgba(15,18,19,.06)}
+.framework-block:nth-child(1){border-top-color:var(--teal)}
+.framework-block:nth-child(2){border-top-color:var(--orange)}
+.framework-block:nth-child(3){border-top-color:var(--yellow)}
+.framework-block:nth-child(4){border-top-color:var(--grey-dark)}
+.framework-icon{font-size:32px;margin-bottom:14px}
+.framework-name{font-family:var(--font-head);font-weight:900;font-size:20px;text-transform:uppercase;color:var(--black);letter-spacing:.5px;margin-bottom:8px}
+.framework-desc{font-family:var(--font-body);font-size:14px;color:rgba(15,18,19,.55);line-height:1.6}
+
+
+/* ===== DOSING PHILOSOPHY ===== */
+.dosing-section{padding:80px;background:#C2EBEB;border-top:none}
+.dosing-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 2fr;gap:80px;align-items:start}
+.dosing-h{font-family:var(--font-head);font-weight:900;font-size:64px;line-height:.88;text-transform:uppercase;color:var(--black);margin-bottom:0}
+.dosing-h em{font-style:italic;color:#3A9999;display:block}
+.dosing-body{font-family:var(--font-body);font-size:16px;color:rgba(15,18,19,.65);line-height:1.75;margin-bottom:20px}
+.dosing-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;background:transparent;margin:32px 0}
+.dosing-stat{background:#0F1213;padding:24px 20px}
+.dosing-stat-num{font-family:var(--font-head);font-weight:900;font-size:44px;color:var(--teal);line-height:1;margin-bottom:6px}
+.dosing-stat-label{font-family:var(--font-head);font-weight:700;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--white);margin-bottom:8px}
+.dosing-stat-sub{font-family:var(--font-body);font-size:13px;color:rgba(255,255,255,.5);line-height:1.5}
+.dosing-callout{border-left:3px solid #3A9999;padding:18px 22px;background:rgba(15,18,19,.05);font-family:var(--font-body);font-size:15px;color:rgba(15,18,19,.65);line-height:1.7;font-style:italic}
+
+/* ===== 3. INGREDIENT LIBRARY ===== */
+.library-section{padding:80px;background:#111617;border-top:1px solid rgba(255,255,255,.06)}
+.library-inner{max-width:1200px;margin:0 auto}
+.library-header{margin-bottom:56px}
+.library-h{font-family:var(--font-head);font-weight:900;font-size:64px;line-height:.88;text-transform:uppercase;color:var(--white);margin-bottom:16px}
+.library-sub{font-family:var(--font-body);font-size:16px;color:rgba(255,255,255,.5);max-width:600px;line-height:1.7}
+
+/* Filter tabs */
+.filter-tabs{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:48px}
+.filter-tab{font-family:var(--font-head);font-weight:700;font-size:11px;letter-spacing:2px;text-transform:uppercase;padding:9px 18px;background:transparent;border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.35);cursor:pointer;transition:all .2s}
+.filter-tab:hover{border-color:rgba(255,255,255,.3);color:rgba(255,255,255,.7)}
+.filter-tab.active{background:var(--teal);border-color:var(--teal);color:var(--black)}
+
+/* Ingredient group */
+.ingr-group{margin-bottom:80px}
+.ingr-group:last-child{margin-bottom:0}
+.group-header{display:flex;align-items:center;gap:20px;padding:24px 32px;background:#EAE9E5;border-left:6px solid var(--teal);margin-bottom:2px}
+.group-icon{font-size:28px;line-height:1;flex-shrink:0}
+.group-name{font-family:var(--font-head);font-weight:900;font-size:36px;text-transform:uppercase;color:var(--black);letter-spacing:.5px;line-height:1}
+.group-count{font-family:var(--font-head);font-weight:700;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:rgba(15,18,19,.4);margin-left:auto;padding:5px 14px;border:1px solid rgba(15,18,19,.15);white-space:nowrap}
+
+/* Ingredient cards grid */
+.ingr-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.06)}
+
+/* Individual ingredient card */
+.ingr-card{background:#111617;padding:0;transition:all .25s;cursor:pointer;position:relative}
+.ingr-card:hover{background:#111}
+.ingr-card.expanded{background:#0E1414}
+.ingr-card-header{padding:24px 24px 20px;display:flex;align-items:flex-start;gap:14px;border-left:3px solid transparent;transition:border-color .2s}
+.ingr-card:hover .ingr-card-header,.ingr-card.expanded .ingr-card-header{border-left-color:var(--teal)}
+.ingr-card-icon{font-size:24px;flex-shrink:0;margin-top:2px}
+.ingr-card-top{}
+.ingr-card-name{font-family:var(--font-head);font-weight:900;font-size:18px;text-transform:uppercase;color:var(--white);letter-spacing:.5px;line-height:1;margin-bottom:4px}
+.ingr-card-tagline{font-family:var(--font-body);font-size:13px;color:rgba(255,255,255,.45);line-height:1.4}
+.ingr-card-toggle{position:absolute;top:24px;right:20px;width:24px;height:24px;border:1px solid rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;font-size:14px;color:rgba(255,255,255,.3);transition:all .2s;background:none;cursor:pointer;flex-shrink:0}
+.ingr-card.expanded .ingr-card-toggle{background:var(--teal);border-color:var(--teal);color:var(--black);transform:rotate(45deg)}
+.ingr-card-body{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.ingr-card.expanded .ingr-card-body{max-height:400px}
+.ingr-card-detail{padding:0 24px 24px 61px;display:flex;flex-direction:column;gap:12px}
+.ingr-detail-row{display:flex;flex-direction:column;gap:4px}
+.ingr-detail-label{font-family:var(--font-head);font-weight:700;font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,.25)}
+.ingr-detail-text{font-family:var(--font-body);font-size:14px;color:rgba(255,255,255,.65);line-height:1.6}
+.ingr-detail-text.gut-brain{color:var(--teal)}
+.ingr-products{display:flex;gap:6px;flex-wrap:wrap;margin-top:4px}
+.ingr-product-tag{font-family:var(--font-head);font-weight:700;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;padding:3px 10px;border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.4)}
+.ingr-product-tag.choc{border-color:rgba(102,204,204,.35);color:var(--teal)}
+.ingr-product-tag.pb{border-color:rgba(233,173,60,.35);color:var(--yellow)}
+.ingr-product-tag.bbq{border-color:rgba(230,100,67,.35);color:var(--orange)}
+
+/* ===== 4. SWEETENER PHILOSOPHY ===== */
+.sweet-section{padding:80px;background:#EAE9E5;border-top:none}
+.sweet-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.sweet-h{font-family:var(--font-head);font-weight:900;font-size:52px;line-height:.9;text-transform:uppercase;color:var(--black);margin-bottom:20px}
+.sweet-body{font-family:var(--font-body);font-size:15px;color:rgba(15,18,19,.6);line-height:1.75;margin-bottom:24px}
+.sweet-vs{display:grid;grid-template-columns:1fr 1fr;gap:8px;background:transparent}
+.sweet-col{background:#FFFFFF;padding:28px 24px;box-shadow:0 1px 3px rgba(15,18,19,.06)}
+.sweet-col-label{font-family:var(--font-head);font-weight:900;font-size:13px;text-transform:uppercase;letter-spacing:.5px;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid transparent}
+.sweet-col.no .sweet-col-label{color:rgba(15,18,19,.4);border-color:rgba(15,18,19,.12)}
+.sweet-col.yes .sweet-col-label{color:var(--teal);border-color:var(--teal)}
+.sweet-item{font-family:var(--font-body);font-size:14px;color:rgba(15,18,19,.55);padding:7px 0;border-bottom:1px solid rgba(15,18,19,.06);display:flex;align-items:center;gap:8px}
+.sweet-item:last-child{border-bottom:none}
+.sweet-item .si-mark{font-size:12px;flex-shrink:0}
+.sweet-col.no .si-mark{color:rgba(15,18,19,.25)}
+.sweet-col.yes .si-mark{color:var(--teal)}
+
+/* ===== 5. PRODUCT MAPS ===== */
+.maps-section{padding:80px;background:#0A1A1A;border-top:1px solid rgba(102,204,204,.1)}
+.maps-inner{max-width:1200px;margin:0 auto}
+.maps-h{font-family:var(--font-head);font-weight:900;font-size:52px;line-height:.9;text-transform:uppercase;color:var(--white);margin-bottom:12px}
+.maps-sub{font-family:var(--font-body);font-size:15px;color:rgba(255,255,255,.5);line-height:1.65;margin-bottom:40px;max-width:540px}
+.maps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:rgba(255,255,255,.05)}
+.map-card{background:var(--black);padding:0;display:flex;flex-direction:column}
+.map-card-top{padding:28px 28px 20px;border-top:4px solid transparent}
+.map-card.choc .map-card-top{border-top-color:var(--teal)}
+.map-card.pb .map-card-top{border-top-color:var(--yellow)}
+.map-card.bbq .map-card-top{border-top-color:var(--orange)}
+.map-emoji{font-size:32px;margin-bottom:12px}
+.map-name{font-family:var(--font-head);font-weight:900;font-size:22px;text-transform:uppercase;color:var(--white);letter-spacing:.5px;line-height:1;margin-bottom:4px}
+.map-sub{font-family:var(--font-body);font-size:13px;color:rgba(255,255,255,.35);margin-bottom:20px}
+.map-ingr-list{list-style:none;display:flex;flex-direction:column;gap:0;border-top:1px solid rgba(255,255,255,.05)}
+.map-ingr-item{font-family:var(--font-body);font-size:14px;color:rgba(255,255,255,.6);padding:10px 28px;border-bottom:1px solid rgba(255,255,255,.04);display:flex;align-items:center;gap:10px}
+.map-ingr-item:last-child{border-bottom:none}
+.map-ingr-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+.map-card.choc .map-ingr-dot{background:var(--teal)}
+.map-card.pb .map-ingr-dot{background:var(--yellow)}
+.map-card.bbq .map-ingr-dot{background:var(--orange)}
+.map-cta{padding:18px 28px;margin-top:auto;font-family:var(--font-head);font-weight:900;font-size:12px;letter-spacing:2.5px;text-transform:uppercase;text-decoration:none;display:flex;align-items:center;justify-content:space-between;background:var(--teal);border-top:none;color:var(--black);transition:all .3s}
+.map-cta:hover{background:var(--teal-dark);color:var(--white)}
+
+
+
+.map-cta span{font-size:18px;transition:transform .25s}
+.map-cta:hover span{transform:translateX(4px)}
+
+/* ===== 6. BLOG LINKS ===== */
+.blog-section{padding:80px;background:#EAE9E5;border-top:none}
+.blog-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 2fr;gap:80px;align-items:start}
+.blog-h{font-family:var(--font-head);font-weight:900;font-size:44px;line-height:.9;text-transform:uppercase;color:var(--black)}
+.blog-links{display:flex;flex-direction:column;gap:4px;background:transparent}
+.blog-link{padding:18px 24px;background:#FFFFFF;display:flex;align-items:center;justify-content:space-between;text-decoration:none;transition:all .2s;border-left:3px solid transparent;box-shadow:0 1px 2px rgba(15,18,19,.05)}
+.blog-link:hover{background:#F0FAFA;border-left-color:var(--teal-dark)}
+.blog-link-text{font-family:var(--font-head);font-weight:700;font-size:15px;text-transform:uppercase;color:rgba(15,18,19,.7);letter-spacing:.5px}
+.blog-link:hover .blog-link-text{color:var(--black)}
+.blog-link-arrow{font-family:var(--font-head);font-weight:700;font-size:13px;color:rgba(15,18,19,.3);transition:color .2s}
+.blog-link:hover .blog-link-arrow{color:var(--teal-dark)}
+
+/* ===== QUIZ CTA ===== */
+.quiz-strip{padding:72px 80px;background:var(--teal);position:relative;overflow:hidden;text-align:center}
+.quiz-strip::before{content:'QUIZ';position:absolute;left:50%;top:30%;transform:translate(-50%,-50%);font-family:var(--font-head);font-weight:900;font-size:280px;color:rgba(0,0,0,.1);pointer-events:none;white-space:nowrap}
+.quiz-strip-inner{position:relative;z-index:2;max-width:640px;margin:0 auto}
+.quiz-strip-eyebrow{font-family:var(--font-head);font-weight:700;font-size:11px;letter-spacing:4px;text-transform:uppercase;color:rgba(0,0,0,.45);margin-bottom:14px}
+.quiz-strip-h{font-family:var(--font-head);font-weight:900;font-size:56px;line-height:.9;text-transform:uppercase;color:var(--black);margin-bottom:16px}
+.quiz-strip-sub{font-family:var(--font-body);font-size:16px;color:rgba(0,0,0,.55);line-height:1.6;margin-bottom:32px}
+.quiz-strip-btn{display:inline-block;font-family:var(--font-head);font-weight:900;font-size:14px;letter-spacing:2px;text-transform:uppercase;padding:18px 44px;background:var(--black);color:var(--white);text-decoration:none;transition:all .25s}
+.quiz-strip-btn:hover{background:#1a1a1a}
+
+/* ===== FOOTER ===== */
+footer{background:var(--black);padding:48px 80px 32px;border-top:1px solid rgba(255,255,255,.06)}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:60px;margin-bottom:40px}
+.footer-brand{font-family:var(--font-head);font-weight:900;font-size:24px;text-transform:uppercase;color:var(--white);margin-bottom:6px}
+.footer-brand span{color:var(--orange)}
+.footer-tagline{font-family:var(--font-head);font-weight:700;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--teal);margin-bottom:14px}
+.footer-bio{font-family:var(--font-body);font-size:14px;color:rgba(255,255,255,.3);line-height:1.65}
+.footer-col-title{font-family:var(--font-head);font-weight:900;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:14px}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:8px}
+.footer-links a{font-family:var(--font-body);font-size:14px;color:rgba(255,255,255,.28);text-decoration:none;transition:color .2s}
+.footer-links a:hover{color:var(--teal)}
+.footer-btm{display:flex;justify-content:space-between;align-items:center;padding-top:24px;border-top:1px solid rgba(255,255,255,.05);font-family:var(--font-body);font-size:12px;color:rgba(255,255,255,.18)}
+.footer-disclaimer{max-width:520px;line-height:1.5}
+
+/* ===== ANIMATIONS ===== */
+.fade-up{opacity:0;transform:translateY(24px);transition:opacity .65s ease,transform .65s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+.fade-up-2{transition-delay:.12s}
+.fade-up-3{transition-delay:.24s}
+.fade-up-4{transition-delay:.36s}
+
+/* Read more blog link inside card */
+.ingr-read-more{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-head);font-weight:700;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--teal);text-decoration:none;border-bottom:1px solid rgba(102,204,204,.3);padding-bottom:2px;transition:all .2s}
+.ingr-read-more:hover{border-bottom-color:var(--teal);color:#88DDDD}
+.ingr-read-more-label{font-family:var(--font-head);font-weight:700;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.3);margin-top:16px;margin-bottom:6px;display:flex;align-items:center;gap:8px}.ingr-read-more-label::before{content:"";flex:1;height:1px;background:rgba(255,255,255,.06)}.ingr-read-more-label::after{content:"";flex:1;height:1px;background:rgba(255,255,255,.06)}
+
+/* ===== SEE IN ACTION ===== */
+.action-section{padding:80px;background:#161B1B;border-top:none}
+.action-inner{max-width:1200px;margin:0 auto}
+.action-header{margin-bottom:40px}
+.action-h{font-family:var(--font-head);font-weight:900;font-size:56px;line-height:.9;text-transform:uppercase;color:var(--white);margin-bottom:12px}
+.action-sub{font-family:var(--font-body);font-size:16px;color:rgba(255,255,255,.5);line-height:1.65;max-width:520px}
+.action-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;background:transparent}
+.action-card{background:#FFFFFF;padding:0;display:flex;flex-direction:column;text-decoration:none;border-top:4px solid transparent;transition:all .3s;box-shadow:0 1px 4px rgba(15,18,19,.08)}
+.action-card.choc{border-top-color:var(--teal)}
+.action-card.pb{border-top-color:var(--yellow)}
+.action-card.bbq{border-top-color:var(--orange)}
+.action-card:hover{background:#F8F6F3}
+.action-card-top{padding:28px 28px 16px;display:flex;align-items:center;gap:16px}
+.action-emoji{font-size:36px;flex-shrink:0}
+.action-pattern{font-family:var(--font-head);font-weight:700;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:4px}
+.action-card.choc .action-pattern{color:var(--teal-dark)}
+.action-card.pb .action-pattern{color:var(--yellow)}
+.action-card.bbq .action-pattern{color:var(--orange)}
+.action-name{font-family:var(--font-head);font-weight:900;font-size:22px;text-transform:uppercase;color:var(--black);letter-spacing:.5px;line-height:1}
+.action-ingredients{font-family:var(--font-body);font-size:13px;color:rgba(15,18,19,.45);line-height:1.6;padding:0 28px 24px;flex:1}
+.action-cta{margin-top:auto;padding:16px 28px;border-top:none;font-family:var(--font-head);font-weight:900;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--black);background:var(--teal);display:flex;align-items:center;justify-content:space-between;transition:all .3s}
+.action-card:hover .action-cta{background:var(--teal-dark);color:var(--white)}
+
+
+
+.action-cta span{font-size:16px;transition:transform .25s}
+.action-card:hover .action-cta span{transform:translateX(4px)}
+.framework-section .eyebrow{color:var(--teal-dark)}
+</style>
+</head>
+<body>
+
+<div class="topbar">No Fillers <span>·</span> No Mystery Blends <span>·</span> Every Ingredient Earns Its Place</div>
+
+<nav>
+  <a href="100CalSnacks-PDP-ChocolateBrownieBar-v4.html" class="nav-brand">100<span>Cal</span>Snacks</a>
+  <ul class="nav-links">
+    <li><a href="100CalSnacks-PDP-ChocolateBrownieBar-v4.html">Shop</a></li>
+    <li><a href="100CalSnacks-GutBrain101.html">Gut-Brain 101</a></li>
+    <li><a href="#" class="active">Ingredients</a></li>
+    <li><a href="100CalSnacks-GutBrainQuiz.html">Quiz</a></li>
+  </ul>
+  <a href="100CalSnacks-GutBrainQuiz.html" class="nav-cta">Take the Quiz →</a>
+</nav>
+
+<!-- ===== 1. HERO ===== -->
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="eyebrow hero-overline">Ingredient Index</div>
+      <h1 class="hero-h1">Every Ingredient<br>Has a Purpose.<br><em>Every Calorie<br>Earns Its Place.</em></h1>
+      <p class="hero-sub">Ingredients designed for the gut-brain axis — supporting gut health, stable energy, and real satiety. All within 100 calories.</p>
+      <div class="hero-micro"><span>✓</span>No sugar alcohols &nbsp;<span>✓</span>No palm oil &nbsp;<span>✓</span>No artificial anything</div>
+      <div class="hero-ctas">
+        <a href="#library" class="pill-btn">Explore Ingredients ↓</a>
+        <a href="#product-maps" class="ghost-btn">By Product →</a>
+      </div>
+    </div>
+    <div class="hero-mosaic fade-up">
+      <div class="mosaic-label-top">Ingredient Families — Click to Explore</div>
+      <a href="#chicory" class="mosaic-cell">
+        <div class="mosaic-icon">🦠</div>
+        <div class="mosaic-text"><div class="mosaic-label">Prebiotic Fiber</div><div class="mosaic-sublabel">Microbiome health &amp; gut-brain signaling</div></div>
+      </a>
+      <a href="#protein" class="mosaic-cell">
+        <div class="mosaic-icon">💪</div>
+        <div class="mosaic-text"><div class="mosaic-label">Protein Sources</div><div class="mosaic-sublabel">Satiety hormones &amp; stable energy</div></div>
+      </a>
+      <a href="#almond-butter" class="mosaic-cell">
+        <div class="mosaic-icon">🥑</div>
+        <div class="mosaic-text"><div class="mosaic-label">Healthy Fats</div><div class="mosaic-sublabel">Brain fuel &amp; anti-inflammatory support</div></div>
+      </a>
+      <a href="#ashwagandha" class="mosaic-cell">
+        <div class="mosaic-icon">🌿</div>
+        <div class="mosaic-text"><div class="mosaic-label">Adaptogens</div><div class="mosaic-sublabel">Cortisol regulation &amp; stress resilience</div></div>
+      </a>
+      <a href="#cocoa" class="mosaic-cell">
+        <div class="mosaic-icon">🍇</div>
+        <div class="mosaic-text"><div class="mosaic-label">Antioxidants</div><div class="mosaic-sublabel">Cellular protection &amp; gut lining integrity</div></div>
+      </a>
+      <a href="#monk-fruit" class="mosaic-cell">
+        <div class="mosaic-icon">🍈</div>
+        <div class="mosaic-text"><div class="mosaic-label">Natural Sweeteners</div><div class="mosaic-sublabel">Zero glycemic impact — monk fruit &amp; allulose</div></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 2. FRAMEWORK ===== -->
+<section class="framework-section">
+  <div class="framework-inner">
+    <div class="framework-header fade-up">
+      <div>
+        <div class="eyebrow" style="margin-bottom:14px">How Our Ingredients Work Together</div>
+        <h2 class="framework-h">Four Building Blocks of<br>Gut-Brain Nutrition</h2>
+      </div>
+      <p class="framework-sub">WHY IT WORKS: 
+Every ingredient is selected for a specific role in supporting the gut-brain axis — working together to support energy, satiety, mood, and digestion.</p>
+    </div>
+    <div class="framework-grid fade-up fade-up-2">
+      <div class="framework-block">
+        <div class="framework-icon">🦠</div>
+        <div class="framework-name">Prebiotic Fiber</div>
+        <div class="framework-desc">Feeds beneficial gut bacteria that regulate digestion, produce neurotransmitters, and signal the brain through the gut-brain axis.</div>
+      </div>
+      <div class="framework-block">
+        <div class="framework-icon">💪</div>
+        <div class="framework-name">Protein</div>
+        <div class="framework-desc">Activates satiety hormones in the gut and brain simultaneously — slowing glucose absorption and keeping energy stable between meals.</div>
+      </div>
+      <div class="framework-block">
+        <div class="framework-icon">🌿</div>
+        <div class="framework-name">Adaptogens</div>
+        <div class="framework-desc">Help regulate cortisol — the stress hormone that disrupts gut-brain signaling and drives reactive cravings. Calmer cortisol, calmer cravings.</div>
+      </div>
+      <div class="framework-block">
+        <div class="framework-icon">🍇</div>
+        <div class="framework-name">Antioxidants &amp; Plant Compounds</div>
+        <div class="framework-desc">Protect the gut lining and support brain circulation — reducing oxidative stress along the gut-brain communication pathway.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===== DOSING PHILOSOPHY ===== -->
+<section class="dosing-section">
+  <div class="dosing-inner">
+    <div class="dosing-left fade-up">
+      <div class="eyebrow" style="margin-bottom:14px">The Formulation Standard</div>
+      <h2 class="dosing-h">Clinically Relevant<br>Levels in<br><em>100 Clean Calories.</em></h2>
+    </div>
+    <div class="dosing-right fade-up fade-up-2">
+      <p class="dosing-body">Most functional snacks include trace amounts of “functional” ingredients — enough for the label, not enough to make a difference.
+We formulate differently. Every active ingredient is included at levels aligned with clinical research — so your gut and brain can actually use them.</p>
+      <div class="dosing-stats">
+        <div class="dosing-stat">
+          <div class="dosing-stat-num">250mg</div>
+          <div class="dosing-stat-label">Adaptogens per 100 Calories</div>
+          <div class="dosing-stat-sub">Within the range used in clinical studies on cortisol and stress response</div>
+        </div>
+        <div class="dosing-stat">
+          <div class="dosing-stat-num">&gt;4g</div>
+          <div class="dosing-stat-label">Prebiotic fiber per 100 Calories</div>
+          <div class="dosing-stat-sub">A meaningful daily contribution to microbiome-supportive fiber intake</div>
+        </div>
+        <div class="dosing-stat">
+          <div class="dosing-stat-num">100</div>
+          <div class="dosing-stat-label">Calories. That's it.</div>
+          <div class="dosing-stat-sub">Functional nutrition without the caloric cost — every calorie earns its place</div>
+        </div>
+      </div>
+    
+    </div>
+  </div>
+</section>
+
+<!-- ===== 3. INGREDIENT LIBRARY ===== -->
+<section class="library-section" id="library">
+  <div class="library-inner">
+    <div class="library-header fade-up">
+      <div class="eyebrow" style="margin-bottom:14px">Full Ingredient Index</div>
+      <h2 class="library-h">The Ingredient Library</h2>
+      <p class="library-sub">Every ingredient across all products — organized by function. Click any card to see the science, the gut-brain benefit, and which products it appears in.</p>
+    </div>
+
+    <div class="filter-tabs fade-up fade-up-2">
+      <button class="filter-tab active" onclick="filterGroup('all', this)">All Ingredients</button>
+      <button class="filter-tab" onclick="filterGroup('fiber', this)">Fiber Sources</button>
+      <button class="filter-tab" onclick="filterGroup('protein', this)">Protein</button>
+      <button class="filter-tab" onclick="filterGroup('fats', this)">Healthy Fats</button>
+      <button class="filter-tab" onclick="filterGroup('adaptogens', this)">Adaptogens</button>
+      <button class="filter-tab" onclick="filterGroup('antioxidants', this)">Antioxidants</button>
+      <button class="filter-tab" onclick="filterGroup('sweeteners', this)">Sweeteners</button>
+      <button class="filter-tab" onclick="filterGroup('other', this)">Other</button>
+    </div>
+
+    <!-- GROUP: Fiber Sources -->
+    <div class="ingr-group fade-up" data-group="fiber" id="chicory">
+      <div class="group-header" style="border-left-color:var(--teal)">
+        <div class="group-icon">🌱</div>
+        <div class="group-name">Fiber Sources</div>
+        <div class="group-count">2 Ingredients</div>
+      </div>
+      <div class="ingr-cards">
+
+        <div class="ingr-card" onclick="toggleCard(this)">
+          <button class="ingr-card-toggle">+</button>
+          <div class="ingr-card-header">
+            <div class="ingr-card-icon">🌿</div>
+            <div class="ingr-card-top">
+              <div class="ingr-card-name">Chicory Root Fiber</div>
+              <div class="ingr-card-tagline">Natural prebiotic fiber — the gut's preferred fuel</div>
+            </div>
+          </div>
+          <div class="ingr-card-body">
+            <div class="ingr-card-detail">
+              <div class="ingr-detail-row">
+                <div class="ingr-detail-label">What it is</div>
+                <div class="ingr-detail-text">Inulin-type prebiotic fiber derived from chicory root. One of the most studied prebiotic fibers in gut health research.</div>
+              </div>
+              <div class="ingr-detail-row">
+                <div class="ingr-detail-label">Why it matters</div>
+                <div class="ingr-detail-text">Feeds beneficial gut bacteria — Bifidobacterium and Lactobacillus — that regulate digestion, reduce bloating, and support immune function.</div>
+              </div>
+              <div class="ingr-detail-row">
+                <div class="ingr-detail-label">Gut-Brain Benefit</div>
+                <div class="ingr-detail-text gut-brain">Supports microbiome diversity and serotonin production — 95% of which is made in the gut. A healthier microbiome sends clearer signals to the brain.</div>
+              </div>
+              <div class="ingr-detail-row">
+                <div class="ingr-detail-label">Appears In</div>
+                <div class="ingr-products">
+                  <span class="ingr-product-tag choc">Chocolate Brownie Bar</span>
+                  <span class="ingr-product-tag pb">Peanut Butter Bar</span>
+                  <span class="ingr-product-tag bbq">BBQ Protein Puffs</span>
+                              <div class="ingr-detail-row">
+                <div class="ingr-read-more-label">Read More</div>
+                <a href="https://100calsnacks.com/blogs/snack-sense/prebiotic-fiber-gut-health" class="ingr-read-more" target="_blank">Why Prebiotic Fiber Matters for Gut Health →</a>
+              </div>
+</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ingr-card" onclick="toggleCard(this)">
+          <button class="ingr-card-toggle">+</button>
+          <div class="ingr-card-header">
+            <div class="ingr-card-icon">🌾</div>
+            <div class="ingr-card-top">
+              <div class="ingr-card-name">Tapioca Soluble Fiber</div>
+              <div class="ingr-card-tagline">Gentle, gut-friendly fiber — easy to digest</div>
+            </div>
+          </div>
+          <div class="ingr-card-body">
+            <div class="ingr-card-detail">
+              <div class="ingr-detail-row">
+                <div class="ingr-detail-label">What it is</div>
+                <div class="ingr-detail-text">A soluble dietary fiber derived from tapioca starch. Neutral taste, smooth texture — one of the most gut-comfortable fiber sources available.</div>
+              </div>
+              <div class="ingr-detail-row">
+                <div class="ingr-detail-label">Why it matters</div>
+                <div class="ingr-detail-text">Supports healthy digestion without the bloating associated with some other fiber sources. Feeds beneficial gut bacteria while keeping net carbs low.</div>
+              </div>
+              <div class="ingr-detail-row">
+                <div class="ingr-detail-label">Gut-Brain Benefit</div>
+                <div class="ingr-detail-text gut-brain">Gentle prebiotic action supports a diverse microbiome — the foundation of healthy gut-brain communication and stable mood.</div>
+              </div>
+              <div class="ingr-detail-row">
+                <div class="ingr-detail-label">Appears In</div>
+                <div class="ingr-products">
+                  <span class="ingr-product-tag bbq">BBQ Protein Puffs</span>
+                              <div class="ingr-detail-row">
+                <div class="ingr-read-more-label">Read More</div>
+                <a href="https://100calsnacks.com/blogs/snack-sense/fiber-and-microbiome" class="ingr-read-more" target="_blank">Fiber Sources and Your Microbiome →</a>
+              </div>
+</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- GROUP: Protein Sources -->
+    <div class="ingr-group fade-up" data-group="protein" id="protein">
+      <div class="group-header" style="border-left-color:var(--orange)">
+        <div class="group-icon">💪</div>
+        <div class="group-name">Protein Sources</div>
+        <div class="group-count">5 Ingredients</div>
+      </div>
+      <div class="ingr-cards">
+
+        <div class="ingr-card" onclick="toggleCard(this)">
+          <button class="ingr-card-toggle">+</button>
+          <div class="ingr-card-header">
+            <div class="ingr-card-icon">🌿</div>
+            <div class="ingr-card-top">
+              <div class="ingr-card-name">Organic Pea Protein</div>
+              <div class="ingr-card-tagline">Complete plant protein — high bioavailability</div>
+            </div>
+          </div>
+          <div class="ingr-card-body">
+            <div class="ingr-card-detail">
+              <div class="ingr-detail-row">
+                <div class="ingr-detail-label">What it is</div>
+                <div class="ingr-detail-text">Protein isolate derived from yellow split peas. High in branched-chain amino acids (BCAAs), particularly arginine, which supports heart health.</div>
+              </div>
+              <div class="ingr-detail-row">
+                <div class="ingr-detail-label">Why it matters</div>
+                <div class="ingr-detail-text">One of the most digestible plant proteins available. Supports muscle maintenance, satiety, and sustained energy without digestive discomfort.</div>
+              </div>
+              <div class="ingr-detail-row">
+                <div class="ingr-detail-label">Gut-Brain Benefit</div>
+                <div class="ingr-detail-text gut-brain">Activates satiety hormones (GLP-1, PYY) in the gut that signal the brain to stop eating — reducing reactive snacking and cravings.</div>
+              </div>
+              <div class="ingr-detail-row">
+                <div class="ingr-detail-label">Appears In</div>
+                <div class="ingr-products">
+                  <span class="ingr-product-tag choc">Chocolate Brownie Bar</span>
+                  <span class="ingr-product-tag pb">Peanut Butter Bar</span>
+                              <div class="ingr-detail-row">
+                <div class="ingr-read-more-label">Read More</div>
+                <a href="https://100calsnacks.com/blogs/snack-sense/protein-satiety-hormones" class="ingr-read-more" target="_blank">Protein and Satiety Hormones →</a>
+              </div>
+</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ingr-card" onclick="toggleCard(this)">
+          <button class="ingr-card-toggle">+</button>
+          <div class="ingr-card-header">
+            <div class="ingr-card-icon">🌾</div>
+            <div class="ingr-card-top">
+              <div class="ingr-card-name">Organic Brown Rice Protein</div>
+              <div class="ingr-card-tagline">Complementary plant protein — smooth texture</div>
+            </div>
+          </div>
+          <div class="ingr-card-body">
+            <div class="ingr-card-detail">
+              <div class="ingr-detail-row">
+                <div class="ingr-detail-label">What it is</div>
+                <div class="ingr-detail-text">Protein concentrate derived from whole grain brown rice. Paired with pea protein to create a complete amino acid profile comparable to animal protein.</div>
+              </div>
+              <div class="ingr-detail-row">
+                <div class="ingr-detail-label">Why it matters</div>
+                <div class="ingr-detail-text">Together with pea protein, creates a full-spectrum amino acid profile. Easy to digest, hypoallergenic, and gentle on the gut.</div>
+              </div>
+              <div class="ingr-detail-row">
+                <div class="ingr-detail-label">Gut-Brain Benefit</div>
+                <div class="ingr-detail-text gut-brain">Supports steady amino acid absorption — the building blocks for neurotransmitters including serotonin and dopamine.</div>
+              </div>
+              <div class="ingr-detail-row">
+                <div class="ingr-detail-label">Appears In</div>
+                <div class="ingr-products">
+                  <span class="ingr-product-tag choc">Chocolate Brownie Bar</span>
+                  <span class="ingr-product-tag pb">Peanut Butter Bar</span>
+                              <div class="ingr-detail-row">
+                <div class="ingr-read-more-label">Read More</div>
+                <a href="https://100calsnacks.com/blogs/snack-sense/plant-protein-gut-brain" class="ingr-read-more" target="_blank">Plant Protein and the Gut-Brain Axis →</a>
+              </div>
+</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ingr-card" onclick="toggleCard(this)">
+          <button class="ingr-card-toggle">+</button>
+          <div class="ingr-card-header">
+            <div class="ingr-card-icon">🥛</div>
+            <div class="ingr-card-top">
+              <div class="ingr-card-name">Milk Protein Concentrate</div>
+              <div class="ingr-card-tagline">High-quality complete protein — casein and whey</div>
+            </div>
+          </div>
+          <div class="ingr-card-body">
+            <div class="ingr-card-detail">
+              <div class="ingr-detail-row">
+                <div class="ingr-detail-label">What it is</div>
+                <div class="ingr-detail-text">A concentrated dairy protein containing both casein and whey fractions — providing both fast-acting and slow-releasing protein.</div>
+              </div>
+              <div class="ingr-detail-row">
+                <div class="ingr-detail-label">Why it matters</div>
+                <div class="ingr-detail-text">High biological value with a complete amino acid profile. The slow-digesting casein provides prolonged satiety after snacking.</div>
+              </div>
+              <div class="ingr-detail-row">
+                <div class="ingr-detail-label">Gut-Brain Benefit</div>
+                <div class="ingr-detail-text gut-brain">Slow casein digestion extends satiety hormone signaling — keeping the gut-brain fullness loop active for longer after eating.</div>
+              </div>
+              <div class="ingr-detail-row">
+                <div class="ingr-detail-label">Appears In</div>
+                <div class="ingr-products">
+                  <span class="ingr-product-tag bbq">BBQ Protein Puffs</span>
+                              <div class="ingr-detail-row">
+                <div class="ingr-read-more-label">Read More</div>
+                <a href="https://100calsnacks.com/blogs/snack-sense/protein-satiety-hormones" class="ingr-read-more" target="_blank">Protein and Satiety Hormones →</a>
+              </div>
+</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ingr-card" onclick="toggleCard(this)">
+          <button class="ingr-card-toggle">+</button>
+          <div class="ingr-card-header">
+            <div class="ingr-card-icon">🥜</div>
+            <div class="ingr-card-top">
+              <div class="ingr-card-name">Pea Protein Crisps</div>
+              <div class="ingr-card-tagline">Texture + protein — satisfying crunch</div>
+            </div>
+          </div>
+          <div class="ingr-card-body">
+            <div class="ingr-card-detail">
+              <div class="ingr-detail-row">
+                <div class="ingr-detail-label">What it is</div>
+                <div class="ingr-detail-text">Pea protein and rice starch formed into light, crunchy crisps. Adds texture and protein content simultaneously.</div>
+              </div>
+              <div class="ingr-detail-row">
+                <div class="ingr-detail-label">Why it matters</div>
+                <div class="ingr-detail-text">Delivers satisfying crunch alongside functional protein — addressing both the sensory craving and the nutritional need at once.</div>
+              </div>
+              <div class="ingr-detail-row">
+                <div class="ingr-detail-label">Gut-Brain Benefit</div>
+                <div class="ingr-detail-text gut-brain">Protein at snack time activates GLP-1 signaling — the satiety hormone that communicates directly with the brain's hunger centre.</div>
+              </div>
+              <div class="ingr-detail-row">
+                <div class="ingr-detail-label">Appears In</div>
+                <div class="ingr-products">
+                  <span class="ingr-product-tag pb">Peanut Butter Bar</span>
+                              <div class="ingr-detail-row">
+                <div class="ingr-read-more-label">Read More</div>
+                <a href="https://100calsnacks.com/blogs/snack-sense/protein-satiety-hormones" class="ingr-read-more" target="_blank">Protein and Satiety Hormones →</a>
+              </div>
+</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ingr-card" onclick="toggleCard(this)">
+          <button class="ingr-card-toggle">+</button>
+          <div class="ingr-card-header">
+            <div class="ingr-card-icon">🌾</div>
+            <div class="ingr-card-top">
+              <div class="ingr-card-name">Organic Almond Flour</div>
+              <div class="ingr-card-tagline">Grain-free base — protein, fiber and healthy fat</div>
+            </div>
+          </div>
+          <div class="ingr-card-body">
+            <div class="ingr-card-detail">
+              <div class="ingr-detail-row">
+                <div class="ingr-detail-label">What it is</div>
+                <div class="ingr-detail-text">Finely ground blanched almonds. A grain-free, gluten-free flour alternative that contributes protein, fiber, and monounsaturated fat.</div>
+              </div>
+              <div class="ingr-detail-row">
+                <div class="ingr-detail-label">Why it matters</div>
+                <div class="ingr-detail-text">Replaces refined flour without the glycemic impact. Provides texture, structure, and nutritional density in every bite.</div>
+              </div>
+              <div class="ingr-detail-row">
+                <div class="ingr-detail-label">Gut-Brain Benefit</div>
+                <div class="ingr-detail-text gut-brain">Low glycemic — avoids glucose spikes that disrupt gut-brain signaling and lead to energy crashes.</div>
+              </div>
+              <div class="ingr-detail-row">
+                <div class="ingr-detail-label">Appears In</div>
+                <div class="ingr-products">
+                  <span class="ingr-product-tag choc">Chocolate Brownie Bar</span>
+                  <span class="ingr-product-tag pb">Peanut Butter Bar</span>
+                              <div class="ingr-detail-row">
+                <div class="ingr-read-more-label">Read More</div>
+                <a href="https://100calsnacks.com/blogs/snack-sense/almonds-blood-sugar" class="ingr-read-more" target="_blank">Almonds and Blood Sugar Stability →</a>
+              </div>
+</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- GROUP: Healthy Fats -->
+    <div class="ingr-group fade-up" data-group="fats" id="almond-butter">
+      <div class="group-header" style="border-left-color:var(--yellow)">
+        <div class="group-icon">🥑</div>
+        <div class="group-name">Healthy Fats</div>
+        <div class="group-count">6 Ingredients</div>
+      </div>
+      <div class="ingr-cards">
+
+        <div class="ingr-card" onclick="toggleCard(this)">
+          <button class="ingr-card-toggle">+</button>
+          <div class="ingr-card-header">
+            <div class="ingr-card-icon">🌰</div>
+            <div class="ingr-card-top">
+              <div class="ingr-card-name">Organic Almond Butter</div>
+              <div class="ingr-card-tagline">Rich in healthy fats, fiber, and plant protein</div>
+            </div>
+          </div>
+          <div class="ingr-card-body">
+            <div class="ingr-card-detail">
+              <div class="ingr-detail-row">
+                <div class="ingr-detail-label">What it is</div>
+                <div class="ingr-detail-text">Whole roasted organic almonds ground into a smooth butter. A whole-food fat source with natural vitamin E, magnesium, and fiber.</div>
+              </div>
+              <div class="ingr-detail-row">
+                <div class="ingr-detail-label">Why it matters</div>
+                <div class="ingr-detail-text">Monounsaturated fats support satiety and slow digestion — extending the feeling of fullness and preventing blood sugar spikes.</div>
+              </div>
+              <div class="ingr-detail-row">
+                <div class="ingr-detail-label">Gut-Brain Benefit</div>
+                <div class="ingr-detail-text gut-brain">Healthy fats stabilize blood sugar and support brain signaling. Magnesium in almonds supports serotonin synthesis.</div>
+              </div>
+              <div class="ingr-detail-row">
+                <div class="ingr-detail-label">Appears In</div>
+                <div class="ingr-products">
+                  <span class="ingr-product-tag choc">Chocolate Brownie Bar</span>
+                              <div class="ingr-detail-row">
+                <div class="ingr-read-more-label">Read More</div>
+                <a href="https://100calsnacks.com/blogs/snack-sense/almonds-blood-sugar" class="ingr-read-more" target="_blank">Almonds and Blood Sugar Stability →</a>
+              </div>
+</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ingr-card" onclick="toggleCard(this)">
+          <button class="ingr-card-toggle">+</button>
+          <div class="ingr-card-header">
+            <div class="ingr-card-icon">🥜</div>
+            <div class="ingr-card-top">
+              <div class="ingr-card-name">Organic Peanut Butter</div>
+              <div class="ingr-card-tagline">Whole-food fat and protein — deeply satisfying</div>
+            </div>
+          </div>
+          <div class="ingr-card-body">
+            <div class="ingr-card-detail">
+              <div class="ingr-detail-row">
+                <div class="ingr-detail-label">What it is</div>
+                <div class="ingr-detail-text">Ground organic roasted peanuts. Rich in oleic acid, niacin, and resveratrol — a whole-food fat with a strong satiety effect.</div>
+              </div>
+              <div class="ingr-detail-row">
+                <div class="ingr-detail-label">Why it matters</div>
+                <div class="ingr-detail-text">High in protein and fat — the combination that most effectively triggers both gut satiety hormones and brain fullness signals.</div>
+              </div>
+              <div class="ingr-detail-row">
+                <div class="ingr-detail-label">Gut-Brain Benefit</div>
+                <div class="ingr-detail-text gut-brain">Resveratrol in peanuts supports gut microbiome diversity. Protein + fat together deliver the strongest satiety signal.</div>
+              </div>
+              <div class="ingr-detail-row">
+                <div class="ingr-detail-label">Appears In</div>
+                <div class="ingr-products">
+                  <span class="ingr-product-tag pb">Peanut Butter Bar</span>
+                              <div class="ingr-detail-row">
+                <div class="ingr-read-more-label">Read More</div>
+                <a href="https://100calsnacks.com/blogs/snack-sense/healthy-fats-gut-brain" class="ingr-read-more" target="_blank">Healthy Fats and the Gut-Brain Axis →</a>
+              </div>
+</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ingr-card" onclick="toggleCard(this)" id="mct">
+          <button class="ingr-card-toggle">+</button>
+          <div class="ingr-card-header">
+            <div class="ingr-card-icon">🥥</div>
+            <div class="ingr-card-top">
+              <div class="ingr-card-name">Organic MCT Oil</div>
+              <div class="ingr-card-tagline">Fast brain fuel — from organic coconut</div>
+            </div>
+          </div>
+          <div class="ingr-card-body">
+            <div class="ingr-card-detail">
+              <div class="ingr-detail-row">
+                <div class="ingr-detail-label">What it is</div>
+                <div class="ingr-detail-text">Medium-chain triglycerides from organic coconut. Unlike long-chain fats, MCTs bypass normal fat digestion and convert rapidly to ketones.</div>
+              </div>
+              <div class="ingr-detail-row">
+                <div class="ingr-detail-label">Why it matters</div>
+                <div class="ingr-detail-text">Provides immediate, clean energy without a glucose spike. Supports mental clarity and focus, particularly during low-carb periods.</div>
+              </div>
+              <div class="ingr-detail-row">
+                <div class="ingr-detail-label">Gut-Brain Benefit</div>
+                <div class="ingr-detail-text gut-brain">Ketones from MCT oil are preferred brain fuel. Supports cognitive function and focus through the gut-brain axis without disrupting blood sugar.</div>
+              </div>
+              <div class="ingr-detail-row">
+                <div class="ingr-detail-label">Appears In</div>
+                <div class="ingr-products">
+                  <span class="ingr-product-tag choc">Chocolate Brownie Bar</span>
+                  <span class="ingr-product-tag pb">Peanut Butter Bar</span>
+                              <div class="ingr-detail-row">
+                <div class="ingr-read-more-label">Read More</div>
+                <a href="https://100calsnacks.com/blogs/snack-sense/mct-oil-brain-energy" class="ingr-read-more" target="_blank">MCTs and Brain Energy →</a>
+              </div>
+</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ingr-card" onclick="toggleCard(this)">
+          <button class="ingr-card-toggle">+</button>
+          <div class="ingr-card-header">
+            <div class="ingr-card-icon">🌻</div>
+            <div class="ingr-card-top">
+              <div class="ingr-card-name">Organic Flaxseed Oil</div>
+              <div class="ingr-card-tagline">Plant-based omega-3 — anti-inflammatory</div>
+            </div>
+          </div>
+          <div class="ingr-card-body">
+            <div class="ingr-card-detail">
+              <div class="ingr-detail-row">
+                <div class="ingr-detail-label">What it is</div>
+                <div class="ingr-detail-text">Cold-pressed oil from organic flaxseeds. One of the richest plant sources of alpha-linolenic acid (ALA), an omega-3 fatty acid.</div>
+              </div>
+              <div class="ingr-detail-row">
+                <div class="ingr-detail-label">Why it matters</div>
+                <div class="ingr-detail-text">Omega-3s reduce systemic inflammation — a key driver of gut dysbiosis and impaired gut-brain communication.</div>
+              </div>
+              <div class="ingr-detail-row">
+                <div class="ingr-detail-label">Gut-Brain Benefit</div>
+                <div class="ingr-detail-text gut-brain">ALA supports brain cell membrane integrity and reduces neuroinflammation — protecting the brain end of the gut-brain axis.</div>
+              </div>
+              <div class="ingr-detail-row">
+                <div class="ingr-detail-label">Appears In</div>
+                <div class="ingr-products">
+                  <span class="ingr-product-tag choc">Chocolate Brownie Bar</span>
+                  <span class="ingr-product-tag pb">Peanut Butter Bar</span>
+                              <div class="ingr-detail-row">
+                <div class="ingr-read-more-label">Read More</div>
+                <a href="https://100calsnacks.com/blogs/snack-sense/omega3-neuroinflammation" class="ingr-read-more" target="_blank">Omega-3s and Neuroinflammation →</a>
+              </div>
+</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ingr-card" onclick="toggleCard(this)">
+          <button class="ingr-card-toggle">+</button>
+          <div class="ingr-card-header">
+            <div class="ingr-card-icon">🌻</div>
+            <div class="ingr-card-top">
+              <div class="ingr-card-name">Organic High Oleic Sunflower Oil</div>
+              <div class="ingr-card-tagline">Stable cooking fat — heart-healthy oleic acid</div>
+            </div>
+          </div>
+          <div class="ingr-card-body">
+            <div class="ingr-card-detail">
+              <div class="ingr-detail-row">
+                <div class="ingr-detail-label">What it is</div>
+                <div class="ingr-detail-text">A high-stability sunflower oil variant with a very high oleic acid content (80%+). More heat-stable than regular sunflower oil with a clean, neutral flavor.</div>
+              </div>
+              <div class="ingr-detail-row">
+                <div class="ingr-detail-label">Why it matters</div>
+                <div class="ingr-detail-text">Oleic acid (also found in olive oil) supports heart health, reduces inflammation, and provides a clean fat source without the instability of polyunsaturated oils.</div>
+              </div>
+              <div class="ingr-detail-row">
+                <div class="ingr-detail-label">Gut-Brain Benefit</div>
+                <div class="ingr-detail-text gut-brain">Anti-inflammatory oleic acid supports gut microbiome diversity and reduces intestinal inflammation — protecting gut-brain communication pathways.</div>
+              </div>
+              <div class="ingr-detail-row">
+                <div class="ingr-detail-label">Appears In</div>
+                <div class="ingr-products">
+                  <span class="ingr-product-tag bbq">BBQ Protein Puffs</span>
+                              <div class="ingr-detail-row">
+                <div class="ingr-read-more-label">Read More</div>
+                <a href="https://100calsnacks.com/blogs/snack-sense/healthy-fats-gut-brain" class="ingr-read-more" target="_blank">Healthy Fats and the Gut-Brain Axis →</a>
+              </div>
+</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ingr-card" onclick="toggleCard(this)">
+          <button class="ingr-card-toggle">+</button>
+          <div class="ingr-card-header">
+            <div class="ingr-card-icon">🌻</div>
+            <div class="ingr-card-top">
+              <div class="ingr-card-name">Organic Sunflower Lecithin</div>
+              <div class="ingr-card-tagline">Natural emulsifier — clean label alternative</div>
+            </div>
+          </div>
+          <div class="ingr-card-body">
+            <div class="ingr-card-detail">
+              <div class="ingr-detail-row">
+                <div class="ingr-detail-label">What it is</div>
+                <div class="ingr-detail-text">A phospholipid derived from sunflower seeds. Used as a natural emulsifier to blend fats and liquids smoothly — without soy lecithin.</div>
+              </div>
+              <div class="ingr-detail-row">
+                <div class="ingr-detail-label">Why it matters</div>
+                <div class="ingr-detail-text">Choline-rich lecithin supports liver function and fat metabolism. The sunflower source avoids GMO soy concerns.</div>
+              </div>
+              <div class="ingr-detail-row">
+                <div class="ingr-detail-label">Gut-Brain Benefit</div>
+                <div class="ingr-detail-text gut-brain">Choline is a precursor to acetylcholine — a neurotransmitter essential for memory and cognitive function. Supports the brain side of the gut-brain axis.</div>
+              </div>
+              <div class="ingr-detail-row">
+                <div class="ingr-detail-label">Appears In</div>
+                <div class="ingr-products">
+                  <span class="ingr-product-tag choc">Chocolate Brownie Bar</span>
+                  <span class="ingr-product-tag pb">Peanut Butter Bar</span>
+                              <div class="ingr-detail-row">
+                <div class="ingr-read-more-label">Read More</div>
+                <a href="https://100calsnacks.com/blogs/snack-sense/choline-brain-health" class="ingr-read-more" target="_blank">Choline and Brain Health →</a>
+              </div>
+</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- GROUP: Adaptogens -->
+    <div class="ingr-group fade-up" data-group="adaptogens" id="ashwagandha">
+      <div class="group-header" style="border-left-color:var(--teal-pastel)">
+        <div class="group-icon">🌿</div>
+        <div class="group-name">Adaptogens</div>
+        <div class="group-count">2 Ingredients</div>
+      </div>
+      <div class="ingr-cards">
+
+        <div class="ingr-card" onclick="toggleCard(this)">
+          <button class="ingr-card-toggle">+</button>
+          <div class="ingr-card-header">
+            <div class="ingr-card-icon">🌿</div>
+            <div class="ingr-card-top">
+              <div class="ingr-card-name">Organic Ashwagandha Extract</div>
+              <div class="ingr-card-tagline">KSM-66® — clinically studied stress adaptogen</div>
+            </div>
+          </div>
+          <div class="ingr-card-body">
+            <div class="ingr-card-detail">
+              <div class="ingr-detail-row">
+                <div class="ingr-detail-label">What it is</div>
+                <div class="ingr-detail-text">Organic root extract of Withania somnifera — a traditional Ayurvedic adaptogen used for centuries. Standardized to withanolide content for consistent potency.</div>
+              </div>
+              <div class="ingr-detail-row">
+                <div class="ingr-detail-label">Why it matters</div>
+                <div class="ingr-detail-text">Clinically shown to reduce cortisol levels, support the HPA (hypothalamic-pituitary-adrenal) axis, and improve stress resilience. Reduces stress-driven food cravings.</div>
+              </div>
+              <div class="ingr-detail-row">
+                <div class="ingr-detail-label">Gut-Brain Benefit</div>
+                <div class="ingr-detail-text gut-brain">Cortisol regulation is central to the gut-brain axis. When cortisol is balanced, stress-eating and reactive cravings quiet down — naturally.</div>
+              </div>
+              <div class="ingr-detail-row">
+                <div class="ingr-detail-label">Appears In</div>
+                <div class="ingr-products">
+                  <span class="ingr-product-tag choc">Chocolate Brownie Bar</span>
+                  <span class="ingr-product-tag bbq">BBQ Protein Puffs</span>
+                              <div class="ingr-detail-row">
+                <div class="ingr-read-more-label">Read More</div>
+                <a href="https://100calsnacks.com/blogs/snack-sense/ashwagandha-gut-brain-axis" class="ingr-read-more" target="_blank">Ashwagandha and the Gut-Brain Axis →</a>
+              </div>
+</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="ingr-card" onclick="toggleCard(this)">
+          <button class="ingr-card-toggle">+</button>
+          <div class="ingr-card-header">
+            <div class="ingr-card-icon">🍇</div>
+            <div class="ingr-card-top">
+              <div class="ingr-card-name">Organic Amla Fruit Powder</div>
+              <div class="ingr-card-tagline">Ayurvedic adaptogen — stress, immunity and gut resilience</div>
+            </div>
+          </div>
+          <div class="ingr-card-body">
+            <div class="ingr-card-detail">
+              <div class="ingr-detail-row">
+                <div class="ingr-detail-label">What it is</div>
+                <div class="ingr-detail-text">Dried powder of Phyllanthus emblica (Indian Gooseberry). A cornerstone of Ayurvedic medicine used for centuries as a rasayana — a rejuvenating adaptogen that supports resilience across multiple body systems.</div>
+              </div>
+              <div class="ingr-detail-row">
+                <div class="ingr-detail-label">Why it matters</div>
+                <div class="ingr-detail-text">Amla helps the body adapt to physiological stress — supporting adrenal function, immune resilience, and metabolic balance. Its polyphenol density also makes it one of the most antioxidant-rich foods known.</div>
+              </div>
+              <div class="ingr-detail-row">
+                <div class="ingr-detail-label">Gut-Brain Benefit</div>
+                <div class="ingr-detail-text gut-brain">Polyphenols act as prebiotics, feeding beneficial bacteria and supporting microbiome diversity. Adaptogenic properties help buffer the cortisol-craving loop through the gut-brain axis.</div>
+              </div>
+              <div class="ingr-detail-row">
+                <div class="ingr-detail-label">Appears In</div>
+                <div class="ingr-products">
+                  <span class="ingr-product-tag pb">Peanut Butter Bar</span>
+                </div>
+              </div>
+              <div class="ingr-detail-row">
+                <div class="ingr-read-more-label">Read More</div>
+                <a href="https://100calsnacks.com/blogs/snack-sense/amla-microbiome" class="ingr-read-more" target="_blank">Amla and the Microbiome →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- GROUP: Antioxidants -->
+    <div class="ingr-group fade-up" data-group="antioxidants" id="cocoa">
+      <div class="group-header" style="border-left-color:var(--grey-dark)">
+        <div class="group-icon">🍇</div>
+        <div class="group-name">Antioxidants &amp; Plant Compounds</div>
+        <div class="group-count">5 Ingredients</div>
+      </div>
+      <div class="ingr-cards">
+
+        <div class="ingr-card" onclick="toggleCard(this)">
+          <button class="ingr-card-toggle">+</button>
+          <div class="ingr-card-header">
+            <div class="ingr-card-icon">🍫</div>
+            <div class="ingr-card-top">
+              <div class="ingr-card-name">Organic Cocoa Powder</div>
+              <div class="ingr-card-tagline">Flavanol-rich — mood and circulation support</div>
+            </div>
+          </div>
+          <div class="ingr-card-body">
+            <div class="ingr-card-detail">
+              <div class="ingr-detail-row">
+                <div class="ingr-detail-label">What it is</div>
+                <div class="ingr-detail-text">Alkalized organic cocoa powder. Rich in flavanols — polyphenolic compounds with antioxidant, anti-inflammatory, and vasodilatory effects.</div>
+              </div>
+              <div class="ingr-detail-row">
+                <div class="ingr-detail-label">Why it matters</div>
+                <div class="ingr-detail-text">Cocoa flavanols support blood flow, reduce oxidative stress, and have been linked to improved cognitive function and mood in clinical studies.</div>
+              </div>
+              <div class="ingr-detail-row">
+                <div class="ingr-detail-label">Gut-Brain Benefit</div>
+                <div class="ingr-detail-text gut-brain">Flavanols support microbiome diversity and brain circulation — protecting both ends of the gut-brain axis simultaneously.</div>
+              </div>
+              <div class="ingr-detail-row">
+                <div class="ingr-detail-label">Appears In</div>
+                <div class="ingr-products">
+                  <span class="ingr-product-tag choc">Chocolate Brownie Bar</span>
+                              <div class="ingr-detail-row">
+                <div class="ingr-read-more-label">Read More</div>
+                <a href="https://100calsnacks.com/blogs/snack-sense/cocoa-flavanols-brain" class="ingr-read-more" target="_blank">Cocoa Flavanols and the Brain →</a>
+              </div>
+</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ingr-card" onclick="toggleCard(this)">
+          <button class="ingr-card-toggle">+</button>
+          <div class="ingr-card-header">
+            <div class="ingr-card-icon">🍫</div>
+            <div class="ingr-card-top">
+              <div class="ingr-card-name">Organic Unsweetened Chocolate Chips</div>
+              <div class="ingr-card-tagline">Real chocolate — no sugar, pure cacao</div>
+            </div>
+          </div>
+          <div class="ingr-card-body">
+            <div class="ingr-card-detail">
+              <div class="ingr-detail-row">
+                <div class="ingr-detail-label">What it is</div>
+                <div class="ingr-detail-text">Chocolate chips made from organic cacao with no added sugar. Delivers the full chocolate flavor and antioxidant profile without glycemic impact.</div>
+              </div>
+              <div class="ingr-detail-row">
+                <div class="ingr-detail-label">Why it matters</div>
+                <div class="ingr-detail-text">Provides a real chocolate experience — the texture, melt, and flavor — without sugar that would spike blood glucose and undermine the formula.</div>
+              </div>
+              <div class="ingr-detail-row">
+                <div class="ingr-detail-label">Gut-Brain Benefit</div>
+                <div class="ingr-detail-text gut-brain">Cacao polyphenols support microbiome diversity. No added sugar means no glucose spike disrupting gut-brain signaling.</div>
+              </div>
+              <div class="ingr-detail-row">
+                <div class="ingr-detail-label">Appears In</div>
+                <div class="ingr-products">
+                  <span class="ingr-product-tag choc">Chocolate Brownie Bar</span>
+                  <span class="ingr-product-tag pb">Peanut Butter Bar</span>
+                              <div class="ingr-detail-row">
+                <div class="ingr-read-more-label">Read More</div>
+                <a href="https://100calsnacks.com/blogs/snack-sense/cocoa-flavanols-brain" class="ingr-read-more" target="_blank">Cocoa Flavanols and the Brain →</a>
+              </div>
+</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ingr-card" onclick="toggleCard(this)" id="amla">
+          <button class="ingr-card-toggle">+</button>
+          <div class="ingr-card-header">
+            <div class="ingr-card-icon">🍇</div>
+            <div class="ingr-card-top">
+              <div class="ingr-card-name">Organic Amla Fruit Powder</div>
+              <div class="ingr-card-tagline">Indian Gooseberry — potent polyphenol source</div>
+            </div>
+          </div>
+          <div class="ingr-card-body">
+            <div class="ingr-card-detail">
+              <div class="ingr-detail-row">
+                <div class="ingr-detail-label">What it is</div>
+                <div class="ingr-detail-text">Dried powder of Phyllanthus emblica (Indian Gooseberry) — one of the most antioxidant-dense fruits in Ayurvedic medicine. Exceptionally high in vitamin C and polyphenols.</div>
+              </div>
+              <div class="ingr-detail-row">
+                <div class="ingr-detail-label">Why it matters</div>
+                <div class="ingr-detail-text">Supports immune function, metabolic health, and gut integrity. High tannin content protects against oxidative damage in the gut lining.</div>
+              </div>
+              <div class="ingr-detail-row">
+                <div class="ingr-detail-label">Gut-Brain Benefit</div>
+                <div class="ingr-detail-text gut-brain">Polyphenols from amla act as prebiotics — feeding beneficial bacteria and supporting microbiome diversity that influences brain health and mood.</div>
+              </div>
+              <div class="ingr-detail-row">
+                <div class="ingr-detail-label">Appears In</div>
+                <div class="ingr-products">
+                  <span class="ingr-product-tag pb">Peanut Butter Bar</span>
+                              <div class="ingr-detail-row">
+                <div class="ingr-read-more-label">Read More</div>
+                <a href="https://100calsnacks.com/blogs/snack-sense/amla-microbiome" class="ingr-read-more" target="_blank">Amla and the Microbiome →</a>
+              </div>
+</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ingr-card" onclick="toggleCard(this)">
+          <button class="ingr-card-toggle">+</button>
+          <div class="ingr-card-header">
+            <div class="ingr-card-icon">🥬</div>
+            <div class="ingr-card-top">
+              <div class="ingr-card-name">Organic Kale Powder</div>
+              <div class="ingr-card-tagline">Nutrient-dense green — vitamins K, C, and A</div>
+            </div>
+          </div>
+          <div class="ingr-card-body">
+            <div class="ingr-card-detail">
+              <div class="ingr-detail-row">
+                <div class="ingr-detail-label">What it is</div>
+                <div class="ingr-detail-text">Dried and powdered organic kale. Concentrates the nutritional profile of kale — vitamins K, C, A, and B6, plus calcium, potassium, and antioxidant kaempferol.</div>
+              </div>
+              <div class="ingr-detail-row">
+                <div class="ingr-detail-label">Why it matters</div>
+                <div class="ingr-detail-text">Adds a dense micronutrient profile to a savory snack — something most snacks in the category completely lack. Kaempferol has shown anti-inflammatory and neuroprotective effects.</div>
+              </div>
+              <div class="ingr-detail-row">
+                <div class="ingr-detail-label">Gut-Brain Benefit</div>
+                <div class="ingr-detail-text gut-brain">Kaempferol supports gut microbiome diversity and has neuroprotective properties — protecting the integrity of gut-brain signaling pathways.</div>
+              </div>
+              <div class="ingr-detail-row">
+                <div class="ingr-detail-label">Appears In</div>
+                <div class="ingr-products">
+                  <span class="ingr-product-tag bbq">BBQ Protein Puffs</span>
+                              <div class="ingr-detail-row">
+                <div class="ingr-read-more-label">Read More</div>
+                <a href="https://100calsnacks.com/blogs/snack-sense/greens-gut-health" class="ingr-read-more" target="_blank">Green Vegetables and Gut Health →</a>
+              </div>
+</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ingr-card" onclick="toggleCard(this)">
+          <button class="ingr-card-toggle">+</button>
+          <div class="ingr-card-header">
+            <div class="ingr-card-icon">🌿</div>
+            <div class="ingr-card-top">
+              <div class="ingr-card-name">Organic Rosemary Extract</div>
+              <div class="ingr-card-tagline">Natural preservative — antioxidant protection</div>
+            </div>
+          </div>
+          <div class="ingr-card-body">
+            <div class="ingr-card-detail">
+              <div class="ingr-detail-row">
+                <div class="ingr-detail-label">What it is</div>
+                <div class="ingr-detail-text">Concentrated extract from organic rosemary leaves. Used as a natural antioxidant to preserve freshness — replacing synthetic preservatives like BHA and BHT.</div>
+              </div>
+              <div class="ingr-detail-row">
+                <div class="ingr-detail-label">Why it matters</div>
+                <div class="ingr-detail-text">Protects the omega-3 fats in flaxseed and MCT oil from oxidation — keeping every ingredient performing as intended throughout shelf life.</div>
+              </div>
+              <div class="ingr-detail-row">
+                <div class="ingr-detail-label">Gut-Brain Benefit</div>
+                <div class="ingr-detail-text gut-brain">Rosemary polyphenols (carnosic acid, rosmarinic acid) have anti-inflammatory effects in the gut and have shown neuroprotective properties in research.</div>
+              </div>
+              <div class="ingr-detail-row">
+                <div class="ingr-detail-label">Appears In</div>
+                <div class="ingr-products">
+                  <span class="ingr-product-tag choc">Chocolate Brownie Bar</span>
+                  <span class="ingr-product-tag pb">Peanut Butter Bar</span>
+                  <span class="ingr-product-tag bbq">BBQ Protein Puffs</span>
+                              <div class="ingr-detail-row">
+                <div class="ingr-read-more-label">Read More</div>
+                <a href="https://100calsnacks.com/blogs/snack-sense/natural-preservatives" class="ingr-read-more" target="_blank">Natural Preservatives vs Synthetic →</a>
+              </div>
+</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- GROUP: Sweeteners -->
+    <div class="ingr-group fade-up" data-group="sweeteners" id="monk-fruit">
+      <div class="group-header" style="border-left-color:var(--grey-warm)">
+        <div class="group-icon">🍈</div>
+        <div class="group-name">Natural Sweeteners</div>
+        <div class="group-count">2 Ingredients</div>
+      </div>
+      <div class="ingr-cards">
+
+        <div class="ingr-card" onclick="toggleCard(this)">
+          <button class="ingr-card-toggle">+</button>
+          <div class="ingr-card-header">
+            <div class="ingr-card-icon">🍈</div>
+            <div class="ingr-card-top">
+              <div class="ingr-card-name">Organic Monk Fruit Extract</div>
+              <div class="ingr-card-tagline">Zero glycemic — 200× sweeter than sugar</div>
+            </div>
+          </div>
+          <div class="ingr-card-body">
+            <div class="ingr-card-detail">
+              <div class="ingr-detail-row">
+                <div class="ingr-detail-label">What it is</div>
+                <div class="ingr-detail-text">Concentrated extract of Luo Han Guo (monk fruit). Sweetness comes from mogrosides — compounds that provide intense sweetness with zero calories and zero glycemic impact.</div>
+              </div>
+              <div class="ingr-detail-row">
+                <div class="ingr-detail-label">Why it matters</div>
+                <div class="ingr-detail-text">Unlike sugar alcohols (erythritol, maltitol), monk fruit doesn't disrupt gut bacteria or cause digestive discomfort. It's the cleanest sweetener option available.</div>
+              </div>
+              <div class="ingr-detail-row">
+                <div class="ingr-detail-label">Gut-Brain Benefit</div>
+                <div class="ingr-detail-text gut-brain">Zero glucose impact means no insulin spike and no disruption to gut-brain signaling. Sweetness without the consequences.</div>
+              </div>
+              <div class="ingr-detail-row">
+                <div class="ingr-detail-label">Appears In</div>
+                <div class="ingr-products">
+                  <span class="ingr-product-tag choc">Chocolate Brownie Bar</span>
+                  <span class="ingr-product-tag pb">Peanut Butter Bar</span>
+                  <span class="ingr-product-tag bbq">BBQ Protein Puffs</span>
+                              <div class="ingr-detail-row">
+                <div class="ingr-read-more-label">Read More</div>
+                <a href="https://100calsnacks.com/blogs/snack-sense/natural-sweeteners-vs-sugar-alcohols" class="ingr-read-more" target="_blank">Natural Sweeteners vs Sugar Alcohols →</a>
+              </div>
+</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ingr-card" onclick="toggleCard(this)">
+          <button class="ingr-card-toggle">+</button>
+          <div class="ingr-card-header">
+            <div class="ingr-card-icon">🌿</div>
+            <div class="ingr-card-top">
+              <div class="ingr-card-name">Allulose</div>
+              <div class="ingr-card-tagline">Rare sugar — acts like sugar, metabolizes like fiber</div>
+            </div>
+          </div>
+          <div class="ingr-card-body">
+            <div class="ingr-card-detail">
+              <div class="ingr-detail-row">
+                <div class="ingr-detail-label">What it is</div>
+                <div class="ingr-detail-text">A rare naturally-occurring monosaccharide found in small amounts in figs and raisins. Tastes and bakes like sugar but is mostly excreted without being metabolized.</div>
+              </div>
+              <div class="ingr-detail-row">
+                <div class="ingr-detail-label">Why it matters</div>
+                <div class="ingr-detail-text">Provides the functional texture and caramelization of sugar in baking with approximately 0.4 kcal/g vs sugar's 4 kcal/g. Supports the fudgy brownie texture authentically.</div>
+              </div>
+              <div class="ingr-detail-row">
+                <div class="ingr-detail-label">Gut-Brain Benefit</div>
+                <div class="ingr-detail-text gut-brain">Research suggests allulose may improve insulin sensitivity and has no negative effect on gut microbiota — unlike most sugar substitutes.</div>
+              </div>
+              <div class="ingr-detail-row">
+                <div class="ingr-detail-label">Appears In</div>
+                <div class="ingr-products">
+                  <span class="ingr-product-tag choc">Chocolate Brownie Bar</span>
+                  <span class="ingr-product-tag pb">Peanut Butter Bar</span>
+                              <div class="ingr-detail-row">
+                <div class="ingr-read-more-label">Read More</div>
+                <a href="https://100calsnacks.com/blogs/snack-sense/natural-sweeteners-vs-sugar-alcohols" class="ingr-read-more" target="_blank">Natural Sweeteners vs Sugar Alcohols →</a>
+              </div>
+</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- GROUP: Other -->
+    <div class="ingr-group fade-up" data-group="other">
+      <div class="group-header">
+        <div class="group-icon">⚗️</div>
+        <div class="group-name">Functional Extras</div>
+        <div class="group-count">2 Ingredients</div>
+      </div>
+      <div class="ingr-cards">
+
+        <div class="ingr-card" onclick="toggleCard(this)">
+          <button class="ingr-card-toggle">+</button>
+          <div class="ingr-card-header">
+            <div class="ingr-card-icon">🧂</div>
+            <div class="ingr-card-top">
+              <div class="ingr-card-name">Himalayan Pink Salt</div>
+              <div class="ingr-card-tagline">Mineral-rich salt — trace elements intact</div>
+            </div>
+          </div>
+          <div class="ingr-card-body">
+            <div class="ingr-card-detail">
+              <div class="ingr-detail-row">
+                <div class="ingr-detail-label">What it is</div>
+                <div class="ingr-detail-text">Unrefined salt from ancient sea beds in Pakistan. Contains trace minerals including magnesium, potassium, and calcium — absent in refined table salt.</div>
+              </div>
+              <div class="ingr-detail-row">
+                <div class="ingr-detail-label">Why it matters</div>
+                <div class="ingr-detail-text">Balances flavor naturally, enhances sweetness perception, and contributes trace minerals that support electrolyte balance.</div>
+              </div>
+              <div class="ingr-detail-row">
+                <div class="ingr-detail-label">Gut-Brain Benefit</div>
+                <div class="ingr-detail-text gut-brain">Magnesium in Himalayan salt supports serotonin synthesis and GABA production — both key neurotransmitters in gut-brain signaling.</div>
+              </div>
+              <div class="ingr-detail-row">
+                <div class="ingr-detail-label">Appears In</div>
+                <div class="ingr-products">
+                  <span class="ingr-product-tag choc">Chocolate Brownie Bar</span>
+                  <span class="ingr-product-tag pb">Peanut Butter Bar</span>
+                  <span class="ingr-product-tag bbq">BBQ Protein Puffs</span>
+                              <div class="ingr-detail-row">
+                <div class="ingr-read-more-label">Read More</div>
+                <a href="https://100calsnacks.com/blogs/snack-sense/minerals-gut-brain" class="ingr-read-more" target="_blank">Minerals and Gut-Brain Health →</a>
+              </div>
+</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ingr-card" onclick="toggleCard(this)">
+          <button class="ingr-card-toggle">+</button>
+          <div class="ingr-card-header">
+            <div class="ingr-card-icon">🍫</div>
+            <div class="ingr-card-top">
+              <div class="ingr-card-name">Organic Cacao/Cocoa Butter</div>
+              <div class="ingr-card-tagline">Pure cacao fat — smooth melt, no dairy</div>
+            </div>
+          </div>
+          <div class="ingr-card-body">
+            <div class="ingr-card-detail">
+              <div class="ingr-detail-row">
+                <div class="ingr-detail-label">What it is</div>
+                <div class="ingr-detail-text">The natural fat extracted from cacao beans during chocolate production. Stable saturated fat with a clean, rich flavor and luxurious melt point.</div>
+              </div>
+              <div class="ingr-detail-row">
+                <div class="ingr-detail-label">Why it matters</div>
+                <div class="ingr-detail-text">Creates authentic chocolate texture and mouthfeel without dairy. A stable, natural fat source that resists oxidation and contributes no sugar.</div>
+              </div>
+              <div class="ingr-detail-row">
+                <div class="ingr-detail-label">Gut-Brain Benefit</div>
+                <div class="ingr-detail-text gut-brain">Stearic acid in cocoa butter is converted to oleic acid in the body — supporting anti-inflammatory pathways that protect gut-brain communication.</div>
+              </div>
+              <div class="ingr-detail-row">
+                <div class="ingr-detail-label">Appears In</div>
+                <div class="ingr-products">
+                  <span class="ingr-product-tag choc">Chocolate Brownie Bar</span>
+                  <span class="ingr-product-tag pb">Peanut Butter Bar</span>
+                              <div class="ingr-detail-row">
+                <div class="ingr-read-more-label">Read More</div>
+                <a href="https://100calsnacks.com/blogs/snack-sense/cocoa-flavanols-brain" class="ingr-read-more" target="_blank">Cocoa Flavanols and the Brain →</a>
+              </div>
+</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== 4. SWEETENER PHILOSOPHY ===== -->
+<section class="sweet-section">
+  <div class="sweet-inner">
+    <div class="fade-up">
+      <div class="eyebrow" style="margin-bottom:14px">Clean Sweetener Philosophy</div>
+      <h2 class="sweet-h">Why We Don't Use<br>Sugar Alcohols</h2>
+      <p class="sweet-body">Many low-carb snacks rely on erythritol and maltitol to hit their sweetness targets. These compounds are common gut irritants that can disrupt your microbiome — the opposite of what we're building toward.</p>
+      <p class="sweet-body">We use monk fruit and allulose instead. Both provide sweetness without glycemic impact, without gut disruption, and without the bloating that sugar alcohols cause.</p>
+    </div>
+    <div class="fade-up fade-up-2">
+      <div class="sweet-vs">
+        <div class="sweet-col no">
+          <div class="sweet-col-label">What We Avoid</div>
+          <div class="sweet-item"><span class="si-mark">✗</span>Erythritol — common gut irritant</div>
+          <div class="sweet-item"><span class="si-mark">✗</span>Maltitol — spikes blood sugar</div>
+          <div class="sweet-item"><span class="si-mark">✗</span>Sorbitol — causes bloating</div>
+          <div class="sweet-item"><span class="si-mark">✗</span>Sucralose — disrupts microbiome</div>
+          <div class="sweet-item"><span class="si-mark">✗</span>Added cane sugar — glucose spike</div>
+        </div>
+        <div class="sweet-col yes">
+          <div class="sweet-col-label">What We Use</div>
+          <div class="sweet-item"><span class="si-mark">✓</span>Monk Fruit — zero glycemic impact</div>
+          <div class="sweet-item"><span class="si-mark">✓</span>Allulose — metabolized like fiber</div>
+          <div class="sweet-item"><span class="si-mark">✓</span>Natural flavors — from real sources</div>
+          <div class="sweet-item"><span class="si-mark">✓</span>Cacao — unsweetened, antioxidant-rich</div>
+          <div class="sweet-item"><span class="si-mark">✓</span>Himalayan salt — enhances sweetness naturally</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===== SEE IN ACTION ===== -->
+<section class="action-section">
+  <div class="action-inner">
+    <div class="action-header fade-up">
+      <div class="eyebrow" style="margin-bottom:14px">Ingredients designed for the gut-brain axis</div>
+      <h2 class="action-h">See These Ingredients<br>in Action</h2>
+      <p class="action-sub"></p>
+    </div>
+    <div class="action-grid fade-up fade-up-2">
+      <a href="100CalSnacks-PDP-ChocolateBrownieBar-v4.html" class="action-card choc">
+        <div class="action-card-top">
+          <div class="action-emoji">🍫</div>
+          <div>
+            <div class="action-pattern">For Focus Fuelers</div>
+            <div class="action-name">Chocolate Brownie Bar</div>
+          </div>
+        </div>
+        <div class="action-ingredients"> Key functional ingredients: <br/>• Almond Butter → healthy fats <br/>
+• Chicory Root Fiber → microbiome support<br/>
+• Pea + Rice Protein → satiety<br/>
+• Ashwagandha → stress support<br/>
+• Cocoa → antioxidants<br/> </div>
+        <div class="action-cta">Shop Now <span>→</span></div>
+      </a>
+      <a href="100CalSnacks-PDP-ChocolateBrownieBar-v4.html" class="action-card pb">
+        <div class="action-card-top">
+          <div class="action-emoji">🥜</div>
+          <div>
+            <div class="action-pattern">For Calm Operators</div>
+            <div class="action-name">Peanut Butter Bar</div>
+          </div>
+        </div>
+        <div class="action-ingredients">Key functional ingredients:<br/>
+• Peanut Butter → protein + healthy fats<br/>
+• Chicory Root Fiber → prebiotic fiber<br/>
+• Amla → antioxidant support<br/>
+• Plant Protein → sustained energy<br/></div>
+        <div class="action-cta">Shop Now <span>→</span></div>
+      </a>
+      <a href="100CalSnacks-PDP-ChocolateBrownieBar-v4.html" class="action-card bbq">
+        <div class="action-card-top">
+          <div class="action-emoji">🌶️</div>
+          <div>
+            <div class="action-pattern">For Craving Crushers</div>
+            <div class="action-name">BBQ Protein Puffs</div>
+          </div>
+        </div>
+        <div class="action-ingredients">Key functional ingredients:<br/>
+• Casein-Rich Milk Protein → satiety<br/>
+• Tapioca Fiber → digestion<br/>
+• Kale Powder → micronutrients<br/>
+• Ashwagandha → stress support<br/></div>
+        <div class="action-cta">Shop Now <span>→</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== QUIZ CTA ===== -->
+<section class="quiz-strip">
+  <div class="quiz-strip-inner">
+    <div class="quiz-strip-eyebrow">Find Your Match</div>
+    <h2 class="quiz-strip-h">Discover Your<br>Gut-Brain Type</h2>
+    <p class="quiz-strip-sub">Now that you know what's inside — find out which formulation was built for your gut-brain pattern. 60 seconds. Personalized to you.</p>
+    <a href="100CalSnacks-GutBrainQuiz.html" class="quiz-strip-btn">Take the Free Quiz →</a>
+  </div>
+</section>
+
+<!-- ===== 6. BLOG LINKS ===== -->
+<section class="blog-section">
+  <div class="blog-inner">
+    <div class="fade-up">
+      <div class="eyebrow" style="margin-bottom:14px">Go Deeper</div>
+      <h2 class="blog-h">Learn More About<br>Gut-Brain Nutrition</h2>
+    </div>
+    <div class="blog-links fade-up fade-up-2">
+      <a href="https://100calsnacks.com/pages/why-100-cal-snacks-for-a-healthy-gut-microbiome" class="blog-link" target="_blank">
+        <span class="blog-link-text">What Is the Gut-Brain Axis?</span>
+        <span class="blog-link-arrow">→</span>
+      </a>
+      <a href="https://100calsnacks.com/blogs/snack-sense/prebiotic-fiber-gut-health" class="blog-link" target="_blank">
+        <span class="blog-link-text">Why Prebiotic Fiber Matters for Gut Health</span>
+        <span class="blog-link-arrow">→</span>
+      </a>
+      <a href="https://100calsnacks.com/blogs/snack-sense/ashwagandha-gut-brain-axis" class="blog-link" target="_blank">
+        <span class="blog-link-text">Adaptogens and Stress Eating</span>
+        <span class="blog-link-arrow">→</span>
+      </a>
+      <a href="https://100calsnacks.com/blogs/snack-sense/protein-satiety-hormones" class="blog-link" target="_blank">
+        <span class="blog-link-text">Protein and Satiety Hormones</span>
+        <span class="blog-link-arrow">→</span>
+      </a>
+      <a href="https://100calsnacks.com/blogs/snack-sense/natural-sweeteners-vs-sugar-alcohols" class="blog-link" target="_blank">
+        <span class="blog-link-text">Natural Sweeteners vs Sugar Alcohols</span>
+        <span class="blog-link-arrow">→</span>
+      </a>
+      <a href="https://100calsnacks.com/blogs/snack-sense/amla-microbiome" class="blog-link" target="_blank">
+        <span class="blog-link-text">Amla and the Microbiome</span>
+        <span class="blog-link-arrow">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-brand">100<span>Cal</span>Snacks</div>
+      <div class="footer-tagline">Keepin' Snacks 100</div>
+      <p class="footer-bio">Built from the struggle. Engineered for the journey. 100 clean calories that heal your gut, calm your brain, and prove that doing better doesn't mean settling. Woman-owned. Science-backed.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Learn</div>
+      <ul class="footer-links">
+        <li><a href="100CalSnacks-GutBrain101.html">Gut-Brain Health 101</a></li>
+        <li><a href="#">Ingredient Index</a></li>
+        <li><a href="100CalSnacks-GutBrainQuiz.html">Take the Quiz</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Shop</div>
+      <ul class="footer-links">
+        <li><a href="100CalSnacks-PDP-ChocolateBrownieBar-v4.html">Chocolate Brownie Bar</a></li>
+        <li><a href="100CalSnacks-PDP-ChocolateBrownieBar-v4.html">Peanut Butter Bar</a></li>
+        <li><a href="100CalSnacks-PDP-ChocolateBrownieBar-v4.html">BBQ Protein Puffs</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Company</div>
+      <ul class="footer-links">
+        <li><a href="#">Our Story</a></li>
+        <li><a href="#">Contact Us</a></li>
+        <li><a href="#">FAQs</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-btm">
+    <div>© 2026 100CalSnacks.com · Woman-Owned · Science-Backed</div>
+    <div class="footer-disclaimer">* These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease.</div>
+  </div>
+</footer>
+
+<script>
+// Card expand/collapse
+function toggleCard(card) {
+  var wasOpen = card.classList.contains('expanded');
+  // Close all in same group
+  var allCards = card.closest('.ingr-cards').querySelectorAll('.ingr-card');
+  allCards.forEach(function(c) { c.classList.remove('expanded'); });
+  if (!wasOpen) card.classList.add('expanded');
+}
+
+// Filter tabs
+function filterGroup(group, btn) {
+  // Update active tab
+  document.querySelectorAll('.filter-tab').forEach(function(t) { t.classList.remove('active'); });
+  btn.classList.add('active');
+  // Show/hide groups
+  document.querySelectorAll('.ingr-group').forEach(function(g) {
+    if (group === 'all' || g.dataset.group === group) {
+      g.style.display = '';
+    } else {
+      g.style.display = 'none';
+    }
+  });
+}
+
+// Scroll animations
+var fadeEls = document.querySelectorAll('.fade-up');
+var observer = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) {
+    if (entry.isIntersecting) entry.target.classList.add('visible');
+  });
+}, { threshold: 0.08, rootMargin:'0px 0px -30px 0px' });
+fadeEls.forEach(function(el) { observer.observe(el); });
+</script>
+</body>
+</html>

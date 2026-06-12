@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The 100Cal Story — 100CalSnacks</title>
+<meta name="description" content="100CalSnacks was born from struggle, resilience, and a simple belief: you shouldn't have to choose between snacks that taste good and snacks that actually work for you.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,700;0,900;1,700;1,900&family=Barlow:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{-webkit-box-sizing:border-box;box-sizing:border-box;margin:0;padding:0}
+:root{
+  --black:#0F1213;--white:#FFFFFF;
+  --teal:#66CCCC;--teal-dark:#3A9999;--teal-pastel:#C2EBEB;
+  --orange:#E66443;--yellow:#E9AD3C;
+  --platinum:#EAE9E5;--grey-warm:#E8D7C3;--grey-mid:#DDD8CC;
+  --ink:#1A1A1A;--ink-mid:#555;--ink-light:#888;
+  --font-head:'Barlow Condensed',sans-serif;
+  --font-body:'Barlow',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-body);color:var(--ink);background:var(--white);overflow-x:hidden;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+
+/* ===== NAV ===== */
+.topbar{background:var(--black);color:var(--white);text-align:center;padding:10px 24px;font-family:var(--font-head);font-weight:700;font-size:13px;letter-spacing:1.5px;text-transform:uppercase}
+.topbar span{color:var(--teal);margin:0 10px}
+nav{position:-webkit-sticky;position:sticky;top:0;z-index:200;background:var(--white);border-bottom:2px solid var(--black);display:flex;align-items:center;justify-content:space-between;padding:0 56px;height:72px}
+.nav-brand{font-family:var(--font-head);font-weight:900;font-size:22px;letter-spacing:1px;text-transform:uppercase;color:var(--black);text-decoration:none}
+.nav-brand span{color:var(--orange)}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{font-family:var(--font-head);font-weight:700;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-mid);text-decoration:none;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--teal-dark)}
+.nav-cta{font-family:var(--font-head);font-weight:900;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;padding:10px 22px;background:var(--teal);color:var(--black);text-decoration:none;transition:background .2s}
+.nav-cta:hover{background:var(--teal-dark);color:var(--white)}
+
+/* ===== SHARED ===== */
+.pill-btn{display:inline-block;font-family:var(--font-head);font-weight:900;font-size:14px;letter-spacing:2px;text-transform:uppercase;padding:18px 44px;background:var(--teal);color:var(--black);text-decoration:none;transition:all .25s}
+.pill-btn:hover{background:var(--teal-dark);color:var(--white)}
+.ghost-btn{display:inline-block;font-family:var(--font-head);font-weight:900;font-size:13px;letter-spacing:2px;text-transform:uppercase;padding:14px 32px;background:transparent;color:var(--black);border:2px solid var(--black);text-decoration:none;transition:all .25s}
+.ghost-btn:hover{background:var(--black);color:var(--white)}
+
+/* ===== 1. HERO ===== */
+.hero{background:var(--black);min-height:88vh;display:flex;align-items:flex-end;padding:80px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 30% 60%,rgba(102,204,204,.06) 0%,transparent 70%)}
+.hero-inner{max-width:900px;position:relative;z-index:2}
+.hero-overline{font-family:var(--font-head);font-weight:700;font-size:12px;letter-spacing:5px;text-transform:uppercase;color:var(--teal);margin-bottom:24px;display:flex;align-items:center;gap:16px}
+.hero-overline::before{content:'';width:40px;height:2px;background:var(--teal)}
+.hero-h1{font-family:var(--font-head);font-weight:900;font-size:112px;line-height:.83;text-transform:uppercase;color:var(--white);margin-bottom:36px}
+.hero-h1 em{font-style:italic;color:var(--teal);display:block}
+.hero-sub{font-family:var(--font-body);font-size:20px;color:rgba(255,255,255,.65);line-height:1.7;max-width:580px;margin-bottom:48px}
+.hero-sig{display:flex;align-items:center;gap:20px;padding-top:40px;border-top:1px solid rgba(255,255,255,.1)}
+.hero-sig-name{font-family:var(--font-head);font-weight:900;font-size:22px;text-transform:uppercase;color:var(--white);line-height:1}
+.hero-sig-title{font-family:var(--font-body);font-size:14px;color:rgba(255,255,255,.45);margin-top:4px}
+.hero-sig-dot{width:3px;height:40px;background:var(--teal)}
+
+/* ===== 2. STORY CHAPTERS ===== */
+.story-section{background:var(--white)}
+
+/* Chapter layout */
+.chapter{padding:100px 80px;max-width:1200px;margin:0 auto;display:grid;gap:60px}
+.chapter-single{grid-template-columns:1fr;max-width:760px}
+.chapter-split{grid-template-columns:1fr 1fr;align-items:start;gap:100px}
+.chapter-wide{grid-template-columns:280px 1fr;align-items:start;gap:80px}
+
+.chapter-num{font-family:var(--font-head);font-weight:900;font-size:120px;color:var(--platinum);line-height:1;margin-bottom:-20px}
+.chapter-eyebrow{font-family:var(--font-head);font-weight:700;font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--teal-dark);margin-bottom:16px}
+.chapter-h{font-family:var(--font-head);font-weight:900;font-size:56px;line-height:.9;text-transform:uppercase;color:var(--black);margin-bottom:28px}
+.chapter-h em{font-style:italic;color:var(--teal-dark)}
+.chapter-body{font-family:var(--font-body);font-size:17px;color:var(--ink-mid);line-height:1.85}
+.chapter-body p{margin-bottom:20px}
+.chapter-body p:last-child{margin-bottom:0}
+
+/* Pull quote */
+.pull-quote{border-left:4px solid var(--teal);padding:24px 32px;background:var(--platinum);margin:40px 0}
+.pull-quote-text{font-family:var(--font-head);font-weight:900;font-size:32px;line-height:1.1;text-transform:uppercase;color:var(--black)}
+.pull-quote-text em{font-style:italic;color:var(--teal-dark)}
+
+/* Chapter divider */
+.chapter-divider{padding:0 80px;max-width:1200px;margin:0 auto}
+.chapter-divider-line{height:1px;background:var(--platinum)}
+
+/* ===== 3. TURN SECTION — dark, moment of change ===== */
+.turn-section{background:var(--black);padding:120px 80px;position:relative;overflow:hidden}
+.turn-section::before{content:'BORN';position:absolute;right:-40px;bottom:-40px;font-family:var(--font-head);font-weight:900;font-size:320px;color:rgba(255,255,255,.025);line-height:1;pointer-events:none;text-transform:uppercase}
+.turn-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:100px;align-items:center;position:relative;z-index:2}
+.turn-left{}
+.turn-eyebrow{font-family:var(--font-head);font-weight:700;font-size:12px;letter-spacing:4px;text-transform:uppercase;color:var(--teal);margin-bottom:20px}
+.turn-h{font-family:var(--font-head);font-weight:900;font-size:72px;line-height:.88;text-transform:uppercase;color:var(--white);margin-bottom:28px}
+.turn-h em{font-style:italic;color:var(--teal);display:block}
+.turn-body{font-family:var(--font-body);font-size:17px;color:rgba(255,255,255,.7);line-height:1.85}
+.turn-body p{margin-bottom:20px}
+.turn-body p:last-child{margin-bottom:0}
+/* Stats on the right */
+.turn-stats{display:flex;flex-direction:column;gap:2px;background:rgba(255,255,255,.05)}
+.turn-stat{padding:32px 36px;border-left:4px solid transparent;transition:all .3s}
+.turn-stat:nth-child(1){border-left-color:var(--teal)}
+.turn-stat:nth-child(2){border-left-color:var(--orange)}
+.turn-stat:nth-child(3){border-left-color:var(--yellow)}
+.turn-stat:nth-child(4){border-left-color:var(--teal-pastel)}
+.turn-stat-num{font-family:var(--font-head);font-weight:900;font-size:52px;color:var(--white);line-height:1;margin-bottom:6px}
+.turn-stat-label{font-family:var(--font-head);font-weight:700;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.55)}
+.turn-stat-sub{font-family:var(--font-body);font-size:13px;color:rgba(255,255,255,.4);line-height:1.5;margin-top:4px}
+
+/* ===== 4. THE WAY WE DO THINGS ===== */
+.values-section{background:var(--platinum);padding:120px 80px}
+.values-inner{max-width:1200px;margin:0 auto}
+.values-header{margin-bottom:72px}
+.values-eyebrow{font-family:var(--font-head);font-weight:700;font-size:12px;letter-spacing:4px;text-transform:uppercase;color:var(--teal-dark);margin-bottom:16px}
+.values-h{font-family:var(--font-head);font-weight:900;font-size:80px;line-height:.86;text-transform:uppercase;color:var(--black);margin-bottom:20px}
+.values-h em{font-style:italic;color:var(--teal-dark)}
+.values-sub{font-family:var(--font-body);font-size:18px;color:rgba(15,18,19,.6);line-height:1.7;max-width:560px}
+
+.values-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:3px;background:rgba(15,18,19,.08)}
+.value-card{background:var(--white);padding:48px 44px;position:relative;overflow:hidden;transition:background .3s}
+.value-card:hover{background:#F5F3F0}
+.value-num{font-family:var(--font-head);font-weight:900;font-size:80px;color:var(--platinum);line-height:1;position:absolute;bottom:-10px;right:20px;pointer-events:none}
+.value-icon{font-size:36px;margin-bottom:20px}
+.value-name{font-family:var(--font-head);font-weight:900;font-size:32px;text-transform:uppercase;color:var(--black);line-height:1;margin-bottom:12px}
+.value-name em{font-style:italic;color:var(--teal-dark)}
+.value-body{font-family:var(--font-body);font-size:16px;color:var(--ink-mid);line-height:1.8;position:relative;z-index:2;max-width:440px}
+
+/* ===== 5. LETTER SECTION ===== */
+.letter-section{background:var(--white);padding:120px 80px}
+.letter-inner{max-width:760px;margin:0 auto}
+.letter-eyebrow{font-family:var(--font-head);font-weight:700;font-size:12px;letter-spacing:4px;text-transform:uppercase;color:var(--teal-dark);margin-bottom:32px}
+.letter-body{font-family:var(--font-body);font-size:18px;color:var(--ink);line-height:1.9;margin-bottom:48px}
+.letter-body p{margin-bottom:24px}
+.letter-sig{display:flex;flex-direction:column;gap:4px;padding-top:40px;border-top:2px solid var(--platinum)}
+.letter-sig-name{font-family:var(--font-head);font-weight:900;font-size:28px;text-transform:uppercase;color:var(--black);line-height:1}
+.letter-sig-title{font-family:var(--font-body);font-size:15px;color:var(--ink-light)}
+.letter-sig-tagline{font-family:var(--font-head);font-weight:700;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--teal-dark);margin-top:8px}
+
+/* ===== 6. MILESTONES ===== */
+.milestones-section{background:var(--black);padding:80px}
+.milestones-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:rgba(255,255,255,.06)}
+.milestone{background:var(--black);padding:40px 32px;border-top:3px solid transparent}
+.milestone:nth-child(1){border-top-color:var(--teal)}
+.milestone:nth-child(2){border-top-color:var(--orange)}
+.milestone:nth-child(3){border-top-color:var(--yellow)}
+.milestone:nth-child(4){border-top-color:var(--teal-pastel)}
+.milestone-num{font-family:var(--font-head);font-weight:900;font-size:52px;color:var(--white);line-height:1;margin-bottom:8px}
+.milestone-label{font-family:var(--font-head);font-weight:700;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:8px}
+.milestone-sub{font-family:var(--font-body);font-size:14px;color:rgba(255,255,255,.4);line-height:1.55}
+
+/* ===== 7. CTA ===== */
+.cta-section{background:var(--teal);padding:100px 80px;text-align:center;position:relative;overflow:hidden}
+.cta-section::before{content:'100CAL';position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-family:var(--font-head);font-weight:900;font-size:280px;color:rgba(0,0,0,.07);pointer-events:none;white-space:nowrap}
+.cta-inner{max-width:640px;margin:0 auto;position:relative;z-index:2}
+.cta-eyebrow{font-family:var(--font-head);font-weight:700;font-size:12px;letter-spacing:4px;text-transform:uppercase;color:rgba(0,0,0,.45);margin-bottom:20px}
+.cta-h{font-family:var(--font-head);font-weight:900;font-size:72px;line-height:.88;text-transform:uppercase;color:var(--black);margin-bottom:20px}
+.cta-sub{font-family:var(--font-body);font-size:20px;color:rgba(0,0,0,.7);line-height:1.7;margin-bottom:40px;font-style:italic}
+.cta-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.cta-btn-dark{display:inline-block;font-family:var(--font-head);font-weight:900;font-size:14px;letter-spacing:2px;text-transform:uppercase;padding:18px 44px;background:var(--black);color:var(--white);text-decoration:none;transition:all .25s}
+.cta-btn-dark:hover{background:#1A1A1A}
+.cta-btn-ghost{display:inline-block;font-family:var(--font-head);font-weight:900;font-size:14px;letter-spacing:2px;text-transform:uppercase;padding:16px 40px;background:transparent;color:var(--black);border:2px solid rgba(0,0,0,.25);text-decoration:none;transition:all .25s}
+.cta-btn-ghost:hover{border-color:var(--black);background:rgba(0,0,0,.06)}
+
+
+/* ===== FOUNDER LINE ===== */
+.founder-line-section{background:var(--black);padding:64px 80px;text-align:center}
+.founder-line-inner{max-width:800px;margin:0 auto}
+.founder-line-text{font-family:var(--font-head);font-weight:900;font-size:48px;line-height:.95;text-transform:uppercase;color:var(--white);margin-bottom:16px}
+.founder-line-text em{font-style:italic;color:var(--teal)}
+.founder-line-sub{font-family:var(--font-head);font-weight:700;font-size:11px;letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,.3)}
+
+/* ===== FOOTER ===== */
+footer{background:var(--black);padding:48px 80px 32px;border-top:1px solid rgba(255,255,255,.06)}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:60px;margin-bottom:40px}
+.footer-brand{font-family:var(--font-head);font-weight:900;font-size:24px;text-transform:uppercase;color:var(--white);margin-bottom:6px}
+.footer-brand span{color:var(--orange)}
+.footer-tagline{font-family:var(--font-head);font-weight:700;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--teal);margin-bottom:14px}
+.footer-bio{font-family:var(--font-body);font-size:14px;color:rgba(255,255,255,.35);line-height:1.65}
+.footer-col-title{font-family:var(--font-head);font-weight:900;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:14px}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:8px}
+.footer-links a{font-family:var(--font-body);font-size:14px;color:rgba(255,255,255,.3);text-decoration:none;transition:color .2s}
+.footer-links a:hover{color:var(--teal)}
+.footer-btm{display:flex;justify-content:space-between;align-items:center;padding-top:24px;border-top:1px solid rgba(255,255,255,.05);font-family:var(--font-body);font-size:12px;color:rgba(255,255,255,.2)}
+
+/* ===== ANIMATIONS ===== */
+.fade-up{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+.fade-up-2{transition-delay:.15s}
+.fade-up-3{transition-delay:.3s}
+.fade-up-4{transition-delay:.45s}
+</style>
+</head>
+<body>
+
+<div class="topbar">Woman-Owned <span>·</span> Science-Backed <span>·</span> Keepin' Snacks 100®</div>
+
+<nav>
+  <a href="100CalSnacks-PDP-ChocolateBrownieBar-v4.html" class="nav-brand">100<span>Cal</span>Snacks</a>
+  <ul class="nav-links">
+    <li><a href="100CalSnacks-PDP-ChocolateBrownieBar-v4.html">Shop</a></li>
+    <li><a href="100CalSnacks-GutBrain101.html">Gut-Brain 101</a></li>
+    <li><a href="100CalSnacks-GutBrainQuiz.html">Quiz</a></li>
+    <li><a href="#" class="active">Our Story</a></li>
+  </ul>
+  <a href="100CalSnacks-PDP-ChocolateBrownieBar-v4.html" class="nav-cta">Shop Now</a>
+</nav>
+
+<!-- ===== 1. HERO ===== -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-overline">The 100Cal Story</div>
+    <h1 class="hero-h1">Born from<br>the Hard<br><em>Stuff.</em></h1>
+    <p class="hero-sub">This brand didn't come from a boardroom or a business plan. It came from 5 surgeries, 50 extra pounds, a broken gut, and the kind of stubbornness that refuses to stay down.</p>
+    <div class="hero-sig">
+      <div class="hero-sig-dot"></div>
+      <div>
+        <div class="hero-sig-name">Tapasya Bali</div>
+        <div class="hero-sig-title">Founder & CEO, 100CalSnacks</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 2. STORY — Chapter 1 ===== -->
+<section class="story-section">
+  <div style="max-width:1200px;margin:0 auto">
+
+    <div class="chapter chapter-wide fade-up" style="padding-bottom:60px">
+      <div>
+        <div class="chapter-num">01</div>
+        <div class="chapter-eyebrow">Where It Started</div>
+      </div>
+      <div>
+        <h2 class="chapter-h">I Didn't Start This<br>Because I Had It<br><em>Figured Out.</em></h2>
+        <div class="chapter-body">
+          <p>I started it because I was struggling — a well-dressed, overachieving, stress-eating mess, but struggling nonetheless.</p>
+          <p>For years I had the absolute pleasure of dealing with gut issues, anxiety, weight gain, and the kind of inflammation that makes you feel like your body is working against you. I was building a career, running a company, trying to keep it all together — and quietly falling apart on the inside.</p>
+          <p>Then came the surgeries. Five of them. And 50 extra pounds that showed up uninvited and refused to leave.</p>
+        </div>
+        <div class="pull-quote">
+          <div class="pull-quote-text">Setbacks don't break you.<br><em>They shape you.</em></div>
+        </div>
+        <div class="chapter-body">
+          <p>I got the message. It was time for a change — not a dramatic reinvention, just a quiet, honest decision to start treating my body like it mattered.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="chapter-divider"><div class="chapter-divider-line"></div></div>
+
+    <!-- Chapter 2 -->
+    <div class="chapter chapter-wide fade-up" style="padding-bottom:60px">
+      <div>
+        <div class="chapter-num">02</div>
+        <div class="chapter-eyebrow">The Problem</div>
+      </div>
+      <div>
+        <h2 class="chapter-h">The Snacks Were<br>Either Joyless or<br><em>Gut-Wrecking.</em></h2>
+        <div class="chapter-body">
+          <p>I tried to clean up my diet. I read labels. I bought the "healthy" things. And I quickly discovered that most of them were either glorified cardboard, or they were full of sugar alcohols and additives that left my gut worse than before.</p>
+          <p>Erythritol. Maltitol. Artificial sweeteners. Ingredients I couldn't pronounce, in amounts that were clearly there for cost savings, not for me.</p>
+          <p>The protein bars that gave me bloating. The "clean" snacks that tasted like despair. The options that were technically healthy but made me feel like I was being punished for wanting to eat better.</p>
+        </div>
+        <div class="pull-quote">
+          <div class="pull-quote-text">Why should eating<br>well feel like<br><em>giving something up?</em></div>
+        </div>
+        <div class="chapter-body">
+          <p>That question sat with me for a long time. And eventually, it turned into a decision.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== 3. THE TURN ===== -->
+<section class="turn-section">
+  <div class="turn-inner">
+    <div class="turn-left fade-up">
+      <div class="turn-eyebrow">The Moment Everything Changed</div>
+      <h2 class="turn-h">So I Made<br><em>My Own.</em></h2>
+      <div class="turn-body">
+        <p>100CalSnacks was born from a simple idea: snacking should nourish you, not punish you. That every calorie should earn its place. That you can have something that tastes like a real treat and works like a functional supplement — at the same time.</p>
+        <p>I went deep on the science. Gut-brain axis. Prebiotic fiber. Adaptogens. Ashwagandha. The connection between what you eat and how you think, feel, and handle stress. And I built snacks around that science instead of around margins and marketing.</p>
+        <p>No sugar alcohols. No palm oil. No artificial anything. Zero compromise on what goes inside — and zero compromise on taste.</p>
+      </div>
+    </div>
+    <div class="turn-stats fade-up fade-up-2">
+      <div class="turn-stat">
+        <div class="turn-stat-num">5</div>
+        <div class="turn-stat-label">Surgeries</div>
+        <div class="turn-stat-sub">The turning point that made this brand inevitable</div>
+      </div>
+      <div class="turn-stat">
+        <div class="turn-stat-num">0g</div>
+        <div class="turn-stat-label">Sugar Alcohols</div>
+        <div class="turn-stat-sub">Because your gut deserves better than the industry standard</div>
+      </div>
+      <div class="turn-stat">
+        <div class="turn-stat-num">100</div>
+        <div class="turn-stat-label">Clean Calories</div>
+        <div class="turn-stat-sub">Every single one earns its place in the formula</div>
+      </div>
+      <div class="turn-stat">
+        <div class="turn-stat-num">1</div>
+        <div class="turn-stat-label">Simple Promise</div>
+        <div class="turn-stat-sub">Keepin' Snacks 100 — real ingredients, real function, always</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 4. THE WAY WE DO THINGS ===== -->
+<section class="values-section">
+  <div class="values-inner">
+    <div class="values-header fade-up">
+      <div class="values-eyebrow">Who We Are</div>
+      <h2 class="values-h">The Way We<br>Do <em>Things.</em></h2>
+      <p class="values-sub">Four things we believe in deeply — not because they sound good on a website, but because they're how we actually show up for the people who trust us.</p>
+    </div>
+    <div class="values-grid fade-up fade-up-2">
+
+      <div class="value-card">
+        <div class="value-icon">🏠</div>
+        <div class="value-name">This is<br><em>Personal.</em></div>
+        <div class="value-body">We built this brand from lived experience. When you reach out, a real person responds. When something goes wrong, we make it right. We want you to feel cared for, not like just another order.</div>
+        <div class="value-num">01</div>
+      </div>
+
+      <div class="value-card">
+        <div class="value-icon">🤝</div>
+        <div class="value-name">We're Here<br><em>To Stay.</em></div>
+        <div class="value-body">You’re not a transaction or a data point. We’re here for the long haul — through the hard seasons, the good ones, and all the real life in between.</div>
+        <div class="value-num">02</div>
+      </div>
+
+      <div class="value-card">
+        <div class="value-icon">💪</div>
+        <div class="value-name">We Root for<br><em>You.</em></div>
+        <div class="value-body">Better choices are rarely about perfection. Whether you’re rebuilding, managing stress, or simply trying to eat better, we’re in your corner for all of it.</div>
+        <div class="value-num">03</div>
+      </div>
+
+      <div class="value-card">
+        <div class="value-icon">✨</div>
+        <div class="value-name">Joy Is<br><em>Not Optional.</em></div>
+        <div class="value-body">Eating well should still feel joyful. Your snack should taste genuinely good and support how you feel. We believe you deserve both.</div>
+        <div class="value-num">04</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== 5. PERSONAL LETTER ===== -->
+<section class="letter-section">
+  <div class="letter-inner fade-up">
+    <div class="letter-eyebrow">A Note from the Founder</div>
+    <div class="letter-body">
+      <p>If you've read this far — thank you. Genuinely.</p>
+      <p>Building 100CalSnacks has been the hardest and most rewarding thing I've ever done. There were moments I wasn't sure we'd make it. Moments where the easier path would have been to cut corners, use cheaper ingredients, make the snacks taste a little less real in exchange for a better margin.</p>
+      <p>I never did. And I won't.</p>
+      <p>Because this brand isn't a business to me first — it's a commitment. To everyone who's ever stood in a grocery store aisle feeling like there's nothing there for them. To everyone managing stress and gut health and trying to figure out how to eat well without it feeling like punishment. To everyone who just wants a snack they can trust.</p>
+      <p>You deserve better. We're here to give it to you.</p>
+      <p>And if you ever want to talk — about the products, about the science, about your own journey — my door is open. That's not a marketing line. That's just how we do things here.</p>
+    </div>
+    <div class="letter-sig">
+      <div class="letter-sig-name">Tapasya Bali</div>
+      <div class="letter-sig-title">Founder & CEO · 100CalSnacks · Goldman Sachs 100 Most Intriguing Entrepreneur</div>
+      <div class="letter-sig-tagline">Keepin' Snacks 100® — always.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 6. FOUNDER LINE ===== -->
+<section class="founder-line-section">
+  <div class="founder-line-inner fade-up">
+    <div class="founder-line-text">Built by a founder who lived the problem she solved.</div>
+    <div class="founder-line-sub">Woman-Owned &middot; Science-Backed &middot; Keepin&rsquo; Snacks 100&reg;</div>
+  </div>
+</section>
+
+<!-- ===== 7. CTA ===== -->
+<section class="cta-section">
+  <div class="cta-inner">
+    <div class="cta-eyebrow">Ready to Try?</div>
+    <h2 class="cta-h">Taste What<br>This Was<br>Built For.</h2>
+    <p class="cta-sub">Thoughtfully made for steadier energy, real satisfaction, and snacks that feel as good as they taste.</p>
+    <div class="cta-btns">
+      <a href="100CalSnacks-PDP-ChocolateBrownieBar-v4.html" class="cta-btn-dark">Shop the Collection →</a>
+      <a href="100CalSnacks-GutBrainQuiz.html" class="cta-btn-ghost">Take the Quiz</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-brand">100<span>Cal</span>Snacks</div>
+      <div class="footer-tagline">Keepin' Snacks 100®</div>
+      <p class="footer-bio">Built from the struggle. Engineered for the journey. Woman-owned, science-backed, and genuinely built for people who want better.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Learn</div>
+      <ul class="footer-links">
+        <li><a href="100CalSnacks-GutBrain101.html">Gut-Brain Health 101</a></li>
+        <li><a href="100CalSnacks-Ingredients.html">Ingredient Index</a></li>
+        <li><a href="100CalSnacks-GutBrainQuiz.html">Take the Quiz</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Shop</div>
+      <ul class="footer-links">
+        <li><a href="100CalSnacks-PDP-ChocolateBrownieBar-v4.html">Chocolate Brownie Bar</a></li>
+        <li><a href="100CalSnacks-PDP-ChocolateBrownieBar-v4.html">Peanut Butter Bar</a></li>
+        <li><a href="100CalSnacks-PDP-ChocolateBrownieBar-v4.html">BBQ Protein Puffs</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Company</div>
+      <ul class="footer-links">
+        <li><a href="#">Our Story</a></li>
+        <li><a href="#">Contact Us</a></li>
+        <li><a href="#">Store Locator</a></li>
+        <li><a href="#">FAQs</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-btm">
+    <div>© 2026 100CalSnacks.com · Woman-Owned · Science-Backed</div>
+    <div>* These statements have not been evaluated by the FDA.</div>
+  </div>
+</footer>
+
+<script>
+var fadeEls = document.querySelectorAll('.fade-up');
+var observer = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) {
+    if (entry.isIntersecting) entry.target.classList.add('visible');
+  });
+}, {threshold: 0.08, rootMargin: '0px 0px -30px 0px'});
+fadeEls.forEach(function(el) { observer.observe(el); });
+</script>
+</body>
+</html>

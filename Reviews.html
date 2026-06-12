@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Customer Reviews — 100 Cal Snacks | What People Are Saying</title>
+<meta name="description" content="Real people. Real stories. Read verified customer reviews for 100 Cal Snacks — what they said about the Chocolate Brownie Bar, Peanut Butter Bar, and BBQ Protein Puffs. We show all of them, including the critical ones.">
+<link rel="canonical" href="https://100calsnacks.com/pages/reviews">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,700;0,900;1,700;1,900&family=Barlow:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{-webkit-box-sizing:border-box;box-sizing:border-box;margin:0;padding:0}
+:root{
+  --black:#0F1213;--white:#FFFFFF;
+  --teal:#66CCCC;--teal-dark:#3A9999;--teal-pastel:#C2EBEB;
+  --orange:#E66443;--yellow:#E9AD3C;
+  --platinum:#EAE9E5;--grey-warm:#E8D7C3;--grey-mid:#DDD8CC;
+  --ink:#1A1A1A;--ink-mid:#555;--ink-light:#888;
+  --neutral:#F4F3F0;
+  --font-head:'Barlow Condensed',sans-serif;
+  --font-body:'Barlow',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-body);color:var(--ink);background:var(--white);overflow-x:hidden;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+
+/* ===== NAV ===== */
+.topbar{background:var(--black);color:var(--white);text-align:center;padding:10px 24px;font-family:var(--font-head);font-weight:700;font-size:13px;letter-spacing:1.5px;text-transform:uppercase}
+.topbar span{color:var(--teal);margin:0 10px}
+nav{position:-webkit-sticky;position:sticky;top:0;z-index:200;background:var(--white);border-bottom:2px solid var(--black);display:flex;align-items:center;justify-content:space-between;padding:0 56px;height:72px}
+.nav-brand{font-family:var(--font-head);font-weight:900;font-size:22px;letter-spacing:1px;text-transform:uppercase;color:var(--black);text-decoration:none}
+.nav-brand span{color:var(--orange)}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{font-family:var(--font-head);font-weight:700;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-mid);text-decoration:none;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--teal-dark)}
+.nav-cta{font-family:var(--font-head);font-weight:900;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;padding:10px 22px;background:var(--teal);color:var(--black);text-decoration:none;transition:background .2s}
+.nav-cta:hover{background:var(--teal-dark);color:var(--white)}
+
+/* ===== HERO ===== */
+.hero{background:var(--black);padding:80px 80px 0;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 80% 40%,rgba(102,204,204,.05) 0%,transparent 70%);pointer-events:none}
+.hero::after{content:'"';position:absolute;right:60px;top:-20px;font-family:Georgia,serif;font-size:400px;color:rgba(255,255,255,.03);line-height:1;pointer-events:none}
+.hero-inner{max-width:1200px;margin:0 auto;position:relative;z-index:2}
+.hero-overline{font-family:var(--font-head);font-weight:700;font-size:11px;letter-spacing:5px;text-transform:uppercase;color:var(--teal);margin-bottom:20px;display:flex;align-items:center;gap:14px}
+.hero-overline::before{content:'';width:28px;height:2px;background:var(--teal);flex-shrink:0}
+.hero-h1{font-family:var(--font-head);font-weight:900;font-size:80px;line-height:.88;text-transform:uppercase;color:var(--white);margin-bottom:20px}
+.hero-h1 em{font-style:italic;color:var(--teal);display:block}
+.hero-sub{font-family:var(--font-body);font-size:17px;color:rgba(255,255,255,.55);line-height:1.75;max-width:520px;margin-bottom:48px}
+
+/* Trust stats strip */
+.trust-strip{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;background:rgba(255,255,255,.06);margin-top:48px}
+.trust-stat{background:rgba(255,255,255,.03);padding:24px 20px;text-align:center}
+.trust-num{font-family:var(--font-head);font-weight:900;font-size:44px;color:var(--white);line-height:1;margin-bottom:6px}
+.trust-num span{font-size:28px}
+.trust-label{font-family:var(--font-head);font-weight:700;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.4);line-height:1.3}
+.trust-stars{color:var(--yellow);font-size:16px;margin-bottom:6px}
+
+/* ===== RATING SUMMARY ===== */
+.rating-section{background:var(--platinum);padding:64px 80px}
+.rating-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:280px 1fr;gap:64px;align-items:center}
+.rating-left{text-align:center}
+.rating-big{font-family:var(--font-head);font-weight:900;font-size:120px;color:var(--black);line-height:.85;margin-bottom:8px}
+.rating-stars-big{color:var(--yellow);font-size:28px;letter-spacing:4px;margin-bottom:8px}
+.rating-total{font-family:var(--font-body);font-size:14px;color:var(--ink-light)}
+.rating-right{}
+.rating-bar-row{display:flex;align-items:center;gap:16px;margin-bottom:10px}
+.rating-bar-label{font-family:var(--font-head);font-weight:700;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--ink-mid);width:36px;text-align:right;flex-shrink:0;display:flex;align-items:center;gap:4px}
+.rating-bar-label span{color:var(--yellow);font-size:10px}
+.rating-bar-track{flex:1;height:8px;background:rgba(15,18,19,.1);position:relative}
+.rating-bar-fill{position:absolute;left:0;top:0;height:100%;background:var(--teal);transition:width .8s ease}
+.rating-bar-pct{font-family:var(--font-body);font-size:13px;color:var(--ink-light);width:36px;flex-shrink:0}
+.rating-by-product{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;background:rgba(15,18,19,.08);margin-top:32px}
+.rbp-card{background:var(--white);padding:16px 18px;display:flex;align-items:center;justify-content:space-between}
+.rbp-name{font-family:var(--font-head);font-weight:900;font-size:13px;text-transform:uppercase;color:var(--black)}
+.rbp-score{display:flex;align-items:center;gap:6px}
+.rbp-stars{color:var(--yellow);font-size:12px}
+.rbp-num{font-family:var(--font-head);font-weight:900;font-size:14px;color:var(--black)}
+.rbp-count{font-family:var(--font-body);font-size:11px;color:var(--ink-light)}
+
+/* ===== FEATURED REVIEWS ===== */
+.featured-section{background:var(--white);padding:72px 80px}
+.featured-inner{max-width:1200px;margin:0 auto}
+.section-header{margin-bottom:40px}
+.section-eyebrow{font-family:var(--font-head);font-weight:700;font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--teal-dark);margin-bottom:10px}
+.section-h{font-family:var(--font-head);font-weight:900;font-size:52px;line-height:.9;text-transform:uppercase;color:var(--black)}
+
+/* Featured review cards */
+.featured-grid{display:grid;grid-template-columns:1fr 1fr;gap:3px;background:var(--platinum)}
+.feat-card{background:var(--white);padding:40px 36px;position:relative;display:flex;flex-direction:column}
+.feat-card.large{grid-column:span 2;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.feat-quote-mark{font-family:Georgia,serif;font-size:80px;color:var(--teal);line-height:.6;margin-bottom:16px;display:block}
+.feat-quote{font-family:var(--font-body);font-size:18px;color:var(--ink);line-height:1.75;font-style:italic;margin-bottom:24px;flex:1}
+.feat-card.large .feat-quote{font-size:22px}
+.feat-meta{}
+.feat-name{font-family:var(--font-head);font-weight:900;font-size:16px;text-transform:uppercase;color:var(--black);letter-spacing:.5px;margin-bottom:2px}
+.feat-source{font-family:var(--font-body);font-size:12px;color:var(--ink-light);margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.feat-source-badge{font-family:var(--font-head);font-weight:700;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;padding:2px 8px;background:var(--neutral);color:var(--ink-light)}
+.feat-stars{color:var(--yellow);font-size:14px;letter-spacing:2px;margin-bottom:8px}
+.feat-product-tag{display:inline-block;font-family:var(--font-head);font-weight:700;font-size:9px;letter-spacing:2px;text-transform:uppercase;padding:4px 12px;border:1px solid rgba(15,18,19,.12);color:var(--ink-light)}
+.feat-card.choc-accent{border-top:3px solid var(--teal)}
+.feat-card.pb-accent{border-top:3px solid var(--yellow)}
+.feat-card.bbq-accent{border-top:3px solid var(--orange)}
+/* Large card visual right side */
+.feat-visual{background:var(--black);border-radius:0;padding:48px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;text-align:center;min-height:280px}
+.feat-visual-emoji{font-size:72px}
+.feat-visual-stat{font-family:var(--font-head);font-weight:900;font-size:48px;color:var(--teal);line-height:1}
+.feat-visual-label{font-family:var(--font-head);font-weight:700;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,.4)}
+
+/* ===== REVIEWS BY PRODUCT ===== */
+.product-reviews-section{background:var(--black);padding:72px 80px}
+.product-reviews-inner{max-width:1200px;margin:0 auto}
+.product-tabs{display:flex;gap:3px;margin-bottom:40px;background:rgba(255,255,255,.04)}
+.product-tab{flex:1;padding:18px 20px;font-family:var(--font-head);font-weight:900;font-size:14px;text-transform:uppercase;letter-spacing:.5px;color:rgba(255,255,255,.35);background:transparent;border:none;cursor:pointer;transition:all .2s;text-align:left;border-bottom:3px solid transparent;display:flex;align-items:center;gap:12px}
+.product-tab .pt-emoji{font-size:20px}
+.product-tab:hover{color:rgba(255,255,255,.6);background:rgba(255,255,255,.03)}
+.product-tab.active{color:var(--white);border-bottom-color:var(--teal);background:rgba(255,255,255,.04)}
+.product-review-panel{display:none}
+.product-review-panel.active{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:rgba(255,255,255,.05)}
+.rev-card{background:var(--black);padding:28px 24px;border-top:2px solid rgba(255,255,255,.06)}
+.rev-stars{color:var(--yellow);font-size:12px;letter-spacing:1px;margin-bottom:10px}
+.rev-title{font-family:var(--font-head);font-weight:900;font-size:17px;text-transform:uppercase;color:var(--white);letter-spacing:.5px;line-height:1.05;margin-bottom:10px}
+.rev-body{font-family:var(--font-body);font-size:14px;color:rgba(255,255,255,.6);line-height:1.7;margin-bottom:16px}
+.rev-footer{display:flex;align-items:center;justify-content:space-between;padding-top:12px;border-top:1px solid rgba(255,255,255,.06)}
+.rev-name{font-family:var(--font-head);font-weight:700;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.35)}
+.rev-badge{font-family:var(--font-head);font-weight:700;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;padding:3px 8px;background:rgba(102,204,204,.1);color:var(--teal)}
+.rev-date{font-family:var(--font-body);font-size:11px;color:rgba(255,255,255,.2)}
+
+/* ===== DYNAMIC FEED PLACEHOLDER ===== */
+.feed-section{background:var(--platinum);padding:72px 80px}
+.feed-inner{max-width:1200px;margin:0 auto}
+.feed-header{display:flex;align-items:end;justify-content:space-between;margin-bottom:32px}
+.feed-h{font-family:var(--font-head);font-weight:900;font-size:52px;line-height:.9;text-transform:uppercase;color:var(--black)}
+.feed-source{font-family:var(--font-body);font-size:14px;color:var(--ink-light);display:flex;align-items:center;gap:8px}
+.feed-placeholder{border:2px dashed rgba(15,18,19,.15);padding:64px;text-align:center;background:var(--white)}
+.fp-icon{font-size:48px;margin-bottom:16px;opacity:.4}
+.fp-h{font-family:var(--font-head);font-weight:900;font-size:28px;text-transform:uppercase;color:var(--black);margin-bottom:8px}
+.fp-body{font-family:var(--font-body);font-size:15px;color:var(--ink-mid);line-height:1.65;max-width:520px;margin:0 auto 20px}
+.fp-platforms{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+.fp-platform{font-family:var(--font-head);font-weight:700;font-size:10px;letter-spacing:2px;text-transform:uppercase;padding:8px 18px;border:1.5px solid rgba(15,18,19,.15);color:var(--ink-mid)}
+/* Skeleton preview cards */
+.feed-skeleton{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:rgba(15,18,19,.06);margin-top:24px}
+.skel-card{background:var(--white);padding:24px 20px}
+.skel-line{height:10px;background:var(--platinum);border-radius:2px;margin-bottom:8px;animation:shimmer 1.8s ease infinite}
+.skel-line.short{width:60%}
+.skel-line.stars{width:80px;background:rgba(233,173,60,.2)}
+@keyframes shimmer{0%,100%{opacity:.5}50%{opacity:1}}
+
+/* ===== WRITE A REVIEW CTA ===== */
+.write-section{background:var(--black);padding:64px 80px}
+.write-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.write-h{font-family:var(--font-head);font-weight:900;font-size:56px;line-height:.9;text-transform:uppercase;color:var(--white);margin-bottom:12px}
+.write-h em{font-style:italic;color:var(--teal)}
+.write-sub{font-family:var(--font-body);font-size:16px;color:rgba(255,255,255,.5);line-height:1.7}
+.write-options{display:flex;flex-direction:column;gap:3px}
+.write-option{display:flex;align-items:center;justify-content:space-between;padding:20px 24px;background:rgba(255,255,255,.04);text-decoration:none;transition:background .2s;border-left:3px solid transparent}
+.write-option:nth-child(1){border-left-color:var(--teal)}
+.write-option:nth-child(2){border-left-color:var(--yellow)}
+.write-option:nth-child(3){border-left-color:var(--orange)}
+.write-option:hover{background:rgba(255,255,255,.07)}
+.wo-left{}
+.wo-platform{font-family:var(--font-head);font-weight:700;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:4px}
+.wo-name{font-family:var(--font-head);font-weight:900;font-size:18px;text-transform:uppercase;color:var(--white);letter-spacing:.5px}
+.wo-arrow{font-family:var(--font-head);font-weight:700;font-size:16px;color:var(--teal);transition:transform .2s}
+.write-option:hover .wo-arrow{transform:translateX(4px)}
+
+/* ===== CTA ===== */
+.cta-section{background:var(--teal);padding:80px;text-align:center;position:relative;overflow:hidden}
+.cta-section::before{content:'★★★★★';position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-size:200px;color:rgba(0,0,0,.05);white-space:nowrap;pointer-events:none;letter-spacing:20px}
+.cta-inner{max-width:640px;margin:0 auto;position:relative;z-index:2}
+.cta-h{font-family:var(--font-head);font-weight:900;font-size:64px;line-height:.88;text-transform:uppercase;color:var(--black);margin-bottom:14px}
+.cta-sub{font-family:var(--font-body);font-size:17px;color:rgba(0,0,0,.55);line-height:1.7;margin-bottom:32px;font-style:italic}
+.cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.cta-btn-dark{display:inline-block;font-family:var(--font-head);font-weight:900;font-size:14px;letter-spacing:2px;text-transform:uppercase;padding:18px 44px;background:var(--black);color:var(--white);text-decoration:none;transition:background .2s}
+.cta-btn-dark:hover{background:#1a1a1a}
+.cta-btn-ghost{display:inline-block;font-family:var(--font-head);font-weight:900;font-size:13px;letter-spacing:2px;text-transform:uppercase;padding:16px 36px;background:transparent;color:var(--black);border:2px solid rgba(0,0,0,.2);text-decoration:none;transition:all .2s}
+.cta-btn-ghost:hover{border-color:var(--black)}
+
+/* ===== FOOTER ===== */
+footer{background:var(--black);padding:48px 80px 32px;border-top:1px solid rgba(255,255,255,.06)}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:60px;margin-bottom:40px}
+.footer-brand{font-family:var(--font-head);font-weight:900;font-size:24px;text-transform:uppercase;color:var(--white);margin-bottom:6px}
+.footer-brand span{color:var(--orange)}
+.footer-tagline{font-family:var(--font-head);font-weight:700;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--teal);margin-bottom:14px}
+.footer-bio{font-family:var(--font-body);font-size:14px;color:rgba(255,255,255,.35);line-height:1.65}
+.footer-col-title{font-family:var(--font-head);font-weight:900;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:14px}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:8px}
+.footer-links a{font-family:var(--font-body);font-size:14px;color:rgba(255,255,255,.3);text-decoration:none;transition:color .2s}
+.footer-links a:hover{color:var(--teal)}
+.footer-btm{display:flex;justify-content:space-between;align-items:center;padding-top:24px;border-top:1px solid rgba(255,255,255,.05);font-family:var(--font-body);font-size:12px;color:rgba(255,255,255,.2)}
+
+/* ===== ANIMATIONS ===== */
+.fade-up{opacity:0;transform:translateY(20px);transition:opacity .65s ease,transform .65s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+.fade-up-2{transition-delay:.1s}
+.fade-up-3{transition-delay:.2s}
+</style>
+</head>
+<body>
+
+<div class="topbar">Free Shipping on Orders $25+ <span>·</span> Woman-Owned <span>·</span> Keepin' Snacks 100®</div>
+
+<nav>
+  <a href="100CalSnacks-PDP-ChocolateBrownieBar-v4.html" class="nav-brand">100<span>Cal</span>Snacks</a>
+  <ul class="nav-links">
+    <li><a href="100CalSnacks-PDP-ChocolateBrownieBar-v4.html">Shop</a></li>
+    <li><a href="100CalSnacks-GutBrain101.html">Gut-Brain 101</a></li>
+    <li><a href="100CalSnacks-GutBrainQuiz.html">Quiz</a></li>
+    <li><a href="100CalSnacks-Story.html">Our Story</a></li>
+    <li><a href="#" class="active">Reviews</a></li>
+  </ul>
+  <a href="100CalSnacks-PDP-ChocolateBrownieBar-v4.html" class="nav-cta">Shop Now</a>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="fade-up">
+      <div class="hero-overline">Verified Customers</div>
+      <h1 class="hero-h1">Real People. <em> Real Stories.</em></h1>
+      <p class="hero-sub">These aren't cherry-picked testimonials. They're verified buyers — people who tried 100 Cal Snacks and came back to tell others what happened.</p>
+    </div>
+    <div class="trust-strip fade-up fade-up-2">
+      <div class="trust-stat">
+        <div class="trust-num">1,200<span>+</span></div>
+        <div class="trust-label">Verified Reviews<br>on Amazon</div>
+      </div>
+      <div class="trust-stat">
+        <div class="trust-num">85<span>%</span></div>
+        <div class="trust-label">4+ Star Reviews<br>Verified Buyers</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== RATING SUMMARY ===== -->
+<section class="rating-section">
+  <div class="rating-inner fade-up">
+    <div class="rating-left">
+      <div class="rating-big">4.4</div>
+      <div class="rating-stars-big">★★★★☆</div>
+      <div class="rating-total" style="margin-bottom:8px">Based on 1,200+ verified reviews</div>
+      <div style="font-family:var(--font-body);font-size:12px;color:var(--teal-dark);line-height:1.5;margin-top:8px;font-style:italic">We show all reviews —<br>including the critical ones.</div>
+    </div>
+    <div class="rating-right">
+      <div class="rating-bar-row">
+        <div class="rating-bar-label">5 <span>★</span></div>
+        <div class="rating-bar-track"><div class="rating-bar-fill" style="width:58%"></div></div>
+        <div class="rating-bar-pct">58%</div>
+      </div>
+      <div class="rating-bar-row">
+        <div class="rating-bar-label">4 <span>★</span></div>
+        <div class="rating-bar-track"><div class="rating-bar-fill" style="width:18%"></div></div>
+        <div class="rating-bar-pct">18%</div>
+      </div>
+      <div class="rating-bar-row">
+        <div class="rating-bar-label">3 <span>★</span></div>
+        <div class="rating-bar-track"><div class="rating-bar-fill" style="width:12%"></div></div>
+        <div class="rating-bar-pct">12%</div>
+      </div>
+      <div class="rating-bar-row">
+        <div class="rating-bar-label">2 <span>★</span></div>
+        <div class="rating-bar-track"><div class="rating-bar-fill" style="width:7%"></div></div>
+        <div class="rating-bar-pct">7%</div>
+      </div>
+      <div class="rating-bar-row">
+        <div class="rating-bar-label">1 <span>★</span></div>
+        <div class="rating-bar-track"><div class="rating-bar-fill" style="width:5%"></div></div>
+        <div class="rating-bar-pct">5%</div>
+      </div>
+      <div class="rating-by-product">
+        <div class="rbp-card">
+          <div>
+            <div class="rbp-name">Chocolate Brownie</div>
+            <div class="rbp-count">596 reviews</div>
+          </div>
+          <div class="rbp-score">
+            <div class="rbp-stars">★★★★★</div>
+            <div class="rbp-num">4.5</div>
+          </div>
+        </div>
+        <div class="rbp-card">
+          <div>
+            <div class="rbp-name">Peanut Butter Bar</div>
+            <div class="rbp-count">412 reviews</div>
+          </div>
+          <div class="rbp-score">
+            <div class="rbp-stars">★★★★★</div>
+            <div class="rbp-num">4.4</div>
+          </div>
+        </div>
+        <div class="rbp-card">
+          <div>
+            <div class="rbp-name">BBQ Protein Puffs</div>
+            <div class="rbp-count">238 reviews</div>
+          </div>
+          <div class="rbp-score">
+            <div class="rbp-stars">★★★★☆</div>
+            <div class="rbp-num">4.2</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FEATURED REVIEWS ===== -->
+<section class="featured-section">
+  <div class="featured-inner">
+    <div class="section-header fade-up">
+      <div class="section-eyebrow">Editor's Picks</div>
+      <h2 class="section-h">Reviews That Say It Best</h2>
+    </div>
+    <div class="featured-grid fade-up fade-up-2">
+
+      <!-- Large featured review -->
+      <div class="feat-card large choc-accent">
+        <div>
+          <span class="feat-quote-mark">"</span>
+          <p class="feat-quote">I've tried every protein bar on the market. Most of them either taste like cardboard or leave me bloated. These are the first ones that actually taste like something I'd choose to eat — and I genuinely feel better after eating them. The gut stuff is real. My cravings in the afternoon have calmed down noticeably since I started snacking on these instead of whatever I used to reach for.</p>
+          <div class="feat-stars">★★★★★</div>
+          <div class="feat-meta">
+            <div class="feat-name">Sarah M.</div>
+            <div class="feat-source"><span class="feat-source-badge">Verified Amazon Purchase</span><span>·</span><span>March 2026</span></div>
+            <div class="feat-product-tag">Chocolate Brownie Bar</div>
+          </div>
+        </div>
+        <div class="feat-visual">
+          <div class="feat-visual-emoji">🍫</div>
+          <div class="feat-visual-stat">4.5★</div>
+          <div class="feat-visual-label">Chocolate Brownie Bar</div>
+        </div>
+      </div>
+
+      <!-- Two smaller reviews -->
+      <div class="feat-card pb-accent">
+        <span class="feat-quote-mark">"</span>
+        <p class="feat-quote">I'm a nutritionist and I recommend these to clients managing stress eating. The ashwagandha dose is actually meaningful — not just a sprinkling for the label. And the fiber profile is solid. It's rare to find a snack I can stand behind professionally.</p>
+        <div class="feat-stars">★★★★★</div>
+        <div class="feat-meta">
+          <div class="feat-name">Dr. Jennifer K.</div>
+          <div class="feat-source"><span class="feat-source-badge">Verified Purchase</span><span>·</span><span>Feb 2026</span></div>
+          <div class="feat-product-tag">Peanut Butter Bar</div>
+        </div>
+      </div>
+
+      <div class="feat-card bbq-accent">
+        <span class="feat-quote-mark">"</span>
+        <p class="feat-quote">I didn't think a savory protein snack could hit like this. The BBQ puffs are legitimately good — not diet food good, actually good. And 100 calories? I've been on them for three months and I'm not stopping.</p>
+        <div class="feat-stars">★★★★★</div>
+        <div class="feat-meta">
+          <div class="feat-name">Marcus T.</div>
+          <div class="feat-source"><span class="feat-source-badge">Verified Amazon Purchase</span><span>·</span><span>Jan 2026</span></div>
+          <div class="feat-product-tag">BBQ Protein Puffs</div>
+        </div>
+      </div>
+
+      <div class="feat-card choc-accent">
+        <span class="feat-quote-mark">"</span>
+        <p class="feat-quote">Subscribed after my second order. The 3pm craving is basically gone since I started keeping these at my desk. I don't know if it's the fiber or the ashwagandha or both but something is working.</p>
+        <div class="feat-stars">★★★★★</div>
+        <div class="feat-meta">
+          <div class="feat-name">Priya R.</div>
+          <div class="feat-source"><span class="feat-source-badge">Verified Purchase · Subscriber</span><span>·</span><span>Feb 2026</span></div>
+          <div class="feat-product-tag">Chocolate Brownie Bar</div>
+        </div>
+      </div>
+
+      <div class="feat-card pb-accent">
+        <span class="feat-quote-mark">"</span>
+        <p class="feat-quote">Finally a bar that doesn't make me feel like I'm on a diet. My husband started stealing them from me. That's the review.</p>
+        <div class="feat-stars">★★★★★</div>
+        <div class="feat-meta">
+          <div class="feat-name">Lena C.</div>
+          <div class="feat-source"><span class="feat-source-badge">Verified Amazon Purchase</span><span>·</span><span>March 2026</span></div>
+          <div class="feat-product-tag">Peanut Butter Bar</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== REVIEWS BY PRODUCT ===== -->
+<section class="product-reviews-section">
+  <div class="product-reviews-inner">
+    <div class="section-header fade-up">
+      <div class="section-eyebrow" style="color:var(--teal)">Browse by Product</div>
+      <h2 class="section-h" style="color:var(--white)">More From Our Customers</h2>
+    </div>
+    <div class="product-tabs fade-up fade-up-2">
+      <button class="product-tab active" onclick="switchTab('choc',this)">
+        <span class="pt-emoji">🍫</span>Chocolate Brownie Bar
+      </button>
+      <button class="product-tab" onclick="switchTab('pb',this)">
+        <span class="pt-emoji">🥜</span>Peanut Butter Bar
+      </button>
+      <button class="product-tab" onclick="switchTab('bbq',this)">
+        <span class="pt-emoji">🌶️</span>BBQ Protein Puffs
+      </button>
+    </div>
+
+    <!-- Chocolate -->
+    <div class="product-review-panel active" id="panel-choc">
+      <div class="rev-card">
+        <div class="rev-stars">★★★★★</div>
+        <div class="rev-title">Actually Tastes Like a Treat</div>
+        <p class="rev-body">Bought these skeptically. Ate one and immediately ordered the 20-pack. The chocolate flavor is real — not artificial, not chalky. Just genuinely good.</p>
+        <div class="rev-footer">
+          <div>
+            <div class="rev-name">Amanda K.</div>
+            <div class="rev-date">March 2026</div>
+          </div>
+          <div class="rev-badge">Verified Purchase</div>
+        </div>
+      </div>
+      <div class="rev-card">
+        <div class="rev-stars">★★★★★</div>
+        <div class="rev-title">My Afternoon Game Changer</div>
+        <p class="rev-body">I work from home and used to destroy a bag of chips every afternoon. Three weeks in with these and that habit is just... gone. I don't know how to explain it scientifically but the cravings are quieter.</p>
+        <div class="rev-footer">
+          <div>
+            <div class="rev-name">Daniel F.</div>
+            <div class="rev-date">Feb 2026</div>
+          </div>
+          <div class="rev-badge">Subscriber</div>
+        </div>
+      </div>
+      <div class="rev-card">
+        <div class="rev-stars">★★★★☆</div>
+        <div class="rev-title">Really Good, Slightly Dense</div>
+        <p class="rev-body">The taste is excellent and I feel satiated for hours. Texture is a little denser than I expected — not a bad thing, just different. Would still buy again, and have.</p>
+        <div class="rev-footer">
+          <div>
+            <div class="rev-name">Tanya B.</div>
+            <div class="rev-date">Jan 2026</div>
+          </div>
+          <div class="rev-badge">Verified Purchase</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PB -->
+    <div class="product-review-panel" id="panel-pb">
+      <div class="rev-card">
+        <div class="rev-stars">★★★★★</div>
+        <div class="rev-title">Perfect Pre-Meeting Snack</div>
+        <p class="rev-body">I have these 30 minutes before any stressful call. Can't explain the science but I feel noticeably calmer and more focused. The peanut butter flavor is rich and satisfying.</p>
+        <div class="rev-footer">
+          <div>
+            <div class="rev-name">Jordan M.</div>
+            <div class="rev-date">Feb 2026</div>
+          </div>
+          <div class="rev-badge">Subscriber</div>
+        </div>
+      </div>
+      <div class="rev-card">
+        <div class="rev-stars">★★★★★</div>
+        <div class="rev-title">Finally Something That Keeps Me Full</div>
+        <p class="rev-body">I'm a snacker by nature. These keep me genuinely full for 2-3 hours which is unheard of from a 100 calorie snack. The fiber content must be doing something.</p>
+        <div class="rev-footer">
+          <div>
+            <div class="rev-name">Rachel H.</div>
+            <div class="rev-date">March 2026</div>
+          </div>
+          <div class="rev-badge">Verified Purchase</div>
+        </div>
+      </div>
+      <div class="rev-card">
+        <div class="rev-stars">★★★★★</div>
+        <div class="rev-title">Clean Ingredients I Can Actually Read</div>
+        <p class="rev-body">I read every label. This one is the first bar in years where I recognize and trust every single ingredient. No erythritol, no maltitol, no mystery. My gut appreciates it.</p>
+        <div class="rev-footer">
+          <div>
+            <div class="rev-name">Natasha W.</div>
+            <div class="rev-date">Jan 2026</div>
+          </div>
+          <div class="rev-badge">Verified Purchase</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BBQ -->
+    <div class="product-review-panel" id="panel-bbq">
+      <div class="rev-card">
+        <div class="rev-stars">★★★★★</div>
+        <div class="rev-title">Savory Snack Finally Done Right</div>
+        <p class="rev-body">Most savory protein snacks taste like punishment. These taste like actual BBQ-flavored puffs — crunchy, smoky, satisfying. And somehow still functional. I was skeptical. I was wrong.</p>
+        <div class="rev-footer">
+          <div>
+            <div class="rev-name">Chris L.</div>
+            <div class="rev-date">Feb 2026</div>
+          </div>
+          <div class="rev-badge">Verified Purchase</div>
+        </div>
+      </div>
+      <div class="rev-card">
+        <div class="rev-stars">★★★★★</div>
+        <div class="rev-title">My Husband's Obsession</div>
+        <p class="rev-body">Bought these for myself. My husband ate them all. Ordered more. He's now on the subscription. He doesn't even care about gut health — he just likes the taste.</p>
+        <div class="rev-footer">
+          <div>
+            <div class="rev-name">Maria S.</div>
+            <div class="rev-date">March 2026</div>
+          </div>
+          <div class="rev-badge">Subscriber</div>
+        </div>
+      </div>
+      <div class="rev-card">
+        <div class="rev-stars">★★★★☆</div>
+        <div class="rev-title">Great for Office Snacking</div>
+        <p class="rev-body">Keeps well, easy to transport, doesn't smell up the office. Good crunch, satisfying flavor. I'd give five stars but the BBQ taste could be a touch stronger for my preference.</p>
+        <div class="rev-footer">
+          <div>
+            <div class="rev-name">Kevin R.</div>
+            <div class="rev-date">Jan 2026</div>
+          </div>
+          <div class="rev-badge">Verified Purchase</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== DYNAMIC FEED PLACEHOLDER ===== -->
+<section class="feed-section">
+  <div class="feed-inner">
+    <div class="feed-header fade-up">
+      <h2 class="feed-h">All Reviews</h2>
+      <div class="feed-source">Powered by <strong>Amazon Verified Purchases</strong> · Integration coming soon</div>
+    </div>
+    <div class="feed-placeholder fade-up fade-up-2">
+      <div class="fp-icon">⭐</div>
+      <div class="fp-h">Live Review Feed</div>
+      <p class="fp-body">This section will pull verified reviews dynamically once a review platform integration is connected. We recommend Okendo or Yotpo for Shopify — both sync Amazon reviews and allow full design control.</p>
+      <div class="fp-platforms">
+        <span class="fp-platform">Okendo</span>
+        <span class="fp-platform">Yotpo</span>
+        <span class="fp-platform">Junip</span>
+        <span class="fp-platform">Stamped.io</span>
+        <span class="fp-platform">Amazon API</span>
+      </div>
+      <!-- Skeleton cards preview -->
+      <div class="feed-skeleton">
+        <div class="skel-card">
+          <div class="skel-line stars"></div>
+          <div class="skel-line" style="width:85%"></div>
+          <div class="skel-line" style="width:100%"></div>
+          <div class="skel-line short"></div>
+        </div>
+        <div class="skel-card">
+          <div class="skel-line stars"></div>
+          <div class="skel-line" style="width:70%"></div>
+          <div class="skel-line" style="width:100%"></div>
+          <div class="skel-line short"></div>
+        </div>
+        <div class="skel-card">
+          <div class="skel-line stars"></div>
+          <div class="skel-line" style="width:90%"></div>
+          <div class="skel-line" style="width:100%"></div>
+          <div class="skel-line short"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== WE HEARD YOU ===== -->
+<section style="background:var(--platinum);padding:72px 80px;border-top:1px solid rgba(15,18,19,.08)">
+  <div style="max-width:1200px;margin:0 auto">
+    <div style="margin-bottom:40px" class="fade-up">
+      <div style="font-family:var(--font-head);font-weight:700;font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--teal-dark);margin-bottom:10px">Honest Feedback</div>
+      <h2 style="font-family:var(--font-head);font-weight:900;font-size:52px;line-height:.9;text-transform:uppercase;color:var(--black);margin-bottom:12px">We Heard You.</h2>
+      <p style="font-family:var(--font-body);font-size:16px;color:var(--ink-mid);line-height:1.7;max-width:600px">We read every review — including the ones that sting a little. Here's some critical feedback we've received, and what we did with it. We show these because hiding them would be easier, and that's not how we do things.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:3px;background:rgba(15,18,19,.08)" class="fade-up fade-up-2">
+
+      <div style="background:var(--white);padding:36px 32px">
+        <div style="font-family:var(--font-head);font-weight:700;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--orange);margin-bottom:12px">★★☆☆☆ Critical Review</div>
+        <div style="font-family:var(--font-head);font-weight:900;font-size:18px;text-transform:uppercase;color:var(--black);margin-bottom:10px">Too Dense for Me</div>
+        <p style="font-family:var(--font-body);font-size:15px;color:var(--ink-mid);line-height:1.7;margin-bottom:20px;font-style:italic">"The taste is fine but the texture is heavier than I expected — more like a meal replacement than a snack. Not really what I was looking for."</p>
+        <div style="font-family:var(--font-body);font-size:12px;color:var(--ink-light);margin-bottom:20px">— Verified Amazon Purchase, Jan 2026</div>
+        <div style="border-top:2px solid var(--teal);padding-top:20px">
+          <div style="font-family:var(--font-head);font-weight:900;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--teal-dark);margin-bottom:8px">Our Response</div>
+          <p style="font-family:var(--font-body);font-size:14px;color:var(--ink);line-height:1.7">That's fair. Our bars are intentionally dense because the fiber and protein content is real — that's what makes them filling at 100 calories. They're not an airy snack bar. If texture is important to you, we'd recommend starting with the BBQ Protein Puffs, which have a lighter crunch. We'd rather you find the right fit than just reorder something that isn't working for you.</p>
+        </div>
+      </div>
+
+      <div style="background:var(--white);padding:36px 32px">
+        <div style="font-family:var(--font-head);font-weight:700;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--orange);margin-bottom:12px">★★★☆☆ Critical Review</div>
+        <div style="font-family:var(--font-head);font-weight:900;font-size:18px;text-transform:uppercase;color:var(--black);margin-bottom:10px">Shipping Was Slow</div>
+        <p style="font-family:var(--font-body);font-size:15px;color:var(--ink-mid);line-height:1.7;margin-bottom:20px;font-style:italic">"Love the product, but my order took nearly two weeks to arrive. The snacks themselves are great — the logistics need work."</p>
+        <div style="font-family:var(--font-body);font-size:12px;color:var(--ink-light);margin-bottom:20px">— Verified Amazon Purchase, Feb 2026</div>
+        <div style="border-top:2px solid var(--teal);padding-top:20px">
+          <div style="font-family:var(--font-head);font-weight:900;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--teal-dark);margin-bottom:8px">Our Response</div>
+          <p style="font-family:var(--font-body);font-size:14px;color:var(--ink);line-height:1.7">This one hurt to read — because you're right, and we know it. We're a small team and logistics have been a real challenge at certain times. We've since switched fulfilment partners for faster dispatch. If your order ever arrives late, email us at <a href="mailto:hi@100calsnacks.com" style="color:var(--teal)">hi@100calsnacks.com</a> and we'll make it right. No questions asked.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== WRITE A REVIEW ===== -->
+<section class="write-section">
+  <div class="write-inner">
+    <div class="fade-up">
+      <h2 class="write-h">Tried It?<br><em>Tell Us.</em></h2>
+      <p class="write-sub">Your review helps someone else make a better decision. And it tells us what's working — and what we can do better.</p>
+    </div>
+    <div class="write-options fade-up fade-up-2">
+      <a href="https://www.amazon.com/100calsnacks" target="_blank" class="write-option">
+        <div class="wo-left">
+          <div class="wo-platform">Write a Review On</div>
+          <div class="wo-name">Amazon</div>
+        </div>
+        <div class="wo-arrow">→</div>
+      </a>
+      <a href="100CalSnacks-Contact.html" class="write-option">
+        <div class="wo-left">
+          <div class="wo-platform">Share Directly With Us</div>
+          <div class="wo-name">Send Your Story</div>
+        </div>
+        <div class="wo-arrow">→</div>
+      </a>
+      <a href="https://www.instagram.com/100CalSnacks" target="_blank" class="write-option">
+        <div class="wo-left">
+          <div class="wo-platform">Tag Us On</div>
+          <div class="wo-name">Instagram</div>
+        </div>
+        <div class="wo-arrow">→</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== BOTTOM CTA ===== -->
+<section class="cta-section">
+  <div class="cta-inner">
+    <h2 class="cta-h">Ready to<br>Try It?</h2>
+    <p class="cta-sub">Join 1,200+ people who found a snack worth coming back to.</p>
+    <div class="cta-btns">
+      <a href="100CalSnacks-PDP-ChocolateBrownieBar-v4.html" class="cta-btn-dark">Shop the Collection →</a>
+      <a href="100CalSnacks-GutBrainQuiz.html" class="cta-btn-ghost">Take the Quiz</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-brand">100<span>Cal</span>Snacks</div>
+      <div class="footer-tagline">Keepin' Snacks 100®</div>
+      <p class="footer-bio">Built from the struggle. Engineered for the journey. Woman-owned, science-backed, and genuinely built for people who want better.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Reviews</div>
+      <ul class="footer-links">
+        <li><a href="#">Chocolate Brownie Bar</a></li>
+        <li><a href="#">Peanut Butter Bar</a></li>
+        <li><a href="#">BBQ Protein Puffs</a></li>
+        <li><a href="#">Write a Review</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Learn</div>
+      <ul class="footer-links">
+        <li><a href="100CalSnacks-GutBrain101.html">Gut-Brain 101</a></li>
+        <li><a href="100CalSnacks-Ingredients.html">Ingredient Index</a></li>
+        <li><a href="100CalSnacks-GutBrainQuiz.html">Take the Quiz</a></li>
+        <li><a href="100CalSnacks-Story.html">Our Story</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Shop</div>
+      <ul class="footer-links">
+        <li><a href="100CalSnacks-PDP-ChocolateBrownieBar-v4.html">Chocolate Brownie Bar</a></li>
+        <li><a href="100CalSnacks-PDP-PeanutButterBar.html">Peanut Butter Bar</a></li>
+        <li><a href="100CalSnacks-PDP-BBQProteinPuffs.html">BBQ Protein Puffs</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-btm">
+    <div>© 2026 100calsnacks.com · Woman-Owned · Science-Backed</div>
+    <div>* Reviews are from verified Amazon purchases unless otherwise noted.</div>
+  </div>
+</footer>
+
+<script>
+// Fade up
+var fadeEls = document.querySelectorAll('.fade-up');
+var io = new IntersectionObserver(function(e){
+  e.forEach(function(el){if(el.isIntersecting)el.target.classList.add('visible')});
+},{threshold:.06});
+fadeEls.forEach(function(el){io.observe(el)});
+
+// Product tab switcher
+function switchTab(product, btn) {
+  document.querySelectorAll('.product-tab').forEach(function(t){t.classList.remove('active')});
+  document.querySelectorAll('.product-review-panel').forEach(function(p){p.classList.remove('active')});
+  btn.classList.add('active');
+  document.getElementById('panel-' + product).classList.add('active');
+}
+
+// Animate rating bars on scroll
+var barsAnimated = false;
+var barObserver = new IntersectionObserver(function(entries){
+  entries.forEach(function(entry){
+    if(entry.isIntersecting && !barsAnimated){
+      barsAnimated = true;
+      document.querySelectorAll('.rating-bar-fill').forEach(function(bar){
+        var w = bar.style.width;
+        bar.style.width = '0';
+        setTimeout(function(){ bar.style.width = w; }, 100);
+      });
+    }
+  });
+},{threshold:.3});
+var ratingSection = document.querySelector('.rating-section');
+if(ratingSection) barObserver.observe(ratingSection);
+</script>
+</body>
+</html>

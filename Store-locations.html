@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Find Us In Store — 100CalSnacks</title>
+<meta name="description" content="Find 100CalSnacks at Gelson's Markets, Vicente Foods, and Rainbow Acres across Southern California. Can't find us near you? Ask your local store to carry us.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,700;0,900;1,700;1,900&family=Barlow:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{-webkit-box-sizing:border-box;box-sizing:border-box;margin:0;padding:0}
+:root{
+  --black:#0F1213;--white:#FFFFFF;
+  --teal:#66CCCC;--teal-dark:#3A9999;--teal-pastel:#C2EBEB;
+  --orange:#E66443;--yellow:#E9AD3C;
+  --platinum:#EAE9E5;--grey-warm:#E8D7C3;--grey-mid:#DDD8CC;
+  --ink:#1A1A1A;--ink-mid:#555;--ink-light:#888;
+  --neutral:#F4F3F0;
+  --font-head:'Barlow Condensed',sans-serif;
+  --font-body:'Barlow',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-body);color:var(--ink);background:var(--white);overflow-x:hidden;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+
+/* ===== NAV ===== */
+.topbar{background:var(--black);color:var(--white);text-align:center;padding:10px 24px;font-family:var(--font-head);font-weight:700;font-size:13px;letter-spacing:1.5px;text-transform:uppercase}
+.topbar span{color:var(--teal);margin:0 10px}
+nav{position:-webkit-sticky;position:sticky;top:0;z-index:200;background:var(--white);border-bottom:2px solid var(--black);display:flex;align-items:center;justify-content:space-between;padding:0 56px;height:72px}
+.nav-brand{font-family:var(--font-head);font-weight:900;font-size:22px;letter-spacing:1px;text-transform:uppercase;color:var(--black);text-decoration:none}
+.nav-brand span{color:var(--orange)}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{font-family:var(--font-head);font-weight:700;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-mid);text-decoration:none;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--teal-dark)}
+.nav-cta{font-family:var(--font-head);font-weight:900;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;padding:10px 22px;background:var(--teal);color:var(--black);text-decoration:none;transition:background .2s}
+.nav-cta:hover{background:var(--teal-dark);color:var(--white)}
+
+/* ===== HERO ===== */
+.hero{background:var(--black);padding:100px 80px 80px;position:relative;overflow:hidden;min-height:60vh;display:flex;align-items:flex-end}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 50% 70% at 80% 50%,rgba(102,204,204,.05) 0%,transparent 70%);pointer-events:none}
+.hero::after{content:'SoCal';position:absolute;right:-20px;bottom:-40px;font-family:var(--font-head);font-weight:900;font-size:260px;color:rgba(255,255,255,.025);line-height:1;pointer-events:none;text-transform:uppercase}
+.hero-inner{max-width:1200px;width:100%;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:end;position:relative;z-index:2}
+.hero-overline{font-family:var(--font-head);font-weight:700;font-size:11px;letter-spacing:5px;text-transform:uppercase;color:var(--teal);margin-bottom:20px;display:flex;align-items:center;gap:14px}
+.hero-overline::before{content:'';width:32px;height:2px;background:var(--teal);flex-shrink:0}
+.hero-h1{font-family:var(--font-head);font-weight:900;font-size:96px;line-height:.85;text-transform:uppercase;color:var(--white);margin-bottom:20px}
+.hero-h1 em{font-style:italic;color:var(--teal);display:block}
+.hero-sub{font-family:var(--font-body);font-size:17px;color:rgba(255,255,255,.6);line-height:1.75;max-width:440px}
+/* Right — region badge + store count */
+.hero-right{display:flex;flex-direction:column;gap:3px;align-self:end}
+.hero-region{padding:28px 32px;background:rgba(255,255,255,.04);border-left:3px solid var(--teal);margin-bottom:4px}
+.hero-region-label{font-family:var(--font-head);font-weight:700;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:6px}
+.hero-region-name{font-family:var(--font-head);font-weight:900;font-size:28px;text-transform:uppercase;color:var(--white);line-height:1}
+
+.hero-region-label-top{font-family:var(--font-head);font-weight:700;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:12px}
+.hero-partner-row{display:flex;align-items:center;gap:18px;padding:20px 24px;background:rgba(255,255,255,.04);border-left:1px solid rgba(255,255,255,.06);margin-bottom:3px;transition:background .2s}
+.hero-partner-row:last-child{margin-bottom:0}
+.hpr-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.hpr-name{font-family:var(--font-head);font-weight:900;font-size:20px;text-transform:uppercase;color:var(--white);letter-spacing:.5px;line-height:1;margin-bottom:3px}
+.hpr-sub{font-family:var(--font-body);font-size:13px;color:rgba(255,255,255,.45);line-height:1.3}
+
+.hero-stat{padding:20px 32px;background:rgba(255,255,255,.03);display:flex;align-items:center;justify-content:space-between}
+.hero-stat-num{font-family:var(--font-head);font-weight:900;font-size:40px;color:var(--teal);line-height:1}
+.hero-stat-label{font-family:var(--font-head);font-weight:700;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.45);text-align:right;line-height:1.3}
+
+/* ===== RETAILER INTRO ===== */
+.retailers-intro{background:var(--platinum);padding:64px 80px}
+.retailers-intro-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:3px;background:rgba(15,18,19,.08)}
+.retailer-badge{background:var(--white);padding:36px 32px;display:flex;flex-direction:column;justify-content:space-between;min-height:160px;transition:background .25s;text-decoration:none;cursor:pointer}
+.retailer-badge:hover{background:#F5F3F0}
+.retailer-badge-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+.rb-label{font-family:var(--font-head);font-weight:700;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:rgba(15,18,19,.35)}
+.rb-dot{width:8px;height:8px;border-radius:50%;background:var(--teal)}
+.rb-name{font-family:var(--font-head);font-weight:900;font-size:30px;text-transform:uppercase;color:var(--black);line-height:.95;margin-bottom:8px}
+.rb-sub{font-family:var(--font-body);font-size:14px;color:var(--ink-mid);line-height:1.5}
+.rb-arrow{font-family:var(--font-head);font-weight:700;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--teal-dark);margin-top:12px;transition:transform .2s;display:inline-block}
+.retailer-badge:hover .rb-arrow{transform:translateX(4px)}
+
+/* ===== GELSONS SECTION ===== */
+.gelsons-section{background:var(--white);padding:80px}
+.gelsons-inner{max-width:1200px;margin:0 auto}
+.section-header{margin-bottom:48px}
+.section-eyebrow{font-family:var(--font-head);font-weight:700;font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--teal-dark);margin-bottom:12px}
+.section-h{font-family:var(--font-head);font-weight:900;font-size:56px;line-height:.9;text-transform:uppercase;color:var(--black);margin-bottom:10px}
+.section-sub{font-family:var(--font-body);font-size:16px;color:var(--ink-mid);line-height:1.65;max-width:580px}
+
+/* Filter tabs */
+.region-tabs{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:36px}
+.region-tab{font-family:var(--font-head);font-weight:700;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;padding:8px 18px;background:transparent;border:1.5px solid rgba(15,18,19,.15);color:var(--ink-mid);cursor:pointer;transition:all .2s}
+.region-tab:hover{border-color:var(--teal-dark);color:var(--teal-dark)}
+.region-tab.active{background:var(--black);border-color:var(--black);color:var(--white)}
+
+/* Store grid */
+.store-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--platinum)}
+.store-card{background:var(--white);padding:24px 22px;transition:background .2s;position:relative}
+.store-card:hover{background:#F8F7F4}
+.store-card.hidden{display:none}
+.store-name{font-family:var(--font-head);font-weight:900;font-size:17px;text-transform:uppercase;color:var(--black);letter-spacing:.5px;margin-bottom:4px;line-height:1.1}
+.store-area{font-family:var(--font-head);font-weight:700;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--teal-dark);margin-bottom:10px}
+.store-address{font-family:var(--font-body);font-size:13px;color:var(--ink-mid);line-height:1.55;margin-bottom:10px}
+.store-hours{font-family:var(--font-body);font-size:12px;color:var(--ink-light);margin-bottom:12px}
+.store-directions{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-head);font-weight:700;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--teal-dark);text-decoration:none;transition:color .2s}
+.store-directions:hover{color:var(--black)}
+.store-directions::after{content:'→';transition:transform .2s}
+.store-directions:hover::after{transform:translateX(3px)}
+
+/* ===== BOUTIQUE STORES ===== */
+.boutique-section{background:var(--black);padding:80px}
+.boutique-inner{max-width:1200px;margin:0 auto}
+.boutique-grid{display:grid;grid-template-columns:1fr 1fr;gap:3px;background:rgba(255,255,255,.05);margin-top:48px}
+.boutique-card{background:var(--black);padding:48px 44px;border-top:3px solid transparent;transition:background .25s}
+.boutique-card:nth-child(1){border-top-color:var(--teal)}
+.boutique-card:nth-child(2){border-top-color:var(--orange)}
+.boutique-card:hover{background:#111617}
+.bc-tag{font-family:var(--font-head);font-weight:700;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:16px}
+.bc-name{font-family:var(--font-head);font-weight:900;font-size:36px;text-transform:uppercase;color:var(--white);line-height:.95;margin-bottom:6px}
+.bc-area{font-family:var(--font-head);font-weight:700;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--teal);margin-bottom:16px}
+.bc-address{font-family:var(--font-body);font-size:15px;color:rgba(255,255,255,.6);line-height:1.65;margin-bottom:6px}
+.bc-hours{font-family:var(--font-body);font-size:14px;color:rgba(255,255,255,.35);margin-bottom:20px}
+.bc-about{font-family:var(--font-body);font-size:14px;color:rgba(255,255,255,.5);line-height:1.7;padding-top:16px;border-top:1px solid rgba(255,255,255,.07);margin-bottom:20px}
+.bc-link{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-head);font-weight:900;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--teal);text-decoration:none;transition:color .2s}
+.bc-link:hover{color:var(--white)}
+
+/* ===== GROWING SECTION ===== */
+.growing-section{background:var(--teal-pastel);padding:64px 80px}
+.growing-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:60px}
+.growing-left{}
+.growing-eyebrow{font-family:var(--font-head);font-weight:700;font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--teal-dark);margin-bottom:12px}
+.growing-h{font-family:var(--font-head);font-weight:900;font-size:52px;line-height:.9;text-transform:uppercase;color:var(--black);margin-bottom:12px}
+.growing-sub{font-family:var(--font-body);font-size:16px;color:rgba(15,18,19,.6);line-height:1.7;max-width:440px}
+.growing-right{flex-shrink:0}
+.growing-btn{display:inline-block;font-family:var(--font-head);font-weight:900;font-size:13px;letter-spacing:2px;text-transform:uppercase;padding:16px 36px;background:var(--black);color:var(--white);text-decoration:none;transition:background .2s;white-space:nowrap}
+.growing-btn:hover{background:var(--teal-dark)}
+
+/* ===== REQUEST SECTION ===== */
+.request-section{background:var(--white);padding:80px;border-top:1px solid var(--platinum)}
+.request-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.request-left{}
+.request-eyebrow{font-family:var(--font-head);font-weight:700;font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--teal-dark);margin-bottom:12px}
+.request-h{font-family:var(--font-head);font-weight:900;font-size:56px;line-height:.88;text-transform:uppercase;color:var(--black);margin-bottom:16px}
+.request-h em{font-style:italic;color:var(--teal-dark)}
+.request-body{font-family:var(--font-body);font-size:16px;color:var(--ink-mid);line-height:1.8}
+.request-body p{margin-bottom:16px}
+.request-body p:last-child{margin-bottom:0}
+/* How it works steps */
+.request-steps{display:flex;flex-direction:column;gap:2px;margin-top:32px}
+.request-step{display:flex;align-items:flex-start;gap:20px;padding:20px 24px;background:var(--neutral)}
+.rs-num{font-family:var(--font-head);font-weight:900;font-size:32px;color:var(--teal-dark);line-height:1;flex-shrink:0;width:36px}
+.rs-text{}
+.rs-title{font-family:var(--font-head);font-weight:900;font-size:16px;text-transform:uppercase;color:var(--black);letter-spacing:.5px;margin-bottom:3px}
+.rs-sub{font-family:var(--font-body);font-size:14px;color:var(--ink-mid);line-height:1.55}
+
+/* Request form */
+.request-form{background:var(--platinum);padding:44px 40px}
+.rf-title{font-family:var(--font-head);font-weight:900;font-size:28px;text-transform:uppercase;color:var(--black);line-height:.95;margin-bottom:6px}
+.rf-title em{font-style:italic;color:var(--teal-dark)}
+.rf-sub{font-family:var(--font-body);font-size:14px;color:var(--ink-mid);line-height:1.6;margin-bottom:28px}
+.rf-field{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+.rf-field label{font-family:var(--font-head);font-weight:700;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--ink-light)}
+.rf-field input,.rf-field textarea{font-family:var(--font-body);font-size:15px;color:var(--ink);background:var(--white);border:1.5px solid transparent;padding:13px 16px;outline:none;transition:border-color .2s;-webkit-appearance:none;appearance:none;border-radius:0;width:100%}
+.rf-field input:focus,.rf-field textarea:focus{border-color:var(--teal-dark)}
+.rf-field input::placeholder,.rf-field textarea::placeholder{color:rgba(15,18,19,.3)}
+.rf-field textarea{min-height:90px;resize:vertical}
+.rf-submit{width:100%;padding:16px;font-family:var(--font-head);font-weight:900;font-size:13px;letter-spacing:2px;text-transform:uppercase;background:var(--black);color:var(--white);border:none;cursor:pointer;transition:background .2s;margin-top:6px}
+.rf-submit:hover{background:var(--teal-dark)}
+.rf-privacy{font-family:var(--font-body);font-size:12px;color:rgba(15,18,19,.35);margin-top:10px;text-align:center;line-height:1.5}
+.rf-success{display:none;text-align:center;padding:40px 20px}
+.rf-success-icon{font-size:40px;margin-bottom:12px}
+.rf-success-h{font-family:var(--font-head);font-weight:900;font-size:28px;text-transform:uppercase;color:var(--black);margin-bottom:8px}
+.rf-success-body{font-family:var(--font-body);font-size:15px;color:var(--ink-mid);line-height:1.65}
+
+/* ===== CLOSING ===== */
+.close-section{background:var(--black);padding:80px;text-align:center;position:relative;overflow:hidden}
+.close-section::before{content:'FIND US';position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-family:var(--font-head);font-weight:900;font-size:200px;color:rgba(255,255,255,.025);white-space:nowrap;pointer-events:none}
+.close-inner{max-width:600px;margin:0 auto;position:relative;z-index:2}
+.close-h{font-family:var(--font-head);font-weight:900;font-size:60px;line-height:.88;text-transform:uppercase;color:var(--white);margin-bottom:14px}
+.close-h em{font-style:italic;color:var(--teal)}
+.close-sub{font-family:var(--font-body);font-size:16px;color:rgba(255,255,255,.5);line-height:1.7;margin-bottom:32px}
+.close-btn{display:inline-block;font-family:var(--font-head);font-weight:900;font-size:13px;letter-spacing:2px;text-transform:uppercase;padding:16px 40px;background:var(--teal);color:var(--black);text-decoration:none;transition:background .2s}
+.close-btn:hover{background:var(--teal-dark);color:var(--white)}
+
+/* ===== FOOTER ===== */
+footer{background:var(--black);padding:48px 80px 32px;border-top:1px solid rgba(255,255,255,.06)}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:60px;margin-bottom:40px}
+.footer-brand{font-family:var(--font-head);font-weight:900;font-size:24px;text-transform:uppercase;color:var(--white);margin-bottom:6px}
+.footer-brand span{color:var(--orange)}
+.footer-tagline{font-family:var(--font-head);font-weight:700;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--teal);margin-bottom:14px}
+.footer-bio{font-family:var(--font-body);font-size:14px;color:rgba(255,255,255,.35);line-height:1.65}
+.footer-col-title{font-family:var(--font-head);font-weight:900;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:14px}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:8px}
+.footer-links a{font-family:var(--font-body);font-size:14px;color:rgba(255,255,255,.3);text-decoration:none;transition:color .2s}
+.footer-links a:hover{color:var(--teal)}
+.footer-btm{display:flex;justify-content:space-between;align-items:center;padding-top:24px;border-top:1px solid rgba(255,255,255,.05);font-family:var(--font-body);font-size:12px;color:rgba(255,255,255,.2)}
+
+/* ===== ANIMATIONS ===== */
+.fade-up{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+.fade-up-2{transition-delay:.12s}
+.fade-up-3{transition-delay:.24s}
+</style>
+</head>
+<body>
+
+<div class="topbar">Free Shipping on Orders $25+ <span>·</span> Woman-Owned <span>·</span> Keepin' Snacks 100®</div>
+
+<nav>
+  <a href="100CalSnacks-PDP-ChocolateBrownieBar-v4.html" class="nav-brand">100<span>Cal</span>Snacks</a>
+  <ul class="nav-links">
+    <li><a href="100CalSnacks-PDP-ChocolateBrownieBar-v4.html">Shop</a></li>
+    <li><a href="100CalSnacks-GutBrain101.html">Gut-Brain 101</a></li>
+    <li><a href="100CalSnacks-GutBrainQuiz.html">Quiz</a></li>
+    <li><a href="100CalSnacks-Story.html">Our Story</a></li>
+    <li><a href="#" class="active">Find Us</a></li>
+  </ul>
+  <a href="100CalSnacks-PDP-ChocolateBrownieBar-v4.html" class="nav-cta">Shop Now</a>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="fade-up">
+      <div class="hero-overline">In Store Near You</div>
+      <h1 class="hero-h1">Find Us<br>in the<br><em>Wild.</em></h1>
+      <p class="hero-sub">We're proud to be on shelves at some of Southern California's finest grocery stores. Here's where you can find us — and how to bring us to your neighborhood.</p>
+    </div>
+    <div class="hero-right fade-up fade-up-2">
+      <div class="hero-region">
+        <div class="hero-region-label">Currently Available In</div>
+        <div class="hero-region-name">Southern<br>California</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== RETAILER INTRO ===== -->
+<section class="retailers-intro">
+  <div class="retailers-intro-inner fade-up">
+    <a href="#gelsons" class="retailer-badge">
+      <div>
+        <div class="retailer-badge-top">
+          <div class="rb-label">29 Locations</div>
+          <div class="rb-dot"></div>
+        </div>
+        <div class="rb-name">Gelson's<br>Markets</div>
+        <div class="rb-sub">Southern California's premier specialty grocer — from LA to San Diego</div>
+      </div>
+      <div class="rb-arrow">See All Locations →</div>
+    </a>
+    <a href="#boutique" class="retailer-badge">
+      <div>
+        <div class="retailer-badge-top">
+          <div class="rb-label">West Los Angeles</div>
+          <div class="rb-dot" style="background:var(--orange)"></div>
+        </div>
+        <div class="rb-name">Vicente<br>Foods</div>
+        <div class="rb-sub">Brentwood's beloved neighborhood market since 1948</div>
+      </div>
+      <div class="rb-arrow">See Details →</div>
+    </a>
+    <a href="#boutique" class="retailer-badge">
+      <div>
+        <div class="retailer-badge-top">
+          <div class="rb-label">West Los Angeles</div>
+          <div class="rb-dot" style="background:var(--yellow)"></div>
+        </div>
+        <div class="rb-name">Rainbow<br>Acres</div>
+        <div class="rb-sub">LA's natural foods institution since 1981</div>
+      </div>
+      <div class="rb-arrow">See Details →</div>
+    </a>
+  </div>
+</section>
+
+<!-- ===== GELSONS ===== -->
+<section class="gelsons-section" id="gelsons">
+  <div class="gelsons-inner">
+    <div class="section-header fade-up">
+      <div class="section-eyebrow">Retail Partner</div>
+      <h2 class="section-h">Gelson's Markets</h2>
+      <p class="section-sub">29 locations across Southern California — look for us in the health, functional snacks, or protein bar aisle.</p>
+    </div>
+
+    <div class="region-tabs fade-up fade-up-2">
+      <button class="region-tab active" onclick="filterRegion('all', this)">All Locations</button>
+      <button class="region-tab" onclick="filterRegion('la', this)">Los Angeles</button>
+      <button class="region-tab" onclick="filterRegion('oc', this)">Orange County</button>
+      <button class="region-tab" onclick="filterRegion('sd', this)">San Diego</button>
+      <button class="region-tab" onclick="filterRegion('sb', this)">Santa Barbara</button>
+      <button class="region-tab" onclick="filterRegion('ie', this)">Inland / Desert</button>
+    </div>
+
+    <div class="store-grid fade-up fade-up-3">
+
+      <div class="store-card" data-region="la">
+        <div class="store-area">Los Angeles</div>
+        <div class="store-name">Gelson's Hollywood</div>
+        <div class="store-address">5877 Franklin Ave, Hollywood, CA 90028</div>
+        <a href="https://maps.google.com/?q=5877+Franklin+Ave+Hollywood+CA+90028" target="_blank" class="store-directions">Get Directions</a>
+      </div>
+
+      <div class="store-card" data-region="la">
+        <div class="store-area">Los Angeles</div>
+        <div class="store-name">Gelson's Silver Lake</div>
+        <div class="store-address">2725 Hyperion Ave, Los Angeles, CA 90027</div>
+        <a href="https://maps.google.com/?q=2725+Hyperion+Ave+Los+Angeles+CA+90027" target="_blank" class="store-directions">Get Directions</a>
+      </div>
+
+      <div class="store-card" data-region="la">
+        <div class="store-area">Los Angeles</div>
+        <div class="store-name">Gelson's Century City</div>
+        <div class="store-address">10250 Santa Monica Blvd, Los Angeles, CA 90067</div>
+        <a href="https://maps.google.com/?q=10250+Santa+Monica+Blvd+Los+Angeles+CA+90067" target="_blank" class="store-directions">Get Directions</a>
+      </div>
+
+      <div class="store-card" data-region="la">
+        <div class="store-area">Los Angeles</div>
+        <div class="store-name">Gelson's West Los Angeles</div>
+        <div class="store-address">12121 W Olympic Blvd, Suite 5, Los Angeles, CA 90064</div>
+        <a href="https://maps.google.com/?q=12121+W+Olympic+Blvd+Suite+5+Los+Angeles+CA+90064" target="_blank" class="store-directions">Get Directions</a>
+      </div>
+
+      <div class="store-card" data-region="la">
+        <div class="store-area">Los Angeles</div>
+        <div class="store-name">Gelson's West Hollywood</div>
+        <div class="store-address">8330 W Santa Monica Blvd, West Hollywood, CA 90069</div>
+        <a href="https://maps.google.com/?q=8330+W+Santa+Monica+Blvd+West+Hollywood+CA+90069" target="_blank" class="store-directions">Get Directions</a>
+      </div>
+
+      <div class="store-card" data-region="la">
+        <div class="store-area">Los Angeles</div>
+        <div class="store-name">Gelson's Santa Monica</div>
+        <div class="store-address">2627 Lincoln Blvd, Santa Monica, CA 90405</div>
+        <a href="https://maps.google.com/?q=2627+Lincoln+Blvd+Santa+Monica+CA+90405" target="_blank" class="store-directions">Get Directions</a>
+      </div>
+
+      <div class="store-card" data-region="la">
+        <div class="store-area">Los Angeles</div>
+        <div class="store-name">Gelson's Marina del Rey</div>
+        <div class="store-address">13455 Maxella Ave, Marina del Rey, CA 90292</div>
+        <a href="https://maps.google.com/?q=13455+Maxella+Ave+Marina+del+Rey+CA+90292" target="_blank" class="store-directions">Get Directions</a>
+      </div>
+
+      <div class="store-card" data-region="la">
+        <div class="store-area">Los Angeles</div>
+        <div class="store-name">Gelson's Manhattan Beach</div>
+        <div class="store-address">707 N Sepulveda Blvd, Manhattan Beach, CA 90266</div>
+        <a href="https://maps.google.com/?q=707+N+Sepulveda+Blvd+Manhattan+Beach+CA+90266" target="_blank" class="store-directions">Get Directions</a>
+      </div>
+
+      <div class="store-card" data-region="la">
+        <div class="store-area">Los Angeles</div>
+        <div class="store-name">Gelson's Long Beach</div>
+        <div class="store-address">6255 E 2nd St, Long Beach, CA 90803</div>
+        <a href="https://maps.google.com/?q=6255+E+2nd+St+Long+Beach+CA+90803" target="_blank" class="store-directions">Get Directions</a>
+      </div>
+
+      <div class="store-card" data-region="la">
+        <div class="store-area">San Fernando Valley</div>
+        <div class="store-name">Gelson's Encino</div>
+        <div class="store-address">16450 Ventura Blvd, Encino, CA 91436</div>
+        <a href="https://maps.google.com/?q=16450+Ventura+Blvd+Encino+CA+91436" target="_blank" class="store-directions">Get Directions</a>
+      </div>
+
+      <div class="store-card" data-region="la">
+        <div class="store-area">San Fernando Valley</div>
+        <div class="store-name">Gelson's Sherman Oaks</div>
+        <div class="store-address">4520 Van Nuys Blvd, Sherman Oaks, CA 91403</div>
+        <a href="https://maps.google.com/?q=4520+Van+Nuys+Blvd+Sherman+Oaks+CA+91403" target="_blank" class="store-directions">Get Directions</a>
+      </div>
+
+      <div class="store-card" data-region="la">
+        <div class="store-area">San Fernando Valley</div>
+        <div class="store-name">Gelson's Valley Village / NoHo</div>
+        <div class="store-address">4738 Laurel Canyon Blvd, Valley Village, CA 91607</div>
+        <a href="https://maps.google.com/?q=4738+Laurel+Canyon+Blvd+Valley+Village+CA+91607" target="_blank" class="store-directions">Get Directions</a>
+      </div>
+
+      <div class="store-card" data-region="la">
+        <div class="store-area">San Fernando Valley</div>
+        <div class="store-name">Gelson's Tarzana</div>
+        <div class="store-address">5500 Reseda Blvd, Tarzana, CA 91356</div>
+        <a href="https://maps.google.com/?q=5500+Reseda+Blvd+Tarzana+CA+91356" target="_blank" class="store-directions">Get Directions</a>
+      </div>
+
+      <div class="store-card" data-region="la">
+        <div class="store-area">San Fernando Valley</div>
+        <div class="store-name">Gelson's Calabasas</div>
+        <div class="store-address">22277 Mulholland Hwy, Calabasas, CA 91302</div>
+        <a href="https://maps.google.com/?q=22277+Mulholland+Hwy+Calabasas+CA+91302" target="_blank" class="store-directions">Get Directions</a>
+      </div>
+
+      <div class="store-card" data-region="la">
+        <div class="store-area">San Fernando Valley</div>
+        <div class="store-name">Gelson's Westlake Village</div>
+        <div class="store-address">2734 Townsgate Rd, Westlake Village, CA 91361</div>
+        <a href="https://maps.google.com/?q=2734+Townsgate+Rd+Westlake+Village+CA+91361" target="_blank" class="store-directions">Get Directions</a>
+      </div>
+
+      <div class="store-card" data-region="la">
+        <div class="store-area">San Fernando Valley</div>
+        <div class="store-name">Gelson's Thousand Oaks</div>
+        <div class="store-address">1736 E Avenida De Los Arboles, Thousand Oaks, CA 91362</div>
+        <a href="https://maps.google.com/?q=1736+E+Avenida+De+Los+Arboles+Thousand+Oaks+CA+91362" target="_blank" class="store-directions">Get Directions</a>
+      </div>
+
+      <div class="store-card" data-region="la">
+        <div class="store-area">San Fernando Valley</div>
+        <div class="store-name">Gelson's Toluca Lake</div>
+        <div class="store-address">10067 Riverside Dr, Toluca Lake, CA 91602</div>
+        <a href="https://maps.google.com/?q=10067+Riverside+Dr+Toluca+Lake+CA+91602" target="_blank" class="store-directions">Get Directions</a>
+      </div>
+
+      <div class="store-card" data-region="la">
+        <div class="store-area">Pasadena Area</div>
+        <div class="store-name">Gelson's La Ca&#241;ada Flintridge</div>
+        <div class="store-address">635 Foothill Blvd, La Ca&#241;ada Flintridge, CA 91011</div>
+        <a href="https://maps.google.com/?q=635+Foothill+Blvd+La+Canada+Flintridge+CA+91011" target="_blank" class="store-directions">Get Directions</a>
+      </div>
+
+      <div class="store-card" data-region="oc">
+        <div class="store-area">Orange County</div>
+        <div class="store-name">Gelson's Irvine</div>
+        <div class="store-address">5521 Alton Pkwy, Irvine, CA 92618</div>
+        <a href="https://maps.google.com/?q=5521+Alton+Pkwy+Irvine+CA+92618" target="_blank" class="store-directions">Get Directions</a>
+      </div>
+
+      <div class="store-card" data-region="oc">
+        <div class="store-area">Orange County</div>
+        <div class="store-name">Gelson's Newport Beach</div>
+        <div class="store-address">1660 San Miguel Dr, Newport Beach, CA 92660</div>
+        <a href="https://maps.google.com/?q=1660+San+Miguel+Dr+Newport+Beach+CA+92660" target="_blank" class="store-directions">Get Directions</a>
+      </div>
+
+      <div class="store-card" data-region="oc">
+        <div class="store-area">Orange County</div>
+        <div class="store-name">Gelson's Laguna Beach</div>
+        <div class="store-address">30922 S Coast Hwy, Laguna Beach, CA 92651</div>
+        <a href="https://maps.google.com/?q=30922+S+Coast+Hwy+Laguna+Beach+CA+92651" target="_blank" class="store-directions">Get Directions</a>
+      </div>
+
+      <div class="store-card" data-region="oc">
+        <div class="store-area">Orange County</div>
+        <div class="store-name">Gelson's Dana Point</div>
+        <div class="store-address">24 Monarch Bay Plaza, Dana Point, CA 92629</div>
+        <a href="https://maps.google.com/?q=24+Monarch+Bay+Plaza+Dana+Point+CA+92629" target="_blank" class="store-directions">Get Directions</a>
+      </div>
+
+      <div class="store-card" data-region="oc">
+        <div class="store-area">Orange County</div>
+        <div class="store-name">Gelson's Rancho Mission Viejo</div>
+        <div class="store-address">30731 Gateway Pl, Rancho Mission Viejo, CA 92694</div>
+        <a href="https://maps.google.com/?q=30731+Gateway+Pl+Rancho+Mission+Viejo+CA+92694" target="_blank" class="store-directions">Get Directions</a>
+      </div>
+
+      <div class="store-card" data-region="oc">
+        <div class="store-area">Orange County</div>
+        <div class="store-name">Gelson's ReCharge — Santa Ana</div>
+        <div class="store-address">1008 E 17th St, Unit A, Santa Ana, CA 92701</div>
+        <a href="https://maps.google.com/?q=1008+E+17th+St+Santa+Ana+CA+92701" target="_blank" class="store-directions">Get Directions</a>
+      </div>
+
+      <div class="store-card" data-region="sd">
+        <div class="store-area">San Diego</div>
+        <div class="store-name">Gelson's Del Mar</div>
+        <div class="store-address">2707 Via de la Valle, Del Mar, CA 92014</div>
+        <a href="https://maps.google.com/?q=2707+Via+de+la+Valle+Del+Mar+CA+92014" target="_blank" class="store-directions">Get Directions</a>
+      </div>
+
+      <div class="store-card" data-region="sd">
+        <div class="store-area">San Diego</div>
+        <div class="store-name">Gelson's Pacific Beach</div>
+        <div class="store-address">730 Turquoise St, San Diego, CA 92109</div>
+        <a href="https://maps.google.com/?q=730+Turquoise+St+San+Diego+CA+92109" target="_blank" class="store-directions">Get Directions</a>
+      </div>
+
+      <div class="store-card" data-region="sd">
+        <div class="store-area">San Diego</div>
+        <div class="store-name">Gelson's La Costa / Carlsbad</div>
+        <div class="store-address">7660 El Camino Real, Carlsbad, CA 92009</div>
+        <a href="https://maps.google.com/?q=7660+El+Camino+Real+Carlsbad+CA+92009" target="_blank" class="store-directions">Get Directions</a>
+      </div>
+
+      <div class="store-card" data-region="sb">
+        <div class="store-area">Santa Barbara</div>
+        <div class="store-name">Gelson's Santa Barbara</div>
+        <div class="store-address">3305 State St, Santa Barbara, CA 93105</div>
+        <a href="https://maps.google.com/?q=3305+State+St+Santa+Barbara+CA+93105" target="_blank" class="store-directions">Get Directions</a>
+      </div>
+
+      <div class="store-card" data-region="ie">
+        <div class="store-area">Desert / Palm Springs</div>
+        <div class="store-name">Gelson's Rancho Mirage</div>
+        <div class="store-address">36101 Bob Hope Dr, Rancho Mirage, CA 92270</div>
+        <a href="https://maps.google.com/?q=36101+Bob+Hope+Dr+Rancho+Mirage+CA+92270" target="_blank" class="store-directions">Get Directions</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== BOUTIQUE STORES ===== -->
+<section class="boutique-section" id="boutique">
+  <div class="boutique-inner">
+    <div class="section-header fade-up">
+      <div class="section-eyebrow" style="color:var(--teal)">Independent Partners</div>
+      <h2 class="section-h" style="color:var(--white)">Our Boutique<br>Retail Partners</h2>
+      <p class="section-sub" style="color:rgba(255,255,255,.55)">These stores chose us because they believe in what we're building — and that means everything to us.</p>
+    </div>
+    <div class="boutique-grid fade-up fade-up-2">
+
+      <div class="boutique-card">
+        <div class="bc-tag">West Los Angeles · Brentwood</div>
+        <div class="bc-name">Vicente Foods</div>
+        <div class="bc-area">Brentwood, CA</div>
+        <div class="bc-address">12027 San Vicente Blvd, Los Angeles, CA 90049</div>
+        <div class="bc-about">A Brentwood institution since 1948 — independent, family-owned, and known for carrying products worth trusting. The kind of store that chooses carefully. That's why being here matters.</div>
+        <a href="https://maps.google.com/?q=12027+San+Vicente+Blvd+Los+Angeles+CA" target="_blank" class="bc-link">Get Directions →</a>
+      </div>
+
+      <div class="boutique-card">
+        <div class="bc-tag">West Los Angeles · Mar Vista</div>
+        <div class="bc-name">Rainbow Acres</div>
+        <div class="bc-area">Mar Vista, West Los Angeles</div>
+        <div class="bc-address">13208 W Washington Blvd, Los Angeles, CA 90066</div>
+        <div class="bc-about">An OG Westside institution since 1981 — family-owned, health-focused, and trusted by the community long before wellness was a trend. When Rainbow Acres carries you, their customers notice.</div>
+        <a href="https://maps.google.com/?q=13208+W+Washington+Blvd+Los+Angeles+CA+90066" target="_blank" class="bc-link">Get Directions →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== GROWING ===== -->
+<section class="growing-section">
+  <div class="growing-inner fade-up">
+    <div class="growing-left">
+      <div class="growing-eyebrow">We're Expanding</div>
+      <h2 class="growing-h">More Locations<br>Coming Soon.</h2>
+      <p class="growing-sub">We're growing. New doors are opening and new partnerships are in the works. If we're not near you yet — you can help change that.</p>
+    </div>
+    <div class="growing-right">
+      <a href="#request" class="growing-btn">Ask Your Local Store →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== REQUEST A STORE ===== -->
+<section class="request-section" id="request">
+  <div class="request-inner">
+
+    <div class="request-left fade-up">
+      <div class="request-eyebrow">Help Us Grow</div>
+      <h2 class="request-h">Don't See Us<br>Near You?<br><em>Ask.</em></h2>
+      <div class="request-body">
+        <p>When multiple customers ask for the same product, stores pay attention. It's one of the most powerful ways a small brand earns new shelf space.</p>
+        <p>If you want 100CalSnacks at your local grocery store, health food shop, or gym — tell them. And let us know too. When enough people ask, stores listen.</p>
+      </div>
+      <div class="request-steps">
+        <div class="request-step">
+          <div class="rs-num">1</div>
+          <div class="rs-text">
+            <div class="rs-title">Tell your store</div>
+            <div class="rs-sub">Ask the store manager or buyer to stock 100CalSnacks. Mention the gut-brain health angle — that resonates.</div>
+          </div>
+        </div>
+        <div class="request-step">
+          <div class="rs-num">2</div>
+          <div class="rs-text">
+            <div class="rs-title">Let us know</div>
+            <div class="rs-sub">Fill out the form — we'll follow up with the store directly so your ask has real weight behind it.</div>
+          </div>
+        </div>
+        <div class="request-step">
+          <div class="rs-num">3</div>
+          <div class="rs-text">
+            <div class="rs-title">We do the rest</div>
+            <div class="rs-sub">We'll reach out to the buyer, send samples if needed, and work to get on those shelves.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="request-form fade-up fade-up-2" id="request-form-section">
+      <div id="rf-form-view">
+        <h3 class="rf-title">Request a<br><em>Store</em></h3>
+        <p class="rf-sub">Tell us where you want to find us. We'll take it from there.</p>
+
+        <div class="rf-field">
+          <label>Your Name</label>
+          <input type="text" id="rf-name" placeholder="Your name">
+        </div>
+        <div class="rf-field">
+          <label>Your Email *</label>
+          <input type="email" id="rf-email" placeholder="you@email.com">
+        </div>
+        <div class="rf-field">
+          <label>Store Name *</label>
+          <input type="text" id="rf-store" placeholder="e.g. Erewhon, Whole Foods, Sprouts...">
+        </div>
+        <div class="rf-field">
+          <label>Store Location / City</label>
+          <input type="text" id="rf-location" placeholder="City, State">
+        </div>
+        <div class="rf-field">
+          <label>Anything Else?</label>
+          <textarea id="rf-notes" placeholder="Have you spoken to the store already? Any other context helps."></textarea>
+        </div>
+        <button class="rf-submit" onclick="submitRequest()">Submit Request →</button>
+        <p class="rf-privacy">We'll follow up with you directly and reach out to the store on your behalf.</p>
+      </div>
+      <div class="rf-success" id="rf-success-view">
+        <div class="rf-success-icon">🙌</div>
+        <div class="rf-success-h">You're Amazing.</div>
+        <div class="rf-success-body">We've got your request and we'll reach out to the store. This is exactly how new shelf space happens — thank you for helping us grow.</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== CLOSING ===== -->
+<section class="close-section">
+  <div class="close-inner fade-up">
+    <h2 class="close-h">Not Near<br>a Store<br><em>Yet?</em></h2>
+    <p class="close-sub">Order direct and get it to your door. We're working on getting closer to you.</p>
+    <a href="100CalSnacks-PDP-ChocolateBrownieBar-v4.html" class="close-btn">Shop Online →</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-brand">100<span>Cal</span>Snacks</div>
+      <div class="footer-tagline">Keepin' Snacks 100®</div>
+      <p class="footer-bio">Built from the struggle. Engineered for the journey. Woman-owned, science-backed, and genuinely built for people who want better.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Learn</div>
+      <ul class="footer-links">
+        <li><a href="100CalSnacks-GutBrain101.html">Gut-Brain Health 101</a></li>
+        <li><a href="100CalSnacks-Ingredients.html">Ingredient Index</a></li>
+        <li><a href="100CalSnacks-GutBrainQuiz.html">Take the Quiz</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Shop</div>
+      <ul class="footer-links">
+        <li><a href="100CalSnacks-PDP-ChocolateBrownieBar-v4.html">Chocolate Brownie Bar</a></li>
+        <li><a href="100CalSnacks-PDP-PeanutButterBar.html">Peanut Butter Bar</a></li>
+        <li><a href="100CalSnacks-PDP-BBQProteinPuffs.html">BBQ Protein Puffs</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Company</div>
+      <ul class="footer-links">
+        <li><a href="100CalSnacks-Story.html">Our Story</a></li>
+        <li><a href="100CalSnacks-Contact.html">Contact Us</a></li>
+        <li><a href="#">Find Us In Store</a></li>
+        <li><a href="#">FAQs</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-btm">
+    <div>© 2026 100CalSnacks.com · Woman-Owned · Science-Backed</div>
+    <div>* These statements have not been evaluated by the FDA.</div>
+  </div>
+</footer>
+
+<script>
+// Fade up
+var fadeEls = document.querySelectorAll('.fade-up');
+var io = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, {threshold:0.06, rootMargin:'0px 0px -20px 0px'});
+fadeEls.forEach(function(el) { io.observe(el); });
+
+// Region filter
+function filterRegion(region, btn) {
+  document.querySelectorAll('.region-tab').forEach(function(t) { t.classList.remove('active'); });
+  btn.classList.add('active');
+  document.querySelectorAll('.store-card').forEach(function(card) {
+    if (region === 'all' || card.dataset.region === region) {
+      card.classList.remove('hidden');
+    } else {
+      card.classList.add('hidden');
+    }
+  });
+}
+
+// Request form submit
+function submitRequest() {
+  var email = document.getElementById('rf-email').value.trim();
+  var store = document.getElementById('rf-store').value.trim();
+  if (!email || !store) {
+    alert('Please fill in your email and the store name.');
+    return;
+  }
+  document.getElementById('rf-form-view').style.display = 'none';
+  document.getElementById('rf-success-view').style.display = 'block';
+}
+</script>
+</body>
+</html>

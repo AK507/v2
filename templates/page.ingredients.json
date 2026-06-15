@@ -19,7 +19,7 @@
         "primary_label": "Explore Ingredients ↓",
         "primary_link": "#library",
         "secondary_label": "By Product →",
-        "secondary_link": "#product-maps",
+        "secondary_link": "#product-maps", 
         "mosaic_title": "Ingredient Families - Click to Explore"
       },
       "blocks": {

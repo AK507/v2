@@ -1,12 +1,16 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "contact_hero": {
       "type": "100cal-contact-hero",
-      "settings": {
-        "eyebrow": "Get in Touch",
-        "heading": "We're<br>Right<br><em>Here.</em>",
-        "subheading": "A real person will read your message. Not a bot, not a ticket system — a person who actually cares about getting back to you."
-      },
       "blocks": {
         "promise_1": {
           "type": "promise_item",
@@ -33,38 +37,19 @@
           }
         }
       },
-      "block_order": ["promise_1", "promise_2", "promise_3"]
+      "block_order": [
+        "promise_1",
+        "promise_2",
+        "promise_3"
+      ],
+      "settings": {
+        "eyebrow": "Get in Touch",
+        "heading": "We're<br>Right<br><em>Here.</em>",
+        "subheading": "A real person will read your message. Not a bot, not a ticket system — a person who actually cares about getting back to you."
+      }
     },
     "contact_main": {
       "type": "100cal-contact-main",
-      "settings": {
-        "form_heading": "Send Us<br>a <em>Message</em>",
-        "form_sub": "Questions, feedback, your story, a problem with your order — anything. We want to hear it.",
-        "reason_label": "What's on your mind?",
-        "label_first": "First Name",
-        "placeholder_first": "Your first name",
-        "label_last": "Last Name",
-        "placeholder_last": "Your last name",
-        "label_email": "Email Address",
-        "placeholder_email": "you@email.com",
-        "label_phone": "Phone Number (optional)",
-        "placeholder_phone": "+1 (555) 000-0000",
-        "label_message": "Your Message",
-        "placeholder_message": "Tell us what's going on — the more detail the better, and the faster we can help.",
-        "submit_label": "Send Message →",
-        "privacy_text": "We'll never share your information. Reply comes directly from our team.",
-        "success_icon": "💚",
-        "success_heading": "Got It — Thank You.",
-        "success_body": "Thanks — a real person on our team will be with you soon.<br><br>In the meantime — if it's urgent, email us directly at <strong><a href=\"mailto:hi@100CalSnacks.com\">hi@100CalSnacks.com</a></strong>",
-        "email_eyebrow": "Direct Line",
-        "email_heading": "Prefer Email?<br>We've Got You.",
-        "email_body": "Drop us a line any time. We check this constantly and reply thoughtfully — with a real answer to what you actually wrote.",
-        "email_address": "hi@100CalSnacks.com",
-        "hours_heading": "When We're Around",
-        "hours_sub": "Here's when you can expect to hear from us.",
-        "social_heading": "Find Us Out There",
-        "social_sub": "DMs are open. We actually reply to those too."
-      },
       "blocks": {
         "reason_my_order": {
           "type": "reason_tab",
@@ -148,17 +133,49 @@
         }
       },
       "block_order": [
-        "reason_my_order", "reason_product_q", "reason_my_story", "reason_wholesale", "reason_other",
-        "hours_weekday", "hours_saturday", "hours_sunday",
-        "social_instagram", "social_tiktok", "social_facebook"
-      ]
+        "reason_my_order",
+        "reason_product_q",
+        "reason_my_story",
+        "reason_wholesale",
+        "reason_other",
+        "hours_weekday",
+        "hours_saturday",
+        "hours_sunday",
+        "social_instagram",
+        "social_tiktok",
+        "social_facebook"
+      ],
+      "settings": {
+        "form_heading": "Send Us<br>a <em>Message</em>",
+        "form_sub": "Questions, feedback, your story, a problem with your order — anything. We want to hear it.",
+        "reason_label": "What's on your mind?",
+        "label_first": "First Name",
+        "placeholder_first": "Your first name",
+        "label_last": "Last Name",
+        "placeholder_last": "Your last name",
+        "label_email": "Email Address",
+        "placeholder_email": "you@email.com",
+        "label_phone": "Phone Number (optional)",
+        "placeholder_phone": "+1 (555) 000-0000",
+        "label_message": "Your Message",
+        "placeholder_message": "Tell us what's going on — the more detail the better, and the faster we can help.",
+        "submit_label": "Send Message →",
+        "privacy_text": "We'll never share your information. Reply comes directly from our team.",
+        "success_icon": "💚",
+        "success_heading": "Got It — Thank You.",
+        "success_body": "Thanks — a real person on our team will be with you soon.<br><br>In the meantime — if it's urgent, email us directly at <strong><a href=\"mailto:hi@100CalSnacks.com\">hi@100CalSnacks.com</a></strong>",
+        "email_eyebrow": "Direct Line",
+        "email_heading": "Prefer Email?<br>We've Got You.",
+        "email_body": "Drop us a line any time. We check this constantly and reply thoughtfully — with a real answer to what you actually wrote.",
+        "email_address": "hi@100CalSnacks.com",
+        "hours_heading": "When We're Around",
+        "hours_sub": "Here's when you can expect to hear from us.",
+        "social_heading": "Find Us Out There",
+        "social_sub": "DMs are open. We actually reply to those too."
+      }
     },
     "contact_faq": {
       "type": "100cal-contact-faq",
-      "settings": {
-        "eyebrow": "Before You Write",
-        "heading": "Quick Answers<br>to Common Questions"
-      },
       "blocks": {
         "faq_order": {
           "type": "faq_item",
@@ -203,17 +220,31 @@
           }
         }
       },
-      "block_order": ["faq_order", "faq_cancel", "faq_damaged", "faq_subscription", "faq_wholesale", "faq_story"]
+      "block_order": [
+        "faq_order",
+        "faq_cancel",
+        "faq_damaged",
+        "faq_subscription",
+        "faq_wholesale",
+        "faq_story"
+      ],
+      "settings": {
+        "eyebrow": "Before You Write",
+        "heading": "Quick Answers<br>to Common Questions"
+      }
     },
     "contact_closing": {
       "type": "100cal-contact-closing",
       "settings": {
         "heading": "This Is<br><em>Personal.</em>",
         "subheading": "Every message we receive is a reminder of why this brand exists. We don't take that lightly."
-      },
-      "blocks": {},
-      "block_order": []
+      }
     }
   },
-  "order": ["contact_hero", "contact_main", "contact_faq", "contact_closing"]
+  "order": [
+    "contact_hero",
+    "contact_main",
+    "contact_faq",
+    "contact_closing"
+  ]
 }

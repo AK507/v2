@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us — 100CalSnacks</title>
+<meta name="description" content="A real person will read your message. We promise. Reach out about your order, your story, or anything else — we're here.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,700;0,900;1,700;1,900&family=Barlow:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{-webkit-box-sizing:border-box;box-sizing:border-box;margin:0;padding:0}
+:root{
+  --black:#0F1213;--white:#FFFFFF;
+  --teal:#66CCCC;--teal-dark:#3A9999;--teal-pastel:#C2EBEB;
+  --orange:#E66443;--yellow:#E9AD3C;
+  --platinum:#EAE9E5;--grey-warm:#E8D7C3;
+  --ink:#1A1A1A;--ink-mid:#555;--ink-light:#888;
+  --neutral:#F4F3F0;
+  --font-head:'Barlow Condensed',sans-serif;
+  --font-body:'Barlow',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-body);color:var(--ink);background:var(--white);overflow-x:hidden;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+
+/* ===== NAV ===== */
+.topbar{background:var(--black);color:var(--white);text-align:center;padding:10px 24px;font-family:var(--font-head);font-weight:700;font-size:13px;letter-spacing:1.5px;text-transform:uppercase}
+.topbar span{color:var(--teal);margin:0 10px}
+nav{position:-webkit-sticky;position:sticky;top:0;z-index:200;background:var(--white);border-bottom:2px solid var(--black);display:flex;align-items:center;justify-content:space-between;padding:0 56px;height:72px}
+.nav-brand{font-family:var(--font-head);font-weight:900;font-size:22px;letter-spacing:1px;text-transform:uppercase;color:var(--black);text-decoration:none}
+.nav-brand span{color:var(--orange)}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{font-family:var(--font-head);font-weight:700;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-mid);text-decoration:none;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--teal-dark)}
+.nav-cta{font-family:var(--font-head);font-weight:900;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;padding:10px 22px;background:var(--teal);color:var(--black);text-decoration:none;transition:background .2s}
+.nav-cta:hover{background:var(--teal-dark);color:var(--white)}
+
+/* ===== HERO ===== */
+.hero{background:var(--black);padding:100px 80px 80px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 20% 60%,rgba(102,204,204,.05) 0%,transparent 70%);pointer-events:none}
+.hero-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:100px;align-items:end;position:relative;z-index:2}
+.hero-overline{font-family:var(--font-head);font-weight:700;font-size:11px;letter-spacing:5px;text-transform:uppercase;color:var(--teal);margin-bottom:20px;display:flex;align-items:center;gap:14px}
+.hero-overline::before{content:'';width:32px;height:2px;background:var(--teal);flex-shrink:0}
+.hero-h1{font-family:var(--font-head);font-weight:900;font-size:96px;line-height:.85;text-transform:uppercase;color:var(--white);margin-bottom:24px}
+.hero-h1 em{font-style:italic;color:var(--teal);display:block}
+.hero-sub{font-family:var(--font-body);font-size:18px;color:rgba(255,255,255,.6);line-height:1.75;max-width:460px}
+/* Right side — promise */
+.hero-promise{display:flex;flex-direction:column;gap:2px;align-self:end}
+.hero-promise-item{padding:24px 28px;background:rgba(255,255,255,.04);border-left:3px solid transparent;display:flex;align-items:flex-start;gap:16px}
+.hero-promise-item:nth-child(1){border-left-color:var(--teal)}
+.hero-promise-item:nth-child(2){border-left-color:var(--orange)}
+.hero-promise-item:nth-child(3){border-left-color:var(--yellow)}
+.hpi-icon{font-size:20px;flex-shrink:0;margin-top:2px}
+.hpi-label{font-family:var(--font-head);font-weight:900;font-size:16px;text-transform:uppercase;color:var(--white);letter-spacing:.5px;line-height:1;margin-bottom:4px}
+.hpi-sub{font-family:var(--font-body);font-size:13px;color:rgba(255,255,255,.45);line-height:1.5}
+
+/* ===== MAIN CONTENT ===== */
+.main-section{background:var(--platinum);padding:80px}
+.main-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+
+/* ===== FORM SIDE ===== */
+.form-wrap{background:var(--white);padding:56px 48px}
+.form-title{font-family:var(--font-head);font-weight:900;font-size:40px;text-transform:uppercase;color:var(--black);line-height:.9;margin-bottom:8px}
+.form-title em{font-style:italic;color:var(--teal-dark)}
+.form-sub{font-family:var(--font-body);font-size:15px;color:var(--ink-mid);line-height:1.65;margin-bottom:36px}
+
+/* Reason selector */
+.reason-label{font-family:var(--font-head);font-weight:700;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--ink-light);margin-bottom:10px}
+.reason-tabs{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:28px}
+.reason-tab{font-family:var(--font-head);font-weight:700;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;padding:8px 16px;background:transparent;border:1.5px solid rgba(15,18,19,.15);color:var(--ink-mid);cursor:pointer;transition:all .2s}
+.reason-tab:hover{border-color:var(--teal-dark);color:var(--teal-dark)}
+.reason-tab.active{background:var(--black);border-color:var(--black);color:var(--white)}
+
+/* Form fields */
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+.field{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+.field label{font-family:var(--font-head);font-weight:700;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--ink-light)}
+.field input,.field textarea,.field select{font-family:var(--font-body);font-size:15px;color:var(--ink);background:var(--neutral);border:1.5px solid transparent;padding:14px 16px;outline:none;transition:border-color .2s;-webkit-appearance:none;appearance:none;border-radius:0;width:100%}
+.field input:focus,.field textarea:focus,.field select:focus{border-color:var(--teal-dark);background:var(--white)}
+.field input::placeholder,.field textarea::placeholder{color:rgba(15,18,19,.3)}
+.field textarea{resize:vertical;min-height:130px}
+.form-submit{width:100%;padding:18px;font-family:var(--font-head);font-weight:900;font-size:14px;letter-spacing:2.5px;text-transform:uppercase;background:var(--black);color:var(--white);border:none;cursor:pointer;transition:background .2s;margin-top:8px}
+.form-submit:hover{background:var(--teal-dark)}
+
+/* ===== FIELD HELPER ===== */
+.field-helper{font-family:var(--font-body);font-size:13px;color:var(--teal-dark);line-height:1.5;margin-top:6px;display:none;padding:8px 12px;background:rgba(58,153,153,.06);border-left:2px solid var(--teal)}
+.field-helper.visible{display:block}
+
+.form-privacy{font-family:var(--font-body);font-size:12px;color:rgba(15,18,19,.35);line-height:1.55;margin-top:12px;text-align:center}
+
+/* Success state */
+.form-success{display:none;text-align:center;padding:48px 32px}
+.form-success-icon{font-size:48px;margin-bottom:16px}
+.form-success-h{font-family:var(--font-head);font-weight:900;font-size:36px;text-transform:uppercase;color:var(--black);margin-bottom:10px}
+.form-success-body{font-family:var(--font-body);font-size:16px;color:var(--ink-mid);line-height:1.65}
+
+/* ===== INFO SIDE ===== */
+.info-wrap{display:flex;flex-direction:column;gap:32px}
+
+/* Direct contact */
+.info-card{background:var(--white);padding:36px 32px}
+.info-card-eyebrow{font-family:var(--font-head);font-weight:700;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--teal-dark);margin-bottom:12px}
+.info-card-h{font-family:var(--font-head);font-weight:900;font-size:28px;text-transform:uppercase;color:var(--black);line-height:1;margin-bottom:8px}
+.info-card-body{font-family:var(--font-body);font-size:15px;color:var(--ink-mid);line-height:1.65;margin-bottom:20px}
+.info-email{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-head);font-weight:900;font-size:18px;text-transform:uppercase;color:var(--black);text-decoration:none;letter-spacing:.5px;border-bottom:2px solid var(--teal);padding-bottom:3px;transition:color .2s}
+.info-email:hover{color:var(--teal-dark)}
+
+/* Response time */
+.response-card{background:var(--black);padding:32px}
+.response-card-h{font-family:var(--font-head);font-weight:900;font-size:22px;text-transform:uppercase;color:var(--white);margin-bottom:6px;line-height:1}
+.response-card-sub{font-family:var(--font-body);font-size:14px;color:rgba(255,255,255,.55);line-height:1.6}
+.response-hours{display:flex;flex-direction:column;gap:2px;margin-top:20px}
+.rh-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.06)}
+.rh-row:last-child{border-bottom:none}
+.rh-day{font-family:var(--font-head);font-weight:700;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.5)}
+.rh-time{font-family:var(--font-head);font-weight:900;font-size:13px;text-transform:uppercase;color:var(--teal)}
+
+/* Social */
+.social-card{background:var(--white);padding:32px}
+.social-card-h{font-family:var(--font-head);font-weight:900;font-size:22px;text-transform:uppercase;color:var(--black);margin-bottom:6px}
+.social-card-sub{font-family:var(--font-body);font-size:14px;color:var(--ink-mid);line-height:1.6;margin-bottom:20px}
+.social-links{display:flex;flex-direction:column;gap:4px}
+.social-link{display:flex;align-items:center;justify-content:space-between;padding:13px 16px;background:var(--neutral);text-decoration:none;transition:background .2s}
+.social-link:hover{background:var(--teal-pastel)}
+.social-link-name{font-family:var(--font-head);font-weight:900;font-size:14px;text-transform:uppercase;color:var(--black);letter-spacing:.5px}
+.social-link-handle{font-family:var(--font-body);font-size:13px;color:var(--ink-light)}
+.social-link-arrow{font-family:var(--font-head);font-weight:700;font-size:13px;color:var(--teal-dark);transition:transform .2s}
+.social-link:hover .social-link-arrow{transform:translateX(4px)}
+
+/* ===== FAQ STRIP ===== */
+.faq-section{background:var(--white);padding:80px;border-top:1px solid var(--platinum)}
+.faq-inner{max-width:1200px;margin:0 auto}
+.faq-header{margin-bottom:48px}
+.faq-eyebrow{font-family:var(--font-head);font-weight:700;font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--teal-dark);margin-bottom:12px}
+.faq-h{font-family:var(--font-head);font-weight:900;font-size:52px;line-height:.9;text-transform:uppercase;color:var(--black)}
+.faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--platinum)}
+.faq-item{background:var(--white);padding:32px 36px;cursor:pointer;transition:background .2s}
+.faq-item:hover{background:#F8F7F4}
+.faq-q{font-family:var(--font-head);font-weight:900;font-size:18px;text-transform:uppercase;color:var(--black);letter-spacing:.5px;margin-bottom:0;display:flex;align-items:center;justify-content:space-between;gap:16px;line-height:1.1}
+.faq-toggle{font-family:var(--font-head);font-weight:900;font-size:22px;color:var(--teal-dark);flex-shrink:0;transition:transform .25s;line-height:1}
+.faq-a{font-family:var(--font-body);font-size:15px;color:var(--ink-mid);line-height:1.7;max-height:0;overflow:hidden;transition:max-height .35s ease,padding-top .35s ease}
+.faq-item.open .faq-a{max-height:200px;padding-top:14px}
+.faq-item.open .faq-toggle{transform:rotate(45deg)}
+
+/* ===== CLOSING STRIP ===== */
+.close-section{background:var(--black);padding:64px 80px;text-align:center}
+.close-inner{max-width:640px;margin:0 auto}
+.close-h{font-family:var(--font-head);font-weight:900;font-size:52px;line-height:.9;text-transform:uppercase;color:var(--white);margin-bottom:12px}
+.close-h em{font-style:italic;color:var(--teal)}
+.close-sub{font-family:var(--font-body);font-size:16px;color:rgba(255,255,255,.5);line-height:1.7;font-style:italic}
+
+/* ===== FOOTER ===== */
+footer{background:var(--black);padding:48px 80px 32px;border-top:1px solid rgba(255,255,255,.06)}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:60px;margin-bottom:40px}
+.footer-brand{font-family:var(--font-head);font-weight:900;font-size:24px;text-transform:uppercase;color:var(--white);margin-bottom:6px}
+.footer-brand span{color:var(--orange)}
+.footer-tagline{font-family:var(--font-head);font-weight:700;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--teal);margin-bottom:14px}
+.footer-bio{font-family:var(--font-body);font-size:14px;color:rgba(255,255,255,.35);line-height:1.65}
+.footer-col-title{font-family:var(--font-head);font-weight:900;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:14px}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:8px}
+.footer-links a{font-family:var(--font-body);font-size:14px;color:rgba(255,255,255,.3);text-decoration:none;transition:color .2s}
+.footer-links a:hover{color:var(--teal)}
+.footer-btm{display:flex;justify-content:space-between;align-items:center;padding-top:24px;border-top:1px solid rgba(255,255,255,.05);font-family:var(--font-body);font-size:12px;color:rgba(255,255,255,.2)}
+
+/* ===== ANIMATIONS ===== */
+.fade-up{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+.fade-up-2{transition-delay:.12s}
+.fade-up-3{transition-delay:.24s}
+</style>
+</head>
+<body>
+
+<div class="topbar">Free Shipping on Orders $25+ <span>·</span> Woman-Owned <span>·</span> Keepin' Snacks 100®</div>
+
+<nav>
+  <a href="100CalSnacks-PDP-ChocolateBrownieBar-v4.html" class="nav-brand">100<span>Cal</span>Snacks</a>
+  <ul class="nav-links">
+    <li><a href="100CalSnacks-PDP-ChocolateBrownieBar-v4.html">Shop</a></li>
+    <li><a href="100CalSnacks-GutBrain101.html">Gut-Brain 101</a></li>
+    <li><a href="100CalSnacks-GutBrainQuiz.html">Quiz</a></li>
+    <li><a href="100CalSnacks-Story.html">Our Story</a></li>
+    <li><a href="#" class="active">Contact</a></li>
+  </ul>
+  <a href="100CalSnacks-PDP-ChocolateBrownieBar-v4.html" class="nav-cta">Shop Now</a>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="fade-up">
+      <div class="hero-overline">Get in Touch</div>
+      <h1 class="hero-h1">We're<br>Right<br><em>Here.</em></h1>
+      <p class="hero-sub">A real person will read your message. Not a bot, not a ticket system — a person who actually cares about getting back to you.</p>
+    </div>
+    <div class="hero-promise fade-up fade-up-2">
+      <div class="hero-promise-item">
+        <div class="hpi-icon">💬</div>
+        <div>
+          <div class="hpi-label">Real Responses</div>
+          <div class="hpi-sub">Every message is read and replied to by a real person on the team</div>
+        </div>
+      </div>
+      <div class="hero-promise-item">
+        <div class="hpi-icon">⚡</div>
+        <div>
+          <div class="hpi-label">Within 24 Hours</div>
+          <div class="hpi-sub">Monday through Friday — we don't leave you hanging</div>
+        </div>
+      </div>
+      <div class="hero-promise-item">
+        <div class="hpi-icon">🤝</div>
+        <div>
+          <div class="hpi-label">No Scripts</div>
+          <div class="hpi-sub">We'll actually read what you wrote and respond to it — not paste a template</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MAIN ===== -->
+<section class="main-section">
+  <div class="main-inner">
+
+    <!-- FORM -->
+    <div class="form-wrap fade-up">
+      <div id="form-view">
+        <h2 class="form-title">Send Us<br>a <em>Message</em></h2>
+        <p class="form-sub">Questions, feedback, your story, a problem with your order — anything. We want to hear it.</p>
+
+        <div class="reason-label">What's on your mind?</div>
+        <div class="reason-tabs">
+          <button class="reason-tab active" onclick="setReason(this)">My Order</button>
+          <button class="reason-tab" onclick="setReason(this)">Product Question</button>
+          <button class="reason-tab" onclick="setReason(this)">My Story</button>
+          <button class="reason-tab" onclick="setReason(this)">Wholesale / Press</button>
+          <button class="reason-tab" onclick="setReason(this)">Something Else</button>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="fname">First Name</label>
+            <input type="text" id="fname" placeholder="Your first name">
+          </div>
+          <div class="field">
+            <label for="lname">Last Name</label>
+            <input type="text" id="lname" placeholder="Your last name">
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="email">Email Address *</label>
+          <input type="email" id="email" placeholder="you@email.com">
+        </div>
+
+        <div class="field">
+          <label for="phone">Phone Number (optional)</label>
+          <input type="tel" id="phone" placeholder="+1 (555) 000-0000">
+        </div>
+
+        <div class="field">
+          <label for="message">Your Message *</label>
+          <textarea id="message" placeholder="Tell us what's going on — the more detail the better, and the faster we can help."></textarea>
+        </div>
+        <div class="field-helper" id="field-helper"></div>
+
+        <button class="form-submit" onclick="submitForm()">Send Message →</button>
+        <p class="form-privacy">We'll never share your information. Reply comes directly from our team.</p>
+      </div>
+
+      <div class="form-success" id="success-view">
+        <div class="form-success-icon">💚</div>
+        <div class="form-success-h">Got It — Thank You.</div>
+        <div class="form-success-body">Thanks — a real person on our team will be with you soon.<br><br>In the meantime — if it's urgent, email us directly at <strong><a href="mailto:hi@100CalSnacks.com" style="color:var(--black)">hi&#64;100CalSnacks.com</a></strong></div>
+      </div>
+    </div>
+
+    <!-- INFO -->
+    <div class="info-wrap">
+
+      <div class="info-card fade-up fade-up-2">
+        <div class="info-card-eyebrow">Direct Line</div>
+        <div class="info-card-h">Prefer Email?<br>We've Got You.</div>
+        <div class="info-card-body">Drop us a line any time. We check this constantly and reply thoughtfully — with a real answer to what you actually wrote.</div>
+        <a href="mailto:hi@100CalSnacks.com" class="info-email">hi&#64;100CalSnacks.com ↗</a>
+      </div>
+
+      <div class="response-card fade-up fade-up-2">
+        <div class="response-card-h">When We're Around</div>
+        <div class="response-card-sub">Here’s when you can expect to hear from us.</div>
+        <div class="response-hours">
+          <div class="rh-row">
+            <span class="rh-day">Monday — Friday</span>
+            <span class="rh-time">9am – 6pm PT</span>
+          </div>
+          <div class="rh-row">
+            <span class="rh-day">Saturday</span>
+            <span class="rh-time">10am – 2pm PT</span>
+          </div>
+          <div class="rh-row">
+            <span class="rh-day">Sunday</span>
+            <span class="rh-time">Back Monday ☀️</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="social-card fade-up fade-up-3">
+        <div class="social-card-h">Find Us Out There</div>
+        <div class="social-card-sub">DMs are open. We actually reply to those too.</div>
+        <div class="social-links">
+          <a href="https://www.instagram.com/100CalSnacks" target="_blank" class="social-link">
+            <div>
+              <div class="social-link-name">Instagram</div>
+              <div class="social-link-handle">@100CalSnacks</div>
+            </div>
+            <div class="social-link-arrow">→</div>
+          </a>
+          <a href="https://tiktok.com/@100calsnacks.com" target="_blank" class="social-link">
+            <div>
+              <div class="social-link-name">TikTok</div>
+              <div class="social-link-handle">@100calsnacks</div>
+            </div>
+            <div class="social-link-arrow">→</div>
+          </a>
+          <a href="https://www.facebook.com/100CalSnacks" target="_blank" class="social-link">
+            <div>
+              <div class="social-link-name">Facebook</div>
+              <div class="social-link-handle">100CalSnacks</div>
+            </div>
+            <div class="social-link-arrow">→</div>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ STRIP ===== -->
+<section class="faq-section">
+  <div class="faq-inner">
+    <div class="faq-header fade-up">
+      <div class="faq-eyebrow">Before You Write</div>
+      <h2 class="faq-h">Quick Answers<br>to Common Questions</h2>
+    </div>
+    <div class="faq-grid fade-up fade-up-2">
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Where is my order? <span class="faq-toggle">+</span></div>
+        <div class="faq-a">Orders typically ship within 1–2 business days. You'll get a tracking email as soon as yours is on its way. If it's been more than 3 days and you haven't heard anything, email us at <a href="mailto:hi@100CalSnacks.com" style="color:var(--teal-dark)">hi&#64;100CalSnacks.com</a> and we'll sort it out immediately.</div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Can I change or cancel my order? <span class="faq-toggle">+</span></div>
+        <div class="faq-a">If your order hasn't shipped yet, absolutely — reach out right away and we'll take care of it. Once it's shipped we can't redirect it, but we'll work with you on a solution.</div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Something arrived damaged — now what? <span class="faq-toggle">+</span></div>
+        <div class="faq-a">We're sorry and we'll make it right, no questions asked. Email a photo to <a href="mailto:hi@100CalSnacks.com" style="color:var(--teal-dark)">hi&#64;100CalSnacks.com</a> and we'll send a replacement or issue a refund — your choice.</div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">How do subscriptions work? <span class="faq-toggle">+</span></div>
+        <div class="faq-a">You can pause, skip, or cancel any time from your account — no hoops to jump through, no penalty. If you ever get stuck, just email us and we'll handle it in minutes.</div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Are you available for wholesale or retail? <span class="faq-toggle">+</span></div>
+        <div class="faq-a">Yes — we'd love to talk. Select "Wholesale / Press" in the contact form above and tell us about your store or platform. We'll get back to you within one business day.</div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">I just want to share my story. <span class="faq-toggle">+</span></div>
+        <div class="faq-a">Please do. Genuinely — this brand was built from a personal story and hearing yours means everything. Select "My Story" in the form and write whatever you want to share. We read all of them.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== CLOSING STRIP ===== -->
+<section class="close-section">
+  <div class="close-inner fade-up">
+    <h2 class="close-h">This Is<br><em>Personal.</em></h2>
+    <p class="close-sub">Every message we receive is a reminder of why this brand exists. We don't take that lightly.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-brand">100<span>Cal</span>Snacks</div>
+      <div class="footer-tagline">Keepin' Snacks 100®</div>
+      <p class="footer-bio">Built from the struggle. Engineered for the journey. Woman-owned, science-backed, and genuinely built for people who want better.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Learn</div>
+      <ul class="footer-links">
+        <li><a href="100CalSnacks-GutBrain101.html">Gut-Brain Health 101</a></li>
+        <li><a href="100CalSnacks-Ingredients.html">Ingredient Index</a></li>
+        <li><a href="100CalSnacks-GutBrainQuiz.html">Take the Quiz</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Shop</div>
+      <ul class="footer-links">
+        <li><a href="100CalSnacks-PDP-ChocolateBrownieBar-v4.html">Chocolate Brownie Bar</a></li>
+        <li><a href="100CalSnacks-PDP-ChocolateBrownieBar-v4.html">Peanut Butter Bar</a></li>
+        <li><a href="100CalSnacks-PDP-ChocolateBrownieBar-v4.html">BBQ Protein Puffs</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Company</div>
+      <ul class="footer-links">
+        <li><a href="100CalSnacks-Story.html">Our Story</a></li>
+        <li><a href="#">Contact Us</a></li>
+        <li><a href="#">Store Locator</a></li>
+        <li><a href="#">FAQs</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-btm">
+    <div>© 2026 100CalSnacks.com · Woman-Owned · Science-Backed</div>
+    <div>* These statements have not been evaluated by the FDA.</div>
+  </div>
+</footer>
+
+<script>
+// Fade up on scroll
+var fadeEls = document.querySelectorAll('.fade-up');
+var observer = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, {threshold:0.08, rootMargin:'0px 0px -30px 0px'});
+fadeEls.forEach(function(el) { observer.observe(el); });
+
+// Helper messages per reason tab
+var helperMessages = {
+  'My Order': 'Have your order number? Add it here so we can help faster.',
+  'Wholesale / Press': 'Tell us your store, outlet, or audience so we can point you to the right person.'
+};
+
+// Reason tabs
+function setReason(btn) {
+  document.querySelectorAll('.reason-tab').forEach(function(t) { t.classList.remove('active'); });
+  btn.classList.add('active');
+  var helper = document.getElementById('field-helper');
+  var msg = helperMessages[btn.textContent.trim()];
+  if (msg) {
+    helper.textContent = msg;
+    helper.classList.add('visible');
+  } else {
+    helper.textContent = '';
+    helper.classList.remove('visible');
+  }
+}
+
+// FAQ accordion
+function toggleFaq(item) {
+  var isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(function(i) { i.classList.remove('open'); });
+  if (!isOpen) item.classList.add('open');
+}
+
+// Form submit
+function submitForm() {
+  var email = document.getElementById('email').value.trim();
+  var message = document.getElementById('message').value.trim();
+  if (!email || !message) {
+    alert('Please fill in your email and message before sending.');
+    return;
+  }
+  document.getElementById('form-view').style.display = 'none';
+  document.getElementById('success-view').style.display = 'block';
+}
+</script>
+</body>
+</html>

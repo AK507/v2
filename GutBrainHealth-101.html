@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gut-Brain Health 101 — 100CalSnacks</title>
+<meta name="description" content="Learn how the gut-brain connection affects your energy, mood, and cravings. Discover gut brain snacks, microbiome health tips, and foods that support the gut-brain axis — in 100 clean calories.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,700;0,900;1,700;1,900&family=Barlow:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --black:#0F1213;--white:#FFFFFF;
+  --teal:#66CCCC;--teal-light:#C2EBEB;--teal-dark:#3A9999;
+  --orange:#E66443;--yellow:#E9AD3C;--red:#D50000;
+  --neutral-light:#EAE9E5;--neutral-mid:#DDD8CC;
+  --ink-mid:#444;--ink-light:#888;
+  --choc-dark:#2C1503;--choc-mid:#6B3010;--choc-light:#C4854A;
+  --pb-dark:#1f1204;--pb-mid:#3d2a0a;--pb-light:#C49A3C;
+  --bbq-dark:#1a0800;--bbq-light:#F5A623;
+  --platinum:#EAE9E5;--grey-warm:#E8D7C3;
+  --font-head:'Barlow Condensed',sans-serif;
+  --font-body:'Barlow',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-body);color:var(--white);background:var(--black);overflow-x:hidden}
+
+/* ===== NAV ===== */
+.topbar{background:var(--black);border-bottom:1px solid rgba(255,255,255,.06);text-align:center;padding:10px 24px;font-family:var(--font-head);font-weight:700;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;color:var(--white)}
+.topbar span{color:var(--teal);margin:0 12px}
+nav{background:var(--black);border-bottom:2px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:space-between;padding:0 56px;height:72px;position:sticky;top:0;z-index:200}
+.nav-brand{font-family:var(--font-head);font-weight:900;font-size:22px;letter-spacing:1px;text-transform:uppercase;color:var(--white);text-decoration:none;line-height:1}
+.nav-brand span{color:var(--orange)}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{font-family:var(--font-head);font-weight:700;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.5);text-decoration:none;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--teal)}
+.nav-cta{font-family:var(--font-head);font-weight:900;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;padding:10px 22px;background:var(--teal);color:var(--black);border:none;cursor:pointer;text-decoration:none;transition:background .2s}
+.nav-cta:hover{background:var(--teal-dark)}
+
+/* ===== SHARED ===== */
+.section-eyebrow{font-family:var(--font-head);font-weight:700;font-size:12px;letter-spacing:4px;text-transform:uppercase;color:var(--teal);margin-bottom:16px}
+.section-h{font-family:var(--font-head);font-weight:900;text-transform:uppercase;color:var(--white);line-height:.9}
+.section-body{font-family:var(--font-body);font-size:16px;color:rgba(255,255,255,.72);line-height:1.8}
+.pill-btn{display:inline-block;font-family:var(--font-head);font-weight:900;font-size:14px;letter-spacing:2px;text-transform:uppercase;padding:18px 44px;background:var(--teal);color:var(--black);border:none;cursor:pointer;text-decoration:none;transition:all .25s}
+.pill-btn:hover{background:var(--teal-dark);color:var(--white)}
+.ghost-btn{display:inline-block;font-family:var(--font-head);font-weight:900;font-size:14px;letter-spacing:2px;text-transform:uppercase;padding:16px 40px;background:transparent;color:var(--white);border:2px solid rgba(255,255,255,.25);text-decoration:none;transition:all .25s}
+.ghost-btn:hover{border-color:var(--white);background:rgba(255,255,255,.06)}
+
+/* ===== 1. HERO ===== */
+.hero{min-height:92vh;background:var(--black);display:flex;align-items:center;position:relative;overflow:hidden;padding:80px 80px 80px 56px}
+/* Animated gut-brain axis diagram in background */
+.hero-bg-diagram{position:absolute;right:-80px;top:50%;transform:translateY(-50%);width:600px;height:700px;opacity:.06;pointer-events:none}
+.hero-inner{max-width:720px;position:relative;z-index:2}
+.hero-overline{font-family:var(--font-head);font-weight:700;font-size:12px;letter-spacing:5px;text-transform:uppercase;color:var(--teal);margin-bottom:20px;display:flex;align-items:center;gap:12px}
+.hero-overline::before{content:'';width:32px;height:2px;background:var(--teal);flex-shrink:0}
+.hero-h1{font-family:var(--font-head);font-weight:900;font-size:108px;line-height:.88;text-transform:uppercase;color:var(--white);margin-bottom:28px}
+.hero-h1 em{font-style:italic;color:var(--teal)}
+.hero-sub{font-family:var(--font-body);font-size:18px;color:rgba(255,255,255,.5);line-height:1.7;max-width:520px;margin-bottom:40px}
+.hero-ctas{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.hero-scroll-hint{position:absolute;bottom:40px;left:56px;display:flex;align-items:center;gap:10px;font-family:var(--font-head);font-weight:700;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.2)}
+.hero-scroll-line{width:40px;height:1px;background:rgba(255,255,255,.15)}
+
+/* ===== 2. AXIS EXPLAINER ===== */
+.axis-section{padding:100px 80px;background:#0A1A1A;border-top:1px solid rgba(102,204,204,.1);position:relative}
+.axis-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:100px;align-items:center}
+.axis-diagram{position:relative;display:flex;flex-direction:column;align-items:center;gap:0}
+/* SVG diagram of the axis */
+.axis-svg-wrap{width:100%;max-width:340px;margin:0 auto}
+.axis-node{border:2px solid rgba(255,255,255,.12);background:rgba(255,255,255,.03);padding:24px 28px;position:relative}
+.axis-node-label{font-family:var(--font-head);font-weight:900;font-size:28px;text-transform:uppercase;color:var(--white);letter-spacing:.5px;margin-bottom:4px}
+.axis-node-sub{font-family:var(--font-body);font-size:13px;color:rgba(255,255,255,.35);line-height:1.4}
+.axis-node-icon{font-size:32px;margin-bottom:10px}
+.axis-node.brain{border-top:3px solid var(--teal)}
+.axis-node.gut{border-top:3px solid var(--orange)}
+/* The nerve connector — single central line, signals travel both directions */
+.axis-nerve{width:100%;padding:8px 0;position:relative;display:grid;grid-template-columns:56px 1fr;gap:0 20px;align-items:start}
+.axis-nerve-track{display:flex;flex-direction:column;align-items:center;padding:4px 0;gap:0;position:relative;height:100%}
+.axis-track-label{font-family:var(--font-head);font-weight:700;font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:var(--teal);text-align:center;margin-bottom:8px;border:1px solid rgba(102,204,204,.25);padding:5px 8px;white-space:nowrap}
+.axis-nerve-line{width:2px;flex:1;background:linear-gradient(180deg,var(--teal) 0%,rgba(233,173,60,.5) 50%,var(--orange) 100%);opacity:.45;border-radius:2px;position:relative;min-height:120px}
+/* Signals going DOWN — teal, brain → gut */
+.axis-signal{position:absolute;border-radius:50%;left:50%;transform:translateX(-50%)}
+.axis-signal.d1{width:9px;height:9px;background:var(--teal);box-shadow:0 0 7px var(--teal);animation:goDown 2.2s ease-in-out infinite}
+.axis-signal.d2{width:9px;height:9px;background:var(--teal);box-shadow:0 0 7px var(--teal);animation:goDown 2.2s ease-in-out infinite;animation-delay:1.1s}
+/* Signals going UP — orange, gut → brain */
+.axis-signal.u1{width:9px;height:9px;background:var(--orange);box-shadow:0 0 7px var(--orange);animation:goUp 2.2s ease-in-out infinite;animation-delay:.55s}
+.axis-signal.u2{width:9px;height:9px;background:var(--orange);box-shadow:0 0 7px var(--orange);animation:goUp 2.2s ease-in-out infinite;animation-delay:1.65s}
+@keyframes goDown{0%{top:2%;opacity:0;transform:translateX(-50%) scale(.4)}12%{opacity:1;transform:translateX(-50%) scale(1)}88%{opacity:1;transform:translateX(-50%) scale(1)}100%{top:95%;opacity:0;transform:translateX(-50%) scale(.4)}}
+@keyframes goUp{0%{top:95%;opacity:0;transform:translateX(-50%) scale(.4)}12%{opacity:1;transform:translateX(-50%) scale(1)}88%{opacity:1;transform:translateX(-50%) scale(1)}100%{top:2%;opacity:0;transform:translateX(-50%) scale(.4)}}
+/* Channel tags — top-aligned to match Brain node, evenly spaced down */
+.axis-channels{display:flex;flex-direction:column;gap:0;padding:0}
+.axis-channel{display:flex;flex-direction:column;gap:4px;padding:14px 0 14px 16px;border-bottom:1px solid rgba(255,255,255,.06);border-left:2px solid rgba(255,255,255,.06)}
+.axis-channel:first-child{border-left-color:var(--teal)}
+.axis-channel:nth-child(2){border-left-color:var(--yellow)}
+.axis-channel:last-child{border-left-color:var(--orange);border-bottom:none}
+.axis-channel-dot{display:none}
+.axis-channel-name{font-family:var(--font-head);font-weight:900;font-size:13px;text-transform:uppercase;letter-spacing:.5px;line-height:1;margin-bottom:4px}
+.axis-channel-desc{font-family:var(--font-body);font-size:12px;color:rgba(255,255,255,.5);line-height:1.45}
+/* Right: copy */
+.axis-copy{}
+.axis-h{font-size:60px;margin-bottom:24px}
+.axis-body{margin-bottom:24px}
+.axis-list{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:28px}
+.axis-list li{font-family:var(--font-body);font-size:15px;color:rgba(255,255,255,.7);display:flex;align-items:center;gap:12px;line-height:1.5}
+.axis-list li::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--teal);flex-shrink:0}
+.axis-callout{border-left:3px solid var(--teal);padding:18px 22px;background:rgba(102,204,204,.08);font-family:var(--font-body);font-size:15px;color:rgba(255,255,255,.75);line-height:1.65;font-style:italic}
+
+/* ===== 3. SNACKS MATTER ===== */
+.snacks-section{padding:100px 80px;background:#C2EBEB;border-top:none}
+.snacks-inner{max-width:1200px;margin:0 auto}
+.snacks-header{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:end;margin-bottom:64px}
+.snacks-h{font-size:64px;margin-bottom:0}
+.snacks-signals{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:56px}
+.signal-card{padding:28px;border:1px solid rgba(15,18,19,.1);background:#FFFFFF;transition:border-color .2s;box-shadow:0 1px 3px rgba(15,18,19,.06)}
+.signal-card:hover{border-color:var(--teal-dark)}
+.signal-icon{font-size:28px;margin-bottom:12px}
+.signal-title{font-family:var(--font-head);font-weight:900;font-size:18px;text-transform:uppercase;color:var(--black);margin-bottom:6px;letter-spacing:.5px}
+.signal-body{font-family:var(--font-body);font-size:14px;color:rgba(15,18,19,.6);line-height:1.6}
+.benefits-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;background:transparent}
+.benefit-cell{background:#FFFFFF;padding:28px 24px;border-top:2px solid transparent;transition:border-color .3s;box-shadow:0 1px 3px rgba(15,18,19,.06)}
+.benefit-cell:hover{border-color:var(--teal)}
+.benefit-cell-num{font-family:var(--font-head);font-weight:900;font-size:42px;color:var(--teal);line-height:1;margin-bottom:8px}
+.benefit-cell-label{font-family:var(--font-head);font-weight:700;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:rgba(15,18,19,.6);margin-bottom:8px}
+.benefit-cell-body{font-family:var(--font-body);font-size:13px;color:rgba(15,18,19,.55);line-height:1.55}
+
+/* ===== 4. MICROBIOME ===== */
+.micro-section{padding:100px 80px;background:var(--black);border-top:4px solid var(--teal);position:relative;overflow:hidden}
+.micro-section::before{content:'MICROBIOME';position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-family:var(--font-head);font-weight:900;font-size:160px;color:rgba(255,255,255,.018);text-transform:uppercase;white-space:nowrap;pointer-events:none}
+.micro-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:100px;align-items:center;position:relative;z-index:2}
+.micro-visual{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.micro-stat{padding:28px;border:1px solid rgba(255,255,255,.1);background:rgba(0,0,0,.25);display:flex;flex-direction:column;gap:6px;transition:all .3s}
+.micro-stat:hover{background:rgba(0,0,0,.35);border-color:rgba(102,204,204,.3)}
+.micro-stat:nth-child(1){border-top:3px solid var(--teal)}
+.micro-stat:nth-child(2){border-top:3px solid var(--orange)}
+.micro-stat:nth-child(3){border-top:3px solid var(--yellow)}
+.micro-stat:nth-child(4){border-top:3px solid rgba(102,204,204,.4)}
+.micro-stat-num{font-family:var(--font-head);font-weight:900;font-size:44px;color:var(--white);line-height:1}
+.micro-stat-label{font-family:var(--font-head);font-weight:700;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,.35)}
+.micro-stat-sub{font-family:var(--font-body);font-size:12px;color:rgba(255,255,255,.45);line-height:1.5;margin-top:2px}
+.micro-h{font-size:56px;margin-bottom:24px}
+.micro-list{list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:28px}
+.micro-list li{font-family:var(--font-body);font-size:15px;color:rgba(255,255,255,.72);display:flex;align-items:flex-start;gap:12px;line-height:1.55}
+.micro-list li::before{content:'→';color:var(--teal);font-weight:700;flex-shrink:0;font-family:var(--font-head)}
+
+/* ===== 5. SIGNS ===== */
+.signs-section{padding:100px 80px;background:#EAE9E5;border-top:none}
+.signs-inner{max-width:1200px;margin:0 auto}
+.signs-header{margin-bottom:52px}
+.signs-h{font-size:64px;margin-bottom:16px;color:var(--black)}
+.signs-sub{font-family:var(--font-body);font-size:16px;color:rgba(15,18,19,.6);max-width:560px;line-height:1.7}
+.signs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;background:transparent;margin-bottom:40px}
+.sign-card{background:#FFFFFF;padding:32px 28px;border-top:2px solid transparent;transition:all .3s;box-shadow:0 1px 3px rgba(15,18,19,.06)}
+.sign-card:hover{border-top-color:var(--teal);background:rgba(102,204,204,.03)}
+.sign-icon{font-size:28px;margin-bottom:14px}
+.sign-title{font-family:var(--font-head);font-weight:900;font-size:19px;text-transform:uppercase;color:var(--black);letter-spacing:.5px;margin-bottom:10px;line-height:1}
+.sign-body{font-family:var(--font-body);font-size:14px;color:rgba(15,18,19,.6);line-height:1.65}
+.signs-callout{display:flex;align-items:center;justify-content:space-between;gap:40px;padding:28px 32px;border:1px solid rgba(15,18,19,.12);background:rgba(15,18,19,.04)}
+.signs-callout-text{font-family:var(--font-body);font-size:15px;color:rgba(15,18,19,.65);line-height:1.65;max-width:680px}
+
+/* ===== 5. ARCHETYPES ===== */
+.arch-section{padding:100px 80px;background:#0F1415;border-top:1px solid rgba(255,255,255,.06)}
+.arch-inner{max-width:1200px;margin:0 auto}
+.arch-header{margin-bottom:56px}
+.arch-h{font-size:64px;margin-bottom:16px}
+.arch-sub{font-family:var(--font-body);font-size:16px;color:rgba(255,255,255,.65);max-width:560px;line-height:1.7}
+.arch-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:rgba(255,255,255,.05)}
+.arch-card{background:var(--black);padding:0;display:flex;flex-direction:column;transition:all .3s;position:relative;overflow:hidden}
+.arch-card.focus:hover{background:#100B06}
+.arch-card.calm:hover{background:#0F0C06}
+.arch-card.craving:hover{background:#100900}
+.arch-card-band{height:6px}
+.arch-card-body{padding:36px 32px;flex:1;display:flex;flex-direction:column}
+.arch-icon{font-size:36px;margin-bottom:16px}
+.arch-type{font-family:var(--font-head);font-weight:900;font-size:28px;text-transform:uppercase;color:var(--white);letter-spacing:.5px;line-height:1;margin-bottom:4px}
+.arch-tagline{font-family:var(--font-head);font-weight:700;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:24px}
+.arch-experiences{margin-bottom:24px}
+.arch-exp-label{font-family:var(--font-head);font-weight:700;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:10px}
+.arch-exp-list{list-style:none;display:flex;flex-direction:column;gap:7px}
+.arch-exp-list li{font-family:var(--font-body);font-size:14px;color:rgba(255,255,255,.68);display:flex;align-items:flex-start;gap:8px;line-height:1.4}
+.arch-exp-list li::before{content:'·';flex-shrink:0;color:rgba(255,255,255,.25)}
+.arch-what-helps{padding:16px;margin-bottom:20px}
+.arch-helps-label{font-family:var(--font-head);font-weight:700;font-size:9px;letter-spacing:2.5px;text-transform:uppercase;margin-bottom:6px}
+.arch-helps-text{font-family:var(--font-body);font-size:13px;color:rgba(255,255,255,.72);line-height:1.5}
+.arch-product{margin-top:auto;padding:14px 16px;display:flex;align-items:center;justify-content:space-between;border-top:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.04);text-decoration:none}
+.arch-product-name{font-family:var(--font-head);font-weight:900;font-size:14px;text-transform:uppercase;color:var(--white);letter-spacing:.5px}
+.arch-product-arrow{font-family:var(--font-head);font-weight:700;font-size:13px;letter-spacing:1px;text-transform:uppercase;text-decoration:none;transition:color .2s}
+/* Card specific colors */
+.arch-card.focus .arch-card-band{background:var(--choc-light)}
+.arch-card.focus .arch-what-helps{background:rgba(196,133,74,.14);border-left:3px solid var(--choc-light)}
+.arch-card.focus .arch-helps-label{color:var(--choc-light)}
+.arch-card.focus .arch-product-arrow{color:var(--choc-light)}
+.arch-card.calm .arch-card-band{background:var(--pb-light)}
+.arch-card.calm .arch-what-helps{background:rgba(196,154,60,.14);border-left:3px solid var(--pb-light)}
+.arch-card.calm .arch-helps-label{color:var(--pb-light)}
+.arch-card.calm .arch-product-arrow{color:var(--pb-light)}
+.arch-card.craving .arch-card-band{background:var(--bbq-light)}
+.arch-card.craving .arch-what-helps{background:rgba(245,166,35,.14);border-left:3px solid var(--bbq-light)}
+.arch-card.craving .arch-helps-label{color:var(--bbq-light)}
+.arch-card.craving .arch-product-arrow{color:var(--bbq-light)}
+
+/* Product preview strip inside arch section */
+.arch-products-preview{margin-top:32px;padding-top:32px;border-top:1px solid rgba(255,255,255,.06)}
+.arch-products-eyebrow{font-family:var(--font-head);font-weight:700;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:16px}
+.arch-products-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:rgba(255,255,255,.05)}
+.arch-product-preview{background:var(--black);padding:24px 20px;display:flex;flex-direction:column;gap:6px;text-decoration:none;border-top:3px solid transparent;transition:all .25s}
+.arch-product-preview:hover{background:rgba(255,255,255,.03)}
+.arch-product-preview.focus{border-top-color:var(--choc-light)}
+.arch-product-preview.calm{border-top-color:var(--pb-light)}
+.arch-product-preview.craving{border-top-color:var(--bbq-light)}
+.app-emoji{font-size:28px;margin-bottom:4px}
+.app-name{font-family:var(--font-head);font-weight:900;font-size:17px;text-transform:uppercase;color:var(--white);letter-spacing:.5px;line-height:1}
+.app-type{font-family:var(--font-head);font-weight:700;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.3)}
+.arch-product-preview.focus .app-type{color:var(--choc-light)}
+.arch-product-preview.calm .app-type{color:var(--pb-light)}
+.arch-product-preview.craving .app-type{color:var(--bbq-light)}
+
+/* ===== 6. INGREDIENTS ===== */
+.ingr-section{padding:100px 80px;background:#EAE9E5;border-top:none}
+.ingr-inner{max-width:1200px;margin:0 auto}
+.ingr-header{margin-bottom:56px}
+.ingr-h{font-size:64px;margin-bottom:16px}
+.ingr-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:48px}
+.ingr-card{padding:32px;border:1px solid rgba(15,18,19,.08);background:#FFFFFF;position:relative;overflow:hidden;transition:all .3s;box-shadow:0 1px 3px rgba(15,18,19,.06)}
+.ingr-card:hover{border-color:var(--teal-dark);background:#F0FAFA}
+.ingr-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--teal)}
+.ingr-icon{font-size:28px;margin-bottom:14px}
+.ingr-name{font-family:var(--font-head);font-weight:900;font-size:20px;text-transform:uppercase;color:var(--black);letter-spacing:.5px;margin-bottom:8px;line-height:1}
+.ingr-benefit{font-family:var(--font-head);font-weight:700;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--teal-dark);margin-bottom:10px}
+.ingr-desc{font-family:var(--font-body);font-size:14px;color:rgba(15,18,19,.6);line-height:1.6}
+.ingr-callout{display:grid;grid-template-columns:1fr 1fr;gap:8px;background:transparent}
+.ingr-callout-cell{background:#FFFFFF;padding:28px 32px;display:flex;align-items:flex-start;gap:20px;box-shadow:0 1px 3px rgba(15,18,19,.06)}
+.ic-check{font-size:20px;flex-shrink:0;margin-top:2px}
+.ic-text{}
+.ic-title{font-family:var(--font-head);font-weight:900;font-size:16px;text-transform:uppercase;color:var(--black);letter-spacing:.5px;margin-bottom:4px}
+.ic-body{font-family:var(--font-body);font-size:14px;color:rgba(15,18,19,.6);line-height:1.6}
+
+/* ===== 7. TIPS ===== */
+.tips-section{padding:100px 80px;background:#161B1B;border-top:none}
+.tips-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 2fr;gap:80px;align-items:start}
+.tips-h{font-size:64px;color:var(--white)}
+.tips-list{display:flex;flex-direction:column;gap:0}
+.tip-row{display:flex;align-items:flex-start;gap:28px;padding:32px 0;border-bottom:1px solid rgba(255,255,255,.06)}
+.tip-row:last-child{border-bottom:none}
+.tip-num{font-family:var(--font-head);font-weight:900;font-size:60px;color:var(--teal);line-height:.85;opacity:.6;flex-shrink:0;width:52px}
+.tip-body{}
+.tip-title{font-family:var(--font-head);font-weight:900;font-size:22px;text-transform:uppercase;color:var(--white);letter-spacing:.5px;margin-bottom:6px}
+.tip-text{font-family:var(--font-body);font-size:15px;color:rgba(255,255,255,.7);line-height:1.65}
+
+/* ===== 8. QUIZ CTA ===== */
+.quiz-cta-section{padding:100px 80px;background:var(--teal);border-top:none;position:relative;overflow:hidden}
+.quiz-cta-section::before{content:'QUIZ';position:absolute;left:50%;top:30%;transform:translate(-50%,-50%);font-family:var(--font-head);font-weight:900;font-size:320px;color:rgba(0,0,0,.14);pointer-events:none;white-space:nowrap}
+.quiz-cta-inner{max-width:800px;margin:0 auto;text-align:center;position:relative;z-index:2}
+.quiz-cta-eyebrow{font-family:var(--font-head);font-weight:700;font-size:12px;letter-spacing:4px;text-transform:uppercase;color:rgba(0,0,0,.5);margin-bottom:20px}
+.quiz-cta-h{font-size:80px;margin-bottom:20px;color:var(--black)}
+.quiz-cta-sub{font-family:var(--font-body);font-size:17px;color:rgba(0,0,0,.6);line-height:1.7;margin-bottom:40px}
+.quiz-cta-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+/* Score teaser chips */
+.quiz-types-row{display:flex;gap:12px;justify-content:center;margin-top:40px;flex-wrap:wrap}
+.quiz-type-chip{font-family:var(--font-head);font-weight:700;font-size:11px;letter-spacing:2px;text-transform:uppercase;padding:8px 18px;border:1px solid rgba(0,0,0,.15);color:rgba(0,0,0,.5);background:rgba(0,0,0,.06)}
+
+/* ===== 9. PRODUCTS ===== */
+.products-section{padding:80px;background:#161B1B;border-top:none}
+.products-inner{max-width:1200px;margin:0 auto}
+.products-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:40px}
+.products-h{font-size:52px}
+.products-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:rgba(255,255,255,.05)}
+.product-card{background:var(--black);padding:0;transition:all .3s;text-decoration:none;display:flex;flex-direction:column}
+.product-card:hover .pc-visual{filter:brightness(1.12)}
+.pc-visual{height:200px;display:flex;align-items:center;justify-content:center;font-size:64px;transition:all .3s;position:relative}
+.pc-visual::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,rgba(0,0,0,.4))}
+.pc-body{padding:28px 28px 32px}
+.pc-type{font-family:var(--font-head);font-weight:700;font-size:10px;letter-spacing:3px;text-transform:uppercase;margin-bottom:6px}
+.pc-name{font-family:var(--font-head);font-weight:900;font-size:26px;text-transform:uppercase;color:var(--white);letter-spacing:.5px;margin-bottom:6px;line-height:1}
+.pc-line{font-family:var(--font-body);font-size:14px;color:rgba(255,255,255,.4);margin-bottom:16px;line-height:1.4}
+.pc-cta{font-family:var(--font-head);font-weight:900;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--teal);text-decoration:none;display:flex;align-items:center;gap:6px;transition:gap .2s}
+.product-card:hover .pc-cta{gap:10px}
+
+/* ===== FOOTER ===== */
+footer{background:var(--black);padding:48px 80px 32px;border-top:1px solid rgba(255,255,255,.06)}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:60px;margin-bottom:48px}
+.footer-brand{font-family:var(--font-head);font-weight:900;font-size:26px;text-transform:uppercase;color:var(--white);line-height:1;margin-bottom:6px}
+.footer-brand span{color:var(--orange)}
+.footer-tagline{font-family:var(--font-head);font-weight:700;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--teal);margin-bottom:16px}
+.footer-bio{font-family:var(--font-body);font-size:14px;color:rgba(255,255,255,.35);line-height:1.65}
+.footer-col-title{font-family:var(--font-head);font-weight:900;font-size:13px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:14px}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:8px}
+.footer-links a{font-family:var(--font-body);font-size:14px;color:rgba(255,255,255,.3);text-decoration:none;transition:color .2s}
+.footer-links a:hover{color:var(--teal)}
+.footer-btm{display:flex;justify-content:space-between;align-items:center;padding-top:24px;border-top:1px solid rgba(255,255,255,.05)}
+.footer-copy{font-family:var(--font-body);font-size:12px;color:rgba(255,255,255,.2)}
+.footer-disclaimer{font-family:var(--font-body);font-size:11px;color:rgba(255,255,255,.15);max-width:560px;line-height:1.5}
+
+/* Full ingredients list */
+.full-ingr-wrap{margin-top:48px;padding-top:48px;border-top:1px solid rgba(15,18,19,.12)}
+.full-ingr-simple{display:flex;align-items:center;justify-content:space-between;gap:40px;padding:28px 32px;border:1px solid rgba(15,18,19,.12);background:var(--black)}
+.full-ingr-eyebrow{font-family:var(--font-head);font-weight:700;font-size:12px;letter-spacing:4px;text-transform:uppercase;color:var(--teal);margin-bottom:8px}
+.full-ingr-sub{font-family:var(--font-body);font-size:15px;color:rgba(255,255,255,.65);line-height:1.6;max-width:520px}
+.fia{background:var(--black)}
+.fia-trigger{width:100%;display:flex;align-items:center;justify-content:space-between;padding:20px 28px;background:none;border:none;cursor:pointer;transition:background .2s;gap:16px}
+.fia-trigger:hover{background:rgba(255,255,255,.03)}
+.fia.open .fia-trigger{background:rgba(102,204,204,.06)}
+.fia-trigger-left{display:flex;align-items:center;gap:14px}
+.fia-emoji{font-size:20px}
+.fia-name{font-family:var(--font-head);font-weight:900;font-size:16px;text-transform:uppercase;color:var(--white);letter-spacing:.5px}
+.fia-chevron{font-size:20px;color:rgba(255,255,255,.3);flex-shrink:0;transition:transform .3s;font-style:normal}
+.fia.open .fia-chevron{transform:rotate(45deg);color:var(--teal)}
+.fia-body{max-height:0;overflow:hidden;transition:max-height .4s ease,padding .3s}
+.fia.open .fia-body{max-height:300px;padding:4px 28px 24px}
+.fia-list{font-family:var(--font-body);font-size:15px;color:rgba(255,255,255,.7);line-height:1.8;margin-bottom:12px}
+.fia-allergen{font-family:var(--font-body);font-size:13px;color:rgba(255,255,255,.4);line-height:1.6}
+.fia-allergen strong{color:rgba(255,255,255,.6)}
+
+/* ===== SCROLL ANIMATIONS ===== */
+.fade-up{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+.fade-up-2{transition-delay:.15s}
+.fade-up-3{transition-delay:.3s}
+.fade-up-4{transition-delay:.45s}
+
+/* Eyebrow on platinum sections — teal-dark for legibility */
+.signs-section .section-eyebrow,
+.tips-section .section-eyebrow{color:var(--teal-dark)}
+/* Tips heading override */
+.tips-section .section-h{color:var(--black)}
+/* Ghost btn on platinum — dark border */
+.signs-section .ghost-btn{border-color:rgba(15,18,19,.25);color:var(--black)}
+.signs-section .ghost-btn:hover{border-color:var(--black);background:rgba(15,18,19,.05)}
+
+/* Snacks section on pastel teal — dark text overrides */
+.snacks-section .section-eyebrow{color:var(--teal-dark)}
+.snacks-section .section-h{color:var(--black)}
+.snacks-section .section-body{color:rgba(15,18,19,.6)}
+.snacks-section .snacks-h{color:var(--black)}
+.benefit-cell-num{font-family:var(--font-head);font-weight:900;font-size:42px;color:var(--teal-dark);line-height:1;margin-bottom:8px}
+
+/* Ingredients section on platinum — dark text */
+.ingr-section .section-eyebrow{color:var(--teal-dark)}
+.ingr-section .section-h{color:var(--black)}
+/* Tips section on charcoal — white text */
+.tips-section .section-eyebrow{color:var(--teal)}
+.tips-section .section-h{color:var(--white)}
+</style>
+</head>
+<body>
+
+<div class="topbar">Keepin' Snacks 100<span>·</span>Free Shipping on $25+<span>·</span>Gut-Brain Nutrition</div>
+
+<nav>
+  <a href="100CalSnacks-PDP-ChocolateBrownieBar-v4.html" class="nav-brand">100<span>Cal</span>Snacks</a>
+  <ul class="nav-links">
+    <li><a href="100CalSnacks-PDP-ChocolateBrownieBar-v4.html">Shop</a></li>
+    <li><a href="#" class="active">Gut-Brain 101</a></li>
+    <li><a href="100CalSnacks-GutBrainQuiz.html">Quiz</a></li>
+  </ul>
+  <a href="100CalSnacks-GutBrainQuiz.html" class="nav-cta">Take the Quiz →</a>
+</nav>
+
+<!-- ===== 1. HERO ===== -->
+<section class="hero" id="top">
+  <!-- Gut-Brain axis ghost diagram -->
+  <svg class="hero-bg-diagram" viewBox="0 0 600 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Brain -->
+    <ellipse cx="300" cy="160" rx="130" ry="110" stroke="white" stroke-width="3" opacity=".6"/>
+    <path d="M230 140 C245 115 270 108 295 116 C320 108 345 115 360 140" stroke="white" stroke-width="2.5" fill="none" opacity=".5"/>
+    <path d="M215 165 C210 148 222 138 234 142" stroke="white" stroke-width="2" fill="none" opacity=".4"/>
+    <path d="M385 165 C390 148 378 138 366 142" stroke="white" stroke-width="2" fill="none" opacity=".4"/>
+    <path d="M248 190 C258 205 280 208 295 200 C310 208 332 205 342 190" stroke="white" stroke-width="2" fill="none" opacity=".4"/>
+    <!-- Vagus nerve -->
+    <path d="M300 270 C290 310 308 340 298 375 C288 410 305 435 298 465" stroke="white" stroke-width="3" stroke-dasharray="10 12" opacity=".5"/>
+    <circle cx="299" cy="318" r="6" fill="white" opacity=".5"/>
+    <circle cx="301" cy="362" r="6" fill="white" opacity=".4"/>
+    <circle cx="299" cy="406" r="5" fill="white" opacity=".35"/>
+    <!-- Gut / intestines -->
+    <path d="M180 490 C165 490 152 502 152 518 C152 534 165 546 180 546 C196 546 210 534 210 518 C210 502 222 490 238 490 C254 490 266 502 266 518 C266 534 254 546 238 546 C222 546 210 558 210 574 C210 590 222 602 238 602 C254 602 268 596 278 584" stroke="white" stroke-width="3.5" fill="none" opacity=".55"/>
+    <path d="M180 490 C168 476 170 460 182 452 C202 438 228 442 242 454 C258 468 280 466 296 454 C312 442 332 444 344 456 C356 470 352 488 340 496 C326 504 316 520 322 537 C328 554 344 560 356 552 C368 544 368 528 356 520 C344 512 326 514 318 526 C310 538 314 556 328 562" stroke="white" stroke-width="3" fill="none" opacity=".45"/>
+    <line x1="158" y1="526" x2="320" y2="526" stroke="white" stroke-width="2" opacity=".25"/>
+    <line x1="158" y1="556" x2="240" y2="556" stroke="white" stroke-width="2" opacity=".2"/>
+  </svg>
+
+  <div class="hero-inner">
+    <div class="hero-overline">Gut-Brain Nutrition 101</div>
+    <h1 class="hero-h1">Your Gut Feeds<br>Your <em>Brain.</em></h1>
+    <p class="hero-sub">Your gut and brain communicate constantly. What you snack on shapes your energy, focus, and cravings.</p>
+    <div class="hero-ctas">
+      <a href="100CalSnacks-GutBrainQuiz.html" class="pill-btn">Take the Gut-Brain Quiz →</a>
+      <a href="#what-is-axis" class="ghost-btn">Learn the Science ↓</a>
+    </div>
+  </div>
+  <div class="hero-scroll-hint">
+    <div class="hero-scroll-line"></div>
+    Scroll to explore
+  </div>
+</section>
+
+<!-- ===== 2. SIGNS ===== -->
+<section class="signs-section" id="signs">
+  <div class="signs-inner">
+    <div class="signs-header fade-up">
+      <div class="section-eyebrow">Know the Signals</div>
+      <h2 class="section-h signs-h">Signs Your Gut-Brain Axis<br>Needs Support</h2>
+      <p class="signs-sub">These aren’t random bad days. Your body is sending signals that the gut-brain axis is out of balance.</p>
+    </div>
+    <div class="signs-grid fade-up fade-up-2">
+      <div class="sign-card">
+        <div class="sign-icon">⚡</div>
+        <div class="sign-title">Afternoon Energy Crashes</div>
+        <div class="sign-body">A daily 2–4pm slump often means unstable blood sugar and an under-fuelled gut-brain axis. Your brain needs steady energy, not sugar spikes.</div>
+      </div>
+      <div class="sign-card">
+        <div class="sign-icon">😤</div>
+        <div class="sign-title">Stress-Driven Cravings</div>
+        <div class="sign-body">When cortisol rises, your gut sends urgent hunger signals. If you snack when stressed — not hungry — your gut-brain axis may be stuck in a cortisol loop.</div>
+      </div>
+      <div class="sign-card">
+        <div class="sign-icon">🌀</div>
+        <div class="sign-title">Bloating After Meals</div>
+        <div class="sign-body">Frequent bloating can signal microbiome imbalance. When gut diversity drops, digestion slows and gut-brain communication becomes noisy.</div>
+      </div>
+      <div class="sign-card">
+        <div class="sign-icon">🧠</div>
+        <div class="sign-title">Brain Fog or Mood Dips</div>
+        <div class="sign-body">About 95% of serotonin is produced in the gut. When the microbiome is off, mood, clarity, and emotional balance can suffer.</div>
+      </div>
+      <div class="sign-card">
+        <div class="sign-icon">🔄</div>
+        <div class="sign-title">Never Feeling Satisfied</div>
+        <div class="sign-body">If hunger returns soon after eating, your satiety hormones may not be signalling properly — a common gut-brain communication gap.</div>
+      </div>
+      <div class="sign-card">
+        <div class="sign-icon">😴</div>
+        <div class="sign-title">Disrupted Sleep or Recovery</div>
+        <div class="sign-body">The gut-brain axis regulates melatonin and sleep signaling. Microbiome imbalance can quietly affect sleep and recovery.</div>
+      </div>
+    </div>
+    <div class="signs-callout fade-up fade-up-3">
+      <div class="signs-callout-text">Do any of these sound familiar?
+They’re often signals your gut-brain axis needs support — and the right snacks can help restore balance.</div>
+      <a href="#archetypes" class="ghost-btn">Find Your Pattern →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 3. AXIS EXPLAINER ===== -->
+<section class="axis-section" id="what-is-axis">
+  <div class="axis-inner">
+    <!-- Left: visual diagram -->
+    <div class="axis-svg-wrap fade-up">
+      <div class="axis-node brain">
+        <div class="axis-node-icon">🧠</div>
+        <div class="axis-node-label">Brain</div>
+        <div class="axis-node-sub">Mood · Focus · Stress Response · Sleep</div>
+      </div>
+      <div class="axis-nerve">
+        <div class="axis-nerve-track">
+          <div class="axis-track-label">GUT-BRAIN<br>AXIS</div>
+          <div class="axis-nerve-line">
+            <div class="axis-signal d1"></div>
+            <div class="axis-signal d2"></div>
+            <div class="axis-signal u1"></div>
+            <div class="axis-signal u2"></div>
+          </div>
+        </div>
+        <div class="axis-channels">
+          <div class="axis-channel">
+            <div class="axis-channel-name" style="color:var(--teal)">Vagus Nerve</div>
+            <div class="axis-channel-desc">Real-time electrical signals between brain and gut — the body's primary two-way highway</div>
+          </div>
+          <div class="axis-channel">
+            <div class="axis-channel-name" style="color:var(--yellow)">Hormones</div>
+            <div class="axis-channel-desc">Cortisol, serotonin, and ghrelin regulate mood, stress, and hunger in both directions</div>
+          </div>
+          <div class="axis-channel">
+            <div class="axis-channel-name" style="color:var(--orange)">Gut Microbes</div>
+            <div class="axis-channel-desc">Bacteria produce 95% of your body's serotonin, signalling the brain from below</div>
+          </div>
+        </div>
+      </div>
+      <div class="axis-node gut">
+        <div class="axis-node-icon">🦠</div>
+        <div class="axis-node-label">Gut</div>
+        <div class="axis-node-sub">Digestion · Microbiome · Immunity · Energy</div>
+      </div>
+      <p style="font-family:var(--font-body);font-size:12px;color:rgba(255,255,255,.2);text-align:center;margin-top:20px;line-height:1.5">Signals travel in both directions — 24 hours a day</p>
+    </div>
+
+    <!-- Right: copy -->
+    <div class="axis-copy fade-up fade-up-2">
+      <div class="section-eyebrow">The Science</div>
+      <h2 class="section-h axis-h">Your Gut and Brain Are Always Talking</h2>
+      <p class="section-body axis-body">The gut brain connection is one of the most important — and most overlooked — systems in your body. Your gut and brain are linked by a powerful two-way network called the gut-brain axis: a system of nerves, hormones, and neurotransmitters that runs between your digestive system and your brain. Scientists call the primary pathway the vagus nerve.</p>
+      <ul class="axis-list">
+        <li>Mood and emotional regulation</li>
+        <li>Energy levels and mental alertness</li>
+        <li>Hunger signals and cravings</li>
+        <li>Digestion and gut comfort</li>
+        <li>Immune resilience and inflammation</li>
+      </ul>
+      <div class="axis-callout">
+        "When the gut is inflamed or out of balance, the brain feels it — and vice versa. This is why snacking isn't just about calories. It's about communication."
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 4. MICROBIOME ===== -->
+<section class="micro-section" id="microbiome">
+  <div class="micro-inner">
+    <div class="micro-visual fade-up">
+      <div class="micro-stat">
+        <div class="micro-stat-num">38T</div>
+        <div class="micro-stat-label">Microbes in the gut</div>
+        <div class="micro-stat-sub">Bacteria, viruses, and fungi that shape your health</div>
+      </div>
+      <div class="micro-stat">
+        <div class="micro-stat-num">95%</div>
+        <div class="micro-stat-label">Of serotonin made in gut</div>
+        <div class="micro-stat-sub">The mood neurotransmitter is primarily gut-produced</div>
+      </div>
+      <div class="micro-stat">
+        <div class="micro-stat-num">500+</div>
+        <div class="micro-stat-label">Microbial species</div>
+        <div class="micro-stat-sub">Diversity is linked to better health outcomes</div>
+      </div>
+      <div class="micro-stat">
+        <div class="micro-stat-num">70%</div>
+        <div class="micro-stat-label">Of immune cells in gut</div>
+        <div class="micro-stat-sub">Your digestive system is your largest immune organ</div>
+      </div>
+    </div>
+    <div class="fade-up fade-up-2">
+      <div class="section-eyebrow">The Microbiome</div>
+      <h2 class="section-h micro-h">Why the Microbiome Matters</h2>
+      <p class="section-body" style="margin-bottom:20px">Your gut microbiome health depends on what you eat more than almost any other factor. Your gut is home to trillions of beneficial microbes — bacteria, viruses, and fungi — that act as a second command centre for your body. Foods that support the microbiome build diversity; ultra-processed foods deplete it.</p>
+      <p class="section-body" style="margin-bottom:12px;color:rgba(255,255,255,.5);font-size:13px;letter-spacing:2px;text-transform:uppercase;font-family:var(--font-head);font-weight:700">Your microbiome helps:</p>
+      <ul class="micro-list">
+        <li>Digest nutrients and produce vitamins</li>
+        <li>Regulate inflammation throughout the body</li>
+        <li>Influence mood, cognition, and mental clarity</li>
+        <li>Signal hunger, fullness, and food cravings</li>
+      </ul>
+      <p class="section-body">Every snack is a vote for or against that balance.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 5. WHY SNACKS MATTER ===== -->
+<section class="snacks-section" id="why-snacks">
+  <div class="snacks-inner">
+    <div class="snacks-header fade-up">
+      <div>
+        <div class="section-eyebrow">What We Actually Do</div>
+        <h2 class="section-h snacks-h">4 Ways Snacks Support Your <br/>Gut-Brain Axis</h2>
+      </div>
+      <p class="section-body" style="max-width:380px">The gut-brain axis regulates stress, cravings, energy, mood, and focus. Snacks built with fiber, protein, and adaptogens help support these pathways. Here’s how they work.</p>
+    </div>
+
+    <div class="snacks-signals fade-up fade-up-2">
+      <div class="signal-card">
+        <div class="signal-icon">🦠</div>
+        <div class="signal-title">Feed the Gut, Signal the Brain</div>
+        <div class="signal-body">Prebiotic fiber feeds beneficial gut bacteria. A strong microbiome produces more serotonin, reduces inflammation, and sends clear signals to the brain — for better mood and focus.</div>
+      </div>
+      <div class="signal-card">
+        <div class="signal-icon">🌿</div>
+        <div class="signal-title">Calm the Cortisol Loop</div>
+        <div class="signal-body">Adaptogens help regulate cortisol — the stress hormone that drives cravings and reactive eating. When cortisol stabilizes, gut-brain stress signals quiet down and energy becomes more balanced.</div>
+      </div>
+      <div class="signal-card">
+        <div class="signal-icon">💪</div>
+        <div class="signal-title">Trigger Real Satiety Signals</div>
+        <div class="signal-body">Protein and fiber activate gut hormones that signal fullness to the brain. Together they stabilize blood sugar and help prevent cravings between meals. </div>
+      </div>
+      <div class="signal-card">
+        <div class="signal-icon">🍇</div>
+        <div class="signal-title">Protect with Antioxidants</div>
+        <div class="signal-body">Antioxidant-rich whole foods reduce oxidative stress along the gut-brain axis. This helps protect the gut lining and supports healthy communication between gut and brain.</div>
+      </div>
+    </div>
+
+    <div class="benefits-grid fade-up fade-up-3">
+      <div class="benefit-cell">
+        <div class="benefit-cell-num">0g</div>
+        <div class="benefit-cell-label">Sugar Alcohols</div>
+        <div class="benefit-cell-body">Erythritol and maltitol are common gut irritants. We use none. Sweetness from monk fruit only.</div>
+      </div>
+      <div class="benefit-cell">
+        <div class="benefit-cell-num">0g</div>
+        <div class="benefit-cell-label">Palm Oil</div>
+        <div class="benefit-cell-body">Linked to inflammation and environmental harm. Our fats come from almond butter, MCT oil, and flaxseed.</div>
+      </div>
+      <div class="benefit-cell">
+        <div class="benefit-cell-num">0g</div>
+        <div class="benefit-cell-label">Added Sugar</div>
+        <div class="benefit-cell-body">Zero added sugar means no glucose spike, no insulin crash, and no disruption to your gut microbiome.</div>
+      </div>
+      <div class="benefit-cell">
+        <div class="benefit-cell-num">0</div>
+        <div class="benefit-cell-label">Artificial Anything</div>
+        <div class="benefit-cell-body">No artificial sweeteners, colors, or flavors. Your microbiome struggles with ultra-processed ingredients — ours doesn't use them.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 6. ARCHETYPES ===== -->
+<section class="arch-section" id="archetypes">
+  <div class="arch-inner">
+    <div class="arch-header fade-up">
+      <div class="section-eyebrow">The 3 Gut-Brain Patterns</div>
+      <h2 class="section-h arch-h">Which Gut-Brain Pattern Fits You?</h2>
+      <p class="arch-sub">Most people consistently experience one dominant gut-brain pattern. Recognizing yours is the first step to snacking with intention.</p>
+    </div>
+    <div class="arch-grid fade-up fade-up-2">
+
+      <div class="arch-card focus">
+        <div class="arch-card-band"></div>
+        <div class="arch-card-body">
+          <div class="arch-icon">🧠⚡</div>
+          <div class="arch-type">Focus Fueler</div>
+          <div class="arch-tagline">Energy + Cognitive Performance</div>
+          <div class="arch-experiences">
+            <div class="arch-exp-label">Common Experiences</div>
+            <ul class="arch-exp-list">
+              <li>Mid-afternoon energy dips and brain fog</li>
+              <li>Reaching for quick calories to push through</li>
+              <li>Focus fade after lunch</li>
+            </ul>
+          </div>
+          <div class="arch-what-helps">
+            <div class="arch-helps-label">What Helps</div>
+            <div class="arch-helps-text">Balanced protein + prebiotic fiber to support sustained energy and cognitive fuel without a crash.</div>
+          </div>
+          <a href="100CalSnacks-PDP-ChocolateBrownieBar-v4.html" class="arch-product">
+            <div class="arch-product-name">Chocolate Brownie Bar</div>
+            <div class="arch-product-arrow">Shop →</div>
+          </a>
+        </div>
+      </div>
+
+      <div class="arch-card calm">
+        <div class="arch-card-band"></div>
+        <div class="arch-card-body">
+          <div class="arch-icon">🌿✨</div>
+          <div class="arch-type">Calm Operator</div>
+          <div class="arch-tagline">Stress Balance + Gut Comfort</div>
+          <div class="arch-experiences">
+            <div class="arch-exp-label">Common Experiences</div>
+            <ul class="arch-exp-list">
+              <li>Stress eating or snacking when overwhelmed</li>
+              <li>Digestive tightness during anxious periods</li>
+              <li>Hard to stay balanced between meals</li>
+            </ul>
+          </div>
+          <div class="arch-what-helps">
+            <div class="arch-helps-label">What Helps</div>
+            <div class="arch-helps-text">Protein, healthy fats, and adaptogenic ingredients to support calm energy and a balanced stress response.</div>
+          </div>
+          <a href="100CalSnacks-PDP-ChocolateBrownieBar-v4.html" class="arch-product">
+            <div class="arch-product-name">Peanut Butter Bar</div>
+            <div class="arch-product-arrow">Shop →</div>
+          </a>
+        </div>
+      </div>
+
+      <div class="arch-card craving">
+        <div class="arch-card-band"></div>
+        <div class="arch-card-body">
+          <div class="arch-icon">🔥💪</div>
+          <div class="arch-type">Craving Crusher</div>
+          <div class="arch-tagline">Satisfaction + Craving Control</div>
+          <div class="arch-experiences">
+            <div class="arch-exp-label">Common Experiences</div>
+            <ul class="arch-exp-list">
+              <li>Late afternoon hunger that feels uncontrollable</li>
+              <li>Strong cravings for salty or crunchy foods</li>
+              <li>Difficulty feeling satisfied between meals</li>
+            </ul>
+          </div>
+          <div class="arch-what-helps">
+            <div class="arch-helps-label">What Helps</div>
+            <div class="arch-helps-text">Crunchy low carb snacks with protein + fiber that hit the craving signal and trigger real fullness.</div>
+          </div>
+          <a href="100CalSnacks-PDP-ChocolateBrownieBar-v4.html" class="arch-product">
+            <div class="arch-product-name">BBQ Protein Puffs</div>
+            <div class="arch-product-arrow">Shop →</div>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- CTA to quiz -->
+    <div style="margin-top:40px;padding:32px;background:rgba(102,204,204,.05);border:1px solid rgba(102,204,204,.12);display:flex;align-items:center;justify-content:space-between;gap:24px" class="fade-up fade-up-3">
+      <div>
+        <div style="font-family:var(--font-head);font-weight:900;font-size:22px;text-transform:uppercase;color:var(--white);letter-spacing:.5px;margin-bottom:4px">Not Sure Which Gut-Brain Pattern Fits You?</div>
+        <div style="font-family:var(--font-body);font-size:14px;color:rgba(255,255,255,.5)">Take the free 60-second quiz → Discover your gut-brain score, your dominant pattern, and the snack designed for your body.</div>
+      </div>
+      <a href="100CalSnacks-GutBrainQuiz.html" class="pill-btn" style="white-space:nowrap;flex-shrink:0">Take the Quiz →</a>
+    </div>
+
+    <!-- Product anchor — "Designed for these patterns" -->
+    <div class="arch-products-preview fade-up fade-up-4">
+      <div class="arch-products-eyebrow">Designed for These Patterns</div>
+      <div class="arch-products-grid">
+        <a href="100CalSnacks-PDP-ChocolateBrownieBar-v4.html" class="arch-product-preview focus">
+          <div class="app-emoji">🍫</div>
+          <div class="app-name">Chocolate Brownie Bar</div>
+          <div class="app-type">Focus Fueler</div>
+        </a>
+        <a href="100CalSnacks-PDP-ChocolateBrownieBar-v4.html" class="arch-product-preview calm">
+          <div class="app-emoji">🥜</div>
+          <div class="app-name">Peanut Butter Bar</div>
+          <div class="app-type">Calm Operator</div>
+        </a>
+        <a href="100CalSnacks-PDP-ChocolateBrownieBar-v4.html" class="arch-product-preview craving">
+          <div class="app-emoji">🌶️</div>
+          <div class="app-name">BBQ Protein Puffs</div>
+          <div class="app-type">Craving Crusher</div>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== 7. INGREDIENTS ===== -->
+<section class="ingr-section" id="ingredients">
+  <div class="ingr-inner">
+    <div class="ingr-header fade-up">
+      <div class="section-eyebrow">Functional Ingredients for Gut-Brain Balance</div>
+      <h2 class="section-h ingr-h">Ingredients That Support Gut-Brain Balance</h2>
+    </div>
+    <div class="ingr-grid fade-up fade-up-2">
+      <div class="ingr-card">
+        <div class="ingr-icon">🌱</div>
+        <div class="ingr-name">Plant Protein</div>
+        <div class="ingr-benefit">Sustained Energy · Satiety</div>
+        <div class="ingr-desc">Slows glucose absorption and triggers satiety hormones. Protein signals the brain that you're full — for longer.</div>
+      </div>
+      <div class="ingr-card">
+        <div class="ingr-icon">🫘</div>
+        <div class="ingr-name">Prebiotic Fiber</div>
+        <div class="ingr-benefit">Microbiome Support · Digestion</div>
+        <div class="ingr-desc">Chicory root fiber feeds beneficial bacteria in your gut, supporting microbial diversity and healthy digestive activity.</div>
+      </div>
+      <div class="ingr-card">
+        <div class="ingr-icon">🌿</div>
+        <div class="ingr-name">KSM-66® Ashwagandha</div>
+        <div class="ingr-benefit">Stress Balance · Cortisol Control</div>
+        <div class="ingr-desc">A clinically studied adaptogen shown to support the body's stress response and promote calm, sustained energy.</div>
+      </div>
+      <div class="ingr-card">
+        <div class="ingr-icon">🫙</div>
+        <div class="ingr-name">MCT Oil</div>
+        <div class="ingr-benefit">Brain Fuel · Fast Energy</div>
+        <div class="ingr-desc">Medium-chain triglycerides convert quickly to ketones, providing immediate fuel for brain function without a glucose spike.</div>
+      </div>
+      <div class="ingr-card">
+        <div class="ingr-icon">🫐</div>
+        <div class="ingr-name">Amla Fruit</div>
+        <div class="ingr-benefit">Antioxidants · Nutrient Absorption </div>
+        <div class="ingr-desc">Contains up to 20x more Vitamin C than an orange. Rich in polyphenols that reduce oxidative stress and strengthen gut lining.</div>
+      </div>
+      <div class="ingr-card">
+        <div class="ingr-icon">🚫</div>
+        <div class="ingr-name">Zero Sugar Alcohols</div>
+        <div class="ingr-benefit">Gut Comfort · Clean Label</div>
+        <div class="ingr-desc">No erythritol or maltitol — common triggers for bloating and digestive discomfort. Our sweetness comes from monk fruit only.</div>
+      </div>
+    </div>
+    <div class="ingr-callout fade-up fade-up-3">
+      <div class="ingr-callout-cell">
+        <div class="ic-check">✓</div>
+        <div class="ic-text">
+          <div class="ic-title">No Artificial Sweeteners</div>
+          <div class="ic-body">Your microbiome prefers real ingredients. Artificial sweeteners can disrupt the microbial balance your gut-brain axis depends on.</div>
+        </div>
+      </div>
+      <div class="ingr-callout-cell">
+        <div class="ic-check">✓</div>
+        <div class="ic-text">
+          <div class="ic-title">Whole-Food First</div>
+          <div class="ic-body">Real ingredients — organic almond butter, organic flaxseed oil, natural flavors — instead of fillers and isolates.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Full Ingredients List -->
+    <div class="full-ingr-wrap fade-up fade-up-4">
+      <div class="full-ingr-simple">
+        <div>
+          <div class="full-ingr-eyebrow">Nothing Hidden</div>
+          <p class="full-ingr-sub">Every ingredient has a purpose. Thoughtfully chosen to support gut-brain balance - nothing unnecessary.</p>
+        </div>
+        <a href="100CalSnacks-PDP-ChocolateBrownieBar-v4.html" class="pill-btn" style="white-space:nowrap;flex-shrink:0">See Full Ingredient Breakdown →</a>
+      </div>
+    </div>
+
+  </div>
+</section>  </div>
+</section>
+
+<!-- ===== 8. TIPS ===== -->
+<section class="tips-section" id="tips">
+  <div class="tips-inner">
+    <div class="fade-up">
+      <div class="section-eyebrow">Snacking Smarter</div>
+      <h2 class="section-h tips-h">3 Ways to Snack Smarter Today</h2>
+    </div>
+    <div class="tips-list fade-up fade-up-2">
+      <div class="tip-row">
+        <div class="tip-num">01</div>
+        <div class="tip-body">
+          <div class="tip-title">Snack before the crash</div>
+          <div class="tip-text">Fuel your gut-brain axis before blood sugar dips trigger cravings.</div>
+        </div>
+      </div>
+      <div class="tip-row">
+        <div class="tip-num">02</div>
+        <div class="tip-body">
+          <div class="tip-title">Pair Protein + Fiber </div>
+          <div class="tip-text">This combination stabilizes glucose and supports satiety hormones.</div>
+        </div>
+      </div>
+      <div class="tip-row">
+        <div class="tip-num">03</div>
+        <div class="tip-body">
+          <div class="tip-title">Feed Your Microbiome Daily</div>
+          <div class="tip-text">Prebiotic fibers help beneficial bacteria regulate mood and digestion.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 9. QUIZ CTA ===== -->
+<section class="quiz-cta-section" id="quiz">
+  <div class="quiz-cta-inner">
+    <div class="section-eyebrow quiz-cta-eyebrow fade-up">Personalised to You</div>
+    <h2 class="section-h quiz-cta-h fade-up fade-up-2">Discover Your<br>Gut-Brain<br><em>Type</em></h2>
+    <p class="quiz-cta-sub fade-up fade-up-3">Everyone's gut-brain connection is different. Take our free 60-second quiz to discover your dominant pattern, your gut-brain score, and the snack your body responds to best.</p>
+    <div class="quiz-cta-btns fade-up fade-up-4">
+      <a href="100CalSnacks-GutBrainQuiz.html" class="pill-btn" style="background:var(--black);color:var(--white)">Take the Gut-Brain Quiz →</a>
+      <a href="100CalSnacks-PDP-ChocolateBrownieBar-v4.html" class="ghost-btn" style="border-color:rgba(0,0,0,.25);color:rgba(0,0,0,.6)">Shop All Products</a>
+    </div>
+    <div class="quiz-types-row fade-up fade-up-4">
+      <div class="quiz-type-chip">🧠⚡ Focus Fueler</div>
+      <div class="quiz-type-chip">🌿✨ Calm Operator</div>
+      <div class="quiz-type-chip">🔥💪 Craving Crusher</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 10. PRODUCTS ===== -->
+<section class="products-section" id="products">
+  <div class="products-inner">
+    <div class="products-header fade-up">
+      <h2 class="section-h products-h">Gut-Brain Snacks<br>for Every Pattern</h2>
+      <a href="100CalSnacks-PDP-ChocolateBrownieBar-v4.html" class="ghost-btn">Shop All →</a>
+    </div>
+    <div class="products-grid fade-up fade-up-2">
+      <a href="100CalSnacks-PDP-ChocolateBrownieBar-v4.html" class="product-card">
+        <div class="pc-visual" style="background:linear-gradient(145deg,#6B3010,#2C1503)">🍫</div>
+        <div class="pc-body">
+          <div class="pc-type" style="color:var(--choc-light)">For Focus Fuelers</div>
+          <div class="pc-name">Chocolate Brownie Bar</div>
+          <div class="pc-line">Steady fuel for focus — protein, fiber, and adaptogenic support in 100 calories.</div>
+          <div class="pc-cta">Shop Now →</div>
+        </div>
+      </a>
+      <a href="100CalSnacks-PDP-ChocolateBrownieBar-v4.html" class="product-card">
+        <div class="pc-visual" style="background:linear-gradient(145deg,#5C3A10,#2A1A00)">🥜</div>
+        <div class="pc-body">
+          <div class="pc-type" style="color:var(--pb-light)">For Calm Operators</div>
+          <div class="pc-name">Peanut Butter Bar</div>
+          <div class="pc-line">Balanced nourishment — smooth, grounding, and crafted for stress-resilient days.</div>
+          <div class="pc-cta">Shop Now →</div>
+        </div>
+      </a>
+      <a href="100CalSnacks-PDP-ChocolateBrownieBar-v4.html" class="product-card">
+        <div class="pc-visual" style="background:linear-gradient(145deg,#5C2200,#2E0E00)">🌶️</div>
+        <div class="pc-body">
+          <div class="pc-type" style="color:var(--bbq-light)">For Craving Crushers</div>
+          <div class="pc-name">BBQ Protein Puffs</div>
+          <div class="pc-line">Satisfying crunch without the crash — cravings met, guilt eliminated.</div>
+          <div class="pc-cta">Shop Now →</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-brand">100<span>Cal</span>Snacks</div>
+      <div class="footer-tagline">Keepin' Snacks 100</div>
+      <p class="footer-bio">Built from the struggle. Engineered for the journey. 100 clean calories that heal your gut, calm your brain, and prove that doing better doesn't mean settling. Woman-owned. Science-backed.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Learn</div>
+      <ul class="footer-links">
+        <li><a href="#">Gut-Brain Health 101</a></li>
+        <li><a href="#">Our Science</a></li>
+        <li><a href="#">Ingredient Index</a></li>
+        <li><a href="100CalSnacks-GutBrainQuiz.html">Take the Quiz</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Shop</div>
+      <ul class="footer-links">
+        <li><a href="100CalSnacks-PDP-ChocolateBrownieBar-v4.html">Chocolate Brownie Bar</a></li>
+        <li><a href="100CalSnacks-PDP-ChocolateBrownieBar-v4.html">Peanut Butter Bar</a></li>
+        <li><a href="100CalSnacks-PDP-ChocolateBrownieBar-v4.html">BBQ Protein Puffs</a></li>
+        <li><a href="100CalSnacks-PDP-ChocolateBrownieBar-v4.html">Subscribe &amp; Save</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Company</div>
+      <ul class="footer-links">
+        <li><a href="#">Our Story</a></li>
+        <li><a href="#">Contact Us</a></li>
+        <li><a href="#">FAQs</a></li>
+        <li><a href="#">Store Locator</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-btm">
+    <div class="footer-copy">© 2026 100CalSnacks.com · All Rights Reserved · Woman-Owned · Science-Backed</div>
+    <div class="footer-disclaimer">* These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease.</div>
+  </div>
+</footer>
+
+<script>
+// Ingredient accordion
+function toggleIngr(id) {
+  var el = document.getElementById(id);
+  var isOpen = el.classList.contains('open');
+  document.querySelectorAll('.fia').forEach(function(f) { f.classList.remove('open'); });
+  if (!isOpen) el.classList.add('open');
+}
+
+// Scroll-triggered fade-up animations
+var fadeEls = document.querySelectorAll('.fade-up');
+var observer = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+fadeEls.forEach(function(el) { observer.observe(el); });
+</script>
+</body>
+</html>

@@ -71,27 +71,7 @@
 }
 {% endstylesheet %}
 
-{% javascript %}
-(function() {
-  var toc = document.querySelector('.hc-policy-toc');
-  if (!toc || toc.dataset.tocInit) return;
-  toc.dataset.tocInit = '1';
-  var links = toc.querySelectorAll('.hcpt-link');
-  var sections = document.querySelectorAll('.hcpc-section');
-  if (!sections.length) return;
-  var obs = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
-      if (entry.isIntersecting) {
-        links.forEach(function(l) { l.classList.remove('active'); });
-        var id = entry.target.id;
-        var active = toc.querySelector('.hcpt-link[href="#' + id + '"]');
-        if (active) active.classList.add('active');
-      }
-    });
-  }, { threshold: 0.4, rootMargin: '-80px 0px -60% 0px' });
-  sections.forEach(function(s) { obs.observe(s); });
-})();
-{% endjavascript %}
+<script src="{{ '100cal-policy-toc.js' | asset_url }}" defer="defer"></script>
 
 {% schema %}
 {

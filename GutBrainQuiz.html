@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What's Your Gut-Brain Type? — 100CalSnacks</title>
+<meta name="description" content="Take the free 60-second Gut-Brain Quiz. Discover your score, your type, and the snack built for your body.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,700;0,900;1,700;1,900&family=Barlow:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --black:#0F1213;--white:#FFFFFF;
+  --teal:#66CCCC;--teal-dark:#3A9999;--orange:#E66443;
+  --font-head:'Barlow Condensed',sans-serif;
+  --font-body:'Barlow',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-body);color:var(--white);background:var(--black);overflow-x:hidden;min-height:100vh}
+
+/* NAV */
+.topbar{background:var(--black);color:var(--white);text-align:center;padding:10px 24px;font-family:var(--font-head);font-weight:700;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;border-bottom:1px solid rgba(255,255,255,.06)}
+.topbar span{color:var(--teal);margin:0 12px}
+nav{background:var(--black);border-bottom:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:68px;position:sticky;top:0;z-index:100}
+.nav-brand{font-family:var(--font-head);font-weight:900;font-size:22px;letter-spacing:1px;text-transform:uppercase;color:var(--white);text-decoration:none}
+.nav-brand span{color:var(--orange)}
+.nav-back{font-family:var(--font-head);font-weight:700;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.65);text-decoration:none;transition:color .2s}
+.nav-back:hover{color:var(--teal)}
+.nav-retake{font-family:var(--font-head);font-weight:700;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--teal);background:none;border:1px solid rgba(102,204,204,.3);padding:8px 18px;cursor:pointer;transition:all .2s;display:none}
+.nav-retake:hover{background:rgba(102,204,204,.1)}
+.nav-tagline{font-family:var(--font-head);font-weight:700;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:rgba(102,204,204,.5)}
+
+/* SCREENS */
+.screen{display:none;width:100%}
+.screen.active{display:block}
+
+/* ENTRY */
+.entry-wrap{min-height:calc(100vh - 104px);display:flex;align-items:center;justify-content:center;padding:72px 80px;position:relative;overflow:hidden}
+.entry-wrap::before{content:'?';position:absolute;right:-80px;top:50%;transform:translateY(-50%);font-family:var(--font-head);font-weight:900;font-size:600px;color:rgba(255,255,255,.02);line-height:1;pointer-events:none}
+.entry-ghost{display:none}
+.entry-inner{max-width:860px;width:100%;position:relative;z-index:2}
+.entry-eyebrow{font-family:var(--font-head);font-weight:700;font-size:12px;letter-spacing:4px;text-transform:uppercase;color:var(--teal);margin-bottom:20px}
+.entry-title{font-family:var(--font-head);font-weight:900;font-size:108px;line-height:.83;text-transform:uppercase;color:var(--white);margin-bottom:28px}
+.entry-title em{font-style:italic;color:var(--teal)}
+.entry-body{font-family:var(--font-body);font-size:16px;color:rgba(255,255,255,.72);line-height:1.7;margin-bottom:28px;max-width:520px}
+.entry-meta{display:flex;gap:24px;margin-bottom:36px;flex-wrap:wrap}
+.entry-meta-item{font-family:var(--font-head);font-weight:700;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.6);display:flex;align-items:center;gap:6px}
+.start-btn{font-family:var(--font-head);font-weight:900;font-size:15px;letter-spacing:2.5px;text-transform:uppercase;padding:20px 52px;background:var(--teal);color:var(--black);border:none;cursor:pointer;transition:all .25s}
+.start-btn:hover{background:var(--teal-dark);color:var(--white);transform:translateY(-2px)}
+.entry-types-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px;padding-top:32px;border-top:1px solid rgba(255,255,255,.06)}
+.entry-types-label{font-family:var(--font-head);font-weight:700;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:14px;margin-top:56px}
+.et-tile{padding:18px 14px;border:1px solid rgba(255,255,255,.07);background:rgba(255,255,255,.02);display:flex;flex-direction:column;align-items:center;gap:8px;animation:fadeUp .6s ease both;pointer-events:none}
+.et-tile:nth-child(1){animation-delay:.2s}.et-tile:nth-child(2){animation-delay:.35s}.et-tile:nth-child(3){animation-delay:.5s}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.et-tile-icon{font-size:22px;line-height:1;opacity:.7}
+.et-tile-name{font-family:var(--font-head);font-weight:900;font-size:13px;text-transform:uppercase;color:rgba(255,255,255,.75);letter-spacing:.5px;text-align:center;line-height:1.15}
+.et-tile-lock{font-family:var(--font-head);font-weight:700;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.45);text-align:center}
+
+/* QUESTIONS */
+.q-wrap{min-height:calc(100vh - 104px);display:flex;align-items:center;justify-content:center;padding:60px 48px}
+.q-inner{max-width:660px;width:100%}
+.q-progress-header{margin-bottom:44px}
+.q-progress-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px}
+.q-progress-label{font-family:var(--font-head);font-weight:900;font-size:13px;letter-spacing:2px;text-transform:uppercase;color:var(--white)}
+.q-progress-count{font-family:var(--font-body);font-size:13px;color:rgba(255,255,255,.6)}
+.q-bar{width:100%;height:2px;background:rgba(255,255,255,.08)}
+.q-bar-fill{height:100%;background:var(--teal);transition:width .45s cubic-bezier(.4,0,.2,1)}
+.q-num{font-family:var(--font-head);font-weight:700;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:rgba(102,204,204,.4);margin-bottom:12px}
+.q-text{font-family:var(--font-head);font-weight:900;font-size:38px;line-height:1.05;text-transform:uppercase;color:var(--white);margin-bottom:32px}
+.q-answers{display:flex;flex-direction:column;gap:10px}
+.q-btn{display:flex;align-items:center;gap:16px;padding:20px 22px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);cursor:pointer;text-align:left;width:100%;transition:all .2s}
+.q-btn:hover{background:rgba(102,204,204,.06);border-color:rgba(102,204,204,.25)}
+.q-btn.selected{background:rgba(102,204,204,.1);border-color:var(--teal)}
+.q-letter{font-family:var(--font-head);font-weight:900;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.2);width:26px;height:26px;border:1.5px solid rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .2s}
+.q-btn.selected .q-letter{color:var(--teal);border-color:var(--teal)}
+.q-answer-text{font-family:var(--font-body);font-size:16px;color:rgba(255,255,255,.85);line-height:1.4}
+.q-btn:hover .q-answer-text,.q-btn.selected .q-answer-text{color:var(--white)}
+.q-nav{display:flex;align-items:center;justify-content:space-between;margin-top:24px}
+.q-back{background:none;border:none;font-family:var(--font-head);font-weight:700;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.2);cursor:pointer;transition:color .2s;padding:0;visibility:hidden}
+.q-back:hover{color:rgba(255,255,255,.6)}
+.q-dots{display:flex;gap:6px}
+.q-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.12);transition:background .3s}
+.q-dot.done{background:var(--teal)}.q-dot.active{background:var(--white)}
+
+/* RESULT PAGE */
+.result-page{width:100%}
+
+/* Score Hero */
+.score-hero{padding:80px;position:relative;overflow:hidden}
+.score-hero::before{content:attr(data-bg-word);position:absolute;right:-30px;top:50%;transform:translateY(-50%);font-family:var(--font-head);font-weight:900;font-size:300px;line-height:1;pointer-events:none;text-transform:uppercase;color:rgba(255,255,255,.05)}
+.score-hero-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;position:relative;z-index:2}
+.r-eyebrow{font-family:var(--font-head);font-weight:700;font-size:12px;letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,.7);margin-bottom:14px}
+.r-icon{font-size:58px;margin-bottom:16px;display:block;animation:popIn .6s cubic-bezier(.175,.885,.32,1.275)}
+@keyframes popIn{from{transform:scale(0) rotate(-12deg);opacity:0}to{transform:scale(1) rotate(0);opacity:1}}
+.r-type{font-family:var(--font-head);font-weight:900;font-size:64px;line-height:.88;text-transform:uppercase;color:var(--white);margin-bottom:12px}
+.r-tagline{font-family:var(--font-head);font-weight:700;font-size:14px;letter-spacing:2px;text-transform:uppercase;margin-bottom:16px}
+.r-desc{font-family:var(--font-body);font-size:15px;color:rgba(255,255,255,.75);line-height:1.75;margin-bottom:28px}
+
+/* GBS dial */
+.gbs-wrap{display:flex;align-items:center;gap:20px;padding:22px 26px;background:rgba(0,0,0,.3);border:1px solid rgba(255,255,255,.08);margin-bottom:24px}
+.gbs-dial{position:relative;width:80px;height:80px;flex-shrink:0}
+.gbs-dial svg{transform:rotate(-90deg)}
+.gbs-track{fill:none;stroke:rgba(255,255,255,.1);stroke-width:6}
+.gbs-fill{fill:none;stroke-width:6;stroke-linecap:round;stroke-dasharray:201;stroke-dashoffset:201;transition:stroke-dashoffset 1.2s cubic-bezier(.4,0,.2,1)}
+.gbs-num{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:var(--font-head);font-weight:900;font-size:22px;color:var(--white);line-height:1}
+.gbs-label{font-family:var(--font-head);font-weight:700;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:5px}
+.gbs-title{font-family:var(--font-head);font-weight:900;font-size:26px;text-transform:uppercase;color:var(--white);line-height:1;margin-bottom:3px}
+.gbs-sub{font-family:var(--font-body);font-size:13px;color:rgba(255,255,255,.6)}
+
+/* Breakdown */
+.breakdown{display:flex;flex-direction:column;gap:13px;margin-bottom:28px}
+.bd-row{}
+.bd-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px}
+.bd-label{font-family:var(--font-head);font-weight:700;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.65)}
+.bd-pct{font-family:var(--font-head);font-weight:900;font-size:13px;color:var(--white)}
+.bd-bar{width:100%;height:3px;background:rgba(255,255,255,.08)}
+.bd-bar-fill{height:100%;width:0%;transition:width 1s cubic-bezier(.4,0,.2,1)}
+
+/* Share */
+.share-row{display:flex;flex-direction:column;gap:9px}
+.share-label{font-family:var(--font-head);font-weight:700;font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,.55)}
+.share-btns{display:flex;gap:8px;flex-wrap:wrap}
+.share-btn{font-family:var(--font-head);font-weight:700;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;padding:9px 15px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.75);cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:6px}
+.share-btn:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.25);color:var(--white)}
+.share-btn.copied{color:var(--teal);border-color:var(--teal)}
+
+/* Product card */
+.r-product-card{padding:34px;border:1px solid rgba(255,255,255,.1);background:rgba(0,0,0,.35);display:flex;flex-direction:column}
+.rpc-label{font-family:var(--font-head);font-weight:700;font-size:11px;letter-spacing:3px;text-transform:uppercase;margin-bottom:6px}
+.rpc-name{font-family:var(--font-head);font-weight:900;font-size:32px;text-transform:uppercase;color:var(--white);line-height:.95;margin-bottom:3px}
+.rpc-sub{font-family:var(--font-body);font-size:13px;color:rgba(255,255,255,.6);margin-bottom:10px}
+.rpc-recommended{font-family:var(--font-head);font-weight:700;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.65);margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.rpc-recommended-label{color:rgba(255,255,255,.5)}
+.rpc-recommended-type{padding:3px 10px;border:1px solid;font-weight:900}
+.rpc-visual{height:128px;border-radius:3px;display:flex;align-items:center;justify-content:center;font-size:50px;margin-bottom:16px;position:relative;overflow:hidden}
+.rpc-visual::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.05),transparent 40%)}
+.rpc-macros{display:flex;gap:1px;background:rgba(255,255,255,.05);margin-bottom:16px}
+.rpc-m{flex:1;text-align:center;padding:9px 4px;background:rgba(0,0,0,.2)}
+.rpc-m-num{font-family:var(--font-head);font-weight:900;font-size:17px;color:var(--white);line-height:1}
+.rpc-m-lbl{font-family:var(--font-head);font-weight:700;font-size:8px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.6);margin-top:3px}
+.rpc-why{margin-bottom:18px}
+.rpc-why-label{font-family:var(--font-head);font-weight:700;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:9px}
+.rpc-why-list{list-style:none;display:flex;flex-direction:column;gap:7px}
+.rpc-why-item{font-family:var(--font-body);font-size:14px;color:rgba(255,255,255,.82);display:flex;align-items:flex-start;gap:8px;line-height:1.4}
+.rpc-why-check{flex-shrink:0;font-weight:700;margin-top:1px}
+.rpc-cta{width:100%;padding:17px;font-family:var(--font-head);font-weight:900;font-size:14px;letter-spacing:2px;text-transform:uppercase;background:var(--teal);color:#0F1213;border:none;cursor:pointer;transition:all .25s;margin-bottom:10px}
+.rpc-cta:hover{background:var(--teal-dark);color:var(--white)}
+.rpc-see-all{width:100%;padding:11px;font-family:var(--font-head);font-weight:700;font-size:11px;letter-spacing:2px;text-transform:uppercase;background:transparent;color:rgba(255,255,255,.25);border:1px solid rgba(255,255,255,.1);cursor:pointer;transition:all .2s;text-decoration:none;text-align:center;display:block}
+.rpc-see-all:hover{border-color:rgba(255,255,255,.3);color:rgba(255,255,255,.6)}
+
+/* Snack Moment */
+.moment-section{padding:48px 80px 72px;border-top:1px solid rgba(255,255,255,.06)}
+.moment-inner{max-width:1100px;margin:0 auto}
+.moment-header{display:flex;align-items:baseline;gap:16px;margin-bottom:28px}
+.moment-left-eyebrow{font-family:var(--font-head);font-weight:700;font-size:11px;letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,.6)}
+.moment-title{font-family:var(--font-head);font-weight:900;font-size:44px;line-height:.92;text-transform:uppercase;color:var(--white);display:inline}
+.moment-title em{font-style:italic}
+.moment-left{display:none}
+.moment-card{padding:36px 40px;border-left:4px solid transparent;display:grid;grid-template-columns:auto 1fr;gap:0 40px;align-items:start}
+.moment-card-left{display:flex;flex-direction:column;align-items:center;gap:8px;padding-right:40px;border-right:1px solid rgba(255,255,255,.08)}
+.moment-clock{font-size:40px;line-height:1}
+.moment-card-label{font-family:var(--font-head);font-weight:700;font-size:9px;letter-spacing:3px;text-transform:uppercase;text-align:center}
+.moment-card-right{}
+.moment-card-value{font-family:var(--font-head);font-weight:900;font-size:28px;text-transform:uppercase;color:var(--white);line-height:1;margin-bottom:12px}
+.moment-card-time{display:inline-block;font-family:var(--font-head);font-weight:900;font-size:12px;letter-spacing:2px;text-transform:uppercase;padding:6px 14px;border:1.5px solid;margin-bottom:14px}
+.moment-card-sub{font-family:var(--font-body);font-size:14px;color:rgba(255,255,255,.75);line-height:1.7}
+
+/* Email */
+.email-section{padding:64px 80px;border-top:1px solid rgba(255,255,255,.07)}
+.email-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.email-h{font-family:var(--font-head);font-weight:900;font-size:36px;text-transform:uppercase;color:var(--white);line-height:.92;margin-bottom:10px}
+.email-p{font-family:var(--font-body);font-size:15px;color:rgba(255,255,255,.7);line-height:1.65}
+.email-bullets{list-style:none;margin-top:12px;display:flex;flex-direction:column;gap:7px}
+.email-bullets li{font-family:var(--font-body);font-size:14px;color:rgba(255,255,255,.7);display:flex;align-items:center;gap:8px}
+.email-check{flex-shrink:0;font-weight:700}
+.email-field{display:flex}
+.email-input{flex:1;padding:14px 18px;font-family:var(--font-body);font-size:14px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-right:none;color:var(--white);outline:none}
+.email-input::placeholder{color:rgba(255,255,255,.5)}
+.email-submit{padding:14px 22px;font-family:var(--font-head);font-weight:900;font-size:12px;letter-spacing:2px;text-transform:uppercase;border:none;cursor:pointer;white-space:nowrap;transition:all .2s}
+.email-feedback{font-family:var(--font-body);font-size:13px;margin-top:10px;min-height:18px}
+.email-privacy{font-family:var(--font-body);font-size:11px;color:rgba(255,255,255,.5);margin-top:8px}
+
+/* Result footer */
+.r-footer{padding:40px 80px;border-top:1px solid rgba(255,255,255,.06)}
+.r-footer-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:40px}
+.r-retake{background:none;border:1px solid rgba(255,255,255,.1);font-family:var(--font-head);font-weight:700;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.65);cursor:pointer;padding:10px 20px;transition:all .2s}
+.r-retake:hover{border-color:rgba(255,255,255,.3);color:rgba(255,255,255,.6)}
+.other-types{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.other-lbl{font-family:var(--font-head);font-weight:700;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.5)}
+.other-chip{font-family:var(--font-head);font-weight:700;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;padding:7px 14px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);color:rgba(255,255,255,.6);cursor:pointer;transition:all .2s}
+.other-chip:hover{background:rgba(255,255,255,.06);color:rgba(255,255,255,.6);border-color:rgba(255,255,255,.15)}
+
+/* Footer */
+footer{background:var(--black);padding:32px 80px;border-top:1px solid rgba(255,255,255,.06)}
+.footer-row{display:flex;justify-content:space-between;align-items:center}
+.footer-copy{font-family:var(--font-body);font-size:12px;color:rgba(255,255,255,.5)}
+.footer-links{display:flex;gap:20px}
+.footer-links a{font-family:var(--font-body);font-size:12px;color:rgba(255,255,255,.25);text-decoration:none;transition:color .2s}
+.footer-links a:hover{color:var(--teal)}
+</style>
+</head>
+<body>
+
+<div class="topbar">Keepin' Snacks 100<span>·</span>Free Shipping on $25+<span>·</span>Gut-Brain Nutrition</div>
+
+<nav>
+  <a href="100CalSnacks-PDP-ChocolateBrownieBar-v4.html" class="nav-back">← Back to Shop</a>
+  <a href="100CalSnacks-PDP-ChocolateBrownieBar-v4.html" class="nav-brand">100<span>Cal</span>Snacks</a>
+  <div style="display:flex;align-items:center;gap:16px">
+    <button class="nav-retake" id="nav-retake">↺ Retake Quiz</button>
+    <div class="nav-tagline" id="nav-tagline">Keepin' Snacks 100</div>
+  </div>
+</nav>
+
+<!-- ENTRY -->
+<div class="screen active" id="screen-entry">
+  <div class="entry-wrap">
+    <!-- Gut-Brain axis ghost illustration — head+brain+vagus+intestines -->
+    <svg class="entry-ghost" viewBox="0 0 370 620" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Head silhouette + brain -->
+      <path d="M185 20 C130 20 80 55 65 105 C52 148 58 185 70 210 C78 228 75 245 72 262 C68 282 72 295 85 298 L90 300 L90 340 L140 340 L140 310 C155 318 170 322 185 322 C200 322 215 318 230 310 L230 340 L280 340 L280 298 C293 295 297 282 293 262 C290 245 287 228 295 210 C307 185 313 148 300 105 C285 55 240 20 185 20 Z" stroke="white" stroke-width="5" fill="none" stroke-linejoin="round"/>
+      <!-- Brain folds inside head -->
+      <path d="M120 140 C130 120 155 112 175 118 C195 124 210 115 225 125 C238 134 240 150 232 162 C224 174 208 178 195 172 C182 166 168 170 158 180 C148 190 138 192 128 183 C118 173 114 158 120 140 Z" stroke="white" stroke-width="4" fill="none"/>
+      <path d="M145 148 C152 138 165 135 175 140" stroke="white" stroke-width="3" stroke-linecap="round" fill="none"/>
+      <path d="M195 132 C205 128 218 133 222 143" stroke="white" stroke-width="3" stroke-linecap="round" fill="none"/>
+      <path d="M132 170 C140 178 155 180 162 172" stroke="white" stroke-width="3" stroke-linecap="round" fill="none"/>
+      <path d="M198 168 C208 174 220 170 226 162" stroke="white" stroke-width="3" stroke-linecap="round" fill="none"/>
+      <!-- Vagus nerve — connecting node -->
+      <circle cx="185" cy="298" r="8" stroke="white" stroke-width="4" fill="none"/>
+      <!-- Vagus nerve line down -->
+      <path d="M185 306 C178 328 192 348 185 368 C178 388 190 405 185 422" stroke="white" stroke-width="4" stroke-linecap="round" stroke-dasharray="7 9"/>
+      <!-- Intestines -->
+      <path d="M120 435 C105 435 95 445 95 460 C95 475 105 485 120 485 C135 485 148 475 148 460 C148 445 158 435 173 435 C188 435 198 445 198 460 C198 475 188 485 173 485 C158 485 148 495 148 510 C148 525 158 535 173 535 C188 535 200 530 210 520" stroke="white" stroke-width="5" stroke-linecap="round" fill="none"/>
+      <path d="M120 435 C110 422 112 408 122 400 C140 388 162 390 175 400 C190 412 210 412 225 400 C238 390 255 390 265 402 C275 415 272 432 260 440 C248 448 240 462 245 477 C250 492 265 498 275 490 C285 482 285 468 275 460 C265 452 250 452 242 462 C234 472 236 488 248 494" stroke="white" stroke-width="4.5" stroke-linecap="round" fill="none"/>
+      <path d="M115 468 L245 468" stroke="white" stroke-width="3" stroke-linecap="round"/>
+      <path d="M115 495 L180 495" stroke="white" stroke-width="3" stroke-linecap="round"/>
+    </svg>
+    <div class="entry-inner">
+      <div class="entry-eyebrow">60 Seconds · Free · No Email Required</div>
+      <h1 class="entry-title">What's Your<br>Gut-Brain<br><em>Type?</em></h1>
+      <p class="entry-body">Your gut and brain are constantly communicating. Take this quiz to discover your gut-brain score, your profile, and the snack built for your body.</p>
+      <div class="entry-meta">
+        <div class="entry-meta-item">⏱ 60 Seconds</div>
+        <div class="entry-meta-item">🎯 7 Questions</div>
+        <div class="entry-meta-item">📊 Gut-Brain Score</div>
+      </div>
+      <button class="start-btn" id="start-btn">Find My Gut-Brain Type →</button>
+
+      <!-- Archetype teaser — not selectable, just curiosity builders -->
+      <div class="entry-types-label">3 Possible Gut-Brain Types — Which one are you?</div>
+      <div class="entry-types-row">
+        <div class="et-tile">
+          <div class="et-tile-icon">🧠⚡</div>
+          <div class="et-tile-name">Focus Fueler</div>
+          <div class="et-tile-lock">Take Quiz to Reveal</div>
+        </div>
+        <div class="et-tile">
+          <div class="et-tile-icon">🌿✨</div>
+          <div class="et-tile-name">Calm Operator</div>
+          <div class="et-tile-lock">Take Quiz to Reveal</div>
+        </div>
+        <div class="et-tile">
+          <div class="et-tile-icon">🔥💪</div>
+          <div class="et-tile-name">Craving Crusher</div>
+          <div class="et-tile-lock">Take Quiz to Reveal</div>
+        </div>
+      </div>
+    </div><!-- end entry-inner -->
+  </div><!-- end entry-wrap -->
+</div><!-- end screen-entry -->
+
+<!-- QUESTIONS -->
+<div class="screen" id="screen-questions">
+  <div class="q-wrap">
+    <div class="q-inner">
+      <div class="q-progress-header">
+        <div class="q-progress-top">
+          <span class="q-progress-label" id="q-label">Question 1</span>
+          <span class="q-progress-count" id="q-count">1 of 7</span>
+        </div>
+        <div class="q-bar"><div class="q-bar-fill" id="q-bar-fill" style="width:14.3%"></div></div>
+      </div>
+      <div class="q-num" id="q-num">01 / 07</div>
+      <div class="q-text" id="q-text"></div>
+      <div class="q-answers" id="q-answers"></div>
+      <div class="q-nav">
+        <button class="q-back" id="q-back">← Back</button>
+        <div class="q-dots" id="q-dots"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- RESULT -->
+<div class="screen" id="screen-result">
+  <div class="result-page" id="result-page">
+
+    <!-- SCORE HERO -->
+    <div class="score-hero" id="score-hero" data-bg-word="">
+      <div class="score-hero-inner">
+
+        <!-- Left -->
+        <div>
+          <div class="r-eyebrow">Your Gut-Brain Type</div>
+          <span class="r-icon" id="r-icon"></span>
+          <h2 class="r-type" id="r-type"></h2>
+          <p class="r-tagline" id="r-tagline"></p>
+          <p class="r-desc" id="r-desc"></p>
+
+          <!-- GBS -->
+          <div class="gbs-wrap">
+            <div class="gbs-dial">
+              <svg width="80" height="80" viewBox="0 0 80 80">
+                <circle class="gbs-track" cx="40" cy="40" r="32"/>
+                <circle class="gbs-fill" id="gbs-fill" cx="40" cy="40" r="32"/>
+              </svg>
+              <div class="gbs-num" id="gbs-num">--</div>
+            </div>
+            <div>
+              <div class="gbs-label">Gut-Brain Score</div>
+              <div class="gbs-title" id="gbs-title">-- / 100</div>
+              <div class="gbs-sub" id="gbs-sub">Calculating...</div>
+            </div>
+          </div>
+
+          <!-- Breakdown -->
+          <div class="breakdown">
+            <div class="bd-row">
+              <div class="bd-top"><span class="bd-label">Energy Stability</span><span class="bd-pct" id="bd-e">--</span></div>
+              <div class="bd-bar"><div class="bd-bar-fill" id="bd-e-bar"></div></div>
+            </div>
+            <div class="bd-row">
+              <div class="bd-top"><span class="bd-label">Stress Balance</span><span class="bd-pct" id="bd-s">--</span></div>
+              <div class="bd-bar"><div class="bd-bar-fill" id="bd-s-bar"></div></div>
+            </div>
+            <div class="bd-row">
+              <div class="bd-top"><span class="bd-label">Craving Control</span><span class="bd-pct" id="bd-c">--</span></div>
+              <div class="bd-bar"><div class="bd-bar-fill" id="bd-c-bar"></div></div>
+            </div>
+          </div>
+
+          <!-- Share -->
+          <div class="share-row">
+            <div class="share-label">Share Your Score</div>
+            <div class="share-btns">
+              <button class="share-btn" id="btn-twitter">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622 5.91-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                Share on X
+              </button>
+              <button class="share-btn" id="btn-instagram">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+                Instagram
+              </button>
+              <button class="share-btn" id="btn-copy">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                Copy Score
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: product card -->
+        <div class="r-product-card">
+          <div class="rpc-label" id="rpc-label">Your Best Snack Match</div>
+          <div class="rpc-name" id="rpc-name"></div>
+          <div class="rpc-sub" id="rpc-sub"></div>
+          <div class="rpc-recommended">
+            <span class="rpc-recommended-label">Recommended For</span>
+            <span class="rpc-recommended-type" id="rpc-recommended-type"></span>
+          </div>
+          <div class="rpc-visual" id="rpc-visual"></div>
+          <div class="rpc-macros">
+            <div class="rpc-m"><div class="rpc-m-num" id="m1n">100</div><div class="rpc-m-lbl" id="m1l">Cal</div></div>
+            <div class="rpc-m"><div class="rpc-m-num" id="m2n">5g</div><div class="rpc-m-lbl" id="m2l">Protein</div></div>
+            <div class="rpc-m"><div class="rpc-m-num" id="m3n">4g</div><div class="rpc-m-lbl" id="m3l">Fiber</div></div>
+            <div class="rpc-m"><div class="rpc-m-num" id="m4n">0g</div><div class="rpc-m-lbl" id="m4l">Sugar</div></div>
+          </div>
+          <div class="rpc-why">
+            <div class="rpc-why-label">Why it works for you</div>
+            <ul class="rpc-why-list" id="rpc-why-list"></ul>
+          </div>
+          <button class="rpc-cta" id="rpc-cta">Add to Cart →</button>
+          <a class="rpc-see-all" href="100CalSnacks-PDP-ChocolateBrownieBar-v4.html">See All Products →</a>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- SNACK MOMENT -->
+    <div class="moment-section" id="moment-section">
+      <div class="moment-inner">
+        <div class="moment-header">
+          <span class="moment-left-eyebrow">Based on Your Profile —</span>
+          <h3 class="moment-title">Your Ideal <em>Snack Moment</em></h3>
+        </div>
+        <div class="moment-card" id="moment-card">
+          <div class="moment-card-left">
+            <div class="moment-clock" id="moment-clock"></div>
+            <div class="moment-card-label" id="moment-card-label">When to Snack</div>
+          </div>
+          <div class="moment-card-right">
+            <div class="moment-card-value" id="moment-card-value"></div>
+            <div class="moment-card-time" id="moment-card-time"></div>
+            <div class="moment-card-sub" id="moment-card-sub"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- EMAIL -->
+    <div class="email-section">
+      <div class="email-inner">
+        <div>
+          <h3 class="email-h">Get Your<br>Gut-Brain Guide</h3>
+          <p class="email-p">Enter your email and we'll send you:</p>
+          <ul class="email-bullets">
+            <li><span class="email-check" id="ec1">✓</span>Your personalised gut-brain profile</li>
+            <li><span class="email-check" id="ec2">✓</span>Snack timing tips for your type</li>
+            <li><span class="email-check" id="ec3">✓</span>Functional ingredient insights</li>
+            <li><span class="email-check" id="ec4">✓</span>10% off your first order</li>
+          </ul>
+        </div>
+        <div>
+          <div class="email-field">
+            <input type="email" class="email-input" id="email-input" placeholder="your@email.com"/>
+            <button class="email-submit" id="email-submit">Send It →</button>
+          </div>
+          <p class="email-feedback" id="email-feedback"></p>
+          <p class="email-privacy">No spam, ever. Unsubscribe anytime.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- RESULT FOOTER -->
+    <div class="r-footer">
+      <div class="r-footer-inner">
+        <button class="r-retake" id="retake-btn">↺ Retake Quiz</button>
+        <div class="other-types">
+          <span class="other-lbl">Other types:</span>
+          <button class="other-chip" id="chip-E">🧠⚡ Focus Fueler</button>
+          <button class="other-chip" id="chip-S">🌿✨ Calm Operator</button>
+          <button class="other-chip" id="chip-C">🔥💪 Craving Crusher</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <div class="footer-row">
+    <div class="footer-copy">© 2026 100CalSnacks.com · Woman-Owned · Science-Backed</div>
+    <div class="footer-links">
+      <a href="#">Privacy</a><a href="#">Terms</a>
+      <a href="100CalSnacks-PDP-ChocolateBrownieBar-v4.html">Shop</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+var QUESTIONS = [
+  { text: "When do you usually reach for a snack?", weight: 1,
+    answers: [
+      { text: "Mid-afternoon when my energy starts dropping", type: "E" },
+      { text: "During stressful days when I need something to reset", type: "S" },
+      { text: "When cravings hit and I want something satisfying", type: "C" }
+    ]
+  },
+  { text: "What are you usually looking for in a snack?", weight: 2,
+    answers: [
+      { text: "Something that keeps me focused and sharp", type: "E" },
+      { text: "Something that helps me stay calm and balanced", type: "S" },
+      { text: "Something satisfying that actually stops cravings", type: "C" }
+    ]
+  },
+  { text: "How do you typically feel between meals?", weight: 2,
+    answers: [
+      { text: "My energy dips and I get brain fog", type: "E" },
+      { text: "Stress makes me reach for food", type: "S" },
+      { text: "I get strong cravings for something satisfying", type: "C" }
+    ]
+  },
+  { text: "What kind of snack experience do you enjoy most?", weight: 1,
+    answers: [
+      { text: "Rich and indulgent - dense and satisfying", type: "E" },
+      { text: "Smooth and comforting - creamy and calming", type: "S" },
+      { text: "Crunchy and savory - bold and high-impact", type: "C" }
+    ]
+  },
+  { text: "What matters most in a snack?", weight: 2,
+    answers: [
+      { text: "Steady energy and mental focus", type: "E" },
+      { text: "Balance and feeling calm after eating", type: "S" },
+      { text: "Satisfaction without guilt or crash", type: "C" }
+    ]
+  },
+  { text: "How would your friends describe your relationship with food?", weight: 1,
+    answers: [
+      { text: "I eat for fuel - I want food that works as hard as I do", type: "E" },
+      { text: "I eat to decompress - food helps me unwind", type: "S" },
+      { text: "I eat for pleasure - I want something I actually crave", type: "C" }
+    ]
+  },
+  { text: "What would you most like a snack to help you with right now?", weight: 3,
+    answers: [
+      { text: "Stay focused and productive", type: "E" },
+      { text: "Stay calm and balanced", type: "S" },
+      { text: "Stop cravings and feel satisfied", type: "C" }
+    ]
+  }
+];
+
+var RESULTS = {
+  E: {
+    // Chocolate Brownie — warm mid-brown from packaging image, caramel highlight
+    pageBg: "#1A0C05",
+    heroBg: "linear-gradient(135deg,#7A4530 0%,#3D1E0A 45%,#1A0C05 100%)",
+    accentColor: "#C8956A", accentRgb: "200,149,106", bgWord: "FOCUS",
+    icon: "🧠⚡", type: "The Focus Fueler",
+    tagline: "Your brain runs best on steady fuel.",
+    desc: "You perform best when snacks provide steady fuel without spikes or crashes. Balanced protein and fiber help keep your brain sharp and your energy stable throughout the day.",
+    product: "Chocolate Brownie Bar", productSub: "Gut-Brain Protein Bar",
+    productEmoji: "🍫", productBg: "linear-gradient(145deg,#7A4530,#3D1E0A)",
+    productUrl: "100CalSnacks-PDP-ChocolateBrownieBar-v4.html",
+    macros: [{n:"100",l:"Cal"},{n:"5g",l:"Protein"},{n:"4g",l:"Fiber"},{n:"0g",l:"Sugar"}],
+    why: ["Steady protein and fiber for sustained energy","Supports focus and mental clarity","Zero sugar crash — no mid-afternoon slump"],
+    // Moment section — left title and right card carry different info
+    momentTitle: "Your Ideal\nSnack Timing",
+    momentTitleEm: "Snack Timing",
+    snackClock: "🕑",
+    snackWhen: "Mid-Afternoon Energy Dip",
+    snackTime: "2:00 – 4:00 PM",
+    snackSub: "Your brain burns through glucose fastest between lunch and dinner. Energy softens, focus dips — this is your gut-brain signalling for fuel. One bar here keeps you sharp into the evening.",
+    shareText: "My Gut-Brain Score is {score}. I'm a Focus Fueler. What's yours? Take the 60-second quiz: 100CalSnacks.com/quiz #GutBrainScore"
+  },
+  S: {
+    // Peanut Butter — rich caramel from kraft packaging, warm tan tones
+    pageBg: "#1A0E04",
+    heroBg: "linear-gradient(135deg,#6B4020 0%,#3A1E08 45%,#1A0E04 100%)",
+    accentColor: "#C49A6C", accentRgb: "196,154,108", bgWord: "CALM",
+    icon: "🌿✨", type: "The Calm Operator",
+    tagline: "Your gut-brain system values balance.",
+    desc: "Your body benefits from foods that help maintain balance during busy or stressful days. Snacks with protein, healthy fats, and adaptogens support steady energy and resilience.",
+    product: "Peanut Butter Bar", productSub: "Gut-Brain Protein Bar",
+    productEmoji: "🥜", productBg: "linear-gradient(145deg,#6B4020,#3A1E08)",
+    productUrl: "100CalSnacks-PDP-ChocolateBrownieBar-v4.html",
+    macros: [{n:"100",l:"Cal"},{n:"5g",l:"Protein"},{n:"4g",l:"Fiber"},{n:"0g",l:"Sugar"}],
+    why: ["Balanced protein and healthy fats","Adaptogenic support for stress resilience","Satisfying texture that keeps you grounded"],
+    momentTitle: "Your Ideal\nSnack Timing",
+    momentTitleEm: "Snack Timing",
+    snackClock: "🌿",
+    snackWhen: "Busy or Stressful Moments Between Meals",
+    snackTime: "Before a meeting, deadline or demanding stretch",
+    snackSub: "On high-pressure days, cortisol rises and your gut-brain connection feels the strain. A grounding snack 20–30 minutes before your most demanding part of the day helps you stay even.",
+    shareText: "My Gut-Brain Score is {score}. I'm a Calm Operator. What's yours? Take the 60-second quiz: 100CalSnacks.com/quiz #GutBrainScore"
+  },
+  C: {
+    // BBQ Protein Puffs — bold yellow-orange fiery tones
+    pageBg: "#1A0900",
+    heroBg: "linear-gradient(135deg,#5C2200 0%,#2E0E00 40%,#1A0900 100%)",
+    accentColor: "#F5A623", accentRgb: "245,166,35", bgWord: "CRUNCH",
+    icon: "🔥💪", type: "The Craving Crusher",
+    tagline: "You love snacks that actually satisfy.",
+    desc: "When cravings hit, you need something satisfying that prevents mindless snacking and keeps you full and energized. Protein and fiber together hit the craving and trigger real fullness signals.",
+    product: "BBQ Protein Puffs", productSub: "Gut-Brain Protein Snack",
+    productEmoji: "🌶️", productBg: "linear-gradient(145deg,#5C2200,#2E0E00)",
+    productUrl: "100CalSnacks-PDP-ChocolateBrownieBar-v4.html",
+    macros: [{n:"100",l:"Cal"},{n:"7g",l:"Protein"},{n:"3g",l:"Fiber"},{n:"0g",l:"Sugar"}],
+    why: ["Crunchy and satisfying — hits cravings hard","Protein + fiber to curb hunger signals","Bold savory flavor, zero guilt"],
+    momentTitle: "Your Ideal\nSnack Timing",
+    momentTitleEm: "Snack Timing",
+    snackClock: "🔥",
+    snackWhen: "Late Afternoon or Evening Cravings",
+    snackTime: "4:00 – 7:00 PM",
+    snackSub: "The late afternoon and post-dinner window is when cravings hit hardest and willpower is lowest. Don't wait until you're ravenous — this is when one bag of puffs does the most work.",
+    shareText: "My Gut-Brain Score is {score}. I'm a Craving Crusher. What's yours? Take the 60-second quiz: 100CalSnacks.com/quiz #GutBrainScore"
+  }
+};
+
+var currentQ = 0;
+var answers = [];
+var currentResult = null;
+var currentScores = null;
+var shareText = '';
+
+function showScreen(id) {
+  document.querySelectorAll('.screen').forEach(function(s) { s.classList.remove('active'); });
+  document.getElementById(id).classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  var nr = document.getElementById('nav-retake');
+  var nt = document.getElementById('nav-tagline');
+  if (id === 'screen-result') { nr.style.display = 'block'; nt.style.display = 'none'; }
+  else { nr.style.display = 'none'; nt.style.display = 'block'; }
+}
+
+function startQuiz() { currentQ = 0; answers = []; showScreen('screen-questions'); renderQ(); }
+
+function renderQ() {
+  var q = QUESTIONS[currentQ];
+  var total = QUESTIONS.length;
+  document.getElementById('q-label').textContent = 'Question ' + (currentQ + 1);
+  document.getElementById('q-count').textContent = (currentQ + 1) + ' of ' + total;
+  document.getElementById('q-num').textContent = pad(currentQ + 1) + ' / ' + pad(total);
+  document.getElementById('q-text').textContent = q.text;
+  document.getElementById('q-bar-fill').style.width = ((currentQ + 1) / total * 100) + '%';
+  document.getElementById('q-back').style.visibility = currentQ > 0 ? 'visible' : 'hidden';
+  var dots = document.getElementById('q-dots');
+  dots.innerHTML = '';
+  for (var i = 0; i < total; i++) {
+    var d = document.createElement('div');
+    d.className = 'q-dot' + (i < currentQ ? ' done' : i === currentQ ? ' active' : '');
+    dots.appendChild(d);
+  }
+  var grid = document.getElementById('q-answers');
+  grid.innerHTML = '';
+  var letters = ['A','B','C'];
+  q.answers.forEach(function(a, i) {
+    var btn = document.createElement('button');
+    btn.className = 'q-btn' + (answers[currentQ] === i ? ' selected' : '');
+    btn.innerHTML = '<span class="q-letter">' + letters[i] + '</span><span class="q-answer-text">' + a.text + '</span>';
+    (function(idx, type) {
+      btn.addEventListener('click', function() { pickAnswer(idx, type); });
+    })(i, a.type);
+    grid.appendChild(btn);
+  });
+}
+
+function pickAnswer(idx) {
+  answers[currentQ] = idx;
+  document.querySelectorAll('.q-btn').forEach(function(b, i) { b.classList.toggle('selected', i === idx); });
+  setTimeout(function() {
+    if (currentQ < QUESTIONS.length - 1) { currentQ++; renderQ(); }
+    else { calcResult(); }
+  }, 260);
+}
+
+function prevQ() { if (currentQ > 0) { currentQ--; renderQ(); } }
+function pad(n) { return (n < 10 ? '0' : '') + n; }
+
+function calcResult() {
+  var scores = { E: 0, S: 0, C: 0 };
+  answers.forEach(function(ansIdx, qIdx) {
+    scores[QUESTIONS[qIdx].answers[ansIdx].type] += QUESTIONS[qIdx].weight;
+  });
+  var winner;
+  if (scores.E > scores.S && scores.E > scores.C) winner = 'E';
+  else if (scores.S > scores.E && scores.S > scores.C) winner = 'S';
+  else if (scores.C > scores.E && scores.C > scores.S) winner = 'C';
+  else { winner = answers[6] !== undefined ? QUESTIONS[6].answers[answers[6]].type : 'E'; }
+  var total = scores.E + scores.S + scores.C;
+  var ePct = Math.round(scores.E / total * 100);
+  var sPct = Math.round(scores.S / total * 100);
+  var cPct = Math.round(scores.C / total * 100);
+  var gbs = Math.min(98, Math.max(58, Math.round((scores[winner] / total) * 100 + 15)));
+  currentScores = { E: ePct, S: sPct, C: cPct, gbs: gbs };
+  currentResult = winner;
+  displayResult(winner, currentScores);
+  showScreen('screen-result');
+}
+
+function displayResult(type, sc) {
+  try {
+    var r = RESULTS[type];
+    var s = sc || { E: 60, S: 50, C: 50, gbs: 72 };
+    document.getElementById('result-page').style.background = r.pageBg;
+    var hero = document.getElementById('score-hero');
+    hero.style.background = r.heroBg;
+    hero.setAttribute('data-bg-word', r.bgWord);
+    document.getElementById('r-icon').textContent = r.icon;
+    document.getElementById('r-type').textContent = r.type;
+    var tl = document.getElementById('r-tagline');
+    tl.textContent = r.tagline; tl.style.color = r.accentColor;
+    document.getElementById('r-desc').textContent = r.desc;
+    var gbs = s.gbs;
+    document.getElementById('gbs-num').textContent = gbs;
+    document.getElementById('gbs-title').textContent = gbs + ' / 100';
+    document.getElementById('gbs-sub').textContent = scoreLabel(gbs);
+    var fill = document.getElementById('gbs-fill');
+    fill.style.stroke = r.accentColor;
+    setTimeout(function() { fill.style.strokeDashoffset = 201 - (gbs / 100 * 201); }, 400);
+    document.getElementById('bd-e').textContent = s.E + '%';
+    document.getElementById('bd-s').textContent = s.S + '%';
+    document.getElementById('bd-c').textContent = s.C + '%';
+    setTimeout(function() {
+      setBar('bd-e-bar', s.E, type === 'E' ? r.accentColor : 'rgba(255,255,255,0.18)');
+      setBar('bd-s-bar', s.S, type === 'S' ? r.accentColor : 'rgba(255,255,255,0.18)');
+      setBar('bd-c-bar', s.C, type === 'C' ? r.accentColor : 'rgba(255,255,255,0.18)');
+    }, 500);
+    var lbl = document.getElementById('rpc-label');
+    lbl.textContent = 'Your Best Snack Match'; lbl.style.color = r.accentColor;
+    document.getElementById('rpc-name').textContent = r.product;
+    document.getElementById('rpc-sub').textContent = r.productSub;
+    var recType = document.getElementById('rpc-recommended-type');
+    if (recType) {
+      recType.textContent = r.type;
+      recType.style.color = r.accentColor;
+      recType.style.borderColor = 'rgba(' + r.accentRgb + ',0.4)';
+    }
+    var vis = document.getElementById('rpc-visual');
+    vis.style.background = r.productBg; vis.textContent = r.productEmoji;
+    r.macros.forEach(function(m, i) {
+      document.getElementById('m' + (i+1) + 'n').textContent = m.n;
+      document.getElementById('m' + (i+1) + 'l').textContent = m.l;
+    });
+    var wl = document.getElementById('rpc-why-list');
+    wl.innerHTML = '';
+    r.why.forEach(function(w) {
+      var li = document.createElement('li');
+      li.className = 'rpc-why-item';
+      var check = document.createElement('span');
+      check.className = 'rpc-why-check';
+      check.textContent = '✓';
+      check.style.color = r.accentColor;
+      var txt = document.createElement('span');
+      txt.textContent = w;
+      li.appendChild(check); li.appendChild(txt);
+      wl.appendChild(li);
+    });
+    var cta = document.getElementById('rpc-cta');
+    cta.textContent = 'Add to Cart →';
+    cta.style.background = 'var(--teal)';
+    cta.style.color = '#0F1213';
+    document.getElementById('moment-clock').textContent = r.snackClock;
+    var mlbl = document.getElementById('moment-card-label');
+    mlbl.textContent = 'When to Snack'; mlbl.style.color = r.accentColor;
+    document.getElementById('moment-card-value').textContent = r.snackWhen;
+    var timeEl = document.getElementById('moment-card-time');
+    if (timeEl) {
+      timeEl.textContent = r.snackTime;
+      timeEl.style.color = r.accentColor;
+      timeEl.style.borderColor = 'rgba(' + r.accentRgb + ',0.35)';
+      timeEl.style.background = 'rgba(' + r.accentRgb + ',0.08)';
+    }
+    document.getElementById('moment-card-sub').textContent = r.snackSub;
+    var mc = document.getElementById('moment-card');
+    mc.style.borderLeftColor = r.accentColor;
+    mc.style.background = 'rgba(' + r.accentRgb + ',0.08)';
+    var esub = document.getElementById('email-submit');
+    esub.style.background = r.accentColor; esub.style.color = '#0F1213';
+    ['ec1','ec2','ec3','ec4'].forEach(function(id) {
+      var el = document.getElementById(id);
+      if (el) el.style.color = r.accentColor;
+    });
+    shareText = r.shareText.replace('{score}', gbs);
+    document.getElementById('email-feedback').textContent = '';
+    document.getElementById('email-input').value = '';
+    ['E','S','C'].forEach(function(t) {
+      var chip = document.getElementById('chip-' + t);
+      if (chip) chip.style.display = t === type ? 'none' : '';
+    });
+  } catch(e) { console.error('displayResult:', e.message); }
+}
+
+function setBar(id, pct, color) {
+  var el = document.getElementById(id);
+  if (el) { el.style.width = pct + '%'; el.style.background = color; }
+}
+
+function scoreLabel(s) {
+  if (s >= 85) return 'Highly Attuned'; if (s >= 70) return 'Well Balanced';
+  if (s >= 58) return 'Developing'; return 'Just Getting Started';
+}
+
+function shareTwitter() { window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(shareText), '_blank'); }
+function shareInstagram() { copyText(shareText); alert('Caption copied! Open Instagram and paste into your story.'); }
+function copyScore() {
+  copyText(shareText);
+  var btn = document.getElementById('btn-copy');
+  var orig = btn.innerHTML;
+  btn.innerHTML = '✓ Copied!'; btn.classList.add('copied');
+  setTimeout(function() { btn.innerHTML = orig; btn.classList.remove('copied'); }, 2000);
+}
+function copyText(t) {
+  if (navigator.clipboard && window.isSecureContext) { navigator.clipboard.writeText(t); }
+  else { var el = document.createElement('textarea'); el.value = t; el.style.position = 'fixed'; el.style.left = '-9999px'; document.body.appendChild(el); el.select(); document.execCommand('copy'); document.body.removeChild(el); }
+}
+function peekResult(type) {
+  currentResult = type;
+  var fakeS = { E: 40, S: 40, C: 40, gbs: 72 }; fakeS[type] = 75;
+  displayResult(type, fakeS);
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+function retake() { currentQ = 0; answers = []; showScreen('screen-entry'); }
+function submitEmail() {
+  var email = document.getElementById('email-input').value.trim();
+  var fb = document.getElementById('email-feedback');
+  if (!email || email.indexOf('@') < 0 || email.indexOf('.') < 0) {
+    fb.style.color = '#E66443'; fb.textContent = 'Please enter a valid email address.'; return;
+  }
+  var r = currentResult ? RESULTS[currentResult] : null;
+  fb.style.color = r ? r.accentColor : 'var(--teal)';
+  fb.textContent = 'Your Gut-Brain Guide is on its way!';
+  document.getElementById('email-input').value = '';
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  document.getElementById('start-btn').addEventListener('click', startQuiz);
+  document.getElementById('nav-retake').addEventListener('click', retake);
+  document.getElementById('q-back').addEventListener('click', prevQ);
+  document.getElementById('retake-btn').addEventListener('click', retake);
+  document.getElementById('btn-twitter').addEventListener('click', shareTwitter);
+  document.getElementById('btn-instagram').addEventListener('click', shareInstagram);
+  document.getElementById('btn-copy').addEventListener('click', copyScore);
+  document.getElementById('rpc-cta').addEventListener('click', function() {
+    if (currentResult) window.location.href = RESULTS[currentResult].productUrl;
+  });
+  document.getElementById('email-submit').addEventListener('click', submitEmail);
+  ['E','S','C'].forEach(function(t) {
+    var chip = document.getElementById('chip-' + t);
+    if (chip) chip.addEventListener('click', function() { peekResult(t); });
+  });
+});
+</script>
+</body>
+</html>

@@ -110,9 +110,107 @@
             "snack_sub": "The late afternoon and post-dinner window is when cravings hit hardest and willpower is lowest. Don't wait until you're ravenous — this is when one bag of puffs does the most work.",
             "share_text": "My Gut-Brain Score is {score}. I'm a Craving Crusher. What's yours? Take the 60-second quiz: 100CalSnacks.com/quiz #GutBrainScore"
           }
+        },
+        "q1": {
+          "type": "question",
+          "settings": {
+            "question_text": "When do you usually reach for a snack?",
+            "weight": "1",
+            "is_tiebreaker": false,
+            "answer_a_text": "Mid-afternoon when my energy starts dropping",
+            "answer_a_type": "E",
+            "answer_b_text": "During stressful days when I need something to reset",
+            "answer_b_type": "S",
+            "answer_c_text": "When cravings hit and I want something satisfying",
+            "answer_c_type": "C"
+          }
+        },
+        "q2": {
+          "type": "question",
+          "settings": {
+            "question_text": "What are you usually looking for in a snack?",
+            "weight": "2",
+            "is_tiebreaker": false,
+            "answer_a_text": "Something that keeps me focused and sharp",
+            "answer_a_type": "E",
+            "answer_b_text": "Something that helps me stay calm and balanced",
+            "answer_b_type": "S",
+            "answer_c_text": "Something satisfying that actually stops cravings",
+            "answer_c_type": "C"
+          }
+        },
+        "q3": {
+          "type": "question",
+          "settings": {
+            "question_text": "How do you typically feel between meals?",
+            "weight": "2",
+            "is_tiebreaker": false,
+            "answer_a_text": "My energy dips and I get brain fog",
+            "answer_a_type": "E",
+            "answer_b_text": "Stress makes me reach for food",
+            "answer_b_type": "S",
+            "answer_c_text": "I get strong cravings for something satisfying",
+            "answer_c_type": "C"
+          }
+        },
+        "q4": {
+          "type": "question",
+          "settings": {
+            "question_text": "What kind of snack experience do you enjoy most?",
+            "weight": "1",
+            "is_tiebreaker": false,
+            "answer_a_text": "Rich and indulgent — dense and satisfying",
+            "answer_a_type": "E",
+            "answer_b_text": "Smooth and comforting — creamy and calming",
+            "answer_b_type": "S",
+            "answer_c_text": "Crunchy and savory — bold and high-impact",
+            "answer_c_type": "C"
+          }
+        },
+        "q5": {
+          "type": "question",
+          "settings": {
+            "question_text": "What matters most in a snack?",
+            "weight": "2",
+            "is_tiebreaker": false,
+            "answer_a_text": "Steady energy and mental focus",
+            "answer_a_type": "E",
+            "answer_b_text": "Balance and feeling calm after eating",
+            "answer_b_type": "S",
+            "answer_c_text": "Satisfaction without guilt or crash",
+            "answer_c_type": "C"
+          }
+        },
+        "q6": {
+          "type": "question",
+          "settings": {
+            "question_text": "How would your friends describe your relationship with food?",
+            "weight": "1",
+            "is_tiebreaker": false,
+            "answer_a_text": "I eat for fuel — I want food that works as hard as I do",
+            "answer_a_type": "E",
+            "answer_b_text": "I eat to decompress — food helps me unwind",
+            "answer_b_type": "S",
+            "answer_c_text": "I eat for pleasure — I want something I actually crave",
+            "answer_c_type": "C"
+          }
+        },
+        "q7": {
+          "type": "question",
+          "settings": {
+            "question_text": "What would you most like a snack to help you with right now?",
+            "weight": "3",
+            "is_tiebreaker": true,
+            "answer_a_text": "Stay focused and productive",
+            "answer_a_type": "E",
+            "answer_b_text": "Stay calm and balanced",
+            "answer_b_type": "S",
+            "answer_c_text": "Stop cravings and feel satisfied",
+            "answer_c_type": "C"
+          }
         }
       },
-      "block_order": ["result_e", "result_s", "result_c"],
+      "block_order": ["result_e", "result_s", "result_c", "q1", "q2", "q3", "q4", "q5", "q6", "q7"],
       "settings": {
         "entry_eyebrow": "60 Seconds · Free · No Email Required",
         "entry_title": "What's Your<br>Gut-Brain<br><em>Type?</em>",

@@ -1,69 +1,28 @@
 (function () {
-  var QUESTIONS = [
-    {
-      text: "When do you usually reach for a snack?", weight: 1,
-      answers: [
-        { text: "Mid-afternoon when my energy starts dropping", type: "E" },
-        { text: "During stressful days when I need something to reset", type: "S" },
-        { text: "When cravings hit and I want something satisfying", type: "C" }
-      ]
-    },
-    {
-      text: "What are you usually looking for in a snack?", weight: 2,
-      answers: [
-        { text: "Something that keeps me focused and sharp", type: "E" },
-        { text: "Something that helps me stay calm and balanced", type: "S" },
-        { text: "Something satisfying that actually stops cravings", type: "C" }
-      ]
-    },
-    {
-      text: "How do you typically feel between meals?", weight: 2,
-      answers: [
-        { text: "My energy dips and I get brain fog", type: "E" },
-        { text: "Stress makes me reach for food", type: "S" },
-        { text: "I get strong cravings for something satisfying", type: "C" }
-      ]
-    },
-    {
-      text: "What kind of snack experience do you enjoy most?", weight: 1,
-      answers: [
-        { text: "Rich and indulgent — dense and satisfying", type: "E" },
-        { text: "Smooth and comforting — creamy and calming", type: "S" },
-        { text: "Crunchy and savory — bold and high-impact", type: "C" }
-      ]
-    },
-    {
-      text: "What matters most in a snack?", weight: 2,
-      answers: [
-        { text: "Steady energy and mental focus", type: "E" },
-        { text: "Balance and feeling calm after eating", type: "S" },
-        { text: "Satisfaction without guilt or crash", type: "C" }
-      ]
-    },
-    {
-      text: "How would your friends describe your relationship with food?", weight: 1,
-      answers: [
-        { text: "I eat for fuel — I want food that works as hard as I do", type: "E" },
-        { text: "I eat to decompress — food helps me unwind", type: "S" },
-        { text: "I eat for pleasure — I want something I actually crave", type: "C" }
-      ]
-    },
-    {
-      text: "What would you most like a snack to help you with right now?", weight: 3,
-      answers: [
-        { text: "Stay focused and productive", type: "E" },
-        { text: "Stay calm and balanced", type: "S" },
-        { text: "Stop cravings and feel satisfied", type: "C" }
-      ]
-    }
-  ];
-
+  var QUESTIONS = [];
   var RESULTS = {};
   var currentQ = 0;
   var answers = [];
   var currentResult = null;
   var currentScores = null;
   var shareText = '';
+
+  function buildQuestions() {
+    QUESTIONS = [];
+    var nodes = document.querySelectorAll('.hcqa-question');
+    nodes.forEach(function (node) {
+      QUESTIONS.push({
+        text: node.dataset.text || '',
+        weight: parseInt(node.dataset.weight, 10) || 1,
+        isTiebreaker: node.dataset.tiebreaker === 'true',
+        answers: [
+          { text: node.dataset.aText || '', type: node.dataset.aType || 'E' },
+          { text: node.dataset.bText || '', type: node.dataset.bType || 'S' },
+          { text: node.dataset.cText || '', type: node.dataset.cType || 'C' }
+        ]
+      });
+    });
+  }
 
   function buildResults() {
     RESULTS = {};
@@ -184,7 +143,21 @@
     if (scores.E > scores.S && scores.E > scores.C) winner = 'E';
     else if (scores.S > scores.E && scores.S > scores.C) winner = 'S';
     else if (scores.C > scores.E && scores.C > scores.S) winner = 'C';
-    else { winner = answers[6] !== undefined ? QUESTIONS[6].answers[answers[6]].type : 'E'; }
+    else {
+      var tbIdx = -1;
+      for (var ti = 0; ti < QUESTIONS.length; ti++) {
+        if (QUESTIONS[ti].isTiebreaker) { tbIdx = ti; break; }
+      }
+      if (tbIdx < 0) {
+        var maxW = 0;
+        for (var tj = 0; tj < QUESTIONS.length; tj++) {
+          if (QUESTIONS[tj].weight > maxW) { maxW = QUESTIONS[tj].weight; tbIdx = tj; }
+        }
+      }
+      winner = (tbIdx >= 0 && answers[tbIdx] !== undefined)
+        ? QUESTIONS[tbIdx].answers[answers[tbIdx]].type
+        : 'E';
+    }
     var total = scores.E + scores.S + scores.C;
     var ePct = Math.round(scores.E / total * 100);
     var sPct = Math.round(scores.S / total * 100);
@@ -391,6 +364,7 @@
     if (!wrap || wrap.dataset.quizInit) return;
     wrap.dataset.quizInit = '1';
 
+    buildQuestions();
     buildResults();
 
     var startBtn = document.getElementById('hcqa-start-btn');

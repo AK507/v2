@@ -38,6 +38,22 @@
       ></div>
     {% endif %}
   {% endfor %}
+  {% for block in section.blocks %}
+    {% if block.type == 'question' %}
+      <div class="hcqa-question"
+           data-text="{{ block.settings.question_text | escape }}"
+           data-weight="{{ block.settings.weight | escape }}"
+           data-a-text="{{ block.settings.answer_a_text | escape }}"
+           data-a-type="{{ block.settings.answer_a_type | escape }}"
+           data-b-text="{{ block.settings.answer_b_text | escape }}"
+           data-b-type="{{ block.settings.answer_b_type | escape }}"
+           data-c-text="{{ block.settings.answer_c_text | escape }}"
+           data-c-type="{{ block.settings.answer_c_type | escape }}"
+           data-tiebreaker="{{ block.settings.is_tiebreaker }}"
+           {{ block.shopify_attributes }}
+      ></div>
+    {% endif %}
+  {% endfor %}
 </div>
 
 <div class="hc-quiz-app" {{ section.shopify_attributes }}>
@@ -757,6 +773,61 @@
         { "type": "text", "id": "snack_time", "label": "Snack moment time label" },
         { "type": "textarea", "id": "snack_sub", "label": "Snack moment body" },
         { "type": "text", "id": "share_text", "label": "Share text (use {score} for score)" }
+      ]
+    },
+    {
+      "type": "question",
+      "name": "Quiz question",
+      "settings": [
+        { "type": "text", "id": "question_text", "label": "Question" },
+        {
+          "type": "select",
+          "id": "weight",
+          "label": "Weight",
+          "options": [
+            { "value": "1", "label": "1 — Low" },
+            { "value": "2", "label": "2 — Medium" },
+            { "value": "3", "label": "3 — High" }
+          ],
+          "default": "1"
+        },
+        { "type": "checkbox", "id": "is_tiebreaker", "label": "Use as tie-breaker", "default": false },
+        { "type": "text", "id": "answer_a_text", "label": "Answer A" },
+        {
+          "type": "select",
+          "id": "answer_a_type",
+          "label": "Answer A type",
+          "options": [
+            { "value": "E", "label": "E — Focus Fueler" },
+            { "value": "S", "label": "S — Calm Operator" },
+            { "value": "C", "label": "C — Craving Crusher" }
+          ],
+          "default": "E"
+        },
+        { "type": "text", "id": "answer_b_text", "label": "Answer B" },
+        {
+          "type": "select",
+          "id": "answer_b_type",
+          "label": "Answer B type",
+          "options": [
+            { "value": "E", "label": "E — Focus Fueler" },
+            { "value": "S", "label": "S — Calm Operator" },
+            { "value": "C", "label": "C — Craving Crusher" }
+          ],
+          "default": "S"
+        },
+        { "type": "text", "id": "answer_c_text", "label": "Answer C" },
+        {
+          "type": "select",
+          "id": "answer_c_type",
+          "label": "Answer C type",
+          "options": [
+            { "value": "E", "label": "E — Focus Fueler" },
+            { "value": "S", "label": "S — Calm Operator" },
+            { "value": "C", "label": "C — Craving Crusher" }
+          ],
+          "default": "C"
+        }
       ]
     }
   ],

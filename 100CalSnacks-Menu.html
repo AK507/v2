@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>100 Cal Snacks — Shop Menu Component</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,900;1,700&family=Barlow:ital,wght@0,300;0,400;0,500;0,700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{-webkit-box-sizing:border-box;box-sizing:border-box;margin:0;padding:0}
+:root{
+  --black:#0F1213;--white:#FFFFFF;
+  --teal:#66CCCC;--teal-dark:#3A9999;--teal-pastel:#C2EBEB;
+  --orange:#E66443;--yellow:#E9AD3C;
+  --platinum:#EAE9E5;--neutral:#F4F3F0;
+  --ink:#1A1A1A;--ink-reading:#2D2D2D;--ink-mid:#555;
+  --ink-caption:#5A5A5A;--ink-light:#888;
+  --white-primary:#FFFFFF;
+  --white-secondary:rgba(255,255,255,.82);
+  --white-tertiary:rgba(255,255,255,.55);
+  --font-head:'Barlow Condensed',sans-serif;
+  --font-body:'Barlow',sans-serif;
+}
+html{-webkit-font-smoothing:antialiased;background:#F0EFEC}
+body{font-family:var(--font-body);color:var(--ink)}
+
+/* ===== DEMO LABEL ===== */
+.demo-label{background:var(--black);color:rgba(255,255,255,.4);font-family:monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;padding:8px 24px;text-align:center}
+
+/* ===================================================
+   NAV — full desktop nav with Shop mega-menu trigger
+=================================================== */
+nav{
+  background:var(--white);
+  border-bottom:2px solid var(--black);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 56px;height:72px;
+  position:relative;z-index:300;
+}
+.nav-brand{
+  font-family:var(--font-head);font-weight:900;font-size:22px;
+  letter-spacing:1px;text-transform:uppercase;
+  color:var(--black);text-decoration:none
+}
+.nav-brand em{color:var(--orange);font-style:normal}
+.nav-links{display:flex;gap:0;list-style:none;height:72px}
+.nav-item{position:relative;display:flex;align-items:center}
+.nav-link{
+  font-family:var(--font-head);font-weight:500;font-size:13px;
+  letter-spacing:1.5px;text-transform:uppercase;
+  color:var(--ink);text-decoration:none;
+  padding:0 18px;height:72px;display:flex;align-items:center;
+  transition:color .2s;position:relative;white-space:nowrap;
+  cursor:pointer;border:none;background:none;
+}
+.nav-link::after{
+  content:'';position:absolute;bottom:0;left:18px;right:18px;
+  height:2px;background:var(--teal);transform:scaleX(0);
+  transition:transform .2s;transform-origin:left;
+}
+.nav-link:hover,.nav-link.active{color:var(--teal-dark)}
+.nav-link:hover::after,.nav-link.active::after{transform:scaleX(1)}
+.nav-link.shop-trigger{gap:6px}
+.shop-chevron{
+  font-size:9px;transition:transform .25s;display:inline-block;
+  color:var(--ink-light);margin-top:1px
+}
+.nav-item.open .shop-chevron{transform:rotate(180deg)}
+.nav-item.open .nav-link{color:var(--teal-dark)}
+.nav-item.open .nav-link::after{transform:scaleX(1)}
+.nav-cta{
+  font-family:var(--font-head);font-weight:700;font-size:13px;
+  letter-spacing:1.5px;text-transform:uppercase;
+  padding:10px 22px;background:var(--teal);color:var(--black);
+  text-decoration:none;transition:background .2s;border:none;cursor:pointer
+}
+.nav-cta:hover{background:var(--teal-dark);color:var(--white)}
+
+/* ===================================================
+   MEGA MENU — DESKTOP
+=================================================== */
+.mega-menu{
+  position:absolute;top:calc(100% + 2px);left:-56px;
+  width:100vw;max-width:860px;
+  background:var(--white);
+  border-top:3px solid var(--teal);
+  box-shadow:0 16px 48px rgba(15,18,19,.14);
+  display:grid;grid-template-columns:220px 220px 1fr;
+  opacity:0;transform:translateY(-8px);
+  pointer-events:none;
+  transition:opacity .22s ease,transform .22s ease;
+  z-index:400;
+}
+.nav-item.open .mega-menu{
+  opacity:1;transform:translateY(0);pointer-events:all
+}
+
+/* Col shared */
+.mm-col{padding:28px 24px}
+.mm-col-title{
+  font-family:var(--font-head);font-weight:700;font-size:10px;
+  letter-spacing:3px;text-transform:uppercase;
+  color:var(--ink-light);margin-bottom:16px;
+  padding-bottom:10px;border-bottom:1px solid var(--platinum)
+}
+
+/* Col 1 — Shop by Product */
+.mm-col-1{border-right:1px solid var(--platinum)}
+.mm-prod-link{
+  display:flex;align-items:center;gap:10px;
+  padding:9px 0;text-decoration:none;
+  border-bottom:1px solid var(--platinum);
+  transition:color .15s;cursor:pointer
+}
+.mm-prod-link:last-child{border-bottom:none}
+.mm-prod-link:hover .mm-pl-name{color:var(--teal-dark)}
+.mm-prod-link:hover .mm-pl-arrow{opacity:1;transform:translateX(2px)}
+.mm-pl-emoji{font-size:18px;flex-shrink:0;width:28px;text-align:center}
+.mm-pl-info{flex:1}
+.mm-pl-name{
+  font-family:var(--font-head);font-weight:900;font-size:14px;
+  text-transform:uppercase;color:var(--ink);letter-spacing:.3px;
+  line-height:1;transition:color .15s
+}
+.mm-pl-sub{
+  font-family:var(--font-body);font-size:11px;
+  color:var(--ink-caption);margin-top:2px;line-height:1.3
+}
+.mm-pl-arrow{
+  font-size:11px;color:var(--teal-dark);opacity:0;
+  transition:opacity .15s,transform .15s
+}
+/* All products — slightly different styling */
+.mm-prod-link.all-products .mm-pl-name{color:var(--teal-dark)}
+.mm-prod-link.all-products:hover .mm-pl-name{color:var(--black)}
+
+/* Col 2 — Shop by Goal */
+.mm-col-2{border-right:1px solid var(--platinum)}
+.mm-goal-link{
+  display:flex;align-items:flex-start;gap:10px;
+  padding:9px 0;text-decoration:none;
+  border-bottom:1px solid var(--platinum);
+  transition:all .15s;cursor:pointer
+}
+.mm-goal-link:last-child{border-bottom:none}
+.mm-goal-link:hover .mm-gl-name{color:var(--teal-dark)}
+.mm-goal-link:hover .mm-gl-arrow{opacity:1;transform:translateX(2px)}
+.mm-gl-icon{
+  width:24px;height:24px;border-radius:2px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  font-size:13px;margin-top:1px
+}
+.mm-gl-icon.teal{background:rgba(102,204,204,.12)}
+.mm-gl-icon.orange{background:rgba(230,100,67,.1)}
+.mm-gl-icon.yellow{background:rgba(233,173,60,.1)}
+.mm-gl-icon.black{background:rgba(15,18,19,.06)}
+.mm-gl-info{flex:1}
+.mm-gl-name{
+  font-family:var(--font-head);font-weight:700;font-size:13px;
+  text-transform:uppercase;color:var(--ink);letter-spacing:.3px;
+  line-height:1.1;transition:color .15s
+}
+.mm-gl-desc{
+  font-family:var(--font-body);font-size:11px;
+  color:var(--ink-caption);margin-top:2px;line-height:1.3
+}
+.mm-gl-arrow{
+  font-size:11px;color:var(--teal-dark);opacity:0;
+  transition:opacity .15s,transform .15s;margin-top:2px
+}
+/* Quiz link — special styling */
+.mm-goal-link.quiz-link{
+  margin-top:8px;padding:8px 12px;
+  background:var(--teal-pastel);border-bottom:none;
+  border-left:3px solid var(--teal)
+}
+.mm-goal-link.quiz-link:hover{background:var(--teal);background:rgba(102,204,204,.25)}
+.mm-goal-link.quiz-link .mm-gl-name{color:var(--teal-dark)}
+.mm-goal-link.quiz-link:hover .mm-gl-name{color:var(--black)}
+
+/* Col 3 — Featured card */
+.mm-col-3{padding:0;background:var(--black);position:relative;overflow:hidden;display:flex;flex-direction:column}
+.mm-feat-img{
+  flex:1;min-height:160px;
+  background:linear-gradient(135deg,#1A2A2A 0%,#0F1213 100%);
+  display:flex;align-items:center;justify-content:center;
+  font-size:64px;position:relative;overflow:hidden
+}
+.mm-feat-img::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 80% 80% at 50% 50%,rgba(102,204,204,.08) 0%,transparent 70%)
+}
+.mm-feat-badge{
+  position:absolute;top:12px;left:12px;
+  font-family:var(--font-head);font-weight:700;font-size:9px;
+  letter-spacing:2px;text-transform:uppercase;
+  padding:4px 10px;background:var(--teal);color:var(--black)
+}
+.mm-feat-body{padding:18px 20px}
+.mm-feat-eyebrow{
+  font-family:var(--font-head);font-weight:700;font-size:9px;
+  letter-spacing:2px;text-transform:uppercase;
+  color:var(--teal);margin-bottom:5px
+}
+.mm-feat-name{
+  font-family:var(--font-head);font-weight:900;font-size:18px;
+  text-transform:uppercase;color:var(--white);letter-spacing:.5px;
+  line-height:1;margin-bottom:5px
+}
+.mm-feat-prop{
+  font-family:var(--font-body);font-size:12px;
+  color:var(--white-secondary);line-height:1.4;margin-bottom:14px
+}
+.mm-feat-cta{
+  display:block;width:100%;
+  font-family:var(--font-head);font-weight:700;font-size:11px;
+  letter-spacing:2px;text-transform:uppercase;
+  padding:11px 16px;background:var(--teal);color:var(--black);
+  text-decoration:none;text-align:center;
+  transition:background .2s;border:none;cursor:pointer
+}
+.mm-feat-cta:hover{background:var(--teal-dark);color:var(--white)}
+
+/* Mega menu overlay */
+.mm-overlay{
+  position:fixed;inset:0;background:rgba(15,18,19,.3);
+  z-index:290;opacity:0;pointer-events:none;transition:opacity .22s;
+  -webkit-backdrop-filter:blur(2px);backdrop-filter:blur(2px)
+}
+.mm-overlay.visible{opacity:1;pointer-events:all}
+
+/* ===================================================
+   MOBILE NAV
+=================================================== */
+.mobile-nav{display:none}
+.mob-nav-bar{
+  background:var(--white);border-bottom:2px solid var(--black);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 20px;height:60px;position:relative;z-index:300
+}
+.mob-brand{
+  font-family:var(--font-head);font-weight:900;font-size:20px;
+  letter-spacing:1px;text-transform:uppercase;color:var(--black);text-decoration:none
+}
+.mob-brand em{color:var(--orange);font-style:normal}
+.mob-right{display:flex;align-items:center;gap:12px}
+.mob-cart-btn{
+  font-family:var(--font-head);font-weight:700;font-size:11px;
+  letter-spacing:1.5px;text-transform:uppercase;
+  padding:8px 16px;background:var(--teal);color:var(--black);
+  border:none;cursor:pointer
+}
+.mob-hamburger{
+  width:36px;height:36px;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:5px;
+  background:none;border:none;cursor:pointer;padding:4px
+}
+.mob-hamburger span{
+  display:block;width:22px;height:2px;background:var(--black);
+  transition:all .25s;transform-origin:center
+}
+.mob-hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.mob-hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.mob-hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* Mobile drawer */
+.mob-drawer{
+  position:fixed;top:0;right:0;bottom:0;width:300px;
+  background:var(--black);z-index:500;
+  transform:translateX(100%);transition:transform .3s cubic-bezier(.4,0,.2,1);
+  display:flex;flex-direction:column;overflow-y:auto
+}
+.mob-drawer.open{transform:translateX(0)}
+.mob-drawer-header{
+  padding:18px 20px;display:flex;align-items:center;
+  justify-content:space-between;border-bottom:1px solid rgba(255,255,255,.08);
+  flex-shrink:0
+}
+.mob-drawer-brand{
+  font-family:var(--font-head);font-weight:900;font-size:18px;
+  text-transform:uppercase;color:var(--white);letter-spacing:1px
+}
+.mob-drawer-brand em{color:var(--teal);font-style:normal}
+.mob-close{
+  background:none;border:none;cursor:pointer;
+  color:rgba(255,255,255,.4);font-size:20px;padding:4px;transition:color .2s
+}
+.mob-close:hover{color:var(--white)}
+
+/* Mobile shop section */
+.mob-shop-section{padding:0;flex:1}
+.mob-section-label{
+  font-family:var(--font-head);font-weight:700;font-size:9px;
+  letter-spacing:3px;text-transform:uppercase;
+  color:rgba(255,255,255,.3);padding:20px 20px 10px;
+  border-bottom:1px solid rgba(255,255,255,.06)
+}
+.mob-shop-link{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 20px;border-bottom:1px solid rgba(255,255,255,.06);
+  text-decoration:none;transition:background .15s;cursor:pointer
+}
+.mob-shop-link:hover,.mob-shop-link:active{background:rgba(255,255,255,.04)}
+.mob-shop-link-left{display:flex;align-items:center;gap:10px}
+.mob-shop-emoji{font-size:16px;width:24px;text-align:center;flex-shrink:0}
+.mob-shop-name{
+  font-family:var(--font-head);font-weight:900;font-size:16px;
+  text-transform:uppercase;color:var(--white);letter-spacing:.5px
+}
+.mob-shop-link.featured .mob-shop-name{color:var(--teal)}
+.mob-shop-arrow{font-size:12px;color:rgba(255,255,255,.3)}
+
+/* Mobile other nav links */
+.mob-nav-links{padding:8px 0;border-top:1px solid rgba(255,255,255,.06)}
+.mob-nav-link{
+  display:block;padding:13px 20px;
+  font-family:var(--font-head);font-weight:700;font-size:14px;
+  letter-spacing:1.5px;text-transform:uppercase;
+  color:rgba(255,255,255,.55);text-decoration:none;
+  border-bottom:1px solid rgba(255,255,255,.05);
+  transition:color .15s;cursor:pointer
+}
+.mob-nav-link:hover{color:var(--white)}
+.mob-nav-link.quiz{color:var(--teal)}
+
+/* Mobile CTA */
+.mob-cta{padding:20px;flex-shrink:0;border-top:1px solid rgba(255,255,255,.08)}
+.mob-cta-btn{
+  display:block;width:100%;padding:16px;
+  font-family:var(--font-head);font-weight:700;font-size:14px;
+  letter-spacing:2px;text-transform:uppercase;
+  background:var(--teal);color:var(--black);
+  text-align:center;border:none;cursor:pointer;text-decoration:none;
+  transition:background .2s
+}
+.mob-cta-btn:hover{background:var(--teal-dark);color:var(--white)}
+
+/* Drawer overlay */
+.mob-overlay{
+  position:fixed;inset:0;background:rgba(15,18,19,.55);
+  z-index:490;opacity:0;pointer-events:none;
+  transition:opacity .3s;-webkit-backdrop-filter:blur(2px);backdrop-filter:blur(2px)
+}
+.mob-overlay.visible{opacity:1;pointer-events:all}
+
+/* ===================================================
+   RESPONSIVE DEMO SWITCH
+=================================================== */
+@media(max-width:767px){
+  .desktop-nav{display:none}
+  .mobile-nav{display:block}
+}
+
+/* ===================================================
+   PAGE DEMO CONTENT
+=================================================== */
+.demo-content{
+  max-width:900px;margin:0 auto;padding:60px 40px;
+  text-align:center
+}
+.demo-content h2{
+  font-family:var(--font-head);font-weight:900;font-size:52px;
+  text-transform:uppercase;color:var(--ink);line-height:.9;margin-bottom:12px
+}
+.demo-content p{
+  font-family:var(--font-body);font-size:16px;color:var(--ink-caption);
+  line-height:1.7;max-width:560px;margin:0 auto
+}
+.demo-switch{
+  margin-top:32px;display:flex;gap:8px;justify-content:center
+}
+.dsw-btn{
+  font-family:var(--font-head);font-weight:700;font-size:11px;
+  letter-spacing:1.5px;text-transform:uppercase;
+  padding:9px 20px;border:1.5px solid var(--platinum);
+  background:var(--white);color:var(--ink-mid);cursor:pointer;transition:all .2s
+}
+.dsw-btn:hover,.dsw-btn.active{background:var(--black);color:var(--white);border-color:var(--black)}
+</style>
+</head>
+<body>
+
+<div class="demo-label">Component Preview — Resize window or use buttons below to switch between Desktop and Mobile</div>
+
+<!-- ===================================================
+     DESKTOP NAV
+=================================================== -->
+<div class="desktop-nav">
+  <div class="mm-overlay" id="mm-overlay" onclick="closeMenu()"></div>
+  <nav>
+    <a href="#" class="nav-brand">100<em>Cal</em>Snacks</a>
+
+    <ul class="nav-links">
+
+      <!-- SHOP — mega menu trigger -->
+      <li class="nav-item" id="shop-item">
+        <button class="nav-link shop-trigger" onclick="toggleMenu()" aria-expanded="false" aria-haspopup="true">
+          Shop
+          <span class="shop-chevron">▾</span>
+        </button>
+
+        <!-- MEGA MENU -->
+        <div class="mega-menu" role="navigation" aria-label="Shop menu">
+
+          <!-- Col 1: Products -->
+          <div class="mm-col mm-col-1">
+            <div class="mm-col-title">Shop by Product</div>
+
+            <a href="#" class="mm-prod-link all-products">
+              <span class="mm-pl-emoji">🛍</span>
+              <div class="mm-pl-info">
+                <div class="mm-pl-name">All Products</div>
+                <div class="mm-pl-sub">Browse the full range</div>
+              </div>
+              <span class="mm-pl-arrow">→</span>
+            </a>
+
+            <a href="#" class="mm-prod-link">
+              <span class="mm-pl-emoji">🍫</span>
+              <div class="mm-pl-info">
+                <div class="mm-pl-name">Chocolate Brownie Bar</div>
+                <div class="mm-pl-sub">100 cal · 5g protein · 4g fiber</div>
+              </div>
+              <span class="mm-pl-arrow">→</span>
+            </a>
+
+            <a href="#" class="mm-prod-link">
+              <span class="mm-pl-emoji">🥜</span>
+              <div class="mm-pl-info">
+                <div class="mm-pl-name">Peanut Butter Bar</div>
+                <div class="mm-pl-sub">100 cal · 5g protein · amla</div>
+              </div>
+              <span class="mm-pl-arrow">→</span>
+            </a>
+
+            <a href="#" class="mm-prod-link">
+              <span class="mm-pl-emoji">🌶️</span>
+              <div class="mm-pl-info">
+                <div class="mm-pl-name">BBQ Protein Puffs</div>
+                <div class="mm-pl-sub">100 cal · savory · gut-friendly</div>
+              </div>
+              <span class="mm-pl-arrow">→</span>
+            </a>
+          </div>
+
+          <!-- Col 2: Goals -->
+          <div class="mm-col mm-col-2">
+            <div class="mm-col-title">Shop by Goal</div>
+
+            <a href="#" class="mm-goal-link">
+              <div class="mm-gl-icon teal">⚡</div>
+              <div class="mm-gl-info">
+                <div class="mm-gl-name">Focus & Steady Energy</div>
+                <div class="mm-gl-desc">Ashwagandha + prebiotic fiber</div>
+              </div>
+              <span class="mm-gl-arrow">→</span>
+            </a>
+
+            <a href="#" class="mm-goal-link">
+              <div class="mm-gl-icon orange">🧘</div>
+              <div class="mm-gl-info">
+                <div class="mm-gl-name">Stress Cravings</div>
+                <div class="mm-gl-desc">Cortisol support + adaptogens</div>
+              </div>
+              <span class="mm-gl-arrow">→</span>
+            </a>
+
+            <a href="#" class="mm-goal-link">
+              <div class="mm-gl-icon yellow">🌿</div>
+              <div class="mm-gl-info">
+                <div class="mm-gl-name">Gut-Friendly Snacking</div>
+                <div class="mm-gl-desc">Prebiotic fiber + no sugar alcohols</div>
+              </div>
+              <span class="mm-gl-arrow">→</span>
+            </a>
+
+            <a href="#" class="mm-goal-link quiz-link">
+              <div class="mm-gl-icon black">🧠</div>
+              <div class="mm-gl-info">
+                <div class="mm-gl-name">Take the Snack Quiz</div>
+                <div class="mm-gl-desc">Find your gut-brain match in 2 min</div>
+              </div>
+              <span class="mm-gl-arrow">→</span>
+            </a>
+          </div>
+
+          <!-- Col 3: Featured card -->
+          <div class="mm-col-3">
+            <div class="mm-feat-img">
+              <div class="mm-feat-badge">★ Best Seller</div>
+              <span>🍫</span>
+            </div>
+            <div class="mm-feat-body">
+              <div class="mm-feat-eyebrow">Most Popular</div>
+              <div class="mm-feat-name">Chocolate Brownie Bar</div>
+              <div class="mm-feat-prop">Gut-brain formulated. 0g added sugar. Every calorie earns its place.</div>
+              <a href="#" class="mm-feat-cta" onclick="closeMenu()">Shop Best Seller →</a>
+            </div>
+          </div>
+
+        </div><!-- /mega-menu -->
+      </li>
+
+      <li class="nav-item"><a href="#" class="nav-link">Gut-Brain 101</a></li>
+      <li class="nav-item"><a href="#" class="nav-link">Ingredients</a></li>
+      <li class="nav-item"><a href="#" class="nav-link">Quiz</a></li>
+      <li class="nav-item"><a href="#" class="nav-link">Snack School</a></li>
+    </ul>
+
+    <a href="#" class="nav-cta" onclick="closeMenu()">Cart (0)</a>
+  </nav>
+</div>
+
+
+<!-- ===================================================
+     MOBILE NAV
+=================================================== -->
+<div class="mobile-nav" id="mobile-nav-section">
+  <div class="mob-overlay" id="mob-overlay" onclick="closeMobMenu()"></div>
+
+  <div class="mob-nav-bar">
+    <a href="#" class="mob-brand">100<em>Cal</em>Snacks</a>
+    <div class="mob-right">
+      <button class="mob-cart-btn">Cart (0)</button>
+      <button class="mob-hamburger" id="mob-ham" onclick="toggleMobMenu()" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Slide-in drawer -->
+  <div class="mob-drawer" id="mob-drawer" role="navigation" aria-label="Mobile menu">
+    <div class="mob-drawer-header">
+      <div class="mob-drawer-brand">100<em>Cal</em>Snacks</div>
+      <button class="mob-close" onclick="closeMobMenu()" aria-label="Close menu">✕</button>
+    </div>
+
+    <div class="mob-shop-section">
+      <div class="mob-section-label">Shop</div>
+
+      <a href="#" class="mob-shop-link featured" onclick="closeMobMenu()">
+        <div class="mob-shop-link-left">
+          <span class="mob-shop-emoji">🛍</span>
+          <span class="mob-shop-name">Shop All</span>
+        </div>
+        <span class="mob-shop-arrow">→</span>
+      </a>
+
+      <a href="#" class="mob-shop-link" onclick="closeMobMenu()">
+        <div class="mob-shop-link-left">
+          <span class="mob-shop-emoji">🍫🥜</span>
+          <span class="mob-shop-name">Bars</span>
+        </div>
+        <span class="mob-shop-arrow">→</span>
+      </a>
+
+      <a href="#" class="mob-shop-link" onclick="closeMobMenu()">
+        <div class="mob-shop-link-left">
+          <span class="mob-shop-emoji">🌶️</span>
+          <span class="mob-shop-name">Puffs</span>
+        </div>
+        <span class="mob-shop-arrow">→</span>
+      </a>
+
+      <a href="#" class="mob-shop-link" onclick="closeMobMenu()">
+        <div class="mob-shop-link-left">
+          <span class="mob-shop-emoji">★</span>
+          <span class="mob-shop-name">Best Sellers</span>
+        </div>
+        <span class="mob-shop-arrow">→</span>
+      </a>
+
+      <div class="mob-nav-links">
+        <a href="#" class="mob-nav-link" onclick="closeMobMenu()">Gut-Brain 101</a>
+        <a href="#" class="mob-nav-link" onclick="closeMobMenu()">Ingredients</a>
+        <a href="#" class="mob-nav-link" onclick="closeMobMenu()">Our Story</a>
+        <a href="#" class="mob-nav-link" onclick="closeMobMenu()">Snack School</a>
+        <a href="#" class="mob-nav-link quiz" onclick="closeMobMenu()">🧠 Take the Snack Quiz</a>
+      </div>
+    </div>
+
+    <div class="mob-cta">
+      <a href="#" class="mob-cta-btn" onclick="closeMobMenu()">Shop Now →</a>
+    </div>
+  </div>
+</div>
+
+
+<!-- ===================================================
+     DEMO CONTENT
+=================================================== -->
+<div class="demo-content">
+  <h2>Hover "Shop"<br>to See the Menu</h2>
+  <p>Desktop: hover or click Shop in the nav above to open the mega-menu.<br>Mobile: tap the hamburger icon to open the slide-in drawer.</p>
+  <div class="demo-switch">
+    <button class="dsw-btn active" onclick="showDesktop(this)">Desktop View</button>
+    <button class="dsw-btn" onclick="showMobile(this)">Mobile View</button>
+  </div>
+</div>
+
+<script>
+// ===== DESKTOP MEGA MENU =====
+var shopItem = document.getElementById('shop-item');
+var mmOverlay = document.getElementById('mm-overlay');
+
+function toggleMenu() {
+  var isOpen = shopItem.classList.contains('open');
+  if (isOpen) { closeMenu(); } else { openMenu(); }
+}
+
+function openMenu() {
+  shopItem.classList.add('open');
+  mmOverlay.classList.add('visible');
+  document.querySelector('.shop-trigger').setAttribute('aria-expanded','true');
+}
+
+function closeMenu() {
+  shopItem.classList.remove('open');
+  mmOverlay.classList.remove('visible');
+  document.querySelector('.shop-trigger').setAttribute('aria-expanded','false');
+}
+
+// Close on Escape
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') { closeMenu(); closeMobMenu(); }
+});
+
+// Close if clicking outside
+document.addEventListener('click', function(e) {
+  if (!shopItem.contains(e.target)) closeMenu();
+});
+
+// Hover open on desktop
+shopItem.addEventListener('mouseenter', function() {
+  if (window.innerWidth > 767) openMenu();
+});
+shopItem.addEventListener('mouseleave', function() {
+  setTimeout(function() {
+    if (!shopItem.matches(':hover')) closeMenu();
+  }, 120);
+});
+
+// ===== MOBILE DRAWER =====
+var mobDrawer = document.getElementById('mob-drawer');
+var mobOverlay = document.getElementById('mob-overlay');
+var mobHam = document.getElementById('mob-ham');
+
+function toggleMobMenu() {
+  var isOpen = mobDrawer.classList.contains('open');
+  if (isOpen) { closeMobMenu(); } else { openMobMenu(); }
+}
+
+function openMobMenu() {
+  mobDrawer.classList.add('open');
+  mobOverlay.classList.add('visible');
+  mobHam.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeMobMenu() {
+  mobDrawer.classList.remove('open');
+  mobOverlay.classList.remove('visible');
+  mobHam.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// ===== DEMO VIEW SWITCHER =====
+function showDesktop(btn) {
+  document.querySelector('.desktop-nav').style.display = '';
+  document.getElementById('mobile-nav-section').style.display = 'none';
+  closeMobMenu();
+  document.querySelectorAll('.dsw-btn').forEach(function(b){b.classList.remove('active')});
+  btn.classList.add('active');
+}
+
+function showMobile(btn) {
+  document.querySelector('.desktop-nav').style.display = 'none';
+  document.getElementById('mobile-nav-section').style.display = 'block';
+  closeMenu();
+  document.querySelectorAll('.dsw-btn').forEach(function(b){b.classList.remove('active')});
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>

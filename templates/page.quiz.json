@@ -40,6 +40,20 @@
             "answer_c_type": "C"
           }
         },
+        "question_X6jCbt": {
+          "type": "question",
+          "settings": {
+            "question_text": "How do you typically feel between meals?",
+            "weight": "1",
+            "is_tiebreaker": false,
+            "answer_a_text": "My energy dips and I get brain fog",
+            "answer_a_type": "E",
+            "answer_b_text": "Stress makes me reach for food",
+            "answer_b_type": "S",
+            "answer_c_text": "I get strong cravings for something satisfying",
+            "answer_c_type": "C"
+          }
+        },
         "result_e": {
           "type": "result_type",
           "settings": {
@@ -152,6 +166,7 @@
       "block_order": [
         "question_PetMAk",
         "question_MCyPEe",
+        "question_X6jCbt",
         "result_e",
         "result_s",
         "result_c"

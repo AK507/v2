@@ -96,6 +96,20 @@
             "answer_c_type": "C"
           }
         },
+        "question_FnwVRh": {
+          "type": "question",
+          "settings": {
+            "question_text": "What would you most like a snack to help you with right now?",
+            "weight": "1",
+            "is_tiebreaker": false,
+            "answer_a_text": "Stay focused and productive",
+            "answer_a_type": "E",
+            "answer_b_text": "Stay calm and balanced",
+            "answer_b_type": "S",
+            "answer_c_text": "Stop cravings and feel satisfied",
+            "answer_c_type": "C"
+          }
+        },
         "result_e": {
           "type": "result_type",
           "settings": {
@@ -212,6 +226,7 @@
         "question_izbC9N",
         "question_gJFCxP",
         "question_pe8Nb6",
+        "question_FnwVRh",
         "result_e",
         "result_s",
         "result_c"

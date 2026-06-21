@@ -26,6 +26,20 @@
             "answer_c_type": "C"
           }
         },
+        "question_MCyPEe": {
+          "type": "question",
+          "settings": {
+            "question_text": "What are you usually looking for in a snack?",
+            "weight": "1",
+            "is_tiebreaker": false,
+            "answer_a_text": "Something that keeps me focused and sharp",
+            "answer_a_type": "E",
+            "answer_b_text": "Something that helps me stay calm and balanced",
+            "answer_b_type": "S",
+            "answer_c_text": "Something satisfying that actually stops cravings",
+            "answer_c_type": "C"
+          }
+        },
         "result_e": {
           "type": "result_type",
           "settings": {
@@ -137,6 +151,7 @@
       },
       "block_order": [
         "question_PetMAk",
+        "question_MCyPEe",
         "result_e",
         "result_s",
         "result_c"

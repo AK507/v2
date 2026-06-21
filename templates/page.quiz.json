@@ -68,6 +68,20 @@
             "answer_c_type": "C"
           }
         },
+        "question_gJFCxP": {
+          "type": "question",
+          "settings": {
+            "question_text": "What matters most in a snack?",
+            "weight": "1",
+            "is_tiebreaker": false,
+            "answer_a_text": "Steady energy and mental focus",
+            "answer_a_type": "E",
+            "answer_b_text": "Balance and feeling calm after eating",
+            "answer_b_type": "S",
+            "answer_c_text": "Satisfaction without guilt or crash",
+            "answer_c_type": "C"
+          }
+        },
         "result_e": {
           "type": "result_type",
           "settings": {
@@ -182,6 +196,7 @@
         "question_MCyPEe",
         "question_X6jCbt",
         "question_izbC9N",
+        "question_gJFCxP",
         "result_e",
         "result_s",
         "result_c"

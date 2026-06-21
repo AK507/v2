@@ -12,7 +12,7 @@
         {% endif %}
       </div>
       <div class="fb-eyebrow">{{ section.settings.eyebrow }}</div>
-      <h2 class="fb-title">{{ section.settings.heading }}</h2>
+      <h2 class="fb-title">{{ section.settings.heading | newline_to_br }}</h2>
       <p class="fb-desc">{{ section.settings.description }}</p>
       
       <div class="fb-includes">
@@ -304,6 +304,20 @@
       font-size: 48px;
     }
   }
+
+  @media (max-width: 767px) {
+    .featured-bundle {
+      padding: 48px 24px;
+    }
+
+    .fb-title {
+      font-size: 52px;
+    }
+
+    .fb-product-display {
+      padding: 32px 24px;
+    }
+  }
 {% endstylesheet %}
 
 {% schema %}
@@ -330,7 +344,7 @@
       "default": "Featured Bundle"
     },
     {
-      "type": "text",
+      "type": "textarea",
       "id": "heading",
       "label": "Heading",
       "default": "Try All\nThree"

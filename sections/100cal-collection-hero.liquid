@@ -6,7 +6,10 @@
     <h1 class="col-hero-h1">
       {{ section.settings.heading }}
       {% if section.settings.highlight != blank %}
-        <em>{{ section.settings.highlight }}</em>
+        <br><em>{{ section.settings.highlight }}</em>
+      {% endif %}
+      {% if section.settings.heading_last != blank %}
+        <br>{{ section.settings.heading_last }}
       {% endif %}
     </h1>
     <p class="col-hero-sub">{{ section.settings.subheading }}</p>
@@ -243,6 +246,45 @@
     font-size: 11px;
     color: rgba(255, 255, 255, 0.35);
   }
+
+  @media (max-width: 1024px) {
+    .col-hero {
+      padding: 48px;
+      gap: 40px;
+    }
+
+    .col-hero-h1 {
+      font-size: 52px;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .col-hero {
+      grid-template-columns: 1fr;
+      padding: 48px 24px;
+      gap: 36px;
+    }
+
+    .col-hero::before {
+      display: none;
+    }
+
+    .col-hero-h1 {
+      font-size: 44px;
+    }
+
+    .col-hero-right {
+      order: -1;
+    }
+
+    .mini-product-stack {
+      gap: 8px;
+    }
+
+    .mini-prod-visual {
+      height: 120px;
+    }
+  }
 {% endstylesheet %}
 
 {% schema %}
@@ -267,6 +309,12 @@
       "id": "highlight",
       "label": "Highlighted Word (italicized)",
       "default": "Balancing"
+    },
+    {
+      "type": "text",
+      "id": "heading_last",
+      "label": "Heading Last Line",
+      "default": "Snacks"
     },
     {
       "type": "textarea",

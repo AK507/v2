@@ -20,10 +20,10 @@
               <span class="hc-product-card__icon">{{ block.settings.icon | escape }}</span>
             {% endif %}
             {% if block.settings.badge != blank %}
-              <span class="hc-badge hc-badge--{{ block.settings.badge_color }}">{{ block.settings.badge | escape }}</span>
+              <span class="hc-badge badge-left hc-badge--{{ block.settings.badge_color }}">{{ block.settings.badge | escape }}</span>
             {% endif %}
             {% if block.settings.sub_badge != blank %}
-              <span class="hc-sub-badge">{{ block.settings.sub_badge | escape }}</span>
+              <span class="sub-badge">{{ block.settings.sub_badge | escape }}</span>
             {% endif %}
           </a>
           <div class="hc-product-card__body">
@@ -70,6 +70,63 @@
     </div>
   </section>
 </div>
+
+{% stylesheet %}
+  .hc-products {
+    background: var(--white);
+    padding: 80px;
+  }
+
+  .hc-section-header {
+    text-align: left;
+  }
+
+  .hc-macros {
+    display: flex;
+    gap: 16px;
+    padding: 14px 0;
+    border-top: 1px solid var(--neutral-light);
+    border-bottom: 1px solid var(--neutral-light);
+    margin-bottom: 20px;
+    grid-template-columns: unset;
+  }
+
+  .hc-macro {
+    flex: 1;
+  }
+
+  .hc-product-benefits {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 22px;
+  }
+
+  .hc-product-benefit {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-body);
+    font-size: 14px;
+    color: var(--ink-mid);
+  }
+
+  .hc-product-benefit-dot {
+    width: 6px;
+    height: 6px;
+    background: var(--teal);
+    flex-shrink: 0;
+    display: block;
+  }
+
+  .hc-sub-note {
+    text-align: center;
+    margin-top: 10px;
+    font-family: var(--font-body);
+    font-size: 12px;
+    color: var(--ink-light);
+  }
+{% endstylesheet %}
 
 {% schema %}
 {

@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shop All — 100CalSnacks</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,700;0,900;1,900&family=Barlow:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --black:#0F1213;--white:#FFFFFF;
+  --teal:#66CCCC;--teal-light:#C2EBEB;--teal-dark:#3A9999;
+  --orange:#E66443;--yellow:#E9AD3C;--red:#D50000;
+  --neutral-warm:#E8D7C3;--neutral-mid:#DDD8CC;--neutral-light:#EAE9E5;
+  --ink-mid:#444;--ink-light:#888;
+  --font-head:'Barlow Condensed',sans-serif;
+  --font-body:'Barlow',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-body);font-weight:400;color:var(--black);background:var(--white);overflow-x:hidden}
+
+/* ===== TOPBAR — exact from homepage ===== */
+.topbar{background:var(--black);color:var(--white);text-align:center;padding:10px 24px;font-family:var(--font-head);font-weight:700;font-size:13px;letter-spacing:1.5px;text-transform:uppercase}
+.topbar span{color:var(--teal);margin:0 12px}
+
+/* ===== NAV — exact from homepage ===== */
+nav{position:sticky;top:0;z-index:100;background:var(--white);border-bottom:2px solid var(--black);display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:72px}
+.nav-logo{display:flex;align-items:center;gap:14px}
+.nav-logo img.nav-icon{height:48px;width:auto}
+.nav-brand-name{font-family:var(--font-head);font-weight:900;font-size:22px;letter-spacing:1px;text-transform:uppercase;line-height:1}
+.nav-brand-name span{color:var(--orange)}
+.nav-brand-tagline img{height:14px;margin-top:5px;opacity:0.55;display:block}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{font-family:var(--font-head);font-weight:700;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;color:var(--black);transition:color .2s}
+.nav-links a:hover{color:var(--teal-dark)}
+.nav-links a.active{color:var(--teal-dark);border-bottom:2px solid var(--teal);padding-bottom:2px}
+.nav-ctas{display:flex;gap:12px;align-items:center}
+.btn-ghost{font-family:var(--font-head);font-weight:700;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;padding:10px 20px;border:2px solid var(--black);background:transparent;cursor:pointer;text-decoration:none;color:var(--black);transition:all .2s}
+.btn-ghost:hover{background:var(--black);color:var(--white)}
+.btn-primary{font-family:var(--font-head);font-weight:900;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;padding:12px 24px;background:var(--teal);color:var(--black);border:none;cursor:pointer;text-decoration:none;display:inline-block;transition:all .2s}
+.btn-primary:hover{background:var(--teal-dark);color:var(--white)}
+.btn-black{font-family:var(--font-head);font-weight:900;font-size:14px;letter-spacing:1.5px;text-transform:uppercase;padding:16px 32px;background:var(--black);color:var(--white);border:none;cursor:pointer;text-decoration:none;display:inline-block;transition:all .2s}
+.btn-black:hover{background:var(--teal);color:var(--black)}
+
+/* ===== FOOTER — exact from homepage ===== */
+footer{background:var(--black);padding:80px;border-top:4px solid var(--teal)}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:48px;margin-bottom:56px}
+.footer-bio{font-family:var(--font-body);font-size:13px;color:rgba(255,255,255,.35);line-height:1.7;margin-top:14px}
+.footer-col-title{font-family:var(--font-head);font-weight:900;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--teal);margin-bottom:18px}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:11px}
+.footer-links a{font-family:var(--font-body);font-size:13px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .2s}
+.footer-links a:hover{color:var(--white)}
+.footer-btm{display:flex;align-items:center;justify-content:space-between;padding-top:28px;border-top:1px solid rgba(255,255,255,.08)}
+.footer-copy{font-family:var(--font-body);font-size:12px;color:rgba(255,255,255,.25);letter-spacing:1px}
+.woman-badge{font-family:var(--font-head);font-weight:700;font-size:11px;letter-spacing:2px;text-transform:uppercase;padding:8px 16px;border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.4)}
+
+/* ===== COLLECTION HERO ===== */
+.col-hero{background:var(--black);padding:52px 80px 48px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;position:relative;overflow:hidden}
+.col-hero::before{content:'SHOP';position:absolute;right:-40px;top:50%;transform:translateY(-50%);font-family:var(--font-head);font-weight:900;font-size:320px;text-transform:uppercase;color:rgba(102,204,204,.03);line-height:1;pointer-events:none;letter-spacing:-10px}
+.col-hero-left{position:relative;z-index:2}
+.col-hero-eyebrow{font-family:var(--font-head);font-weight:700;font-size:12px;letter-spacing:4px;text-transform:uppercase;color:var(--teal);margin-bottom:16px}
+.col-hero-h1{font-family:var(--font-head);font-weight:900;font-size:64px;line-height:.92;color:var(--white);text-transform:uppercase;margin-bottom:20px}
+.col-hero-h1 em{font-style:italic;color:var(--teal)}
+.col-hero-sub{font-family:var(--font-body);font-weight:300;font-size:17px;line-height:1.65;color:rgba(255,255,255,.6);max-width:440px;margin-bottom:32px}
+.col-hero-ctas{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.col-hero-right{position:relative;z-index:2;display:flex;align-items:center;justify-content:center}
+.mini-product-stack{display:flex;gap:12px;align-items:flex-end}
+.mini-prod{flex:1;border:1px solid rgba(102,204,204,.2);padding:0;text-align:center;transition:transform .3s,border-color .3s,box-shadow .3s;cursor:pointer;overflow:hidden;position:relative}
+.mini-prod:hover{transform:translateY(-8px);border-color:rgba(102,204,204,.5);box-shadow:0 16px 40px rgba(0,0,0,.4)}
+.mini-prod:nth-child(2){transform:translateY(-16px)}
+.mini-prod:nth-child(2):hover{transform:translateY(-24px)}
+/* Stylized product illustration area */
+.mini-prod-visual{height:160px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.mini-prod-visual-choc{background:linear-gradient(160deg,#3d1c08 0%,#1a0a04 100%)}
+.mini-prod-visual-pb{background:linear-gradient(160deg,#3d2a0a 0%,#1f1204 100%)}
+.mini-prod-visual-bbq{background:linear-gradient(160deg,#3d1a08 0%,#1a0a00 100%)}
+/* SVG product shape */
+.mini-prod-visual svg{position:relative;z-index:2;filter:drop-shadow(0 6px 16px rgba(0,0,0,.5))}
+/* Glow blob behind product */
+.mini-prod-visual::before{content:'';position:absolute;width:90px;height:90px;border-radius:50%;filter:blur(24px);opacity:.35;z-index:1}
+.mini-prod-visual-choc::before{background:#e66443}
+.mini-prod-visual-pb::before{background:#e9ad3c}
+.mini-prod-visual-bbq::before{background:#e66443}
+/* Cal stamp */
+.mini-prod-cal-stamp{position:absolute;top:10px;right:10px;background:var(--teal);color:var(--black);font-family:var(--font-head);font-weight:900;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;padding:3px 8px;z-index:3}
+.mini-prod-footer{background:rgba(255,255,255,.04);border-top:1px solid rgba(102,204,204,.12);padding:14px 16px}
+.mini-prod-name{font-family:var(--font-head);font-weight:900;font-size:12px;text-transform:uppercase;color:var(--white);letter-spacing:1px;line-height:1.2;margin-bottom:3px}
+.mini-prod-type{font-family:var(--font-body);font-size:11px;color:rgba(255,255,255,.35)}
+
+/* ===== SUBSCRIBE STRIP ===== */
+.sub-strip{background:var(--teal-light);border-top:2px solid var(--teal);border-bottom:2px solid var(--teal);padding:14px 48px;display:flex;align-items:center;justify-content:center;gap:24px}
+.sub-strip-badge{background:var(--teal);color:var(--black);font-family:var(--font-head);font-weight:900;font-size:12px;letter-spacing:2px;text-transform:uppercase;padding:5px 14px}
+.sub-strip-text{font-family:var(--font-head);font-weight:700;font-size:14px;letter-spacing:2px;text-transform:uppercase;color:var(--teal-dark)}
+.sub-strip-sep{color:var(--teal-dark);opacity:.4;font-size:20px}
+.sub-strip-detail{font-family:var(--font-body);font-size:14px;color:rgba(0,0,0,.5)}
+
+/* ===== FEATURED BUNDLE ===== */
+.featured-bundle{background:var(--neutral-light);padding:80px;position:relative;overflow:hidden}
+.featured-bundle::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,transparent 60%,rgba(102,204,204,.08) 100%);pointer-events:none}
+.fb-inner{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;max-width:1200px;margin:0 auto;position:relative;z-index:2}
+.fb-badge-row{display:flex;align-items:center;gap:12px;margin-bottom:20px}
+.fb-badge{background:var(--orange);color:var(--white);font-family:var(--font-head);font-weight:900;font-size:11px;letter-spacing:2px;text-transform:uppercase;padding:5px 14px}
+.fb-star-badge{background:var(--yellow);color:var(--black);font-family:var(--font-head);font-weight:900;font-size:11px;letter-spacing:2px;text-transform:uppercase;padding:5px 14px}
+.fb-eyebrow{font-family:var(--font-head);font-weight:700;font-size:12px;letter-spacing:4px;text-transform:uppercase;color:var(--teal-dark);margin-bottom:14px}
+.fb-title{font-family:var(--font-head);font-weight:900;font-size:68px;line-height:.92;text-transform:uppercase;color:var(--black);margin-bottom:20px}
+.fb-desc{font-family:var(--font-body);font-size:17px;line-height:1.65;color:rgba(0,0,0,.6);margin-bottom:32px;max-width:440px}
+.fb-includes{display:flex;flex-direction:column;gap:10px;margin-bottom:36px}
+.fb-include-item{display:flex;align-items:center;gap:12px;font-family:var(--font-body);font-size:15px;color:var(--ink-mid)}
+.fi-dot{width:8px;height:8px;background:var(--teal);flex-shrink:0}
+.fb-price-row{display:flex;align-items:baseline;gap:14px;margin-bottom:28px}
+.fb-price{font-family:var(--font-head);font-weight:900;font-size:44px;color:var(--black);line-height:1}
+.fb-price-orig{font-family:var(--font-head);font-weight:700;font-size:24px;color:var(--ink-light);text-decoration:line-through}
+.fb-savings{font-family:var(--font-head);font-weight:700;font-size:14px;letter-spacing:1px;text-transform:uppercase;color:var(--orange)}
+.fb-product-display{background:var(--black);padding:48px 36px;position:relative;overflow:hidden}
+.fb-product-display::before{content:'SAMPLER';position:absolute;bottom:-10px;left:-10px;font-family:var(--font-head);font-weight:900;font-size:100px;text-transform:uppercase;color:rgba(102,204,204,.04);line-height:1;pointer-events:none}
+.fb-products-row{display:flex;gap:20px;justify-content:center;margin-bottom:28px;position:relative;z-index:2}
+.fb-prod-item{text-align:center}
+.fb-prod-icon{font-size:52px;display:block;margin-bottom:8px}
+.fb-prod-label{font-family:var(--font-head);font-weight:700;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.5)}
+.fb-stat-row{display:flex;position:relative;z-index:2}
+.fb-stat{flex:1;text-align:center;padding:16px 12px;border-right:1px solid rgba(255,255,255,.08)}
+.fb-stat:last-child{border-right:none}
+.fb-stat-num{font-family:var(--font-head);font-weight:900;font-size:28px;color:var(--teal);line-height:1}
+.fb-stat-lbl{font-family:var(--font-body);font-size:11px;color:rgba(255,255,255,.35);letter-spacing:1px;text-transform:uppercase;margin-top:4px}
+
+/* ===== PRODUCT GRID ===== */
+.product-grid-section{background:var(--white);padding:80px}
+.section-hdr{margin-bottom:52px}
+.s-eyebrow{font-family:var(--font-head);font-weight:700;font-size:12px;letter-spacing:4px;text-transform:uppercase;color:var(--teal-dark);margin-bottom:10px}
+.s-title{font-family:var(--font-head);font-weight:900;font-size:60px;text-transform:uppercase;color:var(--black);line-height:.92}
+.s-sub{font-family:var(--font-body);font-size:16px;color:var(--ink-light);margin-top:12px}
+.prod-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--black);border:2px solid var(--black)}
+.prod-card{background:var(--white);transition:transform .25s,box-shadow .25s;position:relative}
+.prod-card:hover{transform:translateY(-6px);box-shadow:0 20px 60px rgba(0,0,0,.15);z-index:2}
+.prod-img-area{aspect-ratio:1;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.prod-img-bg-choc{position:absolute;inset:0;background:linear-gradient(145deg,#1c1008,#0a0804)}
+.prod-img-bg-pb{position:absolute;inset:0;background:linear-gradient(145deg,#2a1a0a,#1a0f00)}
+.prod-img-bg-bbq{position:absolute;inset:0;background:linear-gradient(145deg,#1a1200,#0f0a00)}
+.prod-icon-main{position:relative;z-index:2;font-size:80px;filter:drop-shadow(0 8px 24px rgba(0,0,0,.5))}
+.prod-badge{position:absolute;top:16px;left:16px;font-family:var(--font-head);font-weight:900;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;padding:5px 12px;z-index:3}
+.badge-bs{background:var(--orange);color:var(--white)}
+.badge-new{background:var(--teal);color:var(--black)}
+.badge-keto{background:var(--yellow);color:var(--black)}
+.sub-badge{position:absolute;top:16px;right:16px;background:rgba(102,204,204,.15);border:1px solid rgba(102,204,204,.3);font-family:var(--font-head);font-weight:700;font-size:9px;letter-spacing:1px;text-transform:uppercase;padding:4px 10px;color:var(--teal);z-index:3}
+.prod-info{padding:28px 24px 32px}
+.prod-name{font-family:var(--font-head);font-weight:900;font-size:24px;text-transform:uppercase;color:var(--black);margin-bottom:2px;line-height:1.1}
+.prod-type{font-family:var(--font-body);font-size:13px;font-style:italic;color:var(--ink-light);margin-bottom:18px}
+.prod-benefits{display:flex;flex-direction:column;gap:6px;margin-bottom:22px}
+.prod-benefit{display:flex;align-items:center;gap:10px;font-family:var(--font-body);font-size:14px;color:var(--ink-mid)}
+.pb-dot{width:6px;height:6px;background:var(--teal);flex-shrink:0}
+.prod-macros{display:flex;gap:16px;padding:14px 0;border-top:1px solid var(--neutral-light);border-bottom:1px solid var(--neutral-light);margin-bottom:20px}
+.pm{text-align:center}
+.pm-num{font-family:var(--font-head);font-weight:900;font-size:20px;color:var(--black);line-height:1}
+.pm-lbl{font-family:var(--font-head);font-weight:700;font-size:9px;letter-spacing:1px;text-transform:uppercase;color:var(--ink-light);margin-top:2px}
+.prod-footer-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+.prod-price{font-family:var(--font-head);font-weight:900;font-size:28px;color:var(--black);line-height:1}
+.prod-stars{font-size:13px;color:var(--yellow);letter-spacing:1px}
+.prod-rev-count{font-family:var(--font-body);font-size:12px;color:var(--ink-light)}
+.add-btn{width:100%;padding:15px;font-family:var(--font-head);font-weight:900;font-size:13px;letter-spacing:2px;text-transform:uppercase;background:var(--black);color:var(--white);border:none;cursor:pointer;transition:all .25s}
+.add-btn:hover{background:var(--teal);color:var(--black)}
+.sub-note{text-align:center;margin-top:10px;font-family:var(--font-body);font-size:12px;color:var(--ink-light)}
+.sub-note a{color:var(--teal-dark);text-decoration:none}
+
+/* ===== BUNDLE SECTION ===== */
+.bundle-section .s-eyebrow{color:var(--teal-dark)}
+.bundle-section .s-title{color:var(--black)}
+.bundle-section .s-sub{color:var(--ink-light)}
+.bundle-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;margin-top:52px}
+
+/* Each card is a fully bordered, light-background panel */
+.bundle-card{background:var(--white);border:2px solid var(--black);padding:0;transition:transform .25s,box-shadow .25s;position:relative;overflow:hidden;display:flex;flex-direction:column}
+.bundle-card:hover{transform:translateY(-6px);box-shadow:0 20px 48px rgba(0,0,0,.12)}
+
+/* Card color header band — unique per card */
+.bc-header{padding:32px 32px 28px;position:relative;overflow:hidden}
+.bc-header-sampler{background:var(--teal)}
+.bc-header-duo{background:var(--neutral-light);border-bottom:2px solid var(--black)}
+.bc-header-stock{background:var(--black)}
+.bc-header::after{content:attr(data-word);position:absolute;bottom:-14px;right:-8px;font-family:var(--font-head);font-weight:900;font-size:88px;text-transform:uppercase;line-height:1;pointer-events:none;opacity:.08;color:var(--black)}
+.bc-header-stock::after{color:var(--white);opacity:.06}
+
+.bc-badge{display:inline-block;font-family:var(--font-head);font-weight:900;font-size:10px;letter-spacing:2px;text-transform:uppercase;padding:4px 12px;margin-bottom:16px}
+.bc-badge-sampler{background:var(--black);color:var(--teal)}
+.bc-badge-duo{background:var(--black);color:var(--white)}
+.bc-badge-stock{background:var(--teal);color:var(--black)}
+
+.bc-icon{font-size:44px;margin-bottom:12px;display:block;position:relative;z-index:2}
+.bc-title{font-family:var(--font-head);font-weight:900;font-size:42px;text-transform:uppercase;line-height:.95;margin-bottom:0;position:relative;z-index:2}
+.bc-title-sampler{color:var(--black)}
+.bc-title-duo{color:var(--black)}
+.bc-title-stock{color:var(--white)}
+
+/* Card body */
+.bc-body{padding:28px 32px 32px;display:flex;flex-direction:column;flex:1}
+.bc-sub{font-family:var(--font-body);font-size:14px;color:var(--ink-mid);margin-bottom:22px;line-height:1.65}
+.bc-includes{list-style:none;display:flex;flex-direction:column;gap:9px;margin-bottom:28px;flex:1}
+.bc-includes li{font-family:var(--font-body);font-size:14px;color:var(--ink-mid);display:flex;align-items:center;gap:10px;padding-bottom:9px;border-bottom:1px solid var(--neutral-light)}
+.bc-includes li:last-child{border-bottom:none;padding-bottom:0}
+.bc-includes li .bc-check{width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;flex-shrink:0;font-weight:900}
+.bc-check-teal{background:var(--teal-light);color:var(--teal-dark)}
+.bc-check-orange{background:rgba(230,100,67,.12);color:var(--orange)}
+.bc-check-black{background:var(--black);color:var(--teal)}
+
+.bc-price-row{display:flex;align-items:baseline;gap:10px;margin-bottom:20px}
+.bc-price{font-family:var(--font-head);font-weight:900;font-size:44px;color:var(--black);line-height:1}
+.bc-orig{font-family:var(--font-head);font-weight:700;font-size:22px;color:var(--ink-light);text-decoration:line-through}
+.bc-save{font-family:var(--font-head);font-weight:900;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;padding:4px 10px}
+.bc-save-teal{background:var(--teal-light);color:var(--teal-dark)}
+.bc-save-orange{background:rgba(230,100,67,.12);color:var(--orange)}
+.bc-save-black{background:var(--black);color:var(--teal)}
+
+.bc-btn{width:100%;padding:15px;font-family:var(--font-head);font-weight:900;font-size:13px;letter-spacing:2px;text-transform:uppercase;border:none;cursor:pointer;transition:all .25s}
+.bc-btn-sampler{background:var(--black);color:var(--white)}
+.bc-btn-sampler:hover{background:var(--teal);color:var(--black)}
+.bc-btn-duo{background:transparent;color:var(--black);border:2px solid var(--black)}
+.bc-btn-duo:hover{background:var(--black);color:var(--white)}
+.bc-btn-stock{background:var(--teal);color:var(--black)}
+.bc-btn-stock:hover{background:var(--teal-dark);color:var(--white)}
+
+/* Featured ring on sampler */
+.bundle-card.is-featured{border-color:var(--teal);border-width:3px}
+
+/* UX tweak: raise badge higher in sampler header */
+.bc-header-sampler .bc-badge{margin-bottom:20px;margin-top:-4px}
+
+/* UX tweak: hover zoom on product image icons */
+.prod-icon-main{position:relative;z-index:2;font-size:80px;filter:drop-shadow(0 8px 24px rgba(0,0,0,.5));transition:transform .3s ease}
+.prod-img-area:hover .prod-icon-main{transform:scale(1.08)}
+
+/* UX tweak: extra whitespace above bundle section */
+.bundle-section{background:var(--white);padding:80px;border-top:2px solid var(--neutral-light);margin-top:40px}
+
+/* ===== BENEFITS STRIP ===== */
+.benefits-strip{background:var(--teal);border-top:2px solid var(--teal-dark);border-bottom:2px solid var(--teal-dark);overflow:hidden}
+.bs-inner{display:flex;align-items:stretch;justify-content:center}
+.bs-item{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:32px 40px;flex:1;border-right:1px solid rgba(0,0,0,.1);transition:background .2s}
+.bs-item:last-child{border-right:none}
+.bs-item:hover{background:rgba(0,0,0,.06)}
+.bs-icon{font-size:26px}
+.bs-label{font-family:var(--font-head);font-weight:900;font-size:13px;letter-spacing:2px;text-transform:uppercase;color:var(--black);text-align:center}
+.bs-sub{font-family:var(--font-body);font-size:12px;color:rgba(0,0,0,.5);text-align:center}
+
+/* ===== SOCIAL PROOF ===== */
+.social-proof{background:var(--neutral-light);padding:80px}
+.sp-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:52px}
+.sp-rating-block{display:flex;align-items:center;gap:24px}
+.sp-big-num{font-family:var(--font-head);font-weight:900;font-size:80px;color:var(--black);line-height:1}
+.sp-stars{font-size:22px;color:var(--yellow);letter-spacing:2px;display:block;margin-bottom:4px}
+.sp-count{font-family:var(--font-body);font-size:14px;color:var(--ink-light)}
+.sp-headline{font-family:var(--font-head);font-weight:900;font-size:22px;text-transform:uppercase;color:var(--black);margin-top:6px}
+.sp-cta-link{font-family:var(--font-head);font-weight:700;font-size:13px;letter-spacing:2px;text-transform:uppercase;color:var(--teal-dark);text-decoration:none;border-bottom:2px solid var(--teal);padding-bottom:2px}
+.sp-cta-link:hover{color:var(--black)}
+.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:rgba(0,0,0,.12);border:2px solid rgba(0,0,0,.12)}
+.review-card{background:var(--white);padding:32px 28px}
+.r-tag{display:inline-block;font-family:var(--font-head);font-weight:700;font-size:10px;letter-spacing:2px;text-transform:uppercase;padding:4px 10px;margin-bottom:14px}
+.r-tag-gut{background:var(--teal-light);color:var(--teal-dark)}
+.r-tag-energy{background:var(--yellow);color:rgba(0,0,0,.7)}
+.r-tag-stress{background:rgba(230,100,67,.12);color:var(--orange)}
+.r-stars{font-size:14px;color:var(--yellow);letter-spacing:2px;margin-bottom:14px}
+.r-quote{font-family:var(--font-body);font-size:15px;font-style:italic;font-weight:300;color:rgba(0,0,0,.75);line-height:1.7;margin-bottom:18px}
+.r-name{font-family:var(--font-head);font-weight:900;font-size:12px;text-transform:uppercase;letter-spacing:1px;color:var(--ink-light)}
+.r-product{font-family:var(--font-body);font-size:12px;color:var(--teal-dark);margin-top:3px}
+
+/* ===== QUIZ CTA ===== */
+.quiz-cta{background:linear-gradient(135deg,var(--teal-dark) 0%,var(--teal) 50%,#8EDDDD 100%);padding:80px;display:flex;align-items:center;justify-content:space-between;gap:60px;position:relative;overflow:hidden}
+.quiz-cta::before{content:'?';position:absolute;right:80px;top:50%;transform:translateY(-50%);font-family:var(--font-head);font-weight:900;font-size:400px;color:rgba(0,0,0,.06);line-height:1;pointer-events:none}
+.quiz-left{position:relative;z-index:2}
+.quiz-eyebrow{font-family:var(--font-head);font-weight:700;font-size:12px;letter-spacing:4px;text-transform:uppercase;color:rgba(0,0,0,.5);margin-bottom:16px}
+.quiz-title{font-family:var(--font-head);font-weight:900;font-size:60px;line-height:.92;text-transform:uppercase;color:var(--black);margin-bottom:16px}
+.quiz-sub{font-family:var(--font-body);font-size:17px;color:rgba(0,0,0,.6);line-height:1.6;max-width:480px}
+.quiz-right{position:relative;z-index:2;flex-shrink:0}
+.quiz-card{background:rgba(255,255,255,.25);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.5);padding:36px 40px;text-align:center;min-width:280px}
+.quiz-card-icon{font-size:48px;margin-bottom:14px;display:block}
+.quiz-card-title{font-family:var(--font-head);font-weight:900;font-size:20px;text-transform:uppercase;color:var(--black);margin-bottom:8px}
+.quiz-card-sub{font-family:var(--font-body);font-size:13px;color:rgba(0,0,0,.55);margin-bottom:24px;line-height:1.5}
+.btn-teal{font-family:var(--font-head);font-weight:900;font-size:13px;letter-spacing:2px;text-transform:uppercase;padding:16px 36px;background:var(--black);color:var(--white);border:none;cursor:pointer;text-decoration:none;display:inline-block;transition:all .25s}
+.btn-teal:hover{background:var(--teal-dark);color:var(--white)}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR — exact from homepage -->
+<div class="topbar">
+  Free Shipping on Orders $25+<span>·</span>Subscribe &amp; Save 10% <span>·</span>Now Available in Stores
+</div>
+
+<!-- NAV — exact from homepage -->
+<nav>
+  <div></div>
+  <ul class="nav-links">
+    <li><a href="#" class="active">Shop All</a></li>
+    <li><a href="#">Gut Brain Health 101</a></li>
+    <li><a href="#">Our Science</a></li>
+    <li><a href="#">Our Story</a></li>
+    <li><a href="#">Reviews</a></li>
+    <li><a href="#">Find In Store</a></li>
+  </ul>
+  <div class="nav-ctas" style="display:flex;gap:12px;align-items:center">
+    <button style="background:none;border:none;cursor:pointer;padding:8px;display:flex;align-items:center" title="Search">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    </button>
+    <button style="background:none;border:none;cursor:pointer;padding:8px;display:flex;align-items:center;position:relative" title="Cart">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+      <span style="position:absolute;top:2px;right:2px;background:var(--orange);color:white;font-size:9px;font-weight:900;width:14px;height:14px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-head)">0</span>
+    </button>
+    <a href="#" class="btn-ghost">Log In</a>
+    <a href="#" class="btn-primary">Try It First →</a>
+  </div>
+</nav>
+
+<!-- 1. COLLECTION HERO -->
+<section class="col-hero">
+  <div class="col-hero-left">
+    <div class="col-hero-eyebrow">All Products</div>
+    <h1 class="col-hero-h1">Gut-Brain<br><em>Balancing</em><br>Snacks</h1>
+    <p class="col-hero-sub">Steady energy. Calmer cravings. Just 100 calories.</p>
+    <div class="col-hero-ctas">
+      <a href="#sampler" class="btn-primary" style="padding:18px 36px;font-size:16px">Shop Sampler</a>
+      <a href="#quiz" style="font-family:var(--font-head);font-weight:700;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;padding:16px 28px;border:2px solid rgba(255,255,255,.25);color:rgba(255,255,255,.7);text-decoration:none;display:inline-block;transition:all .2s">Take the Quiz</a>
+    </div>
+  </div>
+  <div class="col-hero-right">
+    <div class="mini-product-stack">
+
+      <!-- Chocolate Brownie -->
+      <div class="mini-prod">
+        <div class="mini-prod-visual mini-prod-visual-choc">
+          <span class="mini-prod-cal-stamp">100 Cal</span>
+          <svg width="72" height="100" viewBox="0 0 72 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="8" y="10" width="56" height="80" rx="6" fill="#5C2D0E"/>
+            <rect x="8" y="10" width="56" height="80" rx="6" fill="url(#chocGrad)"/>
+            <rect x="14" y="18" width="44" height="12" rx="2" fill="rgba(255,255,255,.08)"/>
+            <rect x="14" y="34" width="44" height="3" rx="1.5" fill="rgba(255,255,255,.06)"/>
+            <rect x="14" y="40" width="30" height="3" rx="1.5" fill="rgba(255,255,255,.06)"/>
+            <rect x="14" y="50" width="44" height="28" rx="3" fill="rgba(0,0,0,.2)"/>
+            <text x="36" y="69" text-anchor="middle" font-family="sans-serif" font-weight="900" font-size="10" fill="rgba(255,255,255,.5)" letter-spacing="1">BROWNIE</text>
+            <rect x="8" y="10" width="56" height="80" rx="6" fill="none" stroke="rgba(230,100,67,.4)" stroke-width="1.5"/>
+            <defs>
+              <linearGradient id="chocGrad" x1="8" y1="10" x2="64" y2="90" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#7B3A14"/>
+                <stop offset="100%" stop-color="#2D0E04"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <div class="mini-prod-footer">
+          <div class="mini-prod-name">Chocolate Brownie</div>
+          <div class="mini-prod-type">Protein Bar</div>
+        </div>
+      </div>
+
+      <!-- Peanut Butter -->
+      <div class="mini-prod">
+        <div class="mini-prod-visual mini-prod-visual-pb">
+          <span class="mini-prod-cal-stamp">100 Cal</span>
+          <svg width="72" height="100" viewBox="0 0 72 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="8" y="10" width="56" height="80" rx="6" fill="url(#pbGrad)"/>
+            <rect x="14" y="18" width="44" height="12" rx="2" fill="rgba(255,255,255,.09)"/>
+            <rect x="14" y="34" width="44" height="3" rx="1.5" fill="rgba(255,255,255,.07)"/>
+            <rect x="14" y="40" width="30" height="3" rx="1.5" fill="rgba(255,255,255,.07)"/>
+            <rect x="14" y="50" width="44" height="28" rx="3" fill="rgba(0,0,0,.18)"/>
+            <text x="36" y="69" text-anchor="middle" font-family="sans-serif" font-weight="900" font-size="10" fill="rgba(255,255,255,.5)" letter-spacing="1">PB BAR</text>
+            <rect x="8" y="10" width="56" height="80" rx="6" fill="none" stroke="rgba(233,173,60,.4)" stroke-width="1.5"/>
+            <defs>
+              <linearGradient id="pbGrad" x1="8" y1="10" x2="64" y2="90" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#8B5C14"/>
+                <stop offset="100%" stop-color="#3A2004"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <div class="mini-prod-footer">
+          <div class="mini-prod-name">Peanut Butter</div>
+          <div class="mini-prod-type">Protein Bar</div>
+        </div>
+      </div>
+
+      <!-- BBQ Puffs -->
+      <div class="mini-prod">
+        <div class="mini-prod-visual mini-prod-visual-bbq">
+          <span class="mini-prod-cal-stamp">100 Cal</span>
+          <svg width="72" height="100" viewBox="0 0 72 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Puffs bag shape -->
+            <path d="M16 20 Q14 14 22 12 L50 12 Q58 14 56 20 L60 78 Q62 88 54 88 L18 88 Q10 88 12 78 Z" fill="url(#bbqGrad)"/>
+            <path d="M16 20 Q14 14 22 12 L50 12 Q58 14 56 20 L60 78 Q62 88 54 88 L18 88 Q10 88 12 78 Z" fill="none" stroke="rgba(230,100,67,.4)" stroke-width="1.5"/>
+            <rect x="18" y="18" width="36" height="10" rx="2" fill="rgba(255,255,255,.08)"/>
+            <!-- puff circles -->
+            <circle cx="28" cy="52" r="7" fill="rgba(255,255,255,.1)"/>
+            <circle cx="44" cy="48" r="6" fill="rgba(255,255,255,.1)"/>
+            <circle cx="36" cy="62" r="8" fill="rgba(255,255,255,.08)"/>
+            <text x="36" y="79" text-anchor="middle" font-family="sans-serif" font-weight="900" font-size="9" fill="rgba(255,255,255,.5)" letter-spacing="1">BBQ PUFFS</text>
+            <defs>
+              <linearGradient id="bbqGrad" x1="12" y1="12" x2="60" y2="88" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#8B2A0A"/>
+                <stop offset="100%" stop-color="#2D0C00"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <div class="mini-prod-footer">
+          <div class="mini-prod-name">BBQ Protein Puffs</div>
+          <div class="mini-prod-type">Savory Snack</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- 2. SUBSCRIBE STRIP -->
+<div class="sub-strip">
+  <span class="sub-strip-badge">Save 10%</span>
+  <span class="sub-strip-text">Subscribe &amp; Save</span>
+  <span class="sub-strip-sep">·</span>
+  <span class="sub-strip-detail">Your gut-brain snack delivered automatically. Skip or cancel anytime.</span>
+</div>
+
+<!-- 3. FEATURED BUNDLE HERO CARD -->
+<section class="featured-bundle" id="sampler">
+  <div class="fb-inner">
+    <div>
+      <div class="fb-badge-row">
+        <span class="fb-badge">Most Popular</span>
+        <span class="fb-star-badge">⭐ Best for First-Time Buyers</span>
+      </div>
+      <div class="fb-eyebrow">Featured Bundle</div>
+      <h2 class="fb-title">Try All<br>Three</h2>
+      <p class="fb-desc">Our best way to start. Explore every flavor in one box — and find out what your gut and your cravings actually want.</p>
+      <div class="fb-includes">
+        <div class="fb-include-item"><div class="fi-dot"></div><span>🍫 <strong>Chocolate Brownie Protein Bar</strong></span></div>
+        <div class="fb-include-item"><div class="fi-dot"></div><span>🥜 <strong>Peanut Butter Protein Bar</strong></span></div>
+        <div class="fb-include-item"><div class="fi-dot"></div><span>🌽 <strong>BBQ Protein Puffs</strong></span></div>
+      </div>
+      <div class="fb-price-row">
+        <span class="fb-price">$28</span>
+        <span class="fb-price-orig">$30</span>
+        <span class="fb-savings">Save 5%</span>
+      </div>
+      <a href="#" class="btn-black" style="font-size:15px">Shop Sampler</a>
+      <p style="font-family:var(--font-body);font-size:13px;color:var(--ink-light);margin-top:14px">Or subscribe and save an extra 10%.</p>
+    </div>
+    <div>
+      <div class="fb-product-display">
+        <div class="fb-products-row">
+          <div class="fb-prod-item">
+            <span class="fb-prod-icon">🍫</span>
+            <div class="fb-prod-label">Choc Brownie</div>
+          </div>
+          <div class="fb-prod-item">
+            <span class="fb-prod-icon">🥜</span>
+            <div class="fb-prod-label">Peanut Butter</div>
+          </div>
+          <div class="fb-prod-item">
+            <span class="fb-prod-icon">🌽</span>
+            <div class="fb-prod-label">BBQ Puffs</div>
+          </div>
+        </div>
+        <div class="fb-stat-row">
+          <div class="fb-stat"><div class="fb-stat-num">3</div><div class="fb-stat-lbl">Flavors</div></div>
+          <div class="fb-stat"><div class="fb-stat-num">100</div><div class="fb-stat-lbl">Cal Each</div></div>
+          <div class="fb-stat"><div class="fb-stat-num">0g</div><div class="fb-stat-lbl">Sugar Alcohols</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. MAIN PRODUCT GRID -->
+<section class="product-grid-section">
+  <div class="section-hdr">
+    <div class="s-eyebrow">Shop Individual</div>
+    <h2 class="s-title">The Gut-Brain<br>Snack Lineup</h2>
+    <p class="s-sub">Three snacks designed for steady energy and calmer cravings.</p>
+  </div>
+  <div class="prod-grid">
+
+    <!-- Chocolate Brownie -->
+    <div class="prod-card">
+      <div class="prod-img-area">
+        <div class="prod-img-bg-choc"></div>
+        <span class="prod-icon-main">🍫</span>
+        <span class="prod-badge badge-bs">Best Seller</span>
+        <span class="sub-badge">Sub &amp; Save 10%</span>
+      </div>
+      <div class="prod-info">
+        <div class="prod-name">Chocolate Brownie</div>
+        <div class="prod-type">Protein Bar · Gut-Brain Formula</div>
+        <div class="prod-benefits">
+          <div class="prod-benefit"><div class="pb-dot"></div>Steady Energy Without the Crash</div>
+          <div class="prod-benefit"><div class="pb-dot"></div>Calms Cravings Naturally</div>
+          <div class="prod-benefit"><div class="pb-dot"></div>100 Clean Calories</div>
+        </div>
+        <div class="prod-macros">
+          <div class="pm"><div class="pm-num">100</div><div class="pm-lbl">Calories</div></div>
+          <div class="pm"><div class="pm-num">10g</div><div class="pm-lbl">Protein</div></div>
+          <div class="pm"><div class="pm-num">5g</div><div class="pm-lbl">Fiber</div></div>
+          <div class="pm"><div class="pm-num">0g</div><div class="pm-lbl">Sugar Alcohol</div></div>
+        </div>
+        <div class="prod-footer-row">
+          <span class="prod-price">$18.99</span>
+          <div><span class="prod-stars">★★★★★</span> <span class="prod-rev-count">(96)</span></div>
+        </div>
+        <button class="add-btn">Add to Cart</button>
+        <p class="sub-note">Subscribe for 10% off · <a href="#">Learn more</a></p>
+      </div>
+    </div>
+
+    <!-- Peanut Butter -->
+    <div class="prod-card">
+      <div class="prod-img-area">
+        <div class="prod-img-bg-pb"></div>
+        <span class="prod-icon-main">🥜</span>
+        <span class="prod-badge badge-new">New</span>
+        <span class="sub-badge">Sub &amp; Save 10%</span>
+      </div>
+      <div class="prod-info">
+        <div class="prod-name">Peanut Butter</div>
+        <div class="prod-type">Protein Bar · Gut-Brain Formula</div>
+        <div class="prod-benefits">
+          <div class="prod-benefit"><div class="pb-dot"></div>Supports Gut Microbiome</div>
+          <div class="prod-benefit"><div class="pb-dot"></div>Sustained Focus &amp; Calm</div>
+          <div class="prod-benefit"><div class="pb-dot"></div>100 Clean Calories</div>
+        </div>
+        <div class="prod-macros">
+          <div class="pm"><div class="pm-num">100</div><div class="pm-lbl">Calories</div></div>
+          <div class="pm"><div class="pm-num">10g</div><div class="pm-lbl">Protein</div></div>
+          <div class="pm"><div class="pm-num">5g</div><div class="pm-lbl">Fiber</div></div>
+          <div class="pm"><div class="pm-num">0g</div><div class="pm-lbl">Sugar Alcohol</div></div>
+        </div>
+        <div class="prod-footer-row">
+          <span class="prod-price">$19.49</span>
+          <div><span class="prod-stars">★★★★★</span> <span class="prod-rev-count">New</span></div>
+        </div>
+        <button class="add-btn">Add to Cart</button>
+        <p class="sub-note">Subscribe for 10% off · <a href="#">Learn more</a></p>
+      </div>
+    </div>
+
+    <!-- BBQ Puffs -->
+    <div class="prod-card">
+      <div class="prod-img-area">
+        <div class="prod-img-bg-bbq"></div>
+        <span class="prod-icon-main">🌽</span>
+        <span class="prod-badge badge-keto">Keto 2.0</span>
+        <span class="sub-badge">Sub &amp; Save 10%</span>
+      </div>
+      <div class="prod-info">
+        <div class="prod-name">BBQ Protein Puffs</div>
+        <div class="prod-type">Savory Snack · Gut-Brain Formula</div>
+        <div class="prod-benefits">
+          <div class="prod-benefit"><div class="pb-dot"></div>Prebiotic Fiber for Gut Health</div>
+          <div class="prod-benefit"><div class="pb-dot"></div>Curbs Cortisol-Driven Cravings</div>
+          <div class="prod-benefit"><div class="pb-dot"></div>100 Clean Calories</div>
+        </div>
+        <div class="prod-macros">
+          <div class="pm"><div class="pm-num">100</div><div class="pm-lbl">Calories</div></div>
+          <div class="pm"><div class="pm-num">10g</div><div class="pm-lbl">Protein</div></div>
+          <div class="pm"><div class="pm-num">5g</div><div class="pm-lbl">Fiber</div></div>
+          <div class="pm"><div class="pm-num">0g</div><div class="pm-lbl">Sugar Alcohol</div></div>
+        </div>
+        <div class="prod-footer-row">
+          <span class="prod-price">$24.99</span>
+          <div><span class="prod-stars">★★★★★</span> <span class="prod-rev-count">(58)</span></div>
+        </div>
+        <button class="add-btn">Add to Cart</button>
+        <p class="sub-note">Subscribe for 10% off · <a href="#">Learn more</a></p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- 5. BUNDLE SECTION -->
+<section class="bundle-section">
+  <div class="section-hdr">
+    <div class="s-eyebrow">Save More</div>
+    <h2 class="s-title">Build Your Bundle</h2>
+    <p class="s-sub">Stock up smart. Every bundle ships free.</p>
+  </div>
+  <div class="bundle-grid">
+
+    <!-- SAMPLER — teal header, featured -->
+    <div class="bundle-card is-featured">
+      <div class="bc-header bc-header-sampler" data-word="SAMPLER">
+        <span class="bc-badge bc-badge-sampler">⭐ Most Popular</span>
+        <span class="bc-icon">🎁</span>
+        <div class="bc-title bc-title-sampler">Sampler<br>Pack</div>
+      </div>
+      <div class="bc-body">
+        <p class="bc-sub">Our best way to start. Try all three flavors and discover what your gut and your cravings actually want.</p>
+        <ul class="bc-includes">
+          <li><span class="bc-check bc-check-teal">✓</span>🍫 Chocolate Brownie Protein Bar</li>
+          <li><span class="bc-check bc-check-teal">✓</span>🥜 Peanut Butter Protein Bar</li>
+          <li><span class="bc-check bc-check-teal">✓</span>🌽 BBQ Protein Puffs</li>
+          <li><span class="bc-check bc-check-teal">✓</span>Free shipping included</li>
+        </ul>
+        <div class="bc-price-row">
+          <span class="bc-price">$28</span>
+          <span class="bc-orig">$30</span>
+          <span class="bc-save bc-save-teal">Save 5%</span>
+        </div>
+        <button class="bc-btn bc-btn-sampler">Shop Sampler</button>
+      </div>
+    </div>
+
+    <!-- DUO — neutral/warm header -->
+    <div class="bundle-card">
+      <div class="bc-header bc-header-duo" data-word="DUO">
+        <span class="bc-badge bc-badge-duo">Flexible Pick</span>
+        <span class="bc-icon">✌️</span>
+        <div class="bc-title bc-title-duo">Build Your<br>Duo</div>
+      </div>
+      <div class="bc-body">
+        <p class="bc-sub">Already have a favorite? Choose any 2 flavors and keep your gut-brain routine dialed in.</p>
+        <ul class="bc-includes">
+          <li><span class="bc-check bc-check-orange">✓</span>Any 2 flavors of your choice</li>
+          <li><span class="bc-check bc-check-orange">✓</span>Mix bars + puffs, or double up</li>
+          <li><span class="bc-check bc-check-orange">✓</span>Same gut-brain formula</li>
+          <li><span class="bc-check bc-check-orange">✓</span>Free shipping included</li>
+        </ul>
+        <div class="bc-price-row">
+          <span class="bc-price">$19</span>
+          <span class="bc-orig">$20</span>
+          <span class="bc-save bc-save-orange">Save 5%</span>
+        </div>
+        <button class="bc-btn bc-btn-duo">Build Your Duo</button>
+      </div>
+    </div>
+
+    <!-- STOCK UP — black header -->
+    <div class="bundle-card">
+      <div class="bc-header bc-header-stock" data-word="STOCK">
+        <span class="bc-badge bc-badge-stock">Best Value</span>
+        <span class="bc-icon">📦</span>
+        <div class="bc-title bc-title-stock">Stock Up<br>&amp; Save</div>
+      </div>
+      <div class="bc-body">
+        <p class="bc-sub">Your daily gut-brain snack, always on hand. Maximum savings for the committed snacker.</p>
+        <ul class="bc-includes">
+          <li><span class="bc-check bc-check-black">✓</span>12-pack of your favorite flavor</li>
+          <li><span class="bc-check bc-check-black">✓</span>Optional monthly auto-delivery</li>
+          <li><span class="bc-check bc-check-black">✓</span>Stack with Subscribe &amp; Save</li>
+          <li><span class="bc-check bc-check-black">✓</span>Free shipping included</li>
+        </ul>
+        <div class="bc-price-row">
+          <span class="bc-price">$36</span>
+          <span class="bc-orig">$40</span>
+          <span class="bc-save bc-save-black">Save 10%</span>
+        </div>
+        <button class="bc-btn bc-btn-stock">Stock Up</button>
+        <p style="font-family:var(--font-body);font-size:12px;color:var(--ink-light);text-align:center;margin-top:12px">Best with <a href="#" style="color:var(--teal-dark);text-decoration:none;font-weight:700">Subscribe &amp; Save →</a></p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- 6. FUNCTIONAL BENEFITS STRIP -->
+<div class="benefits-strip">
+  <div class="bs-inner">
+    <div class="bs-item">
+      <span class="bs-icon">🎯</span>
+      <div class="bs-label">100 Clean Calories</div>
+      <div class="bs-sub">Every single bar</div>
+    </div>
+    <div class="bs-item">
+      <span class="bs-icon">🚫</span>
+      <div class="bs-label">No Sugar Alcohols</div>
+      <div class="bs-sub">Zero gut disruption</div>
+    </div>
+    <div class="bs-item">
+      <span class="bs-icon">🌿</span>
+      <div class="bs-label">Prebiotic Fiber</div>
+      <div class="bs-sub">Chicory Root</div>
+    </div>
+    <div class="bs-item">
+      <span class="bs-icon">🧠</span>
+      <div class="bs-label">Adaptogens</div>
+      <div class="bs-sub">KSM-66® Ashwagandha</div>
+    </div>
+    <div class="bs-item">
+      <span class="bs-icon">🌾</span>
+      <div class="bs-label">Gluten-Free</div>
+      <div class="bs-sub">No gut triggers</div>
+    </div>
+    <div class="bs-item">
+      <span class="bs-icon">🔗</span>
+      <div class="bs-label">Gut-Brain Support</div>
+      <div class="bs-sub">The whole point</div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- 7. SOCIAL PROOF -->
+<section class="social-proof">
+  <div class="sp-header">
+    <div class="sp-rating-block">
+      <div class="sp-big-num">4.9</div>
+      <div>
+        <span class="sp-stars">★★★★★</span>
+        <div class="sp-count">from 1,200+ snackers</div>
+        <div class="sp-headline">Real People. Real Results.</div>
+      </div>
+    </div>
+    <a href="#" class="sp-cta-link">Read All 1,200+ Reviews →</a>
+  </div>
+  <div class="reviews-grid">
+    <div class="review-card">
+      <span class="r-tag r-tag-gut">Gut Health</span>
+      <div class="r-stars">★★★★★</div>
+      <p class="r-quote">"I've struggled with bloating from every protein bar I've ever tried. These are the first ones that actually made my gut feel better, not worse."</p>
+      <div class="r-name">Sarah M., Los Angeles</div>
+      <div class="r-product">Chocolate Brownie Bar</div>
+    </div>
+    <div class="review-card">
+      <span class="r-tag r-tag-energy">Portion Control</span>
+      <div class="r-stars">★★★★★</div>
+      <p class="r-quote">"I've been tracking macros for two years and these fit perfectly. 100 clean calories, 10g protein — I don't have to do any math. And they taste like dessert."</p>
+      <div class="r-name">Mike T., Chicago</div>
+      <div class="r-product">Peanut Butter Bar</div>
+    </div>
+    <div class="review-card">
+      <span class="r-tag r-tag-stress">Stress Relief</span>
+      <div class="r-stars">★★★★★</div>
+      <p class="r-quote">"I'm a stress eater. Since I started keeping these at my desk, I reach for them instead of the vending machine AND I feel calmer after. The ashwagandha is real."</p>
+      <div class="r-name">Priya K., New York</div>
+      <div class="r-product">BBQ Protein Puffs</div>
+    </div>
+  </div>
+</section>
+
+<!-- 8. EDUCATIONAL QUIZ CTA -->
+<section class="quiz-cta" id="quiz">
+  <div class="quiz-left">
+    <div class="quiz-eyebrow">Not Sure Where to Start?</div>
+    <h2 class="quiz-title">Find Your<br>Gut-Brain<br>Match</h2>
+    <p class="quiz-sub">Take the 60-second quiz and we'll tell you which snack is built for your body, your stress level, and your goals.</p>
+  </div>
+  <div class="quiz-right">
+    <div class="quiz-card">
+      <span class="quiz-card-icon">🧬</span>
+      <div class="quiz-card-title">The Gut-Brain Quiz</div>
+      <div class="quiz-card-sub">60 seconds. No email required.<br>Get your personal snack recommendation.</div>
+      <a href="#" class="btn-teal">Take the Quiz</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER — exact from homepage, Founder Story replaced with logo + functional snacks text -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div style="font-family:var(--font-head);font-weight:900;font-size:28px;letter-spacing:1px;text-transform:uppercase;color:var(--white);line-height:1;margin-bottom:6px">100<span style="color:var(--orange)">Cal</span>Snacks</div>
+      <div style="font-family:var(--font-head);font-weight:700;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--teal);margin-bottom:16px">Keepin' Snacks 100</div>
+      <p class="footer-bio">Built from the struggle. Engineered for the journey. 100 clean calories that heal your gut, calm your brain, and prove that doing better doesn't mean settling. Woman-owned. Science-backed.</p>
+      <a href="#" style="font-family:var(--font-head);font-weight:900;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--teal);text-decoration:none;margin-top:12px;display:inline-block">This is our founder's story →</a>
+    </div>
+    <div>
+      <div class="footer-col-title">Shop</div>
+      <ul class="footer-links">
+        <li><a href="#">Chocolate Brownie Bar</a></li>
+        <li><a href="#">Peanut Butter Bar</a></li>
+        <li><a href="#">BBQ Protein Puffs</a></li>
+        <li><a href="#">Subscribe &amp; Save</a></li>
+        <li><a href="#">Bundles</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Learn</div>
+      <ul class="footer-links">
+        <li><a href="#">Gut Brain Health 101</a></li>
+        <li><a href="#">Our Science</a></li>
+        <li><a href="#">Ingredient Index</a></li>
+        <li><a href="#">GLP-1 Guide</a></li>
+        <li><a href="#">Blog</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Community</div>
+      <ul class="footer-links">
+        <li><a href="#">#100CalPal</a></li>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">TikTok</a></li>
+        <li><a href="#">Affiliate Program</a></li>
+        <li><a href="#">Reviews</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Support</div>
+      <ul class="footer-links">
+        <li><a href="#">Our Story</a></li>
+        <li><a href="#">FAQ</a></li>
+        <li><a href="#">Shipping &amp; Returns</a></li>
+        <li><a href="#">Find In Store</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-btm">
+    <div class="footer-copy">© 2026 100CalSnacks.com · All Rights Reserved</div>
+    <div class="woman-badge">♀ Woman-Owned Business</div>
+    <div class="footer-copy">Privacy · Terms · Accessibility</div>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const t=document.querySelector(a.getAttribute('href'));
+    if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'})}
+  });
+});
+window.addEventListener('scroll',()=>{
+  document.querySelector('nav').style.boxShadow=window.scrollY>10?'0 2px 24px rgba(0,0,0,0.12)':'none';
+});
+</script>
+</body>
+</html>

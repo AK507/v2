@@ -13,7 +13,7 @@
         <div class="bc-header bc-header-{{ block.settings.header_style }}" data-word="{{ block.settings.header_word }}">
           <span class="bc-badge bc-badge-{{ block.settings.header_style }}">{{ block.settings.badge }}</span>
           <span class="bc-icon">{{ block.settings.icon }}</span>
-          <div class="bc-title bc-title-{{ block.settings.header_style }}">{{ block.settings.title }}</div>
+          <div class="bc-title bc-title-{{ block.settings.header_style }}">{{ block.settings.title | newline_to_br }}</div>
         </div>
         
         <div class="bc-body">
@@ -465,7 +465,7 @@
           "default": "🎁"
         },
         {
-          "type": "text",
+          "type": "textarea",
           "id": "title",
           "label": "Card Title",
           "default": "Sampler\nPack"

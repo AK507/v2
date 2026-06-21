@@ -82,6 +82,20 @@
             "answer_c_type": "C"
           }
         },
+        "question_pe8Nb6": {
+          "type": "question",
+          "settings": {
+            "question_text": "How would your friends describe your relationship with food?",
+            "weight": "1",
+            "is_tiebreaker": false,
+            "answer_a_text": "I eat for fuel - I want food that works as hard as I do",
+            "answer_a_type": "E",
+            "answer_b_text": "I eat to decompress - food helps me unwind",
+            "answer_b_type": "S",
+            "answer_c_text": "I eat for pleasure - I want something I actually crave",
+            "answer_c_type": "C"
+          }
+        },
         "result_e": {
           "type": "result_type",
           "settings": {
@@ -197,6 +211,7 @@
         "question_X6jCbt",
         "question_izbC9N",
         "question_gJFCxP",
+        "question_pe8Nb6",
         "result_e",
         "result_s",
         "result_c"

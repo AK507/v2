@@ -23,6 +23,7 @@
     },
     "header": {
       "type": "header",
+      "disabled": true,
       "settings": {
         "brand_name": "100CalSnacks",
         "menu": "main-menu",
@@ -30,10 +31,123 @@
         "cta_label": "Try It First ->",
         "cta_url": "shopify://collections/all"
       }
+    },
+    "100cal_header_PHQi4b": {
+      "type": "100cal-header",
+      "blocks": {
+        "mm_product_zXFJik": {
+          "type": "mm_product",
+          "settings": {
+            "emoji": "🛍",
+            "name": "All Products",
+            "sub": "Browse the full range",
+            "url": ""
+          }
+        },
+        "mm_product_wjVxNz": {
+          "type": "mm_product",
+          "settings": {
+            "emoji": "🍫",
+            "name": "Chocolate Brownie Bar",
+            "sub": "100 cal · 5g protein · 4g fiber",
+            "url": ""
+          }
+        },
+        "mm_product_AGNXih": {
+          "type": "mm_product",
+          "settings": {
+            "emoji": "🥜",
+            "name": "Peanut Butter Bar",
+            "sub": "100 cal · 5g protein · amla",
+            "url": ""
+          }
+        },
+        "mm_product_MY4Aff": {
+          "type": "mm_product",
+          "settings": {
+            "emoji": "🌶️",
+            "name": "BBQ Protein Puffs",
+            "sub": "100 cal · savory · gut-friendly",
+            "url": ""
+          }
+        },
+        "mm_goal_YYkATQ": {
+          "type": "mm_goal",
+          "settings": {
+            "icon_emoji": "⚡",
+            "icon_color": "teal",
+            "name": "Focus & Steady Energy",
+            "desc": "Ashwagandha + prebiotic fiber",
+            "url": "",
+            "is_quiz": false
+          }
+        },
+        "mm_goal_R6T4Af": {
+          "type": "mm_goal",
+          "settings": {
+            "icon_emoji": "🧘",
+            "icon_color": "orange",
+            "name": "Stress Cravings",
+            "desc": "Cortisol support + adaptogens",
+            "url": "",
+            "is_quiz": false
+          }
+        },
+        "mm_goal_rEXMzr": {
+          "type": "mm_goal",
+          "settings": {
+            "icon_emoji": "🌿",
+            "icon_color": "yellow",
+            "name": "Gut-Friendly Snacking",
+            "desc": "Prebiotic fiber + no sugar alcohols",
+            "url": "",
+            "is_quiz": false
+          }
+        },
+        "mm_goal_VfjQPw": {
+          "type": "mm_goal",
+          "settings": {
+            "icon_emoji": "🧠",
+            "icon_color": "black",
+            "name": "Take the Snack Quiz",
+            "desc": "Find your gut-brain match in 2 min",
+            "url": "",
+            "is_quiz": true
+          }
+        }
+      },
+      "block_order": [
+        "mm_product_zXFJik",
+        "mm_product_wjVxNz",
+        "mm_product_AGNXih",
+        "mm_product_MY4Aff",
+        "mm_goal_YYkATQ",
+        "mm_goal_R6T4Af",
+        "mm_goal_rEXMzr",
+        "mm_goal_VfjQPw"
+      ],
+      "name": "100Cal Header New",
+      "settings": {
+        "brand_name": "100CalSnacks",
+        "shop_label": "Shop",
+        "menu": "",
+        "cta_label": "Cart",
+        "mm_col1_label": "Shop by Product",
+        "mm_col2_label": "Shop by Goal",
+        "feat_badge": "★ Best Seller",
+        "feat_emoji": "🍫",
+        "feat_eyebrow": "Most Popular",
+        "feat_name": "Chocolate Brownie Bar",
+        "feat_prop": "Gut-brain formulated. 0g added sugar. Every calorie earns its place.",
+        "feat_cta_label": "Shop Best Seller →",
+        "feat_url": "",
+        "mob_cta_label": "Shop Now →"
+      }
     }
   },
   "order": [
     "100cal_announcement_RYzHXA",
-    "header"
+    "header",
+    "100cal_header_PHQi4b"
   ]
 }

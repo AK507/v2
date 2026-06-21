@@ -54,6 +54,20 @@
             "answer_c_type": "C"
           }
         },
+        "question_izbC9N": {
+          "type": "question",
+          "settings": {
+            "question_text": "What kind of snack experience do you enjoy most?",
+            "weight": "1",
+            "is_tiebreaker": false,
+            "answer_a_text": "Rich and indulgent - dense and satisfying",
+            "answer_a_type": "E",
+            "answer_b_text": "Smooth and comforting - creamy and calming",
+            "answer_b_type": "S",
+            "answer_c_text": "Crunchy and savory - bold and high-impact",
+            "answer_c_type": "C"
+          }
+        },
         "result_e": {
           "type": "result_type",
           "settings": {
@@ -167,6 +181,7 @@
         "question_PetMAk",
         "question_MCyPEe",
         "question_X6jCbt",
+        "question_izbC9N",
         "result_e",
         "result_s",
         "result_c"

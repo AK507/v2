@@ -70,6 +70,43 @@
     },
     "featured-bundle": {
       "type": "100cal-featured-bundle",
+      "blocks": {
+        "item_FW4Nz7": {
+          "type": "item",
+          "settings": {
+            "item_text": "🍫 Chocolate Brownie Protein Bar",
+            "icon": "🍫",
+            "label": "Choc Brownie",
+            "stat_number": "3",
+            "stat_label": "Flavors"
+          }
+        },
+        "item_yXVqKK": {
+          "type": "item",
+          "settings": {
+            "item_text": "🥜 Peanut Butter Protein Bar",
+            "icon": "🥜",
+            "label": "Choc Brownie",
+            "stat_number": "3",
+            "stat_label": "Flavors"
+          }
+        },
+        "item_9XpnNQ": {
+          "type": "item",
+          "settings": {
+            "item_text": "🌽 BBQ Protein Puffs",
+            "icon": "🌽",
+            "label": "Choc Brownie",
+            "stat_number": "3",
+            "stat_label": "Flavors"
+          }
+        }
+      },
+      "block_order": [
+        "item_FW4Nz7",
+        "item_yXVqKK",
+        "item_9XpnNQ"
+      ],
       "settings": {
         "badge_primary": "Most Popular",
         "badge_secondary": "⭐ Best for First-Time Buyers",

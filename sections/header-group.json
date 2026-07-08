@@ -130,7 +130,7 @@
       "settings": {
         "brand_name": "100CalSnacks",
         "shop_label": "Shop",
-        "menu": "",
+        "menu": "main-menu",
         "cta_label": "Cart",
         "mm_col1_label": "Shop by Product",
         "mm_col2_label": "Shop by Goal",

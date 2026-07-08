@@ -311,6 +311,8 @@
       {%- render 'cart-drawer' -%}
     {%- endif -%}
 
+    {%- render '100cal-cart-drawer' -%}
+
     {% sections 'header-group' %}
 
     <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
@@ -376,5 +378,7 @@
     {%- if settings.cart_type == 'drawer' -%}
       <script src="{{ 'cart-drawer.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
+
+    <script src="{{ '100cal-cart.js' | asset_url }}" defer="defer"></script>
   </body>
 </html>

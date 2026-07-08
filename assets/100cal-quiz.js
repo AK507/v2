@@ -56,7 +56,8 @@
         snackWhen: node.dataset.snackWhen || '',
         snackTime: node.dataset.snackTime || '',
         snackSub: node.dataset.snackSub || '',
-        shareText: node.dataset.share || 'My Gut-Brain Score is {score}. What\'s yours?'
+        shareText: node.dataset.share || 'My Gut-Brain Score is {score}. What\'s yours?',
+        variantId: parseInt(node.dataset.variantId || '0', 10)
       };
     });
   }
@@ -258,7 +259,12 @@
     }
 
     var cta = document.getElementById('hcqa-rpc-cta');
-    if (cta) { cta.textContent = 'Add to Cart →'; cta.style.background = 'var(--teal)'; cta.style.color = '#0F1213'; }
+    if (cta) {
+      cta.textContent = 'Add to Cart →';
+      cta.style.background = 'var(--teal)';
+      cta.style.color = '#0F1213';
+      cta.dataset.variantId = String(r.variantId || '');
+    }
 
     var clock = document.getElementById('hcqa-moment-clock');
     if (clock) clock.textContent = r.snackClock;
@@ -386,6 +392,7 @@
     if (copyBtn) copyBtn.addEventListener('click', copyScore);
     if (ctaBtn) ctaBtn.addEventListener('click', function () {
       if (currentResult && RESULTS[currentResult]) {
+        if (RESULTS[currentResult].variantId) return; // 100cal-cart.js handles ATC via data-variant-id
         window.location.href = RESULTS[currentResult].productUrl;
       }
     });

@@ -35,6 +35,7 @@
            data-snack-time="{{ block.settings.snack_time | escape }}"
            data-snack-sub="{{ block.settings.snack_sub | escape }}"
            data-share="{{ block.settings.share_text | escape }}"
+           data-variant-id="{{ block.settings.shopify_product.selected_or_first_available_variant.id | default: '' }}"
       ></div>
     {% endif %}
   {% endfor %}
@@ -772,7 +773,8 @@
         { "type": "text", "id": "snack_when", "label": "Snack moment heading" },
         { "type": "text", "id": "snack_time", "label": "Snack moment time label" },
         { "type": "textarea", "id": "snack_sub", "label": "Snack moment body" },
-        { "type": "text", "id": "share_text", "label": "Share text (use {score} for score)" }
+        { "type": "text", "id": "share_text", "label": "Share text (use {score} for score)" },
+        { "type": "product", "id": "shopify_product", "label": "Shopify product (for Add to Cart)" }
       ]
     },
     {

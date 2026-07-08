@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cart Drawer — 100 Cal Snacks Design</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,700;0,900;1,700;1,900&family=Barlow:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{-webkit-box-sizing:border-box;box-sizing:border-box;margin:0;padding:0}
+:root{
+  --black:#0F1213;--white:#FFFFFF;
+  --teal:#66CCCC;--teal-dark:#3A9999;--teal-pastel:#C2EBEB;
+  --orange:#E66443;--yellow:#E9AD3C;
+  --platinum:#EAE9E5;--neutral:#F4F3F0;
+  --ink:#1A1A1A;--ink-mid:#555;--ink-light:#888;
+  --font-head:'Barlow Condensed',sans-serif;
+  --font-body:'Barlow',sans-serif;
+  --drawer-width:420px;
+}
+html,body{height:100%;-webkit-font-smoothing:antialiased}
+body{font-family:var(--font-body);background:#e8e8e8;display:flex;align-items:center;justify-content:center;min-height:100vh}
+
+/* ===== DEMO WRAPPER ===== */
+.demo-bg{width:100%;max-width:900px;height:860px;background:#1a1a1a;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:flex-start;border-radius:4px;box-shadow:0 24px 80px rgba(0,0,0,.4)}
+.demo-page-content{flex:1;padding:48px;color:rgba(255,255,255,.2);font-family:var(--font-head);font-size:13px;letter-spacing:2px;text-transform:uppercase}
+.demo-overlay{position:absolute;inset:0;background:rgba(0,0,0,.5);cursor:pointer;-webkit-backdrop-filter:blur(2px);backdrop-filter:blur(2px)}
+.demo-label{position:absolute;top:16px;left:20px;font-family:var(--font-body);font-size:12px;color:rgba(255,255,255,.3);z-index:1}
+
+/* ===== CART DRAWER ===== */
+.cart-drawer{position:absolute;top:0;right:0;bottom:0;width:var(--drawer-width);background:var(--white);display:flex;flex-direction:column;z-index:100;box-shadow:-8px 0 40px rgba(0,0,0,.25)}
+
+/* Header */
+.cart-header{padding:16px 20px;background:var(--black);display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+.cart-title{font-family:var(--font-head);font-weight:900;font-size:18px;text-transform:uppercase;color:var(--white);letter-spacing:1px;display:flex;align-items:center;gap:10px}
+.cart-count-badge{font-family:var(--font-head);font-weight:900;font-size:11px;background:var(--teal);color:var(--black);padding:2px 8px;border-radius:0;min-width:22px;text-align:center}
+.cart-close{background:none;border:none;cursor:pointer;color:rgba(255,255,255,.5);font-size:20px;line-height:1;padding:4px 6px;transition:color .2s}
+.cart-close:hover{color:var(--white)}
+
+/* Free shipping bar */
+.shipping-bar{background:var(--black);padding:10px 20px 14px;flex-shrink:0;border-top:1px solid rgba(255,255,255,.06)}
+.shipping-text{font-family:var(--font-body);font-size:12px;color:rgba(255,255,255,.6);margin-bottom:8px;display:flex;justify-content:space-between;align-items:center}
+.shipping-text strong{color:var(--white)}
+.shipping-text .shipping-unlock{color:var(--teal);font-family:var(--font-head);font-weight:700;font-size:11px;letter-spacing:1px;text-transform:uppercase}
+.shipping-track{height:4px;background:rgba(255,255,255,.1);position:relative;border-radius:0}
+.shipping-fill{position:absolute;left:0;top:0;height:100%;background:var(--teal);transition:width .6s ease;border-radius:0}
+.shipping-tick{position:absolute;right:0;top:-4px;width:12px;height:12px;border-radius:50%;background:rgba(255,255,255,.15);border:2px solid rgba(255,255,255,.3);transform:translateX(50%)}
+.shipping-tick.done{background:var(--teal);border-color:var(--teal)}
+
+/* Cart body — scrollable */
+.cart-body{flex:1;overflow-y:auto;overflow-x:hidden;scrollbar-width:thin;scrollbar-color:rgba(15,18,19,.15) transparent}
+.cart-body::-webkit-scrollbar{width:3px}
+.cart-body::-webkit-scrollbar-thumb{background:rgba(15,18,19,.12)}
+
+/* Cart items */
+.cart-items{padding:12px 20px;display:flex;flex-direction:column;gap:2px}
+.cart-item{display:grid;grid-template-columns:64px 1fr;gap:12px;padding:11px 12px;background:var(--neutral);position:relative;transition:background .2s}
+.cart-item:hover{background:var(--platinum)}
+.ci-img{width:64px;height:64px;background:var(--black);display:flex;align-items:center;justify-content:center;font-size:28px;flex-shrink:0}
+.ci-body{display:flex;flex-direction:column;justify-content:space-between;min-height:64px}
+.ci-top{display:flex;align-items:flex-start;justify-content:space-between;gap:8px}
+.ci-name{font-family:var(--font-head);font-weight:900;font-size:15px;text-transform:uppercase;color:var(--black);letter-spacing:.5px;line-height:1.1}
+.ci-variant{font-family:var(--font-body);font-size:11px;color:var(--ink-light);margin-top:2px}
+.ci-delete{background:none;border:none;cursor:pointer;color:rgba(15,18,19,.2);font-size:16px;line-height:1;padding:0;flex-shrink:0;transition:color .2s;margin-top:-2px}
+.ci-delete:hover{color:var(--orange)}
+.ci-bottom{display:flex;align-items:center;justify-content:space-between}
+.ci-qty{display:flex;align-items:center;gap:0;border:1.5px solid rgba(15,18,19,.12)}
+.ci-qty-btn{background:none;border:none;cursor:pointer;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-size:16px;color:var(--ink-mid);transition:all .2s;font-family:var(--font-head);font-weight:900}
+.ci-qty-btn:hover{background:var(--black);color:var(--white)}
+.ci-qty-num{font-family:var(--font-head);font-weight:900;font-size:14px;color:var(--black);width:28px;text-align:center;border-left:1.5px solid rgba(15,18,19,.12);border-right:1.5px solid rgba(15,18,19,.12);line-height:28px}
+.ci-price{font-family:var(--font-head);font-weight:900;font-size:16px;color:var(--black)}
+.ci-price-orig{font-family:var(--font-body);font-size:12px;color:var(--ink-light);text-decoration:line-through;margin-left:4px}
+.ci-price-save{font-family:var(--font-head);font-weight:700;font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--teal-dark)}
+/* Pre-order tag */
+.ci-tag{display:inline-block;font-family:var(--font-head);font-weight:700;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;padding:2px 8px;margin-top:3px}
+.ci-tag.preorder{background:rgba(233,173,60,.12);color:#8B6A00}
+.ci-tag.sub{background:rgba(102,204,204,.12);color:var(--teal-dark)}
+
+/* ===== DIVIDER ===== */
+.cart-divider{margin:0 20px;border:none;border-top:1px solid var(--platinum)}
+
+/* ===== REBUY UPSELL ===== */
+.rebuy-section{background:var(--black);padding:16px 0 16px}
+.rebuy-header{padding:0 20px 12px;display:flex;align-items:baseline;justify-content:space-between}
+.rebuy-headline{font-family:var(--font-head);font-weight:900;font-size:18px;text-transform:uppercase;color:var(--white);letter-spacing:.5px;line-height:1}
+.rebuy-headline em{font-style:italic;color:var(--teal)}
+.rebuy-sub{font-family:var(--font-body);font-size:11px;color:rgba(255,255,255,.35);margin-top:3px}
+.rebuy-scroll{display:flex;gap:8px;overflow-x:auto;padding:0 20px 4px;scrollbar-width:none;-ms-overflow-style:none}
+.rebuy-scroll::-webkit-scrollbar{display:none}
+/* Individual upsell card */
+.rebuy-card{flex-shrink:0;width:150px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);display:flex;flex-direction:column;transition:border-color .2s}
+.rebuy-card:hover{border-color:var(--teal)}
+.rebuy-card.added{border-color:var(--teal);opacity:.6;pointer-events:none}
+.rebuy-img{height:100px;background:rgba(255,255,255,.03);display:flex;align-items:center;justify-content:center;font-size:40px;border-bottom:1px solid rgba(255,255,255,.06);flex-shrink:0}
+.rebuy-body{padding:10px 10px 12px;display:flex;flex-direction:column;flex:1}
+.rebuy-why{font-family:var(--font-head);font-weight:700;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--teal);margin-bottom:4px}
+.rebuy-name{font-family:var(--font-head);font-weight:900;font-size:13px;text-transform:uppercase;color:var(--white);letter-spacing:.5px;line-height:1.1;margin-bottom:4px}
+.rebuy-stars{color:var(--yellow);font-size:9px;letter-spacing:1px;margin-bottom:2px}
+.rebuy-reviews{font-family:var(--font-body);font-size:10px;color:rgba(255,255,255,.3);margin-bottom:8px}
+.rebuy-price-row{display:flex;align-items:baseline;gap:5px;margin-bottom:8px}
+.rebuy-price{font-family:var(--font-head);font-weight:900;font-size:14px;color:var(--white)}
+.rebuy-price-orig{font-family:var(--font-body);font-size:11px;color:rgba(255,255,255,.3);text-decoration:line-through}
+.rebuy-add{width:100%;padding:9px 0;font-family:var(--font-head);font-weight:900;font-size:10px;letter-spacing:2px;text-transform:uppercase;background:var(--teal);color:var(--black);border:none;cursor:pointer;transition:all .2s;margin-top:auto}
+.rebuy-add:hover{background:var(--teal-dark);color:var(--white)}
+.rebuy-add.done{background:rgba(255,255,255,.08);color:rgba(255,255,255,.4);cursor:default}
+/* Bundle nudge — shown when all 3 products in cart */
+.bundle-nudge{margin:10px 20px 0;padding:12px 14px;background:rgba(102,204,204,.08);border:1px solid rgba(102,204,204,.2);display:flex;align-items:center;justify-content:space-between;gap:12px}
+.bn-text{font-family:var(--font-head);font-weight:900;font-size:12px;text-transform:uppercase;color:var(--teal);line-height:1.2}
+.bn-sub{font-family:var(--font-body);font-size:11px;color:rgba(255,255,255,.4);font-weight:400;text-transform:none;display:block;margin-top:2px}
+.bn-btn{font-family:var(--font-head);font-weight:900;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;padding:8px 14px;background:var(--teal);color:var(--black);border:none;cursor:pointer;white-space:nowrap;flex-shrink:0;transition:background .2s}
+.bn-btn:hover{background:var(--teal-dark);color:var(--white)}
+
+/* ===== TRUST LINE ===== */
+.trust-line{padding:10px 20px;display:flex;align-items:center;justify-content:center;gap:16px;background:var(--neutral);border-top:1px solid var(--platinum)}
+.trust-item{font-family:var(--font-head);font-weight:700;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-light);display:flex;align-items:center;gap:5px}
+.trust-item span{font-size:12px}
+
+/* ===== CART FOOTER ===== */
+.cart-footer{padding:16px 20px;background:var(--white);border-top:1px solid var(--platinum);flex-shrink:0}
+.subtotal-row{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:6px}
+.subtotal-label{font-family:var(--font-head);font-weight:700;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-mid)}
+.subtotal-prices{display:flex;align-items:baseline;gap:8px}
+.subtotal-num{font-family:var(--font-head);font-weight:900;font-size:22px;color:var(--black)}
+.subtotal-orig{font-family:var(--font-body);font-size:13px;color:var(--ink-light);text-decoration:line-through}
+.subtotal-save{font-family:var(--font-head);font-weight:700;font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--teal-dark);margin-bottom:14px}
+.checkout-btn{width:100%;padding:17px;font-family:var(--font-head);font-weight:900;font-size:15px;letter-spacing:2.5px;text-transform:uppercase;background:var(--teal);color:var(--black);border:none;cursor:pointer;transition:background .2s;display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.checkout-btn:hover{background:var(--teal-dark);color:var(--white)}
+.checkout-btn-arrow{font-size:18px;transition:transform .2s}
+.checkout-btn:hover .checkout-btn-arrow{transform:translateX(4px)}
+.continue-btn{width:100%;padding:10px;font-family:var(--font-head);font-weight:700;font-size:11px;letter-spacing:2px;text-transform:uppercase;background:transparent;color:var(--ink-mid);border:none;cursor:pointer;transition:color .2s;text-decoration:underline;text-underline-offset:3px}
+.continue-btn:hover{color:var(--black)}
+.cart-guarantee{display:flex;align-items:center;justify-content:center;gap:6px;padding-top:10px;font-family:var(--font-body);font-size:11px;color:var(--ink-light);border-top:1px solid var(--platinum)}
+.cart-guarantee span{font-size:13px}
+
+/* ===== DEMO CONTROLS ===== */
+.demo-controls{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);display:flex;gap:8px;background:rgba(0,0,0,.8);padding:10px 16px;border-radius:4px}
+.demo-btn{font-family:var(--font-body);font-size:12px;padding:6px 14px;border:1px solid rgba(255,255,255,.2);background:transparent;color:rgba(255,255,255,.7);cursor:pointer;transition:all .2s}
+.demo-btn:hover,.demo-btn.active{background:var(--teal);color:var(--black);border-color:var(--teal)}
+</style>
+</head>
+<body>
+
+<div class="demo-bg">
+  <div class="demo-label">← Page content behind cart drawer</div>
+  <div class="demo-page-content">100 Cal Snacks — Product Page</div>
+  <div class="demo-overlay" onclick="document.querySelector('.cart-drawer').style.transform='translateX(100%)'"></div>
+
+  <!-- ===== CART DRAWER ===== -->
+  <div class="cart-drawer">
+
+    <!-- Header -->
+    <div class="cart-header">
+      <div class="cart-title">
+        Your Cart
+        <span class="cart-count-badge" id="cart-count">4</span>
+      </div>
+      <button class="cart-close" onclick="document.querySelector('.cart-drawer').style.transform='translateX(100%)'" aria-label="Close cart">✕</button>
+    </div>
+
+    <!-- Free shipping progress bar -->
+    <div class="shipping-bar">
+      <div class="shipping-text">
+        <span id="shipping-msg">You're <strong>$6.59</strong> away from free shipping</span>
+        <span class="shipping-unlock">🚚 Free at $25</span>
+      </div>
+      <div class="shipping-track">
+        <div class="shipping-fill" id="shipping-fill" style="width:72%"></div>
+        <div class="shipping-tick" id="shipping-tick"></div>
+      </div>
+    </div>
+
+    <!-- Scrollable body -->
+    <div class="cart-body">
+
+      <!-- Cart items -->
+      <div class="cart-items">
+
+        <div class="cart-item">
+          <div class="ci-img">🌶️</div>
+          <div class="ci-body">
+            <div class="ci-top">
+              <div>
+                <div class="ci-name">BBQ Protein Puffs</div>
+                <div class="ci-variant">20-Pack Pouch</div>
+                <div class="ci-tag sub">Subscribed — 10% Off</div>
+              </div>
+              <button class="ci-delete" onclick="removeItem(this)" aria-label="Remove item">✕</button>
+            </div>
+            <div class="ci-bottom">
+              <div class="ci-qty">
+                <button class="ci-qty-btn" onclick="changeQty(this,-1)">−</button>
+                <div class="ci-qty-num">1</div>
+                <button class="ci-qty-btn" onclick="changeQty(this,1)">+</button>
+              </div>
+              <div style="text-align:right">
+                <div class="ci-price">$22.49 <span class="ci-price-orig">$24.99</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cart-item">
+          <div class="ci-img">🥜</div>
+          <div class="ci-body">
+            <div class="ci-top">
+              <div>
+                <div class="ci-name">Peanut Butter Bar</div>
+                <div class="ci-variant">8-Pack</div>
+                <div class="ci-tag preorder">Pre-Order · Ships when ready</div>
+              </div>
+              <button class="ci-delete" onclick="removeItem(this)" aria-label="Remove item">✕</button>
+            </div>
+            <div class="ci-bottom">
+              <div class="ci-qty">
+                <button class="ci-qty-btn" onclick="changeQty(this,-1)">−</button>
+                <div class="ci-qty-num">1</div>
+                <button class="ci-qty-btn" onclick="changeQty(this,1)">+</button>
+              </div>
+              <div style="text-align:right">
+                <div class="ci-price">$17.54 <span class="ci-price-orig">$19.49</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cart-item">
+          <div class="ci-img">🍫</div>
+          <div class="ci-body">
+            <div class="ci-top">
+              <div>
+                <div class="ci-name">Chocolate Brownie Bar</div>
+                <div class="ci-variant">20-Pack Box</div>
+              </div>
+              <button class="ci-delete" onclick="removeItem(this)" aria-label="Remove item">✕</button>
+            </div>
+            <div class="ci-bottom">
+              <div class="ci-qty">
+                <button class="ci-qty-btn" onclick="changeQty(this,-1)">−</button>
+                <div class="ci-qty-num">1</div>
+                <button class="ci-qty-btn" onclick="changeQty(this,1)">+</button>
+              </div>
+              <div style="text-align:right">
+                <div class="ci-price">$44.89</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cart-item">
+          <div class="ci-img">🍫</div>
+          <div class="ci-body">
+            <div class="ci-top">
+              <div>
+                <div class="ci-name">Chocolate Brownie Bar</div>
+                <div class="ci-variant">8-Pack Pouch</div>
+              </div>
+              <button class="ci-delete" onclick="removeItem(this)" aria-label="Remove item">✕</button>
+            </div>
+            <div class="ci-bottom">
+              <div class="ci-qty">
+                <button class="ci-qty-btn" onclick="changeQty(this,-1)">−</button>
+                <div class="ci-qty-num">1</div>
+                <button class="ci-qty-btn" onclick="changeQty(this,1)">+</button>
+              </div>
+              <div style="text-align:right">
+                <div class="ci-price">$18.99</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <hr class="cart-divider">
+
+      <!-- Rebuy Upsell — Double / Triple Up -->
+      <div class="rebuy-section">
+        <div class="rebuy-header">
+          <div>
+            <div class="rebuy-headline">Double <em>(or Triple)</em> Up.</div>
+          </div>
+        </div>
+        <div class="rebuy-scroll">
+
+          <!-- Single upsell card — BBQ Protein Puffs -->
+          <div class="rebuy-card" id="upsell-bbq" style="width:100%;flex-shrink:1;display:grid;grid-template-columns:72px 1fr auto;gap:12px;align-items:center;padding:12px;flex-direction:row;border-left:3px solid var(--teal)">
+            <div class="rebuy-img" style="width:72px;height:72px;font-size:32px;border-bottom:none">🌶️</div>
+            <div class="rebuy-body" style="padding:0">
+              <div class="rebuy-why">Complete the Trio</div>
+              <div class="rebuy-name">BBQ Protein Puffs</div>
+              <div class="rebuy-stars">★★★★½</div>
+              <div class="rebuy-reviews">52 reviews</div>
+              <div class="rebuy-price-row">
+                <div class="rebuy-price">$24.99</div>
+              </div>
+            </div>
+            <button class="rebuy-add" onclick="addUpsellCard(this,'upsell-bbq')" style="align-self:center;width:auto;padding:10px 18px">Add →</button>
+          </div>
+
+        </div>
+
+        <!-- Bundle nudge — all 3 products already in cart, show immediately -->
+        <div class="bundle-nudge" id="bundle-nudge" style="display:flex">
+          <div class="bn-text">You've Got the Full Trio.
+            <span class="bn-sub">Subscribe to all three and save 10% on every order</span>
+          </div>
+          <button class="bn-btn">Subscribe & Save →</button>
+        </div>
+
+      </div>
+
+      <!-- Trust signals -->
+      <div class="trust-line">
+        <div class="trust-item"><span>🚚</span> In-stock items ship in 2–3 days</div>
+        <div class="trust-item"><span>🌿</span> No Artificial Ingredients</div>
+        <div class="trust-item"><span>🧠</span> Gut-Brain Formulated</div>
+      </div>
+
+    </div>
+
+    <!-- Footer — always visible -->
+    <div class="cart-footer">
+      <div class="subtotal-row">
+        <div class="subtotal-label">Subtotal</div>
+        <div class="subtotal-prices">
+          <div class="subtotal-num" id="subtotal">$103.91</div>
+          <div class="subtotal-orig" id="subtotal-orig">$108.36</div>
+        </div>
+      </div>
+      <div class="subtotal-save" id="savings-line">You're saving $4.45 🎉</div>
+      <!-- Pre-order fulfillment notice -->
+      <div id="preorder-notice" style="background:rgba(233,173,60,.08);border:1px solid rgba(233,173,60,.25);padding:10px 14px;margin-bottom:12px;display:flex;gap:10px;align-items:flex-start">
+        <span style="font-size:14px;flex-shrink:0;margin-top:1px">⚠️</span>
+        <div>
+          <div style="font-family:var(--font-head);font-weight:900;font-size:11px;text-transform:uppercase;letter-spacing:1px;color:#8B6A00;margin-bottom:3px">Contains a Pre-Order Item</div>
+          <div style="font-family:var(--font-body);font-size:12px;color:var(--ink-mid);line-height:1.5">Your Peanut Butter Bar is on pre-order. Your full order will ship when all items are ready.</div>
+        </div>
+      </div>
+      <button class="checkout-btn">
+        <span>Checkout</span>
+        <span class="checkout-btn-arrow">→</span>
+      </button>
+      <button class="continue-btn">Continue Shopping</button>
+      <div class="cart-guarantee">
+        <span>✦</span> Every Ingredient Has a Purpose · Keepin' Snacks 100®
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Demo controls -->
+<div class="demo-controls">
+  <span style="color:rgba(255,255,255,.4);font-size:11px;font-family:sans-serif;align-self:center">Demo:</span>
+  <button class="demo-btn active" onclick="setShipping(74,'$6.59 away from free shipping')">Near threshold</button>
+  <button class="demo-btn" onclick="setShipping(100,'🎉 Free shipping unlocked!')">Threshold met</button>
+  <button class="demo-btn" onclick="setShipping(30,'$17.50 away from free shipping')">Far from threshold</button>
+</div>
+
+<script>
+// ===== CART STATE =====
+// Cart items: BBQ (qty 1), PB Bar pre-order (qty 1), Brownie 20pk (qty 1), Brownie 8pk (qty 2)
+// Total units = 5, line items = 4
+// All 3 SKUs present → show bundle nudge, hide upsell card
+
+// ===== SHIPPING BAR =====
+// Correct states: bar % matches message, tick only .done when unlocked
+function setShipping(pct, msg) {
+  var fill = document.getElementById('shipping-fill');
+  var tick = document.getElementById('shipping-tick');
+  var msgEl = document.getElementById('shipping-msg');
+  fill.style.width = Math.min(pct, 100) + '%';
+  if (pct >= 100) {
+    tick.classList.add('done');
+    fill.style.background = 'var(--teal)';
+    msgEl.innerHTML = '<strong style="color:var(--teal)">' + msg + '</strong>';
+  } else {
+    tick.classList.remove('done');
+    fill.style.background = 'var(--teal)';
+    msgEl.innerHTML = "You're <strong>" + msg + "</strong> away from free shipping";
+  }
+  document.querySelectorAll('.demo-btn').forEach(function(b){b.classList.remove('active')});
+  event.target.classList.add('active');
+}
+
+// ===== REMOVE ITEM =====
+function removeItem(btn) {
+  var item = btn.closest('.cart-item');
+  item.style.opacity = '0';
+  item.style.transform = 'translateX(20px)';
+  item.style.transition = 'all .25s ease';
+  setTimeout(function() {
+    item.remove();
+    updateCount();
+    checkPreorder();
+  }, 250);
+}
+
+// ===== QUANTITY CHANGE =====
+function changeQty(btn, delta) {
+  var numEl = btn.parentElement.querySelector('.ci-qty-num');
+  var current = parseInt(numEl.textContent);
+  var newVal = Math.max(1, current + delta);
+  numEl.textContent = newVal;
+  updateCount();
+}
+
+// ===== COUNT TOTAL UNITS (not line items) =====
+function updateCount() {
+  var total = 0;
+  document.querySelectorAll('.ci-qty-num').forEach(function(el){
+    total += parseInt(el.textContent) || 1;
+  });
+  var badge = document.getElementById('cart-count');
+  badge.textContent = total + ' item' + (total !== 1 ? 's' : '');
+}
+
+// ===== PRE-ORDER CHECK =====
+// Show/hide pre-order notice based on whether a pre-order item is still in cart
+function checkPreorder() {
+  var hasPreorder = document.querySelector('.ci-tag.preorder') !== null;
+  var notice = document.getElementById('preorder-notice');
+  if(notice) notice.style.display = hasPreorder ? 'flex' : 'none';
+}
+
+// ===== ADD UPSELL CARD =====
+function addUpsellCard(btn, id) {
+  btn.textContent = '✓ Added';
+  btn.classList.add('done');
+  btn.disabled = true;
+  var card = document.getElementById(id);
+  if(card) card.classList.add('added');
+  updateCount();
+}
+
+// ===== INIT =====
+// On load: correct count, show bundle nudge (all 3 SKUs in cart)
+document.addEventListener('DOMContentLoaded', function(){
+  updateCount();
+  checkPreorder();
+});
+</script>
+
+</body>
+</html>

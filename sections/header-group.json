@@ -41,7 +41,7 @@
             "emoji": "🛍",
             "name": "All Products",
             "sub": "Browse the full range",
-            "url": ""
+            "url": "shopify://collections"
           }
         },
         "mm_product_wjVxNz": {
@@ -130,7 +130,7 @@
       "settings": {
         "brand_name": "100CalSnacks",
         "shop_label": "Shop",
-        "menu": "main-menu",
+        "menu": "",
         "cta_label": "Cart",
         "mm_col1_label": "Shop by Product",
         "mm_col2_label": "Shop by Goal",

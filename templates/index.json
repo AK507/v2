@@ -823,6 +823,7 @@
         "footer_3",
         "footer_4"
       ],
+      "disabled": true,
       "settings": {
         "bio": "Built from the struggle. Engineered for the journey. 100 clean calories that support your gut, calm your brain, and prove that doing better doesn't mean settling.",
         "story_label": "This is our founder's story ->",

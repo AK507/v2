@@ -41,7 +41,7 @@
             "emoji": "🛍",
             "name": "All Products",
             "sub": "Browse the full range",
-            "url": ""
+            "url": "shopify://collections"
           }
         },
         "mm_product_wjVxNz": {
@@ -50,7 +50,7 @@
             "emoji": "🍫",
             "name": "Chocolate Brownie Bar",
             "sub": "100 cal · 5g protein · 4g fiber",
-            "url": ""
+            "url": "shopify://products/chocolate-protein-bars"
           }
         },
         "mm_product_AGNXih": {
@@ -59,7 +59,7 @@
             "emoji": "🥜",
             "name": "Peanut Butter Bar",
             "sub": "100 cal · 5g protein · amla",
-            "url": ""
+            "url": "shopify://products/peanut-butter-bar"
           }
         },
         "mm_product_MY4Aff": {
@@ -68,7 +68,7 @@
             "emoji": "🌶️",
             "name": "BBQ Protein Puffs",
             "sub": "100 cal · savory · gut-friendly",
-            "url": ""
+            "url": "shopify://products/protein-puffs-bbq"
           }
         },
         "mm_goal_YYkATQ": {

@@ -6,7 +6,7 @@
     </div>
     <div class="satc-right">
       <div class="satc-price">{{ product.selected_or_first_available_variant.price | money }}<span class="satc-subtext">/ subscribe</span></div>
-      <a href="#ProductInfo-{{ section.id }}" class="satc-btn">Add to Cart →</a>
+      <button type="button" class="satc-btn" data-variant-id="{{ product.selected_or_first_available_variant.id }}">Add to Cart →</button>
     </div>
   </div>
 </section>

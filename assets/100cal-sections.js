@@ -36,13 +36,8 @@
       stickyBar.classList.toggle('visible', show);
     };
 
-    if (stickyButton) {
-      stickyButton.addEventListener('click', () => {
-        if (submitButton && !submitButton.disabled) {
-          submitButton.click();
-        }
-      });
-    }
+    // stickyButton click is handled exclusively by 100cal-cart.js delegation.
+    // syncStickyButton() below mirrors the disabled state from the real submit button.
 
     updateStickyPrice();
     syncStickyButton();

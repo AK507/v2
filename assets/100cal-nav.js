@@ -84,14 +84,32 @@
       });
     }
 
+    // Close desktop mega menu when any link inside it is clicked
+    if (shopItem) {
+      shopItem.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', closeMenu);
+      });
+    }
+
     if (!_docHandlersInit) {
       _docHandlersInit = true;
 
+      // Re-query DOM on each event so stale closures don't break after section reloads
       document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape') {
-          closeMenu();
-          closeMobMenu();
-        }
+        if (e.key !== 'Escape') return;
+        var si = document.querySelector('.hcnv-shop-item');
+        var ov = document.querySelector('.hcnv-mm-overlay');
+        var tr = document.querySelector('.hcnv-shop-trigger');
+        if (si) si.classList.remove('open');
+        if (ov) ov.classList.remove('visible');
+        if (tr) tr.setAttribute('aria-expanded', 'false');
+        var md = document.querySelector('.hcnv-mob-drawer');
+        var mo = document.querySelector('.hcnv-mob-overlay');
+        var mh = document.querySelector('.hcnv-mob-ham');
+        if (md) md.classList.remove('open');
+        if (mo) mo.classList.remove('visible');
+        if (mh) mh.classList.remove('open');
+        document.body.style.overflow = '';
       });
 
       document.addEventListener('click', function (e) {

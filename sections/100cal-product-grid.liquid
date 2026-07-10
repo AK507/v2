@@ -58,8 +58,12 @@
                 <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
                 <button class="hc-add-btn" type="submit">{{ section.settings.add_label }}</button>
               {% endform %}
+            {% elsif block.settings.variant_id != blank %}
+              <button class="hc-add-btn" type="button" data-variant-id="{{ block.settings.variant_id | escape }}">
+                {{ section.settings.add_label }}
+              </button>
             {% else %}
-              <a class="hc-add-btn" href="{{ block.settings.link }}">{{ section.settings.add_label }}</a>
+              <a class="hc-add-btn" href="{{ block.settings.link | default: '/collections/all' }}">{{ section.settings.add_label }}</a>
             {% endif %}
             {% if block.settings.sub_note != blank %}
               <p class="hc-sub-note">{{ block.settings.sub_note | escape }}</p>
@@ -141,7 +145,8 @@
       "type": "product",
       "name": "Product",
       "settings": [
-        { "type": "product", "id": "product", "label": "Shopify product" },
+        { "type": "product", "id": "product", "label": "Shopify product (connects ATC automatically)" },
+        { "type": "text", "id": "variant_id", "label": "Variant ID (fallback if no product selected)" },
         { "type": "image_picker", "id": "image", "label": "Override image" },
         { "type": "text", "id": "title", "label": "Fallback title", "default": "Chocolate Brownie" },
         { "type": "text", "id": "subtitle", "label": "Subtitle", "default": "Protein Bar" },

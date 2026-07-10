@@ -234,6 +234,20 @@
       e.preventDefault(); openDrawer(); return;
     }
 
+    // Product grid standalone ATC (.hc-add-btn with data-variant-id, not inside a form)
+    var addBtn = t.closest('.hc-add-btn');
+    if (addBtn && addBtn.dataset.variantId && !addBtn.closest('form')) {
+      var variantId = parseInt(addBtn.dataset.variantId, 10);
+      if (!variantId) return;
+      setLoading(addBtn, true);
+      addItem(variantId, 1).then(function (cart) {
+        setLoading(addBtn, false);
+        renderCart(cart);
+        openDrawer();
+      }).catch(function () { setLoading(addBtn, false); });
+      return;
+    }
+
     // Qty change
     var qtyBtn = t.closest('.hc-ci-qty-btn');
     if (qtyBtn) {
@@ -286,6 +300,20 @@
         renderCart(cart);
         openDrawer();
       }).catch(function () { setLoading(quizCta, false); });
+      return;
+    }
+
+    // Secondary ATC band — scrolling sticky bar above footer (.satc-btn)
+    var satcBtn = t.closest('.satc-btn');
+    if (satcBtn) {
+      var variantId = parseInt(satcBtn.dataset.variantId, 10);
+      if (!variantId) return;
+      setLoading(satcBtn, true);
+      addItem(variantId, 1).then(function (cart) {
+        setLoading(satcBtn, false);
+        renderCart(cart);
+        openDrawer();
+      }).catch(function () { setLoading(satcBtn, false); });
       return;
     }
 

@@ -307,9 +307,10 @@
       {{ 'accessibility.skip_to_text' | t }}
     </a>
 
-    {%- if settings.cart_type == 'drawer' -%}
-      {%- render 'cart-drawer' -%}
-    {%- endif -%}
+    {%- comment -%}
+      Dawn's native cart-drawer is suppressed — replaced by 100cal-cart-drawer below.
+      100cal-cart.js intercepts all ATC forms in capture phase before Dawn's product-form.js.
+    {%- endcomment -%}
 
     {%- render '100cal-cart-drawer' -%}
 
@@ -373,10 +374,6 @@
 
     {%- if settings.predictive_search_enabled -%}
       <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
-    {%- endif -%}
-
-    {%- if settings.cart_type == 'drawer' -%}
-      <script src="{{ 'cart-drawer.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
 
     <script src="{{ '100cal-cart.js' | asset_url }}" defer="defer"></script>

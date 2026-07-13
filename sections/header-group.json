@@ -111,7 +111,7 @@
             "icon_color": "black",
             "name": "Take the Snack Quiz",
             "desc": "Find your gut-brain match in 2 min",
-            "url": "",
+            "url": "shopify://pages/gut-brain-quiz",
             "is_quiz": true
           }
         }

@@ -3,6 +3,22 @@
 <div id="hcqa-data" style="display:none" aria-hidden="true">
   {% for block in section.blocks %}
     {% if block.type == 'result_type' %}
+      {%- comment -%}
+        Resolve variant ID: prefer the explicit shopify_product picker; fall back to
+        extracting the product handle from product_url (works with both
+        shopify://products/handle and /products/handle formats stored in the JSON).
+      {%- endcomment -%}
+      {%- if block.settings.shopify_product != blank -%}
+        {%- assign hcqa_vid = block.settings.shopify_product.selected_or_first_available_variant.id -%}
+      {%- else -%}
+        {%- assign hcqa_handle = block.settings.product_url | split: '/' | last | split: '?' | first -%}
+        {%- assign hcqa_res_product = all_products[hcqa_handle] -%}
+        {%- if hcqa_res_product != blank -%}
+          {%- assign hcqa_vid = hcqa_res_product.selected_or_first_available_variant.id -%}
+        {%- else -%}
+          {%- assign hcqa_vid = '' -%}
+        {%- endif -%}
+      {%- endif -%}
       <div class="hcqa-rtype"
            data-type="{{ block.settings.type_key | escape }}"
            data-icon="{{ block.settings.icon | escape }}"
@@ -35,7 +51,7 @@
            data-snack-time="{{ block.settings.snack_time | escape }}"
            data-snack-sub="{{ block.settings.snack_sub | escape }}"
            data-share="{{ block.settings.share_text | escape }}"
-           data-variant-id="{{ block.settings.shopify_product.selected_or_first_available_variant.id | default: '' }}"
+           data-variant-id="{{ hcqa_vid }}"
       ></div>
     {% endif %}
   {% endfor %}

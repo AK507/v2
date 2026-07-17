@@ -122,7 +122,7 @@
                   <div class="hc-rebuy-card" data-product-id="{{ p.id }}">
                     <div class="hc-rebuy-img">
                       {%- if p.featured_image -%}
-                        <img src="{{ p.featured_image | image_url: width: 200 }}" alt="{{ p.title | escape }}" loading="lazy">
+                        <img src="{{ p.featured_image | image_url: width: 200 }}" alt="{{ p.title | escape }}" loading="lazy" width="200" height="200">
                       {%- else -%}
                         <span style="font-size:38px">🍫</span>
                       {%- endif -%}

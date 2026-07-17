@@ -22,7 +22,7 @@
       <a href="{{ section.settings.featured_link | default: '#' }}" class="featured-main" data-slug="{{ section.settings.featured_title | default: 'placeholder-featured' | handleize }}" style="--accent: {{ section.settings.accent_color }};">
         {% if section.settings.featured_image %}
         <div class="featured-main-image">
-            <img src="{{ section.settings.featured_image | image_url: width: 800 }}" width="{{ section.settings.featured_image.width }}" height="{{ section.settings.featured_image.height }}" alt="{{ section.settings.featured_image.alt | escape | default: section.settings.featured_title | escape }}">          
+            <img src="{{ section.settings.featured_image | image_url: width: 800 }}" width="{{ section.settings.featured_image.width }}" height="{{ section.settings.featured_image.height }}" alt="{{ section.settings.featured_image.alt | escape | default: section.settings.featured_title | escape }}">
         </div>
         {% endif %}
         <div class="featured-main-copy">

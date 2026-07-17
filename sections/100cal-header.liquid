@@ -11,7 +11,7 @@
 
       <a class="hcnv-brand" href="{{ routes.root_url }}">
         {% if section.settings.logo != blank %}
-          {{ section.settings.logo | image_url: width: 180 | image_tag: class: 'hcnv-logo', loading: 'eager', alt: section.settings.brand_name }}
+          {{ section.settings.logo | image_url: width: 210 | image_tag: class: 'hcnv-logo', loading: 'eager', alt: section.settings.brand_name }}
         {% else %}
           100<em>Cal</em>Snacks
         {% endif %}
@@ -208,7 +208,7 @@
   flex-shrink: 0;
 }
 .hcnv-brand em { color: var(--orange); font-style: normal; }
-.hcnv-logo { height: 40px; width: auto; display: block; }
+.hcnv-logo { width: 180px; height: auto; display: block; }
 
 .hcnv-links {
   display: flex;

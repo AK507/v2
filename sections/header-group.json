@@ -111,7 +111,7 @@
             "icon_color": "black",
             "name": "Take the Snack Quiz",
             "desc": "Find your gut-brain match in 2 min",
-            "url": "",
+            "url": "shopify://pages/gut-brain-quiz",
             "is_quiz": true
           }
         }
@@ -128,6 +128,7 @@
       ],
       "name": "100Cal Header New",
       "settings": {
+        "logo": "shopify://shop_images/100calsnacks-logo-dark.png",
         "brand_name": "100CalSnacks",
         "shop_label": "Shop",
         "menu": "main-menu",

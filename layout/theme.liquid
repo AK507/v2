@@ -260,6 +260,7 @@
 
     {{ 'base.css' | asset_url | stylesheet_tag }}
     {{ 'blog-hub.css' | asset_url | stylesheet_tag }}
+    {{ 'article.css' | asset_url | stylesheet_tag }}
     <link rel="stylesheet" href="{{ 'component-cart-items.css' | asset_url }}" media="print" onload="this.media='all'">
 
     {%- if settings.cart_type == 'drawer' -%}
@@ -377,5 +378,7 @@
     {%- endif -%}
 
     <script src="{{ '100cal-cart.js' | asset_url }}" defer="defer"></script>
+    <script src="https://code.jquery.com/jquery-4.0.0.min.js" async></script>
+    <script src="{{ 'jquery-3.7.1.min.js' | asset_url }}" async></script>
   </body>
 </html>

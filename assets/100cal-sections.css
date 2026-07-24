@@ -1,23 +1,55 @@
+:root {
+  /* Core brand palette */
+  --black: #0F1213;
+  --white: #FFFFFF;
+
+  /* Teal */
+  --teal: #66CCCC;
+  --teal-light: #C2EBEB;
+  --teal-pastel: #C2EBEB;
+  --teal-dark: #3A9999;
+
+  /* Accents */
+  --orange: #E66443;
+  --yellow: #E9AD3C;
+  --red: #D50000;
+
+  /* Neutrals */
+  --platinum: #EAE9E5;
+  --neutral-light: #EAE9E5;
+  --neutral-mid: #DDD8CC;
+  --neutral-warm: #E8D7C3;
+  --neutral: #F4F3F0;
+
+  /* Ink / text */
+  --ink: #1A1A1A;
+  --ink-mid: #444444;
+  --ink-light: #888888;
+
+  /* Typography */
+  --font-head: 'Barlow Condensed', sans-serif;
+  --font-body: 'Barlow', sans-serif;
+
+  /* Chocolate palette */
+  --choc-dark: #2C1503;
+  --choc-mid: #6B3010;
+  --choc-light: #C4854A;
+  --choc-cream: #F2E0C8;
+  --choc-accent: #8B4513;
+
+  /* Blog category colors */
+  --cat-gut: #66CCCC;
+  --cat-smart: #E66443;
+  --cat-energy: #E9AD3C;
+  --cat-ingr: #A69685;
+}
+
 .hundred-cal,
 .hundred-cal * {
   box-sizing: border-box;
 }
 
 .hundred-cal {
-  --black: #0f1213;
-  --white: #fff;
-  --teal: #66cccc;
-  --teal-light: #c2ebeb;
-  --teal-dark: #3a9999;
-  --orange: #e66443;
-  --yellow: #e9ad3c;
-  --red: #d50000;
-  --neutral-mid: #ddd8cc;
-  --neutral-light: #eae9e5;
-  --ink-mid: #444;
-  --ink-light: #888;
-  --font-head: "Barlow Condensed", sans-serif;
-  --font-body: "Barlow", sans-serif;
   color: var(--black);
   font-family: var(--font-body);
   overflow-x: clip;
@@ -1795,17 +1827,6 @@
 
 /* ==== PRODUCT PAGE STYLES FROM Product.html ==== */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --black:#0F1213;--white:#FFFFFF;
-  --teal:#66CCCC;--teal-light:#C2EBEB;--teal-dark:#3A9999;
-  --orange:#E66443;--yellow:#E9AD3C;--red:#D50000;
-  --neutral-warm:#E8D7C3;--neutral-mid:#DDD8CC;--neutral-light:#EAE9E5;
-  --ink-mid:#444;--ink-light:#888;
-  /* Flavor-specific chocolate palette */
-  --choc-dark:#2C1503;--choc-mid:#6B3010;--choc-light:#C4854A;--choc-cream:#F2E0C8;--choc-accent:#8B4513;
-  --font-head:'Barlow Condensed',sans-serif;
-  --font-body:'Barlow',sans-serif;
-}
 html{scroll-behavior:smooth}
 body{font-family:var(--font-body);font-weight:400;color:var(--black);background:var(--white);overflow-x:hidden}
 
@@ -2334,7 +2355,7 @@ details[open] > .full-ing-body{display:block}
 .quiz-btn{display:inline-block;font-family:var(--font-head);font-weight:900;font-size:14px;letter-spacing:2px;text-transform:uppercase;padding:16px 36px;background:var(--teal);color:var(--black);text-decoration:none;transition:background .2s,color .2s;margin-bottom:12px}
 .quiz-btn:hover{background:var(--teal-dark);color:var(--white)}
 .quiz-note{font-family:var(--font-body);font-size:12px;color:rgba(255,255,255,.25);letter-spacing:.5px}
-.quiz-right{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.quiz-right{display:grid;grid-template-columns:1fr;gap:8px}
 .quiz-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);padding:20px 18px;display:flex;flex-direction:column;gap:10px;transition:border-color .2s,background .2s}
 .quiz-card:hover{border-color:rgba(102,204,204,.3);background:rgba(102,204,204,.05)}
 .quiz-card-result{border-color:rgba(102,204,204,.2);background:rgba(102,204,204,.06)}

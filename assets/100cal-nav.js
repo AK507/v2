@@ -187,11 +187,16 @@
       if (_searchCtrl) _searchCtrl.abort();
       _searchCtrl = new AbortController();
       if (searchResults) searchResults.innerHTML = '<div class="hcnv-sr-loading">Searching…</div>';
-      fetch('/search/suggest.json?q=' + encodeURIComponent(q)
-        + '&resources[type]=product,article&resources[limit]=5'
-        + '&resources[fields]=title,product_type,variants.title,vendor,featured_image',
-        { signal: _searchCtrl.signal, headers: { 'Accept': 'application/json' } }
-      )
+      var params = new URLSearchParams({
+        'q': q,
+        'resources[type]': 'product,article',
+        'resources[limit]': '5',
+        'resources[options][fields]': 'title,product_type,variants.title,vendor'
+      });
+      fetch('/search/suggest.json?' + params.toString(), {
+        signal: _searchCtrl.signal,
+        headers: { 'Accept': 'application/json' }
+      })
         .then(function (r) { return r.json(); })
         .then(renderSearchResults)
         .catch(function () {});

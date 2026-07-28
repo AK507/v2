@@ -99,6 +99,7 @@
               <product-form class="product-form" data-section-id="{{ section.id }}">
                 {%- assign product_form_id = 'product-form-' | append: section.id -%}
                 {% form 'product', product, id: product_form_id %}
+                  <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
 
                   {{ form | payment_terms }}
 

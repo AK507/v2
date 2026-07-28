@@ -68,6 +68,7 @@
     renderFooter(cart);
     renderPreorder(cart.items);
     renderUpsell(cart.items);
+    renderCartPage(cart);
   }
 
   function renderCount(count) {
@@ -169,6 +170,88 @@
       var saved = cart.original_total_price - cart.total_price;
       savingsEl.textContent  = saved > 0 ? 'You\'re saving ' + money(saved) + ' 🎉' : '';
       savingsEl.style.display = saved > 0 ? '' : 'none';
+    }
+  }
+
+  function renderCartPage(cart) {
+    var pageItems = document.getElementById('hcp-items');
+    if (!pageItems) return;
+
+    if (cart.item_count === 0) { window.location.reload(); return; }
+
+    var html = '';
+    cart.items.forEach(function (item) {
+      var imgSrc = item.image ? item.image.replace(/(\.\w{3,4})(\?|$)/, '_200x200$1$2') : '';
+      var img = imgSrc
+        ? '<img src="' + esc(imgSrc) + '" alt="' + esc(item.product_title) + '" loading="lazy" width="100" height="100">'
+        : '<span class="hc-ci-icon">🍫</span>';
+      html += '<div class="hc-cart-item hcp-item" data-key="' + esc(item.key) + '">';
+      html += '<div class="hc-ci-img">' + img + '</div>';
+      html += '<div class="hc-ci-body"><div class="hc-ci-top"><div>';
+      html += '<div class="hc-ci-name">' + esc(item.product_title) + '</div>';
+      if (item.variant_title && item.variant_title !== 'Default Title') {
+        html += '<div class="hc-ci-variant">' + esc(item.variant_title) + '</div>';
+      }
+      if (item.selling_plan_allocation) {
+        var planName = item.selling_plan_allocation.selling_plan
+          ? item.selling_plan_allocation.selling_plan.name
+          : 'Subscription';
+        html += '<div class="hc-ci-tag hc-ci-tag--sub">' + esc(planName) + '</div>';
+      }
+      if (item.properties && item.properties._preorder) {
+        html += '<div class="hc-ci-tag hc-ci-tag--preorder">Pre-Order</div>';
+      }
+      html += '</div><button class="hc-ci-delete" data-key="' + esc(item.key) + '" aria-label="Remove ' + esc(item.product_title) + '">✕</button></div>';
+      html += '<div class="hc-ci-bottom">';
+      html += '<div class="hc-ci-qty">';
+      html += '<button class="hc-ci-qty-btn" data-key="' + esc(item.key) + '" data-qty="' + Math.max(0, item.quantity - 1) + '">−</button>';
+      html += '<div class="hc-ci-qty-num">' + item.quantity + '</div>';
+      html += '<button class="hc-ci-qty-btn" data-key="' + esc(item.key) + '" data-qty="' + (item.quantity + 1) + '">+</button>';
+      html += '</div><div class="hc-ci-price">' + money(item.line_price);
+      if (item.original_line_price > item.line_price) {
+        html += '<span class="hc-ci-price-orig">' + money(item.original_line_price) + '</span>';
+      }
+      html += '</div></div></div></div>';
+    });
+    pageItems.innerHTML = html;
+
+    var subtotalEl = document.getElementById('hcp-subtotal');
+    var origEl     = document.getElementById('hcp-subtotal-orig');
+    var savingsEl  = document.getElementById('hcp-savings-line');
+    var countEl    = document.getElementById('hcp-title-count');
+    var noteEl     = document.getElementById('hcp-shipping-note');
+    if (subtotalEl) subtotalEl.textContent = money(cart.total_price);
+    if (origEl) {
+      var hasDiscount = cart.original_total_price > cart.total_price;
+      origEl.textContent   = hasDiscount ? money(cart.original_total_price) : '';
+      origEl.style.display = hasDiscount ? '' : 'none';
+    }
+    if (savingsEl) {
+      var saved = cart.original_total_price - cart.total_price;
+      savingsEl.textContent   = saved > 0 ? 'You\'re saving ' + money(saved) + ' 🎉' : '';
+      savingsEl.style.display = saved > 0 ? '' : 'none';
+    }
+    if (countEl) countEl.textContent = cart.item_count + ' item' + (cart.item_count !== 1 ? 's' : '');
+    if (noteEl) noteEl.innerHTML = cart.total_price >= 2500
+      ? '<span style="color:var(--teal)">🎉 Free shipping included!</span>'
+      : 'Shipping calculated at checkout';
+
+    var preorderEl = document.getElementById('hcp-preorder-notice');
+    if (preorderEl) {
+      var hasPreorder = cart.items.some(function (i) { return i.properties && i.properties._preorder; });
+      preorderEl.style.display = hasPreorder ? 'flex' : 'none';
+    }
+
+    var upsell = document.getElementById('hcp-rebuy-section');
+    if (upsell) {
+      var cartIds = cart.items.map(function (i) { return String(i.product_id); });
+      var visible = 0;
+      upsell.querySelectorAll('.hc-rebuy-card').forEach(function (card) {
+        var hide = cartIds.indexOf(card.dataset.productId) !== -1;
+        card.style.display = hide ? 'none' : '';
+        if (!hide) visible++;
+      });
+      upsell.style.display = visible > 0 ? '' : 'none';
     }
   }
 

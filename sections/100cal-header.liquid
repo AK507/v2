@@ -95,9 +95,9 @@
       </ul>
 
       <div class="hcnv-right">
-        <a class="hcnv-icon-btn" href="{{ routes.search_url }}" aria-label="Search">
+        <button class="hcnv-icon-btn hcnv-search-btn" aria-label="Search" aria-expanded="false" aria-controls="hcnv-search-panel">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-        </a>
+        </button>
         <a class="hcnv-cart-btn" href="{{ routes.cart_url }}">
           {{ section.settings.cta_label | escape }}{% if cart.item_count > 0 %} ({{ cart.item_count }}){% endif %}
         </a>
@@ -119,6 +119,9 @@
         {% endif %}
       </a>
       <div class="hcnv-mob-right">
+        <button class="hcnv-icon-btn hcnv-search-btn hcnv-mob-search-btn" aria-label="Search" aria-expanded="false" aria-controls="hcnv-search-panel">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </button>
         <a class="hcnv-mob-cart" href="{{ routes.cart_url }}">
           {{ section.settings.cta_label | escape }}{% if cart.item_count > 0 %} ({{ cart.item_count }}){% endif %}
         </a>
@@ -166,6 +169,37 @@
       <div class="hcnv-mob-cta">
         <a href="{{ section.settings.feat_url }}" class="hcnv-mob-cta-btn">{{ section.settings.mob_cta_label | escape }}</a>
       </div>
+    </div>
+  </div>
+
+  <!-- ===================== SEARCH PANEL ===================== -->
+  <div class="hcnv-search-panel" id="hcnv-search-panel" aria-hidden="true" role="search" aria-label="Site search">
+    <div class="hcnv-search-inner">
+      <div class="hcnv-search-row">
+        <div class="hcnv-search-field">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input
+            id="hcnv-search-input"
+            type="search"
+            name="q"
+            placeholder="Search products, articles…"
+            class="hcnv-search-input"
+            autocomplete="off"
+            autocorrect="off"
+            autocapitalize="off"
+            spellcheck="false"
+            aria-label="Search"
+            aria-haspopup="listbox"
+            aria-expanded="false"
+            aria-controls="hcnv-search-results"
+          >
+          <button type="button" class="hcnv-search-clear" id="hcnv-search-clear" aria-label="Clear search" hidden>✕</button>
+        </div>
+        <button type="button" class="hcnv-search-close" id="hcnv-search-close" aria-label="Close search">
+          <span aria-hidden="true">✕</span> Close
+        </button>
+      </div>
+      <div class="hcnv-search-results" id="hcnv-search-results" role="listbox" aria-label="Search results"></div>
     </div>
   </div>
 
@@ -747,6 +781,215 @@
   .hcnv-header     { display: none; }
   .hcnv-mm-overlay { display: none; }
   .hcnv-mobile     { display: block; }
+}
+
+/* =====================================================
+   SEARCH PANEL
+===================================================== */
+.hcnv-mob-search-btn { color: var(--black); }
+
+.hcnv-search-panel {
+  position: fixed;
+  top: 72px;
+  left: 0;
+  right: 0;
+  z-index: 450;
+  background: var(--white);
+  border-bottom: 2px solid var(--black);
+  box-shadow: 0 12px 40px rgba(15,18,19,.13);
+  transform: translateY(-8px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .2s ease, transform .2s ease;
+  max-height: calc(100vh - 72px);
+  overflow-y: auto;
+}
+.hcnv-search-panel.open {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: all;
+}
+.hcnv-search-inner {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 20px 24px 24px;
+}
+.hcnv-search-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.hcnv-search-field {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  border: 2px solid var(--black);
+  background: var(--neutral);
+  padding: 0 4px 0 14px;
+  gap: 10px;
+}
+.hcnv-search-field svg { flex-shrink: 0; color: var(--ink-light); }
+.hcnv-search-input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-family: var(--font-head);
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: .3px;
+  color: var(--black);
+  padding: 14px 0;
+  outline: none;
+  -webkit-appearance: none;
+}
+.hcnv-search-input::-webkit-search-cancel-button { display: none; }
+.hcnv-search-input::placeholder { color: var(--ink-light); font-weight: 400; }
+.hcnv-search-clear {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px 10px;
+  color: var(--ink-light);
+  font-size: 14px;
+  line-height: 1;
+  flex-shrink: 0;
+  transition: color .15s;
+}
+.hcnv-search-clear:hover { color: var(--black); }
+.hcnv-search-close {
+  font-family: var(--font-head);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--ink-mid);
+  padding: 8px 0;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+  transition: color .15s;
+}
+.hcnv-search-close:hover { color: var(--black); }
+
+/* Results */
+.hcnv-search-results { margin-top: 16px; }
+.hcnv-sr-section { margin-bottom: 8px; }
+.hcnv-sr-label {
+  font-family: var(--font-head);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--ink-light);
+  margin-bottom: 6px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--platinum);
+}
+.hcnv-sr-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 8px;
+  text-decoration: none;
+  border-bottom: 1px solid var(--platinum);
+  transition: background .12s;
+  border-radius: 4px;
+}
+.hcnv-sr-item:last-child { border-bottom: none; }
+.hcnv-sr-item:hover,
+.hcnv-sr-item.hcnv-sr-active { background: var(--neutral); }
+.hcnv-sr-img {
+  width: 52px;
+  height: 52px;
+  object-fit: cover;
+  border-radius: 6px;
+  flex-shrink: 0;
+  background: var(--neutral-mid);
+  display: block;
+}
+.hcnv-sr-img-placeholder {
+  width: 52px;
+  height: 52px;
+  background: var(--neutral-mid);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  flex-shrink: 0;
+}
+.hcnv-sr-info { flex: 1; min-width: 0; }
+.hcnv-sr-title {
+  font-family: var(--font-head);
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--black);
+  letter-spacing: .3px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.hcnv-sr-sub { font-size: 12px; color: var(--ink-mid); margin-top: 2px; }
+.hcnv-sr-price {
+  font-family: var(--font-head);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--black);
+  text-align: right;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+.hcnv-sr-price-sale { color: var(--orange); }
+.hcnv-sr-price-orig {
+  font-size: 11px;
+  color: var(--ink-light);
+  text-decoration: line-through;
+  display: block;
+}
+.hcnv-sr-all {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 10px;
+  padding: 10px 8px;
+  font-family: var(--font-head);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--teal-dark);
+  text-decoration: none;
+  border-top: 1px solid var(--platinum);
+  border-radius: 4px;
+  transition: background .12s, color .12s;
+}
+.hcnv-sr-all:hover,
+.hcnv-sr-all.hcnv-sr-active { background: var(--neutral); color: var(--black); }
+.hcnv-sr-empty {
+  font-size: 14px;
+  color: var(--ink-mid);
+  padding: 20px 8px;
+  text-align: center;
+}
+.hcnv-sr-loading {
+  font-size: 13px;
+  color: var(--ink-light);
+  padding: 16px 8px;
+  text-align: center;
+  font-family: var(--font-head);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+@media (max-width: 767px) {
+  .hcnv-search-panel { top: 60px; max-height: calc(100vh - 60px); }
+  .hcnv-search-input { font-size: 16px; }
 }
 {% endstylesheet %}
 

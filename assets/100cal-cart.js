@@ -123,7 +123,10 @@
         html += '<div class="hc-ci-variant">' + esc(item.variant_title) + '</div>';
       }
       if (item.selling_plan_allocation) {
-        html += '<div class="hc-ci-tag hc-ci-tag--sub">Subscribed — 10% Off</div>';
+        var planName = item.selling_plan_allocation.selling_plan
+          ? item.selling_plan_allocation.selling_plan.name
+          : 'Subscription';
+        html += '<div class="hc-ci-tag hc-ci-tag--sub">' + esc(planName) + '</div>';
       }
       if (item.properties && item.properties._preorder) {
         html += '<div class="hc-ci-tag hc-ci-tag--preorder">Pre-Order</div>';

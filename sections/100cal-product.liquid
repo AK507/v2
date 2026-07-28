@@ -97,8 +97,10 @@
               </div>
 
               <product-form class="product-form" data-section-id="{{ section.id }}">
-                <form method="post" action="{{ routes.cart_add_url }}" id="product-form-{{ section.id }}" accept-charset="UTF-8">
-                  <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+                {%- assign product_form_id = 'product-form-' | append: section.id -%}
+                {% form 'product', product, id: product_form_id %}
+
+                  {{ form | payment_terms }}
 
                   {% unless product.has_only_default_variant %}
                     <variant-selects id="variant-selects-{{ section.id }}" data-section="{{ section.id }}" >
@@ -168,8 +170,6 @@
                     </variant-selects>
                   {% endunless %}
 
-                  <div class="subscriptions_app_embed_block"></div>
-
                   <div id="Quantity-Form-{{ section.id }}">
                     <div class="product-form__input product-form__quantity pack-qty-row fade-up fade-up-4">
                       <label class="quantity__label form__label pack-qty-label" for="Quantity-{{ section.id }}">Quantity</label>
@@ -222,7 +222,7 @@
                       {%- render 'loading-spinner' -%}
                     </button>
                   </div>
-                </form>
+                {% endform %}
               </product-form>
 
               <div class="subscribe-note">

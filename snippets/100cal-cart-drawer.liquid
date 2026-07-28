@@ -155,7 +155,7 @@
 
   <!-- Footer — always visible -->
   <div class="hc-cart-footer">
-    {%- if cart != empty -%}
+    <div id="hc-cart-footer-filled" {% if cart == empty %}style="display:none"{% endif %}>
       <div class="hc-subtotal-row">
         <div class="hc-subtotal-label">Subtotal</div>
         <div class="hc-subtotal-prices">
@@ -189,11 +189,12 @@
       <div class="hc-cart-guarantee">
         <span>✦</span> Every Ingredient Has a Purpose · Keepin' Snacks 100®
       </div>
-    {%- else -%}
+    </div>
+    <div id="hc-cart-footer-empty" {% if cart != empty %}style="display:none"{% endif %}>
       <a href="{{ routes.all_products_collection_url }}" class="hc-checkout-btn">
         <span>Shop All Products</span>
         <span class="hc-checkout-arrow">→</span>
       </a>
-    {%- endif -%}
+    </div>
   </div>
 </div>

@@ -147,6 +147,12 @@
   }
 
   function renderFooter(cart) {
+    var filled = document.getElementById('hc-cart-footer-filled');
+    var empty  = document.getElementById('hc-cart-footer-empty');
+    var hasItems = cart.item_count > 0;
+    if (filled) filled.style.display = hasItems ? '' : 'none';
+    if (empty)  empty.style.display  = hasItems ? 'none' : '';
+
     var subtotalEl = document.getElementById('hc-subtotal');
     var origEl     = document.getElementById('hc-subtotal-orig');
     var savingsEl  = document.getElementById('hc-savings-line');
@@ -206,16 +212,18 @@
     var form = e.target;
     if (!form || !form.action) return;
     if (form.action.indexOf('cart/add') === -1) return;
-    var variantInput = form.querySelector('input[name="id"]');
-    if (!variantInput) return;
+    if (!form.querySelector('input[name="id"]')) return;
     e.preventDefault();
     e.stopPropagation();
-    var variantId = parseInt(variantInput.value, 10);
-    var qtyInput  = form.querySelector('input[name="quantity"]');
-    var qty = qtyInput ? (parseInt(qtyInput.value, 10) || 1) : 1;
     var btn = form.querySelector('[type="submit"]');
     setLoading(btn, true);
-    addItem(variantId, qty)
+    fetch('/cart/add.js', {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: new FormData(form)
+    })
+      .then(function (r) { return r.ok ? r.json() : r.json().then(function (err) { throw err; }); })
+      .then(function () { return fetchCart(); })
       .then(function (cart) { setLoading(btn, false); renderCart(cart); openDrawer(); })
       .catch(function () { setLoading(btn, false); });
   }, true);

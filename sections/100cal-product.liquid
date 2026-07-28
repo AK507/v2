@@ -97,8 +97,7 @@
               </div>
 
               <product-form class="product-form" data-section-id="{{ section.id }}">
-                {%- assign product_form_id = 'product-form-' | append: section.id -%}
-                {% form 'product', product, id: product_form_id %}
+                <form method="post" action="{{ routes.cart_add_url }}" id="product-form-{{ section.id }}" accept-charset="UTF-8">
                   <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
 
                   <div class="subscriptions_app_embed_block"></div>
@@ -223,7 +222,7 @@
                       {%- render 'loading-spinner' -%}
                     </button>
                   </div>
-                {% endform %}
+                </form>
               </product-form>
 
               <div class="subscribe-note">

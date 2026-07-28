@@ -100,7 +100,11 @@
                 <form method="post" action="{{ routes.cart_add_url }}" id="product-form-{{ section.id }}" accept-charset="UTF-8">
                   <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
 
-                  <div class="subscriptions_app_embed_block"></div>
+                  {%- for block in section.blocks -%}
+                    {%- if block.type == '@app' -%}
+                      {% render block %}
+                    {%- endif -%}
+                  {%- endfor -%}
 
                   {% unless product.has_only_default_variant %}
                     <variant-selects id="variant-selects-{{ section.id }}" data-section="{{ section.id }}" >
@@ -350,6 +354,9 @@
       { "value": "medium", "label": "Medium" },
       { "value": "small", "label": "Small" }
     ] }
+  ],
+  "blocks": [
+    { "type": "@app" }
   ],
   "presets": [
     {

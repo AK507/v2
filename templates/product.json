@@ -11,6 +11,25 @@
   "sections": {
     "main": {
       "type": "100cal-product",
+      "blocks": {
+        "subscriptions_app_block_AHj3FB": {
+          "type": "shopify://apps/subscriptions/blocks/app-block/a3bfe9ec-96f8-4508-a003-df608a36d2ad",
+          "settings": {
+            "widget_style": "card",
+            "widget_style_card_selector": "radio_button",
+            "subscription_policy_url": "",
+            "color_text_body": "#6D7175",
+            "dividers_color": "#8F8D8D",
+            "background_color": "#FFFFFF",
+            "border_thickness": 1,
+            "border_radius": 0,
+            "product": "{{product}}"
+          }
+        }
+      },
+      "block_order": [
+        "subscriptions_app_block_AHj3FB"
+      ],
       "settings": {
         "hero_eyebrow": "100Cal Snacks",
         "hero_headline": "The Snack That\nDoes More.",
@@ -291,31 +310,6 @@
       "type": "100cal-secondary-atc",
       "settings": {}
     },
-    "17852298183fe9e55c": {
-      "type": "apps",
-      "blocks": {
-        "subscriptions_app_block_AHj3FB": {
-          "type": "shopify://apps/subscriptions/blocks/app-block/a3bfe9ec-96f8-4508-a003-df608a36d2ad",
-          "settings": {
-            "widget_style": "card",
-            "widget_style_card_selector": "radio_button",
-            "subscription_policy_url": "",
-            "color_text_body": "#6D7175",
-            "dividers_color": "#8F8D8D",
-            "background_color": "#FFFFFF",
-            "border_thickness": 1,
-            "border_radius": 0,
-            "product": "{{product}}"
-          }
-        }
-      },
-      "block_order": [
-        "subscriptions_app_block_AHj3FB"
-      ],
-      "settings": {
-        "include_margins": true
-      }
-    }
   },
   "order": [
     "main",
@@ -333,7 +327,6 @@
     "bundle",
     "faq",
     "trust",
-    "secondary_atc",
-    "17852298183fe9e55c"
+    "secondary_atc"
   ]
 }

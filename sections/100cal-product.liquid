@@ -101,7 +101,7 @@
                 {% form 'product', product, id: product_form_id %}
                   <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
 
-                  {{ form | payment_terms }}
+                  <div class="subscriptions_app_embed_block"></div>
 
                   {% unless product.has_only_default_variant %}
                     <variant-selects id="variant-selects-{{ section.id }}" data-section="{{ section.id }}" >

@@ -65,7 +65,7 @@
               <a class="hc-add-btn" href="{{ block.settings.link | default: '/collections/all' }}">{{ section.settings.add_label }}</a>
             {% endif %}
             {% if block.settings.sub_note != blank %}
-              <p class="hc-sub-note">{{ block.settings.sub_note | escape }}</p>
+              <p class="hc-sub-note"><a href="{{ product.url }}">{{ block.settings.sub_note | escape }}</a></p>
             {% endif %}
           </div>
         </article>

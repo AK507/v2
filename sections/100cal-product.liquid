@@ -100,12 +100,6 @@
                 <form method="post" action="{{ routes.cart_add_url }}" id="product-form-{{ section.id }}" accept-charset="UTF-8">
                   <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
 
-                  {%- for block in section.blocks -%}
-                    {%- if block.type == '@app' -%}
-                      {% render block %}
-                    {%- endif -%}
-                  {%- endfor -%}
-
                   {% unless product.has_only_default_variant %}
                     <variant-selects id="variant-selects-{{ section.id }}" data-section="{{ section.id }}" >
                       {% for option in product.options_with_values %}
@@ -173,6 +167,12 @@
                       <script type="application/json" data-selected-variant>{{ product.selected_or_first_available_variant | json }}</script>
                     </variant-selects>
                   {% endunless %}
+
+                  {%- for block in section.blocks -%}
+                    {%- if block.type == '@app' -%}
+                      {% render block %}
+                    {%- endif -%}
+                  {%- endfor -%}
 
                   <div id="Quantity-Form-{{ section.id }}">
                     <div class="product-form__input product-form__quantity pack-qty-row fade-up fade-up-4">

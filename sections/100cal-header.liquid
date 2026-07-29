@@ -314,6 +314,9 @@
   display: flex;
   align-items: center;
   color: var(--ink);
+  background: transparent;
+  border: none;
+  cursor: pointer;
   text-decoration: none;
   transition: color .2s;
 }
@@ -790,7 +793,7 @@
 
 .hcnv-search-panel {
   position: fixed;
-  top: 72px;
+  top: 45px;
   left: 0;
   right: 0;
   z-index: 450;
@@ -831,7 +834,8 @@
 .hcnv-search-field svg { flex-shrink: 0; color: var(--ink-light); }
 .hcnv-search-input {
   flex: 1;
-  border: none;
+  border: none!important;
+  box-shadow: unset!important;
   background: transparent;
   font-family: var(--font-head);
   font-size: 18px;
@@ -839,7 +843,7 @@
   letter-spacing: .3px;
   color: var(--black);
   padding: 14px 0;
-  outline: none;
+  outline: none!important;
   -webkit-appearance: none;
 }
 .hcnv-search-input::-webkit-search-cancel-button { display: none; }

@@ -12,6 +12,13 @@
     "main": {
       "type": "100cal-product",
       "blocks": {
+        "junip_junip_product_summary_ATBTjx": {
+          "type": "shopify://apps/junip/blocks/junip-product-summary/dc14f5a8-ed15-41b1-ad08-cfba23f9789b",
+          "settings": {
+            "product": "{{product}}",
+            "alignment": ""
+          }
+        },
         "subscriptions_app_block_AHj3FB": {
           "type": "shopify://apps/subscriptions/blocks/app-block/a3bfe9ec-96f8-4508-a003-df608a36d2ad",
           "settings": {
@@ -28,6 +35,7 @@
         }
       },
       "block_order": [
+        "junip_junip_product_summary_ATBTjx",
         "subscriptions_app_block_AHj3FB"
       ],
       "settings": {

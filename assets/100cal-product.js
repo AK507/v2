@@ -1,6 +1,9 @@
 (function () {
   'use strict';
 
+  var _mo = null;
+  var _rebuildTimer = null;
+
   function esc(s) {
     return String(s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
   }
@@ -163,6 +166,23 @@
         if (e.key === 'ArrowUp'   || e.key === 'ArrowLeft')  { e.preventDefault(); ptOT.focus(); }
       });
     });
+
+    // Re-build overlay when app re-renders on variant change
+    if (_mo) _mo.disconnect();
+    _mo = new MutationObserver(function () {
+      clearTimeout(_rebuildTimer);
+      _rebuildTimer = setTimeout(function () {
+        if (_mo) { _mo.disconnect(); _mo = null; }
+        var s = document.querySelector('.shopify_subscriptions_app_block');
+        if (s) {
+          document.querySelectorAll('.hc-sub-ui').forEach(function (el) { el.remove(); });
+          delete s.dataset.hcBuild;
+          s.style.cssText = 'position:absolute;visibility:hidden;width:1px;height:1px;overflow:hidden;';
+        }
+        tryBuild();
+      }, 200);
+    });
+    _mo.observe(section, { childList: true, subtree: true });
   }
 
   // Retry until the app renders its radio inputs

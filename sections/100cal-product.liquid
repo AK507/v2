@@ -69,16 +69,14 @@
               {%- for block in section.blocks -%}
                 {%- if block.type == 'star_rating' -%}
                   <div class="pdp-stars-row" {{ block.shopify_attributes }}>
-                    {% render block %}
+                    {% render 'junip-product-summary', product: product %}
                   </div>
                   {%- assign hc_has_star_block = true -%}
                 {%- endif -%}
               {%- endfor -%}
               {%- unless hc_has_star_block -%}
                 <div class="pdp-stars-row">
-                  <span class="pdp-stars">{{ section.settings.review_stars }}</span>
-                  <span class="pdp-rating-num">{{ section.settings.review_score }}</span>
-                  <a href="#reviews" class="pdp-rev-count">{{ section.settings.review_count_text }}</a>
+                  {% render 'junip-product-summary', product: product %}
                 </div>
               {%- endunless -%}
 

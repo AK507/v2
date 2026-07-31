@@ -65,11 +65,20 @@
 
             <div class="buy-box" id="buy-box">
 
-              <div class="pdp-stars-row">
-                <span class="pdp-stars">{{ section.settings.review_stars }}</span>
-                <span class="pdp-rating-num">{{ section.settings.review_score }}</span>
-                <a href="#reviews" class="pdp-rev-count">{{ section.settings.review_count_text }}</a>
-              </div>
+              {%- assign hc_review_block_done = false -%}
+              {%- for block in section.blocks -%}
+                {%- if block.type == '@app' and hc_review_block_done == false -%}
+                  <div class="pdp-stars-row" {{ block.shopify_attributes }}>{% render block %}</div>
+                  {%- assign hc_review_block_done = true -%}
+                {%- endif -%}
+              {%- endfor -%}
+              {%- unless hc_review_block_done -%}
+                <div class="pdp-stars-row">
+                  <span class="pdp-stars">{{ section.settings.review_stars }}</span>
+                  <span class="pdp-rating-num">{{ section.settings.review_score }}</span>
+                  <a href="#reviews" class="pdp-rev-count">{{ section.settings.review_count_text }}</a>
+                </div>
+              {%- endunless -%}
 
               <div class="pdp-macros">
                 <div class="macro-cell macro-cal">
@@ -169,9 +178,14 @@
                     </variant-selects>
                   {% endunless %}
 
+                  {%- assign hc_sub_skip = true -%}
                   {%- for block in section.blocks -%}
                     {%- if block.type == '@app' -%}
-                      {% render block %}
+                      {%- if hc_sub_skip -%}
+                        {%- assign hc_sub_skip = false -%}
+                      {%- else -%}
+                        {% render block %}
+                      {%- endif -%}
                     {%- endif -%}
                   {%- endfor -%}
 

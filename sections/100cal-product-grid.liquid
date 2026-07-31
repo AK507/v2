@@ -50,7 +50,7 @@
             </div>
             <div class="hc-product-card__row">
               <div class="hc-product-card__price">{% if product != blank %}{{ product.price | money }}{% else %}{{ block.settings.price | escape }}{% endif %}</div>
-              <div class="hc-product-card__rating">{{ block.settings.rating | escape }}</div>
+              <div class="hc-product-card__rating">{{ block.settings.rating | escape }} | {% render 'junip-product-summary', product: product %}</div>
             </div>
             {% if product != blank and product.available %}
               {% form 'product', product %}

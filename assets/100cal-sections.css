@@ -2022,11 +2022,55 @@ media-gallery slider-component {width: 100%;}
 }
 
 .pack-qty-row{display:flex;align-items:center;gap:12px}
+.product-form__quantity.pack-qty-row {
+  margin-top: 12px;
+}
 .pack-qty-label{font-family:var(--font-head);font-weight:700;font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--ink-light)}
 .pack-qty-control{display:flex;align-items:center;border:2px solid var(--black)}
 .pack-qty-btn{width:28px;height:28px;background:none;border:none;font-family:var(--font-head);font-weight:900;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--black);transition:background .2s}
 .pack-qty-btn:hover{background:var(--teal);color:var(--black)}
-.pack-qty-num{font-family:var(--font-head);font-weight:900;font-size:14px;width:32px;text-align:center;border-left:2px solid var(--black);border-right:2px solid var(--black);line-height:28px}
+.quantity__input.pack-qty-num{font-family:var(--font-head);font-weight:900;font-size:14px;width:32px;text-align:center;border-left:2px solid var(--black);border-right:2px solid var(--black);line-height:28px}
+
+/* ===== SUBSCRIPTION PURCHASE TOGGLE (custom UI overlay) ===== */
+
+/* Teal save badge — overrides .pt-badge orange on subscribe option */
+.hc-sub-badge {
+  background: var(--teal) !important;
+  color: var(--black) !important;
+}
+
+/* Delivery frequency dropdown rendered by our JS overlay */
+.hc-sf-wrap { margin-top: 0; }
+
+.hc-sf-label {
+  font-family: var(--font-head);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--ink-light);
+  display: block;
+  margin: 12px 0 6px;
+}
+
+.hc-sf-select {
+  width: 100%;
+  font-family: var(--font-head);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--black);
+  background: var(--white);
+  border: 2px solid var(--black);
+  padding: 14px 16px;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  transition: border-color .2s;
+  display: block;
+}
+.hc-sf-select:focus { border-color: var(--teal-dark); outline: none; }
 
 /* ===== UNIFIED VALUE STRIP ===== */
 .value-strip{background:var(--neutral-light);border-top:none;border-bottom:2px solid var(--neutral-mid)}

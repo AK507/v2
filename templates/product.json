@@ -12,13 +12,6 @@
     "main": {
       "type": "100cal-product",
       "blocks": {
-        "junip_junip_product_summary_ATBTjx": {
-          "type": "shopify://apps/junip/blocks/junip-product-summary/dc14f5a8-ed15-41b1-ad08-cfba23f9789b",
-          "settings": {
-            "product": "{{product}}",
-            "alignment": ""
-          }
-        },
         "subscriptions_app_block_AHj3FB": {
           "type": "shopify://apps/subscriptions/blocks/app-block/a3bfe9ec-96f8-4508-a003-df608a36d2ad",
           "settings": {
@@ -35,7 +28,6 @@
         }
       },
       "block_order": [
-        "junip_junip_product_summary_ATBTjx",
         "subscriptions_app_block_AHj3FB"
       ],
       "settings": {
@@ -294,6 +286,26 @@
         "review_footer_cta": "Read All 312 Reviews →"
       }
     },
+    "1785476428c10ad0fc": {
+      "type": "apps",
+      "blocks": {
+        "junip_junip_product_review_AJhWKV": {
+          "type": "shopify://apps/junip/blocks/junip-product-review/dc14f5a8-ed15-41b1-ad08-cfba23f9789b",
+          "settings": {
+            "product": "{{product}}",
+            "title": "",
+            "alignment": "",
+            "sortOrder": "mostRecent"
+          }
+        }
+      },
+      "block_order": [
+        "junip_junip_product_review_AJhWKV"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    },
     "quiz": {
       "type": "100cal-quiz",
       "settings": {}
@@ -317,26 +329,6 @@
     "secondary_atc": {
       "type": "100cal-secondary-atc",
       "settings": {}
-    },
-    "1785476428c10ad0fc": {
-      "type": "apps",
-      "blocks": {
-        "junip_junip_product_review_AJhWKV": {
-          "type": "shopify://apps/junip/blocks/junip-product-review/dc14f5a8-ed15-41b1-ad08-cfba23f9789b",
-          "settings": {
-            "product": "{{product}}",
-            "title": "",
-            "alignment": "",
-            "sortOrder": "mostRecent"
-          }
-        }
-      },
-      "block_order": [
-        "junip_junip_product_review_AJhWKV"
-      ],
-      "settings": {
-        "include_margins": true
-      }
     }
   },
   "order": [
@@ -351,11 +343,11 @@
     "dietary",
     "vs",
     "reviews",
+    "1785476428c10ad0fc",
     "quiz",
     "bundle",
     "faq",
     "trust",
-    "secondary_atc",
-    "1785476428c10ad0fc"
+    "secondary_atc"
   ]
 }

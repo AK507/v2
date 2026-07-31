@@ -65,14 +65,16 @@
 
             <div class="buy-box" id="buy-box">
 
-              {%- assign hc_review_block_done = false -%}
+              {%- assign hc_has_star_block = false -%}
               {%- for block in section.blocks -%}
-                {%- if block.type == '@app' and hc_review_block_done == false -%}
-                  <div class="pdp-stars-row" {{ block.shopify_attributes }}>{% render block %}</div>
-                  {%- assign hc_review_block_done = true -%}
+                {%- if block.type == 'star_rating' -%}
+                  <div class="pdp-stars-row" {{ block.shopify_attributes }}>
+                    {% render block %}
+                  </div>
+                  {%- assign hc_has_star_block = true -%}
                 {%- endif -%}
               {%- endfor -%}
-              {%- unless hc_review_block_done -%}
+              {%- unless hc_has_star_block -%}
                 <div class="pdp-stars-row">
                   <span class="pdp-stars">{{ section.settings.review_stars }}</span>
                   <span class="pdp-rating-num">{{ section.settings.review_score }}</span>
@@ -178,14 +180,9 @@
                     </variant-selects>
                   {% endunless %}
 
-                  {%- assign hc_sub_skip = true -%}
                   {%- for block in section.blocks -%}
                     {%- if block.type == '@app' -%}
-                      {%- if hc_sub_skip -%}
-                        {%- assign hc_sub_skip = false -%}
-                      {%- else -%}
-                        {% render block %}
-                      {%- endif -%}
+                      {% render block %}
                     {%- endif -%}
                   {%- endfor -%}
 
@@ -371,6 +368,11 @@
     ] }
   ],
   "blocks": [
+    {
+      "type": "star_rating",
+      "name": "Star Rating / Reviews",
+      "settings": []
+    },
     { "type": "@app" }
   ],
   "presets": [

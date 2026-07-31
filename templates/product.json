@@ -18,9 +18,9 @@
             "widget_style": "card",
             "widget_style_card_selector": "radio_button",
             "subscription_policy_url": "",
-            "color_text_body": "#6D7175",
-            "dividers_color": "#8F8D8D",
-            "background_color": "#FFFFFF",
+            "color_text_body": "#6d7175",
+            "dividers_color": "#8f8d8d",
+            "background_color": "#ffffff",
             "border_thickness": 1,
             "border_radius": 0,
             "product": "{{product}}"
@@ -310,6 +310,26 @@
       "type": "100cal-secondary-atc",
       "settings": {}
     },
+    "1785476428c10ad0fc": {
+      "type": "apps",
+      "blocks": {
+        "junip_junip_product_review_AJhWKV": {
+          "type": "shopify://apps/junip/blocks/junip-product-review/dc14f5a8-ed15-41b1-ad08-cfba23f9789b",
+          "settings": {
+            "product": "{{product}}",
+            "title": "",
+            "alignment": "",
+            "sortOrder": "mostRecent"
+          }
+        }
+      },
+      "block_order": [
+        "junip_junip_product_review_AJhWKV"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    }
   },
   "order": [
     "main",
@@ -327,6 +347,7 @@
     "bundle",
     "faq",
     "trust",
-    "secondary_atc"
+    "secondary_atc",
+    "1785476428c10ad0fc"
   ]
 }

@@ -100,7 +100,7 @@
         </button>
         <a class="hcnv-cart-btn" href="{{ routes.cart_url }}">
           <span class="hcnv-cart-btn_icon"><img src="{{  'cart.png' | asset_url }}" alt="{{ section.settings.cta_label | escape }}"/></span>
-          {% if cart.item_count > 0 %} ({{ cart.item_count }}){% endif %}
+          {% if cart.item_count > 0 %} (<sapn class="hcnv-cart-btn_txt">{{ cart.item_count }}</sapn>){% endif %}
         </a>
       </div>
 
